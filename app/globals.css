@@ -23,6 +23,15 @@ html {
   scroll-behavior: smooth;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #7DE3E6;
+  outline-offset: 3px;
+}
+
 /* Subtle grid background */
 .bg-grid {
   background-image:
@@ -44,4 +53,55 @@ html {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(125, 227, 230, 0.4);
+}
+
+/* ── Custom Animations ──────────────────────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #7DE3E6 0%, #A5F3FC 60%, #e0f7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow button */
+.glow-teal {
+  box-shadow: 0 0 28px rgba(125, 227, 230, 0.35);
+  transition: box-shadow 0.3s ease;
+}
+.glow-teal:hover {
+  box-shadow: 0 0 48px rgba(125, 227, 230, 0.55);
 }

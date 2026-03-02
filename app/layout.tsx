@@ -8,39 +8,72 @@ const inter = Inter({
   display: "swap",
 });
 
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+
+const siteUrl =
+  rawSiteUrl && /^https?:\/\//.test(rawSiteUrl)
+    ? rawSiteUrl
+    : process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://rebelmindsops.com";
+
 export const metadata: Metadata = {
-  title: "Rebel Minds Ops — ExpenseOps™ AI Receipt & Invoice Management",
+  title: "Rebel Minds Ops | Operational Systems & Automation",
   description:
-    "ExpenseOps™ captures receipts via WhatsApp, extracts and categorizes expenses with AI, and delivers clean, export-ready reports. Designed for field-heavy businesses seeking structured financial control.",
-  metadataBase: new URL("https://rebelmindsops.com"),
-  keywords: [
-    "expense management",
-    "receipt capture",
-    "AI invoicing",
-    "field businesses",
-    "WhatsApp receipts",
-    "expense reporting",
-    "job costing",
-    "South Texas",
-  ],
-  openGraph: {
-    title: "Rebel Minds Ops — ExpenseOps™ AI Receipt Management",
-    description:
-      "Stop losing money to receipt chaos. AI-powered expense management for field-heavy businesses.",
-    url: "https://rebelmindsops.com",
-    siteName: "Rebel Minds Ops",
-    type: "website",
-    locale: "en_US",
+    "Operational systems and automation for growing RGV businesses. Practical, local, and built around your workflow.",
+ metadataBase: (() => {
+  try {
+    return new URL(siteUrl);
+  } catch {
+    return new URL("http://localhost:3000");
+  }
+})(),
+
+  alternates: {
+    canonical: "/",
   },
+
+  keywords: [
+    "operational systems",
+    "business automation",
+    "workflow automation",
+    "RGV businesses",
+    "South Texas operations",
+    "custom dashboards",
+    "process automation",
+  ],
+
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: ["/icon.png"],
+    apple: ["/icon.png"],
+  },
+
+  openGraph: {
+    title: "Rebel Minds Ops",
+    description:
+      "Operational systems and automation for growing RGV businesses.",
+    url: siteUrl,
+    siteName: "Rebel Minds Ops",
+    images: [
+      {
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "Rebel Minds Ops",
+      },
+    ],
+    type: "website",
+  },
+
   twitter: {
     card: "summary_large_image",
-    title: "Rebel Minds Ops — ExpenseOps™",
+    title: "Rebel Minds Ops",
     description:
-      "Stop losing money to receipt chaos. AI-powered expense management for field-heavy businesses.",
-  },
-  robots: {
-    index: true,
-    follow: true,
+      "Operational systems and automation for growing RGV businesses.",
+    images: ["/icon.png"],
   },
 };
 
