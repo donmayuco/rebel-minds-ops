@@ -1085,40 +1085,40 @@ function Connect() {
     setError("");
   }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!form.business || !form.type || !form.phone || !form.email) {
       setError("Please fill in all fields before submitting.");
       return;
     }
-   setSubmitting(true);
-setError("");
 
-try {
-  const response = await fetch(
-    process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL!,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
+    setSubmitting(true);
+    setError("");
+    setSuccess(false);
+
+    try {
+      const url = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
+      if (!url) throw new Error("Missing NEXT_PUBLIC_N8N_WEBHOOK_URL");
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Webhook failed: ${response.status}`);
+      }
+
+      setSuccess(true);
+      setForm({ business: "", type: "", phone: "", email: "" });
+    } catch (err) {
+      console.error("Submission failed:", err);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
-  );
-
-  if (!response.ok) {
-    throw new Error(`Webhook failed: ${response.status}`);
-  }
-
-  setSuccess(true);
-  setForm({ business: "", type: "", phone: "", email: "" });
-} catch (err) {
-  console.error("Submission failed:", err);
-  setError("Something went wrong. Please try again.");
-} finally {
-  setSubmitting(false);
-}
-
+  } // ✅ <-- THIS CLOSING BRACE WAS MISSING
   return (
     <section id="book" className="relative px-4 py-20 sm:px-6">
       {/* Accent gradient blobs — purple → orange, scoped to this section */}
