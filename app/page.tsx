@@ -1091,12 +1091,33 @@ function Connect() {
       setError("Please fill in all fields before submitting.");
       return;
     }
-    setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 700));
-    setSubmitting(false);
-    setSuccess(true);
-    setForm({ business: "", type: "", phone: "", email: "" });
+   setSubmitting(true);
+setError("");
+
+try {
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL!,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`Webhook failed: ${response.status}`);
   }
+
+  setSuccess(true);
+  setForm({ business: "", type: "", phone: "", email: "" });
+} catch (err) {
+  console.error("Submission failed:", err);
+  setError("Something went wrong. Please try again.");
+} finally {
+  setSubmitting(false);
+}
 
   return (
     <section id="book" className="relative px-4 py-20 sm:px-6">
