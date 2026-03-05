@@ -1075,19 +1075,37 @@ function WhyRebelMindsOps() {
 
 // ─── Connect ──────────────────────────────────────────────────────────────────
 function Connect() {
-  const [form, setForm] = useState({ business: "", type: "", phone: "", email: "" });
+  const emptyForm = {
+    business: "",
+    type: "",
+    phone: "",
+    email: "",
+    priorityArea: "",
+  };
+
+  const [form, setForm] = useState(emptyForm);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
     setError("");
   }
 
-    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!form.business || !form.type || !form.phone || !form.email) {
+
+    if (
+      !form.business ||
+      !form.type ||
+      !form.priorityArea ||
+      !form.phone ||
+      !form.email
+    ) {
       setError("Please fill in all fields before submitting.");
       return;
     }
@@ -1097,29 +1115,26 @@ function Connect() {
     setSuccess(false);
 
     try {
-      const url = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
-      if (!url) throw new Error("Missing NEXT_PUBLIC_N8N_WEBHOOK_URL");
-
       const response = await fetch("/api/connect", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(form),
-});
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
-if (!response.ok) {
-  const data = await response.json().catch(() => ({}));
-  throw new Error(data?.error || `Request failed: ${response.status}`);
-}
+      if (!response.ok) {
+        throw new Error(`Request failed: ${response.status}`);
+      }
 
       setSuccess(true);
-      setForm({ business: "", type: "", phone: "", email: "" });
+      setForm({ ...emptyForm });
     } catch (err) {
       console.error("Submission failed:", err);
       setError("Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
     }
-  } // ✅ <-- THIS CLOSING BRACE WAS MISSING
+  }
+
   return (
     <section id="book" className="relative px-4 py-20 sm:px-6">
       {/* Accent gradient blobs — purple → orange, scoped to this section */}
@@ -1203,46 +1218,49 @@ if (!response.ok) {
                     <option value="other">Other</option>
                   </select>
                 </div>
-<div className="space-y-2">
-  <label className="text-sm font-medium">
-    What would you most like to improve right now?
-  </label>
 
-  <select
-    name="priorityArea"
-    required
-    className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white"
-    value={form.priorityArea}
-    onChange={(e) =>
-      setForm({ ...form, priorityArea: e.target.value })
-    }
-  >
-    <option value="">Select the area causing the most friction...</option>
-    <option value="Organize receipts and expenses for better accounting">
-      Organize receipts and expenses for better accounting
-    </option>
-    <option value="Improve project visibility and tracking">
-      Improve project visibility and tracking
-    </option>
-    <option value="Reduce manual data entry and paperwork">
-      Reduce manual data entry and paperwork
-    </option>
-    <option value="Respond to leads faster and track inquiries">
-      Respond to leads faster and track inquiries
-    </option>
-    <option value="Simplify scheduling and team coordination">
-      Simplify scheduling and team coordination
-    </option>
-    <option value="Not sure yet — show me what’s possible">
-      Not sure yet — show me what’s possible
-    </option>
-  </select>
+                {/* Priority Area */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-300">
+                    What would you most like to improve right now? <span className="text-[#F97316]">*</span>
+                  </label>
 
-  <p className="text-xs text-neutral-400">
-    Not sure where to start? That’s exactly what the call is for.
-  </p>
-</div>
-                {/* Phone + Email side by side on sm+ */}
+                  <select
+                    name="priorityArea"
+                    required
+                    value={form.priorityArea}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                  >
+                    <option value="" disabled>
+                      Select the area causing the most friction...
+                    </option>
+                    <option value="Organize receipts and expenses for better accounting">
+                      Organize receipts and expenses for better accounting
+                    </option>
+                    <option value="Improve project visibility and tracking">
+                      Improve project visibility and tracking
+                    </option>
+                    <option value="Reduce manual data entry and paperwork">
+                      Reduce manual data entry and paperwork
+                    </option>
+                    <option value="Respond to leads faster and track inquiries">
+                      Respond to leads faster and track inquiries
+                    </option>
+                    <option value="Simplify scheduling and team coordination">
+                      Simplify scheduling and team coordination
+                    </option>
+                    <option value="Not sure yet — show me what’s possible">
+                      Not sure yet — show me what’s possible
+                    </option>
+                  </select>
+
+                  <p className="text-xs text-neutral-400">
+                    Not sure where to start? That’s exactly what the call is for.
+                  </p>
+                </div>
+
+                {/* Phone + Email */}
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-slate-300" htmlFor="connect-phone">
@@ -1259,6 +1277,7 @@ if (!response.ok) {
                       className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
                     />
                   </div>
+
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-slate-300" htmlFor="connect-email">
                       Email Address <span className="text-[#F97316]">*</span>
@@ -1287,17 +1306,7 @@ if (!response.ok) {
                   disabled={submitting}
                   className="w-full rounded-xl bg-gradient-to-r from-[#7DE3E6] to-[#5BC8CC] px-6 py-3.5 text-sm font-semibold text-[#0B1220] transition-all hover:shadow-[0_0_24px_rgba(125,227,230,0.3)] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {submitting ? (
-                    <span className="flex items-center justify-center gap-2">
-                      <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                      </svg>
-                      Sending…
-                    </span>
-                  ) : (
-                    "Request a Call"
-                  )}
+                  {submitting ? "Sending…" : "Request a Call"}
                 </button>
               </form>
             )}
