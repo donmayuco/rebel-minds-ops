@@ -1308,6 +1308,9 @@ function Connect() {
                 >
                   {submitting ? "Sending…" : "Request a Call"}
                 </button>
+                <p className="mt-3 text-center text-xs text-slate-400">
+  Free 15-minute workflow review. No obligation.
+</p>
               </form>
             )}
           </div>
