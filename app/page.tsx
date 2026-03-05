@@ -1100,15 +1100,16 @@ function Connect() {
       const url = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
       if (!url) throw new Error("Missing NEXT_PUBLIC_N8N_WEBHOOK_URL");
 
-      const response = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const response = await fetch("/api/connect", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(form),
+});
 
-      if (!response.ok) {
-        throw new Error(`Webhook failed: ${response.status}`);
-      }
+if (!response.ok) {
+  const data = await response.json().catch(() => ({}));
+  throw new Error(data?.error || `Request failed: ${response.status}`);
+}
 
       setSuccess(true);
       setForm({ business: "", type: "", phone: "", email: "" });
@@ -1202,7 +1203,45 @@ function Connect() {
                     <option value="other">Other</option>
                   </select>
                 </div>
+<div className="space-y-2">
+  <label className="text-sm font-medium">
+    What would you most like to improve right now?
+  </label>
 
+  <select
+    name="priorityArea"
+    required
+    className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white"
+    value={form.priorityArea}
+    onChange={(e) =>
+      setForm({ ...form, priorityArea: e.target.value })
+    }
+  >
+    <option value="">Select the area causing the most friction...</option>
+    <option value="Organize receipts and expenses for better accounting">
+      Organize receipts and expenses for better accounting
+    </option>
+    <option value="Improve project visibility and tracking">
+      Improve project visibility and tracking
+    </option>
+    <option value="Reduce manual data entry and paperwork">
+      Reduce manual data entry and paperwork
+    </option>
+    <option value="Respond to leads faster and track inquiries">
+      Respond to leads faster and track inquiries
+    </option>
+    <option value="Simplify scheduling and team coordination">
+      Simplify scheduling and team coordination
+    </option>
+    <option value="Not sure yet — show me what’s possible">
+      Not sure yet — show me what’s possible
+    </option>
+  </select>
+
+  <p className="text-xs text-neutral-400">
+    Not sure where to start? That’s exactly what the call is for.
+  </p>
+</div>
                 {/* Phone + Email side by side on sm+ */}
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
