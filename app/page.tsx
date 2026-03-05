@@ -1122,8 +1122,9 @@ function Connect() {
       });
 
       if (!response.ok) {
-        throw new Error(`Request failed: ${response.status}`);
-      }
+  const data = await response.json().catch(() => ({}));
+  throw new Error(data?.details || data?.error || "Request failed");
+}
 
       setSuccess(true);
       setForm({ ...emptyForm });
