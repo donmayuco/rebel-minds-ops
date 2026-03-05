@@ -14,11 +14,23 @@ export async function POST(req: Request) {
       );
     }
 
-    const r = await fetch(webhook, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
+    const payload = {
+  businessName: body.business ?? "",
+  industry: body.type ?? "",
+  phone: body.phone ?? "",
+  email: body.email ?? "",
+  priorityArea: body.priorityArea ?? "", // ✅ NEW
+  submittedAt: new Date().toISOString(),
+  source: "Website",
+  status: "New",
+  notes: body.notes ?? "",
+};
+
+const r = await fetch(webhook, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload),
+});
 
     // If n8n rejects, surface that message
     if (!r.ok) {
