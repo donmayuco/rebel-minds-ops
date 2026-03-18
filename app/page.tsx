@@ -517,6 +517,11 @@ function Nav() {
             <a href="#what-we-build" className="text-sm text-slate-400 transition-colors hover:text-white">What we build</a>
             <a href="#how" className="text-sm text-slate-400 transition-colors hover:text-white">How we work</a>
             <a href="#featured-system" className="text-sm text-slate-400 transition-colors hover:text-white">Example</a>
+            <a href="/our-science" className="text-sm text-slate-400 transition-colors hover:text-white">Our Science</a>
+            <a href="/cybersecurity" className="inline-flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-white">
+              Cybersecurity
+              <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+            </a>
             <a
               href="#book"
               className="glow-teal rounded-lg bg-[#7DE3E6] px-4 py-2 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
@@ -563,6 +568,21 @@ function Nav() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="/our-science"
+              className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+              onClick={() => setOpen(false)}
+            >
+              Our Science
+            </a>
+            <a
+              href="/cybersecurity"
+              className="flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+              onClick={() => setOpen(false)}
+            >
+              Cybersecurity
+              <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+            </a>
             <div className="pt-2">
               <a
                 href="#book"
@@ -1073,6 +1093,65 @@ function WhyRebelMindsOps() {
   );
 }
 
+// ─── Cybersecurity Teaser ─────────────────────────────────────────────────────
+function CyberTeaser() {
+  const stats = [
+    { value: "43%", label: "of cyberattacks target small businesses" },
+    { value: "$200K", label: "average cost of a breach for an SMB" },
+    { value: "60%", label: "of breached businesses close within 6 months" },
+  ];
+
+  return (
+    <section id="cybersecurity" className="relative px-4 py-20 sm:px-6" style={{ backgroundColor: "#060D18" }}>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[#7DE3E6]/[0.015] to-transparent" />
+      <div className="relative mx-auto max-w-6xl">
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+              New Service
+            </span>
+            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+              We Now Protect What We Help You Build
+            </h2>
+            <p className="mx-auto max-w-2xl text-slate-400">
+              The systems we build for your business store sensitive data, process
+              payments, and connect your team. We now offer managed cybersecurity
+              services to protect all of it — designed specifically for South Texas
+              small businesses that can&apos;t afford an in-house security team.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="mb-12 grid gap-6 sm:grid-cols-3">
+          {stats.map((stat, i) => (
+            <FadeIn key={stat.value} delay={i * 80}>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center backdrop-blur-sm">
+                <div className="mb-2 text-3xl font-bold text-[#7DE3E6]">{stat.value}</div>
+                <p className="text-sm text-slate-400">{stat.label}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+
+        <FadeIn delay={300}>
+          <div className="flex flex-col items-center gap-3 text-center">
+            <a
+              href="/cybersecurity"
+              className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
+            >
+              See our cybersecurity plans
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <p className="text-xs text-slate-500">
+              Free threat assessment included. No obligation.
+            </p>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
 // ─── Connect ──────────────────────────────────────────────────────────────────
 function Connect() {
   const emptyForm = {
@@ -1528,6 +1607,8 @@ export default function Home() {
         <FeaturedSystem />
         <SectionDivider />
         <WhyRebelMindsOps />
+        <SectionDivider />
+        <CyberTeaser />
         <SectionDivider />
         <Connect />
         <SectionDivider />

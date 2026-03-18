@@ -18,9 +18,9 @@ const siteUrl =
       : "https://rebelmindsops.com";
 
 export const metadata: Metadata = {
-  title: "Rebel Minds Ops | Operational Systems & Automation",
+  title: "Rebel Minds Ops | Operations, Automation & Cybersecurity — RGV",
   description:
-    "Operational systems and automation for growing RGV businesses. Practical, local, and built around your workflow.",
+    "South Texas operations automation and cybersecurity services for small businesses. I-O Psychology-backed training and systems design. Based in Edinburg, TX.",
  metadataBase: (() => {
   try {
     return new URL(siteUrl);
