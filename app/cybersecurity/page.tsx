@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   Shield,
@@ -704,9 +704,9 @@ function CyberPlans() {
               </thead>
               <tbody>
                 {groups.map((g) => (
-                  <>
+                  <Fragment key={g.group}>
                     {/* Group header */}
-                    <tr key={`group-${g.group}`}>
+                    <tr>
                       <td colSpan={4} className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider ${g.highlight ? "bg-[#534AB7]/[0.08] text-[#534AB7]" : "bg-[#0E1A2B]/80 text-slate-400"}`}>
                         <span className="flex items-center gap-2">
                           {g.group}
@@ -727,7 +727,7 @@ function CyberPlans() {
                         <td className="px-4 py-3 text-center text-sm"><CellContent value={row.shield} /></td>
                       </tr>
                     ))}
-                  </>
+                  </Fragment>
                 ))}
               </tbody>
             </table>
