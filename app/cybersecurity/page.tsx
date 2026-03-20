@@ -16,6 +16,12 @@ import {
   Brain,
   Check,
   Minus,
+  HardHat,
+  Truck,
+  Car,
+  Stethoscope,
+  Scale,
+  Briefcase,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
@@ -770,6 +776,10 @@ function CyberPlans() {
           </div>
         </FadeIn>
 
+        <p className="mt-3 text-center text-xs text-slate-500">
+          * Email security and identity monitoring features require Microsoft 365 or Google Workspace. Clients on other platforms receive equivalent protection through our security partner network.
+        </p>
+
         {/* Best for notes */}
         <FadeIn delay={200}>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -823,6 +833,51 @@ function CyberPlans() {
   );
 }
 
+// ─── 4.3b RGV Industries ─────────────────────────────────────────────────────
+
+function RGVIndustries() {
+  const industries = [
+    { icon: HardHat, title: "Construction & Trades", desc: "Crew payroll, subcontractor data, project financials" },
+    { icon: Truck, title: "Logistics & Fleets", desc: "Driver records, route data, carrier agreements" },
+    { icon: Car, title: "Auto Dealerships", desc: "Customer financing data, DMS access, F&I records" },
+    { icon: Stethoscope, title: "Medical & Dental", desc: "Patient records, HIPAA compliance, billing systems" },
+    { icon: Scale, title: "Legal & Accounting", desc: "Client files, trust accounts, privileged communications" },
+    { icon: Briefcase, title: "Professional Services", desc: "Contracts, invoicing, client relationship data" },
+  ];
+
+  return (
+    <section className="px-4 py-20 sm:px-6">
+      <div className="mx-auto max-w-5xl">
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+              Who We Protect
+            </span>
+            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+              We Know Your Industry Because We Work In It
+            </h2>
+            <p className="mx-auto max-w-2xl text-slate-400">
+              These aren&apos;t abstract SMB categories to us. They&apos;re our neighbors. We know what you handle daily, what data you carry, and what a breach would cost your operation.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {industries.map((ind, i) => (
+            <FadeIn key={ind.title} delay={i * 80}>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-[#7DE3E6]/30 hover:bg-[#7DE3E6]/[0.04]">
+                <ind.icon className="mb-3 h-6 w-6 text-[#7DE3E6]" />
+                <h3 className="mb-1 text-sm font-semibold text-white">{ind.title}</h3>
+                <p className="text-xs text-slate-400">{ind.desc}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── 4.4 How It Works ────────────────────────────────────────────────────────
 
 function CyberHow() {
@@ -830,7 +885,7 @@ function CyberHow() {
     { num: "01", title: "You complete the intake form below (5 minutes)", desc: "We learn about your business size, industry, and current setup." },
     { num: "02", title: "We run your free security assessment", desc: "We scan your public assets and check for exposed credentials. You get a real report — not a sales deck." },
     { num: "03", title: "We recommend the right plan", desc: "Based on your actual risk profile — not a sales script." },
-    { num: "04", title: "We deploy your protection in 48 hours", desc: "Guardz provisions your monitoring, email security, and training automatically. Your team doesn\u2019t need to do anything." },
+    { num: "04", title: "We deploy your protection in 48 hours", desc: "We deploy your monitoring, email security, and training automatically using enterprise-grade security platforms — no action required from your team." },
     { num: "05", title: "You get a plain-English report every month", desc: "What was blocked, what was caught, what your team\u2019s training scores look like. Automated. No jargon." },
   ];
 
@@ -875,7 +930,7 @@ function CyberTrust() {
     {
       icon: MapPin,
       title: "RGV — 30 Years and Counting",
-      desc: "We\u2019ve been operating in South Texas for 30 years. We know the business landscape here — family-owned medical offices, trades companies, law firms, logistics operators. We\u2019re not a faceless SaaS platform. We\u2019re your neighbors and your community.",
+      desc: "Deep roots in South Texas — we know this market, these businesses, and these communities because we\u2019ve lived and worked here for decades. Family-owned medical offices, trades companies, law firms, logistics operators. We\u2019re not a faceless SaaS platform. We\u2019re your neighbors.",
     },
     {
       icon: Wrench,
@@ -892,6 +947,11 @@ function CyberTrust() {
       icon: KeyRound,
       title: "You Own It",
       desc: "No vendor lock-in. Monthly plans, cancel anytime. If you leave, we hand you full documentation of every protection we put in place. You are not renting security — you are building it.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Up to $1M Breach Response Coverage",
+      desc: "Growth and Shield plan clients receive up to $1 million in breach response expense coverage through our security partner warranty — so you\u2019re protected even if something gets through. This is enterprise-level protection at small business pricing.",
     },
   ];
 
@@ -1042,7 +1102,7 @@ function CyberIntake() {
               <h2 className="mb-3 text-2xl font-bold text-white">Your security score is on its way.</h2>
               <p className="mb-6 text-slate-400">
                 We&apos;ll send your personalized risk summary to{" "}
-                <span className="font-medium text-white">{form.email}</span> within the hour.
+                <span className="font-medium text-white">{form.email}</span> within 24 business hours.
               </p>
               <div className={`mx-auto mb-6 max-w-lg rounded-xl border p-4 text-left text-sm ${
                 result.riskLevel === "High" ? "border-red-500/30 bg-red-500/10 text-red-300"
@@ -1330,7 +1390,7 @@ function Footer() {
               <Image src="/rebelminds-icon.png" alt="Rebel Minds Ops" width={28} height={28} className="h-7 w-7 object-contain" />
               <span className="text-sm font-bold tracking-wide text-white">Rebel Minds Ops</span>
             </div>
-            <span className="text-sm text-slate-400">&copy; {new Date().getFullYear()} Rebel Minds Ops. All rights reserved.</span>
+            <span className="text-sm text-slate-400">&copy; {new Date().getFullYear()} Rebel Minds OPS LLC. All rights reserved.</span>
           </div>
           <nav className="flex flex-col flex-wrap items-center justify-center gap-3 text-sm text-slate-400 sm:items-end">
             <div className="mb-2 flex gap-5">
@@ -1361,6 +1421,8 @@ export default function CybersecurityPage() {
         <ThreatFlow />
         <SectionDivider />
         <CyberWhy />
+        <SectionDivider />
+        <RGVIndustries />
         <SectionDivider />
         <CyberPlans />
         <SectionDivider />
