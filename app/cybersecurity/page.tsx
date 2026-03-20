@@ -87,7 +87,7 @@ function Nav() {
             />
             <div className="leading-tight">
               <div className="text-[15px] font-semibold tracking-tight text-white">
-                Rebel Minds Ops
+                Rebel Minds OPS
               </div>
               <div className="text-[11px] font-medium tracking-wide text-slate-400">
                 Operational Systems & Automation
@@ -1388,7 +1388,7 @@ function Footer() {
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-center gap-2.5 sm:justify-start">
               <Image src="/rebelminds-icon.png" alt="Rebel Minds Ops" width={28} height={28} className="h-7 w-7 object-contain" />
-              <span className="text-sm font-bold tracking-wide text-white">Rebel Minds Ops</span>
+              <span className="text-sm font-bold tracking-wide text-white">Rebel Minds OPS</span>
             </div>
             <span className="text-sm text-slate-400">&copy; {new Date().getFullYear()} Rebel Minds OPS LLC. All rights reserved.</span>
           </div>
