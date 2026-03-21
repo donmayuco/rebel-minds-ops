@@ -14,6 +14,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import IPNotice from "@/app/components/IPNotice";
 
 // ─── Shared Components ───────────────────────────────────────────────────────
 
@@ -125,7 +126,7 @@ function Nav() {
               href="/#book"
               className="glow-teal rounded-lg bg-[#7DE3E6] px-4 py-2 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
             >
-              Schedule Operational Audit
+              Get a Free Ops Scan
             </a>
           </div>
 
@@ -193,7 +194,7 @@ function Nav() {
                 className="block rounded-lg bg-[#7DE3E6] px-4 py-2.5 text-center text-sm font-semibold text-[#0B1220]"
                 onClick={() => setOpen(false)}
               >
-                Schedule Operational Audit
+                Get a Free Ops Scan
               </a>
             </div>
           </div>
@@ -209,7 +210,7 @@ function ScienceHero() {
   const credentials = [
     "I-O Psychology — UTRGV, Summa Cum Laude",
     "Full Scholarship — SUNY Graduate Program",
-    "30 Years Serving the Rio Grande Valley",
+    "Bicultural \u00B7 Bilingual \u00B7 30+ Years RGV Business Operations",
   ];
 
   return (
@@ -472,7 +473,7 @@ function Credentials() {
       color: "#F59E0B",
       label: "Practitioner — 30 Years in the Valley",
       title: "Rebel Minds OPS — Founder & Systems Architect",
-      desc: "Thirty years of living, operating, and building in the Rio Grande Valley. The psychology degree explains how people work. The business ownership — with all its costs and consequences — explains what it means when systems fail. Both inform every engagement.",
+      desc: "Bicultural and bilingual by lived experience — not by geography alone. The RGV has its own identity, its own rhythm, and its own relationship between owner, crew, and client. Over 30 years of operating in this market means we understand not just the business problems, but the human context surrounding every one of them. That context is what makes our systems get adopted instead of abandoned.",
     },
   ];
 
@@ -550,6 +551,10 @@ function StatsCTA() {
           ))}
         </div>
 
+        <div className="mx-auto mb-12 max-w-3xl">
+          <IPNotice />
+        </div>
+
         <FadeIn delay={300}>
           <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 text-center backdrop-blur-sm sm:p-12">
             <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl">
@@ -565,7 +570,7 @@ function StatsCTA() {
                 href="/#book"
                 className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
               >
-                Schedule a free workflow review
+                Get a Free Ops Scan
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
@@ -616,7 +621,7 @@ function Footer() {
               href="/#book"
               className="font-semibold text-[#7DE3E6] transition-colors hover:text-white"
             >
-              Schedule Operational Audit
+              Get a Free Ops Scan
             </a>
           </nav>
         </div>

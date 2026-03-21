@@ -135,7 +135,7 @@ function Nav() {
               href="#cyber-intake"
               className="glow-teal rounded-lg bg-[#7DE3E6] px-4 py-2 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
             >
-              Schedule Operational Audit
+              Get a Free Ops Scan
             </a>
           </div>
 
@@ -203,7 +203,7 @@ function Nav() {
                 className="block rounded-lg bg-[#7DE3E6] px-4 py-2.5 text-center text-sm font-semibold text-[#0B1220]"
                 onClick={() => setOpen(false)}
               >
-                Schedule Operational Audit
+                Get a Free Ops Scan
               </a>
             </div>
           </div>

@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
       email: body.email ?? "",
       priorityArea: body.priorityArea ?? "",
       submittedAt: new Date().toISOString(),
-      source: "Website",
+      source: body.source ?? "Website",
       status: "New",
       notes: body.notes ?? "",
     };

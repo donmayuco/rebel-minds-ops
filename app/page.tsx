@@ -5,25 +5,28 @@ import {
   ArrowRight,
   Brain,
   Briefcase,
+  CheckCircle,
+  Clock,
+  Globe,
   MapPin,
   ClipboardCheck,
-  DraftingCompass,
-  GitBranchPlus,
   HardHat,
   Home as HomeIcon,
   KeyRound,
   LayoutDashboard,
+  MessageCircle,
   Package,
   Receipt,
   ScanLine,
-  Search,
-  ShieldCheck,
   Truck,
+  Users,
   Workflow,
-  Wrench,
   Zap,
+  Scale,
+  HeartPulse,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import IPNotice from "@/app/components/IPNotice";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const TYPEWRITER_WORDS = [
@@ -36,12 +39,12 @@ const TYPEWRITER_WORDS = [
 ];
 
 const TERM_LINES = [
-  { text: "$ Starting ExpenseOps™ workflow...", type: "cmd" },
-  { text: "[01] ✓ Receipt captured via WhatsApp", type: "success" },
-  { text: "[02] ✓ AI parsed: Home Depot  $847.23", type: "success" },
-  { text: "[03] ✓ Tagged: Materials / Job #4821", type: "success" },
-  { text: "[04] ✓ Synced → QuickBooks & Drive", type: "success" },
-  { text: "[05] Generating expense report...", type: "active" },
+  { text: "$ Initializing FieldOps\u2122 workflow...", type: "cmd" },
+  { text: "[01] \u2713 Field submission received", type: "success" },
+  { text: "[02] \u2713 Validated and processed", type: "success" },
+  { text: "[03] \u2713 Organized by project", type: "success" },
+  { text: "[04] \u2713 Back office updated", type: "success" },
+  { text: "[05]   Generating summary report...", type: "active" },
 ] as const;
 
 const MARQUEE_TOOLS = [
@@ -203,107 +206,112 @@ function StatCard({
   );
 }
 
-// ─── Hero Dashboard Visual ────────────────────────────────────────────────────
-function HeroDashboard() {
+// ─── Industry Grid (Hero right column) ────────────────────────────────────────
+function IndustryGrid() {
+  const industries = [
+    {
+      icon: HardHat,
+      accent: "#F59E0B",
+      title: "Construction & Trades",
+      pain: "Your crews are in the field. Your paperwork is everywhere else.",
+      badge: null,
+    },
+    {
+      icon: Truck,
+      accent: "#7DE3E6",
+      title: "Logistics & Transport",
+      pain: "Your drivers move fast. Your compliance docs don\u2019t.",
+      badge: null,
+    },
+    {
+      icon: HomeIcon,
+      accent: "#34D399",
+      title: "Home Services",
+      pain: "You\u2019re on a job when the next lead calls. They won\u2019t wait.",
+      badge: null,
+    },
+    {
+      icon: Scale,
+      accent: "#A78BFA",
+      title: "Legal Offices",
+      pain: "Your billable hours shouldn\u2019t compete with your admin hours.",
+      badge: null,
+    },
+    {
+      icon: HeartPulse,
+      accent: "#F472B6",
+      title: "Healthcare",
+      pain: "Patient care is the priority. We make sure everything else doesn\u2019t get in the way.",
+      badge: "HIPAA-Aware Development",
+    },
+    {
+      icon: Briefcase,
+      accent: "#818CF8",
+      title: "Professional Services",
+      pain: "Your clients expect speed. Your back office slows you down.",
+      badge: null,
+    },
+  ];
+
   return (
-    <div className="relative">
-      <div className="absolute inset-0 rounded-3xl bg-[#7DE3E6]/[0.08] blur-3xl" />
-      <div className="relative animate-float">
-        <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#080E1A] shadow-2xl">
-          {/* Browser chrome */}
-          <div className="flex items-center gap-1.5 border-b border-white/[0.06] bg-[#0D1526] px-4 py-3">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-400/60" />
-            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/60" />
-            <span className="h-2.5 w-2.5 rounded-full bg-green-400/60" />
-            <div className="mx-auto w-44 rounded bg-white/[0.04] px-3 py-1 text-center text-[11px] text-slate-500">
-              ops.rebelminds.com/dashboard
-            </div>
-          </div>
+    <div className="relative w-full">
+      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[#7DE3E6]/[0.04] blur-3xl" />
 
-          <div className="space-y-4 p-5">
-            {/* KPI row */}
-            <div className="grid grid-cols-3 gap-2.5">
-              {[
-                { label: "Receipts", value: "247", color: "#7DE3E6" },
-                { label: "Hours saved", value: "38", color: "#A78BFA" },
-                { label: "Active jobs", value: "19", color: "#34D399" },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3"
-                >
-                  <div className="mb-1 text-[10px] text-slate-500">
-                    {s.label}
-                  </div>
-                  <div
-                    className="text-xl font-bold"
-                    style={{ color: s.color }}
-                  >
-                    {s.value}
-                  </div>
-                </div>
-              ))}
-            </div>
+      <div className="relative">
+        <div className="mb-6 text-center lg:text-left">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            Operations-First &middot; Built for Your Industry
+          </span>
+        </div>
 
-            {/* Live activity feed */}
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3">
-              <div className="mb-3 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#7DE3E6]" />
-                <span className="text-xs font-medium text-slate-300">
-                  Live Activity
+        <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+          {industries.map((ind) => (
+            <div
+              key={ind.title}
+              className="group relative flex min-h-[120px] flex-col overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.03] p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.06]"
+            >
+              <div
+                className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${ind.accent}, transparent)`,
+                }}
+              />
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[1px] rounded-b-xl opacity-0 transition-opacity duration-300 group-hover:opacity-60"
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${ind.accent}60, transparent)`,
+                }}
+              />
+
+              <div
+                className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border"
+                style={{
+                  borderColor: `${ind.accent}30`,
+                  backgroundColor: `${ind.accent}15`,
+                }}
+              >
+                <ind.icon
+                  className="h-[18px] w-[18px]"
+                  style={{ color: ind.accent }}
+                  aria-hidden="true"
+                />
+              </div>
+
+              <p className="mb-2 text-[13px] font-semibold leading-tight text-white">
+                {ind.title}
+              </p>
+
+              <p className="flex-1 text-[11px] leading-relaxed text-slate-400/80">
+                {ind.pain}
+              </p>
+
+              {ind.badge && (
+                <span className="mt-3 inline-block rounded-full border border-[#F472B6]/30 bg-[#F472B6]/[0.08] px-2 py-0.5 text-[10px] font-medium text-[#F472B6]">
+                  🔒 {ind.badge}
                 </span>
-              </div>
-              <div className="space-y-2">
-                {[
-                  {
-                    msg: "Receipt: Home Depot $847.23",
-                    tag: "Extracted",
-                    active: false,
-                  },
-                  {
-                    msg: "Job #4821 → Materials tagged",
-                    tag: "Tagged",
-                    active: false,
-                  },
-                  {
-                    msg: "Report sent to QuickBooks",
-                    tag: "Synced",
-                    active: true,
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center justify-between">
-                    <span className="truncate pr-2 text-[11px] text-slate-400">
-                      {item.msg}
-                    </span>
-                    <span
-                      className={`whitespace-nowrap rounded-full px-2 py-0.5 text-[10px] font-medium ${item.active
-                          ? "bg-[#7DE3E6]/20 text-[#7DE3E6]"
-                          : "bg-white/5 text-slate-500"
-                        }`}
-                    >
-                      {item.tag}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              )}
             </div>
-
-            {/* Mini bar chart */}
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3">
-              <div className="mb-2 text-[10px] text-slate-500">
-                Weekly Expense Volume
-              </div>
-              <div className="flex h-8 items-end gap-1">
-                {[40, 65, 45, 80, 55, 90, 72].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 rounded-sm bg-[#7DE3E6]/30"
-                    style={{ height: `${h}%` }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
@@ -392,7 +400,7 @@ function TerminalPreview() {
         <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/60" />
         <span className="h-2.5 w-2.5 rounded-full bg-green-400/60" />
         <span className="ml-3 font-mono text-[11px] text-slate-500">
-          expenseops.terminal
+          fieldops.terminal
         </span>
         <span className="ml-auto rounded-full border border-[#7DE3E6]/25 bg-[#7DE3E6]/10 px-2 py-0.5 text-[10px] font-semibold text-[#7DE3E6]">
           LIVE
@@ -553,9 +561,9 @@ function Nav() {
             <a
               href="#book"
               className="glow-teal rounded-lg bg-[#7DE3E6] px-4 py-2 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
-              onClick={() => trackEvent("CTA_Click", { location: "nav_desktop", cta: "Schedule Operational Audit" })}
+              onClick={() => trackEvent("CTA_Click", { location: "nav_desktop", cta: "Get a Free Ops Scan" })}
             >
-              Schedule Operational Audit
+              Get a Free Ops Scan
             </a>
           </div>
 
@@ -624,11 +632,11 @@ function Nav() {
                 href="#book"
                 className="block rounded-lg bg-[#7DE3E6] px-4 py-2.5 text-center text-sm font-semibold text-[#0B1220]"
                 onClick={() => {
-                  trackEvent("CTA_Click", { location: "nav_mobile", cta: "Schedule Operational Audit" });
+                  trackEvent("CTA_Click", { location: "nav_mobile", cta: "Get a Free Ops Scan" });
                   setOpen(false);
                 }}
               >
-                Schedule Operational Audit
+                Get a Free Ops Scan
               </a>
             </div>
           </div>
@@ -645,12 +653,15 @@ function Hero() {
   return (
     <section className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6">
       <div className="mx-auto w-full max-w-6xl">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-start gap-12 lg:grid-cols-2">
           {/* Left: text */}
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <div
+            className="flex flex-col items-center text-center lg:items-start lg:text-left"
+            style={{ minHeight: "460px" }}
+          >
             <FadeIn>
               <div className="mb-6 flex flex-wrap justify-center gap-2 lg:justify-start">
-                {["South Texas Local", "Systems Architects", "End-to-end implementation"].map((pill) => (
+                {["Operations First · South Texas", "🇺🇸🇲🇽 100% Bilingüe · English & Spanish", "End-to-end implementation"].map((pill) => (
                   <span
                     key={pill}
                     className="rounded-full border border-[#7DE3E6]/25 bg-[#7DE3E6]/[0.06] px-3 py-1 text-xs font-medium text-[#7DE3E6]"
@@ -662,9 +673,17 @@ function Hero() {
             </FadeIn>
 
             <FadeIn delay={100}>
-              <h1 className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Operational Systems & Automation for{" "}
-                <span className="gradient-text">
+              <h1 className="mb-6 pb-1 text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-5xl">
+                Operational Systems & Automation for
+                <span
+                  className="gradient-text"
+                  style={{
+                    display: "block",
+                    minHeight: "1.4em",
+                    lineHeight: "1.4",
+                    overflow: "visible",
+                  }}
+                >
                   {typewriterText}
                   <span className="cursor-blink">|</span>
                 </span>
@@ -677,6 +696,9 @@ function Hero() {
                 improve visibility, and restore operational control—built around
                 your real workflow.
               </p>
+              <p className="mb-3 text-base font-bold text-[#7DE3E6] italic">
+                We Build the Systems Your IT Guys Don&apos;t Understand.
+              </p>
               <p className="mb-10 text-sm font-medium text-slate-400">
                 Local, structured, and hands-on. Not hype. Not templates. Just
                 systems that work.
@@ -688,9 +710,9 @@ function Hero() {
                 <a
                   href="#book"
                   className="glow-teal rounded-xl bg-[#7DE3E6] px-6 py-3.5 text-center text-base font-bold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
-                  onClick={() => trackEvent("CTA_Click", { location: "hero_primary", cta: "Schedule Operational Audit" })}
+                  onClick={() => trackEvent("CTA_Click", { location: "hero_primary", cta: "Get a Free Ops Scan" })}
                 >
-                  Schedule Operational Audit
+                  Get a Free Ops Scan
                 </a>
                 <a
                   href="#featured-system"
@@ -701,7 +723,7 @@ function Hero() {
               </div>
             </FadeIn>
 
-            <FadeIn delay={400}>
+            <FadeIn delay={400} className="mt-2">
               <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
                 <StatCard target={80} suffix="%" label="Admin Work Reduced" />
                 <StatCard target={3} suffix=" wks" label="Average Time to Launch" />
@@ -711,8 +733,8 @@ function Hero() {
           </div>
 
           {/* Right: dashboard visual */}
-          <FadeIn delay={150} className="w-full">
-            <HeroDashboard />
+          <FadeIn delay={150} className="w-full lg:pt-8">
+            <IndustryGrid />
           </FadeIn>
         </div>
       </div>
@@ -806,8 +828,8 @@ function WhoItsFor() {
 // ─── What We Build (Bento Grid) ───────────────────────────────────────────────
 function WhatWeBuild() {
   const systems = [
-    { title: "Field Data Capture",   desc: "Digital forms and WhatsApp bots to collect data right from the job site.",                       icon: ScanLine,      span: "lg:col-span-2", accent: "#8B5CF6" },
-    { title: "Expense Tracking",     desc: "Automated receipt extraction routing directly to your accounting platform.",                     icon: Receipt,       span: "lg:col-span-2", accent: "#F97316" },
+    { title: "Field Data Capture",   desc: "Field-ready capture tools your crews already know how to use — zero new apps, zero learning curve.",  icon: ScanLine,      span: "lg:col-span-2", accent: "#8B5CF6" },
+    { title: "Expense Tracking",     desc: "Expense workflows that keep your books clean without the manual work.",                          icon: Receipt,       span: "lg:col-span-2", accent: "#F97316" },
     { title: "Client Portals",       desc: "Unified dashboards where your customers can review project status.",                             icon: LayoutDashboard, span: "lg:col-span-1", accent: "#A855F7" },
     { title: "Inventory Workflows",  desc: "Barcode scanning and stock alert systems synced to your core database.",                         icon: Package,       span: "lg:col-span-2", accent: "#F59E0B" },
     { title: "Custom Dashboards",    desc: "Real-time KPI visualization tailored exactly to what ownership wants to see.",                   icon: ClipboardCheck, span: "lg:col-span-1", accent: "#C084FC" },
@@ -949,55 +971,6 @@ function WhatWeBuild() {
   );
 }
 
-// ─── How We Work ──────────────────────────────────────────────────────────────
-function HowWeWork() {
-  const steps = [
-    { num: "01", title: "Understand", desc: "We map your current manual process and identify bottlenecks.", icon: Search },
-    { num: "02", title: "Identify", desc: "We find the best tools to bridge the gaps without blowing up budgets.", icon: GitBranchPlus },
-    { num: "03", title: "Architect", desc: "We design the data structure and workflow logic before any coding.", icon: DraftingCompass },
-    { num: "04", title: "Implement", desc: "We build, integrate, and configure the systems.", icon: Wrench },
-    { num: "05", title: "Stabilize", desc: "We train your team, monitor adoption, and fix friction points.", icon: ShieldCheck },
-  ];
-
-  return (
-    <section id="how" className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-7xl">
-        <FadeIn>
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">How We Work</h2>
-            <p className="mx-auto max-w-xl text-slate-400">
-              Our 5-step engineered approach to transforming chaotic operations
-              into calm execution.
-            </p>
-          </div>
-        </FadeIn>
-
-        <div className="grid gap-4 overflow-visible lg:grid-cols-5">
-          {steps.map((step, i) => (
-            <FadeIn key={step.num} delay={i * 80}>
-              <div className="group relative h-full overflow-visible rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-[#7DE3E6]/30 hover:bg-white/[0.06] hover:shadow-[0_8px_24px_rgba(125,227,230,0.07)]">
-                {i < steps.length - 1 && (
-                  <div className="pointer-events-none absolute -right-4 top-1/2 z-10 hidden -translate-y-1/2 lg:block">
-                    <ArrowRight className="h-5 w-5 text-[#7DE3E6]/35" aria-hidden="true" />
-                  </div>
-                )}
-                <div className="mb-4 flex items-center justify-between gap-3">
-                  <span className="font-mono text-xl font-bold text-[#7DE3E6]">{step.num}</span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/10">
-                    <step.icon className="h-[18px] w-[18px] text-[#7DE3E6]" aria-hidden="true" />
-                  </span>
-                </div>
-                <h3 className="mb-2 text-base font-semibold text-white">{step.title}</h3>
-                <p className="text-sm text-slate-400">{step.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ─── Featured System: ExpenseOps ──────────────────────────────────────────────
 function FeaturedSystem() {
   const outcomes = [
@@ -1020,7 +993,7 @@ function FeaturedSystem() {
             </h2>
             <p className="mx-auto max-w-xl text-slate-400">
               A real-world example of what we build. A dedicated system designed
-              to end receipt chaos for field-heavy teams.
+              to end expense documentation chaos for field-heavy teams.
             </p>
           </div>
         </FadeIn>
@@ -1044,6 +1017,7 @@ function FeaturedSystem() {
                   </li>
                 ))}
               </ul>
+              <IPNotice />
               <div className="mt-8">
                 <a
                   href="#book"
@@ -1070,11 +1044,416 @@ function FeaturedSystem() {
   );
 }
 
+// ─── JPC Case Study ──────────────────────────────────────────────────────────
+function JPCCaseStudy() {
+  return (
+    <section className="relative overflow-hidden px-4 py-20 sm:px-6" style={{ backgroundColor: "#060D18" }}>
+      <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#F59E0B] opacity-[0.06] blur-[80px]" />
+
+      <div className="relative mx-auto max-w-5xl">
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F59E0B]/30 bg-[#F59E0B]/[0.08] px-3 py-1.5 text-xs font-semibold text-[#F59E0B]">
+              Real Work. Real Client.
+            </span>
+            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+              What Happens When a Growing Business Finally Stops Chasing Its Own Paperwork.
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-slate-400">
+              J. Pe&ntilde;a Construction runs 5 to 15 active jobs across the Rio Grande Valley. Like any serious operation at that scale, every hour of focused time is a business asset. We helped them get more of it back.
+            </p>
+          </div>
+        </FadeIn>
+
+        {/* Pain Block */}
+        <FadeIn delay={100}>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 mb-6">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              The Operational Cost — Before
+            </p>
+            <div className="space-y-4">
+              <div className="flex gap-3">
+                <Clock className="h-4 w-4 text-[#F59E0B] mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  With up to 15 active jobs running simultaneously, job cost documentation was coming in constantly — from crews, suppliers, and sites. Keeping up with it manually meant Sandra was spending 8 to 10 hours every week on back-office work that should have been running itself.
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <Clock className="h-4 w-4 text-[#F59E0B] mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Every gap in the documentation trail was a potential deduction lost at tax time. With multiple jobs running at once, even small inconsistencies added up to real money left on the table — year after year.
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <Clock className="h-4 w-4 text-[#F59E0B] mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Tax season meant handing their accountant months of unstructured records to organize manually. It worked — but it cost time, created stress, and left the back office carrying a burden that belonged in a system.
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Result Block */}
+        <FadeIn delay={200}>
+          <div className="grid gap-6 mt-6 lg:grid-cols-2">
+            {/* Left Card — Outcomes */}
+            <div className="rounded-2xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.04] p-8">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+                After Rebel Minds OPS
+              </p>
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <CheckCircle className="h-4 w-4 text-[#7DE3E6] mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Sandra recovered 8 to 10 hours every week — time previously absorbed by manual back-office work across active jobs.
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <CheckCircle className="h-4 w-4 text-[#7DE3E6] mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Financial records arrive organized and accounting-ready, automatically. Their accountant receives clean data. Tax season is no longer a project.
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <CheckCircle className="h-4 w-4 text-[#7DE3E6] mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Pepe focuses on running jobs. Sandra focuses on running the business. The system handles the rest — exactly the way it should work.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Card — Pull Quote */}
+            <div className="flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+              <div>
+                <div className="text-6xl text-[#7DE3E6]/20 font-serif leading-none mb-4">&ldquo;</div>
+                <p className="text-xl font-semibold text-white leading-relaxed italic">
+                  &ldquo;I can finally focus on my jobs.&rdquo;
+                </p>
+              </div>
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-lg bg-white px-3 py-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/JPC_logo.png"
+                      alt="J. Peña Construction"
+                      className="h-10 w-auto object-contain"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-white">Pepe Pe&ntilde;a</p>
+                    <p className="text-xs text-slate-400 mt-0.5">Owner — J. Pe&ntilde;a Construction</p>
+                    <p className="text-xs text-slate-500">Rio Grande Valley, Texas</p>
+                  </div>
+                </div>
+                <span className="inline-block mt-4 rounded-full border border-[#F59E0B]/30 bg-[#F59E0B]/[0.08] px-3 py-1 text-[10px] font-semibold text-[#F59E0B]">
+                  Active Case Study Partner
+                </span>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+
+        <IPNotice />
+
+        {/* Tagline Closer */}
+        <FadeIn delay={300}>
+          <div className="mt-10 text-center">
+            <p className="text-2xl font-bold text-white sm:text-3xl">Protect your focus.</p>
+            <p className="text-2xl font-bold sm:text-3xl gradient-text">Automate the rest.</p>
+            <p className="mt-3 text-sm text-slate-500">
+              That&apos;s not a tagline. That&apos;s what we actually build.
+            </p>
+            <div className="mt-8">
+              <a
+                href="#book"
+                className="glow-teal inline-block rounded-xl bg-[#7DE3E6] px-6 py-3.5 text-sm font-bold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
+              >
+                See if your business qualifies &rarr;
+              </a>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+// ─── Spanish Section ─────────────────────────────────────────────────────────
+function SpanishSection() {
+  const cards = [
+    {
+      icon: MessageCircle,
+      title: "La consulta es en espa\u00F1ol",
+      desc: "Explicamos cada sistema en tu idioma. Sin tecnicismos, sin malentendidos, sin necesidad de traductores.",
+    },
+    {
+      icon: Users,
+      title: "Dise\u00F1ado para tu equipo, no para Silicon Valley",
+      desc: "Sabemos que tus crews hablan espa\u00F1ol. Construimos sistemas que pueden usar desde el primer d\u00EDa — sin capacitaci\u00F3n complicada.",
+    },
+    {
+      icon: Globe,
+      title: "Bicultural. Biling\u00FCe. Del Valle.",
+      desc: "M\u00E1s de 30 a\u00F1os navegando la cultura \u00FAnica del RGV — donde el negocio, el idioma, y las relaciones funcionan diferente. Lo entendemos porque lo vivimos.",
+    },
+  ];
+
+  const emptyForm = {
+    business: "",
+    type: "",
+    phone: "",
+    email: "",
+    priorityArea: "",
+    source: "Spanish Form",
+  };
+
+  const [form, setForm] = useState(emptyForm);
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    setError("");
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    if (
+      !form.business ||
+      !form.type ||
+      !form.priorityArea ||
+      !form.phone ||
+      !form.email
+    ) {
+      setError("Por favor completa todos los campos antes de enviar.");
+      return;
+    }
+
+    setSubmitting(true);
+    setError("");
+    setSuccess(false);
+
+    try {
+      const response = await fetch("/api/connect", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data?.details || data?.error || "Request failed");
+      }
+
+      setSuccess(true);
+      setForm({ ...emptyForm });
+    } catch {
+      setError("Algo sali\u00F3 mal. Por favor intenta de nuevo.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <section className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+      <div className="mx-auto max-w-6xl">
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold text-[#7DE3E6]">
+              &#127474;&#127485; Hablamos Tu Idioma
+            </span>
+            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+              &iquest;Tu negocio crece m&aacute;s r&aacute;pido de lo que tus sistemas aguantan?
+            </h2>
+            <p className="mx-auto max-w-2xl text-slate-400">
+              Trabajamos completamente en espa&ntilde;ol — desde la primera llamada hasta el soporte. No necesitas un int&eacute;rprete para modernizar tu negocio.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid gap-4 sm:grid-cols-3">
+          {cards.map((card, i) => (
+            <FadeIn key={card.title} delay={i * 80}>
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#7DE3E6]/30 hover:bg-white/[0.06] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
+                <div
+                  className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(125,227,230,0.9), transparent)",
+                  }}
+                />
+                <div className="relative mb-3">
+                  <div className="absolute inset-0 rounded-xl bg-[#7DE3E6]/20 blur-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/10">
+                    <card.icon className="h-5 w-5 text-[#7DE3E6]" aria-hidden="true" />
+                  </div>
+                </div>
+                <h3 className="mb-2 text-base font-semibold leading-tight text-white">
+                  {card.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-400">{card.desc}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+
+        {/* Spanish Contact Form */}
+        <FadeIn delay={300}>
+          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
+            <p className="mb-6 text-center text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+              &iquest;Listo para hablar? Cu&eacute;ntanos de tu negocio.
+            </p>
+            {success ? (
+              <div className="flex flex-col items-center gap-4 py-8 text-center">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#7DE3E6]/30 bg-[#7DE3E6]/10">
+                  <svg className="h-7 w-7 text-[#7DE3E6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="text-lg font-semibold text-white">Solicitud recibida.</p>
+                <p className="text-slate-400">Te llamamos pronto.</p>
+                <button
+                  onClick={() => setSuccess(false)}
+                  className="mt-2 text-xs text-slate-500 underline hover:text-slate-300"
+                >
+                  Enviar otra solicitud
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                {/* Nombre del negocio */}
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium text-slate-300" htmlFor="es-business">
+                    Nombre del negocio <span className="text-[#F97316]">*</span>
+                  </label>
+                  <input
+                    id="es-business"
+                    name="business"
+                    type="text"
+                    required
+                    placeholder="Ej. Construcciones Pe&ntilde;a LLC"
+                    value={form.business}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                  />
+                </div>
+
+                {/* Tipo de negocio */}
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium text-slate-300" htmlFor="es-type">
+                    Tipo de negocio <span className="text-[#F97316]">*</span>
+                  </label>
+                  <select
+                    id="es-type"
+                    name="type"
+                    required
+                    value={form.type}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                  >
+                    <option value="" disabled>Selecciona tu industria&hellip;</option>
+                    <option value="construction">Construcci&oacute;n / Oficios</option>
+                    <option value="logistics">Log&iacute;stica / Transporte</option>
+                    <option value="home-services">Servicios del Hogar</option>
+                    <option value="professional-services">Servicios Profesionales</option>
+                    <option value="other">Otro</option>
+                  </select>
+                </div>
+
+                {/* Qué te gustaría mejorar */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-300">
+                    &iquest;Qu&eacute; te gustar&iacute;a mejorar? <span className="text-[#F97316]">*</span>
+                  </label>
+                  <select
+                    name="priorityArea"
+                    required
+                    value={form.priorityArea}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                  >
+                    <option value="" disabled>Selecciona el &aacute;rea con m&aacute;s fricci&oacute;n...</option>
+                    <option value="Organize receipts and expenses for better accounting">Organizar recibos y gastos para contabilidad</option>
+                    <option value="Improve project visibility and tracking">Mejorar la visibilidad y seguimiento de proyectos</option>
+                    <option value="Reduce manual data entry and paperwork">Reducir captura manual de datos y papeleo</option>
+                    <option value="Respond to leads faster and track inquiries">Responder a prospectos m&aacute;s r&aacute;pido</option>
+                    <option value="Simplify scheduling and team coordination">Simplificar horarios y coordinaci&oacute;n del equipo</option>
+                    <option value="Not sure yet — show me what's possible">No estoy seguro — mu&eacute;strame qu&eacute; es posible</option>
+                  </select>
+                  <p className="text-xs text-neutral-400">
+                    &iquest;No sabes por d&oacute;nde empezar? Para eso es exactamente la llamada.
+                  </p>
+                </div>
+
+                {/* Teléfono + Correo */}
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label className="mb-1.5 block text-sm font-medium text-slate-300" htmlFor="es-phone">
+                      Tel&eacute;fono <span className="text-[#F97316]">*</span>
+                    </label>
+                    <input
+                      id="es-phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      placeholder="(956) 000-0000"
+                      value={form.phone}
+                      onChange={handleChange}
+                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-1.5 block text-sm font-medium text-slate-300" htmlFor="es-email">
+                      Correo electr&oacute;nico <span className="text-[#F97316]">*</span>
+                    </label>
+                    <input
+                      id="es-email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="tu@negocio.com"
+                      value={form.email}
+                      onChange={handleChange}
+                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                    />
+                  </div>
+                </div>
+
+                {error && (
+                  <p className="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-2.5 text-sm text-red-400">
+                    {error}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full rounded-xl bg-gradient-to-r from-[#7DE3E6] to-[#5BC8CC] px-6 py-3.5 text-sm font-semibold text-[#0B1220] transition-all hover:shadow-[0_0_24px_rgba(125,227,230,0.3)] disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {submitting ? "Enviando\u2026" : "Solicitar una llamada"}
+                </button>
+              </form>
+            )}
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
 // ─── Why Rebel Minds Ops ──────────────────────────────────────────────────────
 function WhyRebelMindsOps() {
   const points = [
-    { title: "RGV Roots", desc: "Based in South Texas, we understand the local business culture and operational realities.", icon: MapPin },
-    { title: "Industrial & Org. Psychology Lens", desc: "We design for human adoption. If the team hates the tool, the system fails.", icon: Brain },
+    { title: "RGV Roots", desc: "Bicultural. Bilingual. Over 30 years navigating the unique business culture of the Rio Grande Valley — where relationships, language, and trust work differently. We don\u2019t just know this market. We are this market.", icon: MapPin },
+    { title: "Industrial & Org. Psychology Lens", desc: "Cognitive overload kills adoption. We design every system around the humans who have to use it daily — because a tool your team resists is just expensive shelf furniture.", icon: Brain },
     { title: "Business Ownership", desc: "We're not just coders; we are operators who have built and run businesses.", icon: HardHat },
     { title: "Modern Architecture", desc: "We utilize API-first toolchains and serverless functions to keep overhead low.", icon: Zap },
     { title: "You Own the Workflow", desc: "No vendor lock-in. We build it, secure it, and hand you the keys.", icon: KeyRound },
@@ -1093,7 +1472,7 @@ function WhyRebelMindsOps() {
               Why Rebel Minds Ops
             </h2>
             <p className="mx-auto max-w-xl text-slate-400">
-              A pragmatic approach built on practical implementation, not theory.
+              Other automation companies sell you a tool and disappear. We start with how your business actually operates — the friction, the cognitive overload, the habits your team already has — and we build around all of it.
             </p>
           </div>
         </FadeIn>
@@ -1444,7 +1823,7 @@ const FAQS = [
   },
   {
     q: "Do my crews need to install new apps?",
-    a: "Usually no. We specialize in SMS, WhatsApp, and email-based data capture. We use the tools your team is already comfortable with to prevent adoption friction.",
+    a: "Usually no. We design around the tools your team already uses daily — mobile-first, zero learning curve. That\u2019s how we prevent adoption friction.",
   },
   {
     q: "How fast can we go live with a new system?",
@@ -1452,7 +1831,7 @@ const FAQS = [
   },
   {
     q: "What does pricing depend on?",
-    a: "Pricing relies on workflow complexity, system components, and integration difficulty. We estimate a straightforward project timeline and costs during our free operational audit.",
+    a: "Pricing relies on workflow complexity, system components, and integration difficulty. We estimate a straightforward project timeline and costs during our Free Ops Scan.",
   },
 ];
 
@@ -1537,9 +1916,9 @@ function Footer() {
             <a
               href="#book"
               className="font-semibold text-[#7DE3E6] transition-colors hover:text-white"
-              onClick={() => trackEvent("CTA_Click", { location: "footer", cta: "Schedule Operational Audit" })}
+              onClick={() => trackEvent("CTA_Click", { location: "footer", cta: "Get a Free Ops Scan" })}
             >
-              Schedule Operational Audit
+              Get a Free Ops Scan
             </a>
           </nav>
         </div>
@@ -1638,11 +2017,11 @@ export default function Home() {
         <SectionDivider />
         <WhatWeBuild />
         <SectionDivider />
-        <HowWeWork />
-        <SectionDivider />
         <FeaturedSystem />
+        <JPCCaseStudy />
         <SectionDivider />
         <WhyRebelMindsOps />
+        <SpanishSection />
         <SectionDivider />
         <CyberTeaser />
         <SectionDivider />
