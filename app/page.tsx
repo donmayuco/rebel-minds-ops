@@ -2021,11 +2021,12 @@ export default function Home() {
         <JPCCaseStudy />
         <SectionDivider />
         <WhyRebelMindsOps />
+        <SectionDivider />
+        <Connect />
+        <SectionDivider />
         <SpanishSection />
         <SectionDivider />
         <CyberTeaser />
-        <SectionDivider />
-        <Connect />
         <SectionDivider />
         <FAQ />
         <Footer />
