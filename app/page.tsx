@@ -692,9 +692,9 @@ function Hero() {
 
             <FadeIn delay={200}>
               <p className="mb-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-                We design and implement practical systems that reduce admin work,
-                improve visibility, and restore operational control—built around
-                your real workflow.
+                Reduce manual work, improve visibility, and streamline operations
+                with practical automation systems built for real businesses under
+                real pressure.
               </p>
               <p className="mb-3 text-base font-bold text-[#7DE3E6] italic">
                 We Build the Systems Your IT Guys Don&apos;t Understand.
@@ -1930,7 +1930,7 @@ function Footer() {
 // ─── Page Root ────────────────────────────────────────────────────────────────
 export default function Home() {
   const businessDescription =
-    "We design and implement practical systems that reduce admin work, improve visibility, and restore operational control—built around your real workflow.";
+    "Reduce manual work, improve visibility, and streamline operations with practical automation systems built for real businesses under real pressure.";
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@rebelmindsops.com";
   const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+19560000000";
 
