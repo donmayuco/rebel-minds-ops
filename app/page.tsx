@@ -653,11 +653,10 @@ function Hero() {
   return (
     <section className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6">
       <div className="mx-auto w-full max-w-6xl">
-        <div className="grid items-start gap-12 lg:grid-cols-2 lg:min-h-[580px]">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Left: text */}
           <div
             className="flex flex-col items-center text-center lg:items-start lg:text-left"
-            style={{ minHeight: "580px" }}
           >
             <FadeIn>
               <div className="mb-6 flex flex-wrap justify-center gap-2 lg:justify-start">
@@ -673,19 +672,21 @@ function Hero() {
             </FadeIn>
 
             <FadeIn delay={100}>
-              <h1 className="mb-6 pb-1 text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-5xl">
-                Operational Systems & Automation for
+              <h1 className="mb-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                <span className="block leading-[1.15]">
+                  Operational Systems &amp; Automation for
+                </span>
                 <span
-                  className="gradient-text"
-                  style={{
-                    display: "block",
-                    minHeight: "1.4em",
-                    lineHeight: "1.4",
-                    overflow: "visible",
-                  }}
+                  className="relative block"
+                  style={{ height: "2.9em" }}
                 >
-                  {typewriterText}
-                  <span className="cursor-blink">|</span>
+                  <span
+                    className="gradient-text absolute left-0 top-0 right-0"
+                    style={{ lineHeight: "1.4" }}
+                  >
+                    {typewriterText}
+                    <span className="cursor-blink">|</span>
+                  </span>
                 </span>
               </h1>
             </FadeIn>
