@@ -653,11 +653,11 @@ function Hero() {
   return (
     <section className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6">
       <div className="mx-auto w-full max-w-6xl">
-        <div className="grid items-start gap-12 lg:grid-cols-2">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:min-h-[580px]">
           {/* Left: text */}
           <div
             className="flex flex-col items-center text-center lg:items-start lg:text-left"
-            style={{ minHeight: "460px" }}
+            style={{ minHeight: "580px" }}
           >
             <FadeIn>
               <div className="mb-6 flex flex-wrap justify-center gap-2 lg:justify-start">
@@ -747,7 +747,7 @@ function Hero() {
           </div>
 
           {/* Right: dashboard visual */}
-          <FadeIn delay={150} className="w-full lg:pt-8">
+          <FadeIn delay={150} className="w-full">
             <IndustryGrid />
           </FadeIn>
         </div>
