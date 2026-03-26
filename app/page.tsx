@@ -1149,12 +1149,12 @@ function JPCCaseStudy() {
               </div>
               <div className="mt-6 pt-6 border-t border-white/10">
                 <div className="flex items-center gap-4">
-                  <div className="rounded-lg bg-white px-3 py-2">
+                  <div className="rounded-xl bg-white px-4 py-3 shadow-[0_2px_12px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/JPC_logo.png"
                       alt="J. Peña Construction"
-                      className="h-10 w-auto object-contain"
+                      className="h-14 w-auto object-contain"
                     />
                   </div>
                   <div>
