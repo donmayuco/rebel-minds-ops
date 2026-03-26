@@ -692,23 +692,24 @@ function Hero() {
             </FadeIn>
 
             <FadeIn delay={200}>
-              <p className="mb-4 max-w-2xl text-lg leading-relaxed text-slate-300">
-                Reduce manual work, improve visibility, and streamline operations
-                with practical automation systems built for real businesses under
-                real pressure.
-              </p>
-              <ul className="mb-6 flex max-w-2xl flex-col gap-1.5 text-sm text-slate-400">
-                <li className="flex items-center gap-2">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#7DE3E6]/60" />
-                  Reduce administrative workload
+              <ul className="mb-6 flex flex-col gap-2">
+                <li className="flex items-center gap-3">
+                  <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#7DE3E6]/60" />
+                  <span className="text-lg leading-relaxed text-slate-300">
+                    Reduce administrative workload
+                  </span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#7DE3E6]/60" />
-                  Improve operational visibility
+                <li className="flex items-center gap-3">
+                  <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#7DE3E6]/60" />
+                  <span className="text-lg leading-relaxed text-slate-300">
+                    Improve operational visibility
+                  </span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#7DE3E6]/60" />
-                  Eliminate manual process friction
+                <li className="flex items-center gap-3">
+                  <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#7DE3E6]/60" />
+                  <span className="text-lg leading-relaxed text-slate-300">
+                    Eliminate manual process friction
+                  </span>
                 </li>
               </ul>
               <p className="mb-3 text-base font-bold text-[#7DE3E6] italic">
