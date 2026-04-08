@@ -5,6 +5,32 @@ const industryMap: Record<string, string> = {
   "logistics": "Logistics/Transport",
   "home-services": "Home Services",
   "professional": "Professional Services",
+  "other": "Other",
+  "Construction/Trades": "Construction/Trades",
+  "Logistics/Transport": "Logistics/Transport",
+  "Home Services": "Home Services",
+  "Professional Services": "Professional Services",
+  "Other": "Other",
+  "Construcción / Oficios": "Construction/Trades",
+  "Logística / Transporte": "Logistics/Transport",
+  "Servicios del Hogar": "Home Services",
+  "Servicios Profesionales": "Professional Services",
+  "Otro": "Other",
+};
+
+const priorityAreaMap: Record<string, string> = {
+  "Organize receipts and expenses for better accounting": "Organize receipts and expenses for better accounting",
+  "Improve project visibility and tracking": "Improve project visibility and tracking",
+  "Reduce manual data entry and paperwork": "Reduce manual data entry and paperwork",
+  "Respond to leads faster and track inquiries": "Respond to leads faster and track inquiries",
+  "Simplify scheduling and team coordination": "Simplify scheduling and team coordination",
+  "Not sure yet — show me what's possible": "Not sure yet — show me what's possible",
+  "Organizar recibos y gastos para contabilidad": "Organize receipts and expenses for better accounting",
+  "Mejorar la visibilidad y seguimiento de proyectos": "Improve project visibility and tracking",
+  "Reducir captura manual de datos y papeleo": "Reduce manual data entry and paperwork",
+  "Responder a prospectos más rápido": "Respond to leads faster and track inquiries",
+  "Simplificar horarios y coordinación del equipo": "Simplify scheduling and team coordination",
+  "No estoy seguro — muéstrame qué es posible": "Not sure yet — show me what's possible",
 };
 
 export async function POST(req: NextRequest) {
@@ -16,9 +42,9 @@ export async function POST(req: NextRequest) {
       industry: industryMap[body.industry ?? body.type ?? ""] ?? "",
       phone: body.phone ?? "",
       email: body.email ?? "",
-      priorityArea: body.priorityArea ?? "",
+      priorityArea: priorityAreaMap[body.priorityArea] ?? body.priorityArea ?? "",
       submittedAt: new Date().toISOString(),
-      source: body.source ?? "Website",
+      source: body.source === "Spanish Form" ? "Website" : (body.source ?? "Website"),
       status: "New",
       notes: body.notes ?? "",
     };
