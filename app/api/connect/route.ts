@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
       notes: body.notes ?? "",
     };
 
+    // ── Airtable: save lead (primary) ──
     const baseId = process.env.AIRTABLE_BASE_ID ?? "appA45e5Wy3pwfduC";
     const tableId = process.env.AIRTABLE_TABLE_ID ?? "tblr9VCJ6KtfhvfDA";
     const apiKey = process.env.AIRTABLE_API_KEY;
@@ -93,12 +94,17 @@ export async function POST(req: NextRequest) {
         { status: 500 }
       );
     }
-// ── n8n webhook: Slack + Email notifications (fire & forget) ──
-    fetch("https://rebelmindsops.app.n8n.cloud/webhook/connect-intake", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    }).catch((err) => console.error("n8n webhook error:", err));
+
+    // ── n8n webhook: Slack + Email notifications ──
+    try {
+      await fetch("https://rebelminds.app.n8n.cloud/webhook/connect-intake", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch (err) {
+      console.error("n8n webhook error:", err);
+    }
 
     return NextResponse.json({ success: true });
   } catch (err) {
