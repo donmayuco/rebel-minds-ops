@@ -470,7 +470,7 @@ function Credentials() {
       desc: "Completed pre-medical coursework building a foundation in clinical sciences, medical terminology, and human systems. This background shapes how we approach healthcare technology — we understand patient workflows, clinical data sensitivity, and why HIPAA compliance isn\u2019t just a checkbox but a design requirement.",
     },
     {
-      color: "#7DE3E6",
+      color: "#F59E0B",
       label: "Undergraduate — Summa Cum Laude",
       title: "University of Texas Rio Grande Valley (UTRGV) — Psychology",
       desc: "Graduated with the highest academic distinction from our own Valley university. Research focus on organizational psychology, human performance, and behavioral systems. UTRGV alumni building systems for UTRGV businesses.",
