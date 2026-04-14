@@ -783,22 +783,32 @@ function WhoItsFor() {
   const industries = [
     {
       title: "Construction & Trades",
-      desc: "Field-heavy businesses needing job-costing and mobile tracking.",
+      desc: "Receipt automation, job costing, mobile field capture, and project tracking — built for crews that work with their hands, not keyboards.",
       icon: HardHat,
     },
     {
       title: "Logistics & Transport",
-      desc: "Fleet-heavy operations needing clear compliance and expense logs.",
+      desc: "Rate con analysis, compliance docs, expense tracking, and driver-facing tools — in Spanish and English.",
       icon: Truck,
     },
     {
+      title: "Healthcare & Clinics",
+      desc: "Patient intake, appointment reminders, review routing, and HIPAA-compliant messaging — for clinics serving Spanish-speaking communities.",
+      icon: HeartPulse,
+    },
+    {
       title: "Home Services",
-      desc: "Dispatch teams needing fewer paper trails and faster billing.",
+      desc: "Lead capture, dispatch coordination, invoicing, and customer follow-up — so you never lose a job to a missed call.",
       icon: HomeIcon,
     },
     {
+      title: "Legal Offices",
+      desc: "Document workflows, client onboarding, billing automation, and secure communication — your billable hours stay billable.",
+      icon: Scale,
+    },
+    {
       title: "Professional Services",
-      desc: "Agencies and firms needing streamlined client onboarding and invoicing.",
+      desc: "Workspace setup, team communication, cloud systems, and client portals — streamlined so your back office keeps up with your front office.",
       icon: Briefcase,
     },
   ];
@@ -822,7 +832,7 @@ function WhoItsFor() {
           </div>
         </FadeIn>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((ind, i) => (
             <FadeIn key={ind.title} delay={i * 80}>
               <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#7DE3E6]/30 hover:bg-white/[0.06] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
