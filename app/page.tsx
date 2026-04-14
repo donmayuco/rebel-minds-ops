@@ -31,11 +31,11 @@ import IPNotice from "@/app/components/IPNotice";
 // ─── Constants ────────────────────────────────────────────────────────────────
 const TYPEWRITER_WORDS = [
   "Growing RGV Businesses",
+  "Business Data & Cloud Systems",
   "Healthcare & Clinics (HIPAA Aware)",
   "IT Infrastructure",
   "Professional Services",
   "Construction Companies",
-  "Restaurants & Retailers",
   "Logistics Teams",
   "Home Service Providers",
 ];
