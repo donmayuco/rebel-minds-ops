@@ -60,6 +60,8 @@ function SectionDivider() {
 
 function Nav() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#0B1220]/90 backdrop-blur-md">
@@ -85,13 +87,39 @@ function Nav() {
           </a>
 
           <div className="hidden items-center gap-6 md:flex">
-            <a href="/" className="text-sm text-slate-400 transition-colors hover:text-white">Home</a>
             <a href="/our-science" className="text-sm text-slate-400 transition-colors hover:text-white">Our Science</a>
-            <a href="/cybersecurity" className="flex items-center gap-1 text-sm text-slate-400 transition-colors hover:text-white">
-              Cybersecurity
-              <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
-            </a>
-            <a href="/cybersecurity#cyber-intake" className="text-sm text-slate-400 transition-colors hover:text-white">Free Security Assessment</a>
+            <a href="/#what-we-build" className="text-sm text-slate-400 transition-colors hover:text-white">What We Build</a>
+            <div
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="inline-flex items-center gap-1 text-sm text-slate-400 transition-colors hover:text-white"
+              >
+                Services
+                <svg className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {servicesOpen && (
+                <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2" style={{ minWidth: 220 }}>
+                  <div className="rounded-xl border border-white/[0.08] bg-[#0B1220] p-1.5 shadow-xl backdrop-blur-md">
+                    <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
+                      Cybersecurity
+                      <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                    </a>
+                    <a href="/cybersecurity#cyber-intake" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
+                      Free Security Assessment
+                    </a>
+                    <a href="/our-science" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
+                      Our Science
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
             <a
               href="https://rebelmindsops.gumroad.com"
               target="_blank"
@@ -129,19 +157,35 @@ function Nav() {
       {open && (
         <div className="border-t border-white/[0.08] bg-[#0E1A2B] px-4 py-4 md:hidden">
           <div className="flex flex-col gap-1">
-            <a href="/" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-              Home
-            </a>
             <a href="/our-science" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
               Our Science
             </a>
-            <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-              Cybersecurity
-              <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+            <a href="/#what-we-build" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+              What We Build
             </a>
-            <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-              Free Security Assessment
-            </a>
+            <button
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+            >
+              Services
+              <svg className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {mobileServicesOpen && (
+              <div className="flex flex-col gap-0.5 pl-4">
+                <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+                  Cybersecurity
+                  <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                </a>
+                <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+                  Free Security Assessment
+                </a>
+                <a href="/our-science" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+                  Our Science
+                </a>
+              </div>
+            )}
             <a
               href="https://rebelmindsops.gumroad.com"
               target="_blank"
