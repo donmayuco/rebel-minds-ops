@@ -5,6 +5,7 @@ const industryMap: Record<string, string> = {
   "logistics": "Logistics/Transport",
   "home-services": "Home Services",
   "professional": "Professional Services",
+  "healthcare": "Healthcare/Medical",
   "other": "Other",
   "Construction/Trades": "Construction/Trades",
   "Logistics/Transport": "Logistics/Transport",
@@ -15,6 +16,7 @@ const industryMap: Record<string, string> = {
   "Logística / Transporte": "Logistics/Transport",
   "Servicios del Hogar": "Home Services",
   "Servicios Profesionales": "Professional Services",
+  "Salud / Médico": "Healthcare/Medical",
   "Otro": "Other",
 };
 
@@ -24,12 +26,16 @@ const priorityAreaMap: Record<string, string> = {
   "Reduce manual data entry and paperwork": "Reduce manual data entry and paperwork",
   "Respond to leads faster and track inquiries": "Respond to leads faster and track inquiries",
   "Simplify scheduling and team coordination": "Simplify scheduling and team coordination",
+  "Set up or improve IT infrastructure (WiFi, email, workspace tools)": "Set up or improve IT infrastructure (WiFi, email, workspace tools)",
+  "Healthcare patient systems (intake, reviews, HIPAA messaging)": "Healthcare patient systems (intake, reviews, HIPAA messaging)",
   "Not sure yet — show me what's possible": "Not sure yet — show me what's possible",
   "Organizar recibos y gastos para contabilidad": "Organize receipts and expenses for better accounting",
   "Mejorar la visibilidad y seguimiento de proyectos": "Improve project visibility and tracking",
   "Reducir captura manual de datos y papeleo": "Reduce manual data entry and paperwork",
   "Responder a prospectos más rápido": "Respond to leads faster and track inquiries",
   "Simplificar horarios y coordinación del equipo": "Simplify scheduling and team coordination",
+  "Configurar o mejorar infraestructura de TI": "Set up or improve IT infrastructure (WiFi, email, workspace tools)",
+  "Sistemas para pacientes (formularios, reseñas, mensajería HIPAA)": "Healthcare patient systems (intake, reviews, HIPAA messaging)",
   "No estoy seguro — muéstrame qué es posible": "Not sure yet — show me what's possible",
 };
 

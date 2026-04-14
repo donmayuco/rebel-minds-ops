@@ -36,6 +36,8 @@ const TYPEWRITER_WORDS = [
   "Restaurants & Retailers",
   "Logistics Teams",
   "Home Service Providers",
+  "Healthcare & Clinics",
+  "IT Infrastructure",
 ];
 
 const TERM_LINES = [
@@ -241,14 +243,14 @@ function IndustryGrid() {
       icon: HeartPulse,
       accent: "#F472B6",
       title: "Healthcare",
-      pain: "Patient care is the priority. We make sure everything else doesn\u2019t get in the way.",
+      pain: "Patient intake, reviews, HIPAA messaging, and appointment automation — so your staff focuses on care, not paperwork.",
       badge: "HIPAA-Aware Development",
     },
     {
       icon: Briefcase,
       accent: "#818CF8",
       title: "Professional Services",
-      pain: "Your clients expect speed. Your back office slows you down.",
+      pain: "Workspace setup, team communication, document workflows, and client onboarding — streamlined so your back office keeps up.",
       badge: null,
     },
   ];
@@ -554,6 +556,15 @@ function Nav() {
                     <a href="/cybersecurity#cyber-intake" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Free Security Assessment
                     </a>
+                    <a
+                      href="https://rebelmindsops.gumroad.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+                    >
+                      DIY Templates
+                      <span className="rounded-full bg-[#F59E0B]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F59E0B]">Shop</span>
+                    </a>
                   </div>
                 </div>
               )}
@@ -624,6 +635,16 @@ function Nav() {
                 </a>
                 <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Free Security Assessment
+                </a>
+                <a
+                  href="https://rebelmindsops.gumroad.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white"
+                  onClick={() => setOpen(false)}
+                >
+                  DIY Templates
+                  <span className="rounded-full bg-[#F59E0B]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F59E0B]">Shop</span>
                 </a>
               </div>
             )}
@@ -713,7 +734,7 @@ function Hero() {
                 </li>
               </ul>
               <p className="mb-3 text-base font-bold text-[#7DE3E6] italic">
-                We Build the Systems Your IT Guys Don&apos;t Understand.
+                We Build the Systems — and Manage the IT — Your Business Depends On.
               </p>
               <p className="mb-10 text-sm font-medium text-slate-400">
                 Local, structured, and hands-on. Not hype. Not templates. Just
@@ -849,6 +870,9 @@ function WhatWeBuild() {
     { title: "Client Portals",       desc: "Unified dashboards where your customers can review project status.",                             icon: LayoutDashboard, span: "lg:col-span-1", accent: "#A855F7" },
     { title: "Inventory Workflows",  desc: "Barcode scanning and stock alert systems synced to your core database.",                         icon: Package,       span: "lg:col-span-2", accent: "#F59E0B" },
     { title: "Custom Dashboards",    desc: "Real-time KPI visualization tailored exactly to what ownership wants to see.",                   icon: ClipboardCheck, span: "lg:col-span-1", accent: "#C084FC" },
+    { title: "Workspace & Communication",  desc: "We deploy and configure Microsoft 365, Google Workspace, Slack, or Teams. Proper channels, permissions, and security from day one — no more scattered emails and group texts.",  icon: MessageCircle,  span: "lg:col-span-2", accent: "#3B82F6" },
+    { title: "Network & Connectivity",     desc: "Reliable WiFi and clean network architecture for offices, clinics, and job sites. We audit what you have, fix what's broken, and set up what's missing — routers, access points, and secure remote access.",  icon: Globe,          span: "lg:col-span-1", accent: "#14B8A6" },
+    { title: "Patient Experience Systems",  desc: "Bilingual patient intake, automated appointment reminders, review collection and routing, and HIPAA-compliant communication workflows. Built for clinics serving Spanish-speaking communities.",  icon: HeartPulse,     span: "lg:col-span-1", accent: "#F472B6" },
   ];
 
   const pipelineSteps = [
@@ -1380,6 +1404,7 @@ function SpanishSection() {
                     <option value="logistics">Log&iacute;stica / Transporte</option>
                     <option value="home-services">Servicios del Hogar</option>
                     <option value="professional-services">Servicios Profesionales</option>
+                    <option value="healthcare">Salud / M&eacute;dico</option>
                     <option value="other">Otro</option>
                   </select>
                 </div>
@@ -1402,6 +1427,8 @@ function SpanishSection() {
                     <option value="Reduce manual data entry and paperwork">Reducir captura manual de datos y papeleo</option>
                     <option value="Respond to leads faster and track inquiries">Responder a prospectos m&aacute;s r&aacute;pido</option>
                     <option value="Simplify scheduling and team coordination">Simplificar horarios y coordinaci&oacute;n del equipo</option>
+                    <option value="Set up or improve IT infrastructure (WiFi, email, workspace tools)">Configurar o mejorar infraestructura de TI</option>
+                    <option value="Healthcare patient systems (intake, reviews, HIPAA messaging)">Sistemas para pacientes (formularios, rese&ntilde;as, mensajer&iacute;a HIPAA)</option>
                     <option value="Not sure yet — show me what's possible">No estoy seguro — mu&eacute;strame qu&eacute; es posible</option>
                   </select>
                   <p className="text-xs text-neutral-400">
@@ -1726,6 +1753,7 @@ function Connect() {
                     <option value="logistics">Logistics / Transport</option>
                     <option value="home-services">Home Services</option>
                     <option value="professional-services">Professional Services</option>
+                    <option value="healthcare">Healthcare / Medical</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -1760,6 +1788,12 @@ function Connect() {
                     </option>
                     <option value="Simplify scheduling and team coordination">
                       Simplify scheduling and team coordination
+                    </option>
+                    <option value="Set up or improve IT infrastructure (WiFi, email, workspace tools)">
+                      Set up or improve IT infrastructure
+                    </option>
+                    <option value="Healthcare patient systems (intake, reviews, HIPAA messaging)">
+                      Healthcare patient systems
                     </option>
                     <option value="Not sure yet — show me what’s possible">
                       Not sure yet — show me what’s possible
