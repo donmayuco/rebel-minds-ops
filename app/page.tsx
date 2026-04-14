@@ -782,6 +782,16 @@ function Hero() {
 function WhoItsFor() {
   const industries = [
     {
+      title: "Healthcare & Clinics",
+      desc: "Patient intake, appointment reminders, review routing, and HIPAA-compliant messaging — for clinics serving Spanish-speaking communities.",
+      icon: HeartPulse,
+    },
+    {
+      title: "Legal Offices",
+      desc: "Document workflows, client onboarding, billing automation, and secure communication — your billable hours stay billable.",
+      icon: Scale,
+    },
+    {
       title: "Construction & Trades",
       desc: "Receipt automation, job costing, mobile field capture, and project tracking — built for crews that work with their hands, not keyboards.",
       icon: HardHat,
@@ -792,24 +802,14 @@ function WhoItsFor() {
       icon: Truck,
     },
     {
-      title: "Healthcare & Clinics",
-      desc: "Patient intake, appointment reminders, review routing, and HIPAA-compliant messaging — for clinics serving Spanish-speaking communities.",
-      icon: HeartPulse,
+      title: "Professional Services",
+      desc: "Workspace setup, team communication, cloud systems, and client portals — streamlined so your back office keeps up with your front office.",
+      icon: Briefcase,
     },
     {
       title: "Home Services",
       desc: "Lead capture, dispatch coordination, invoicing, and customer follow-up — so you never lose a job to a missed call.",
       icon: HomeIcon,
-    },
-    {
-      title: "Legal Offices",
-      desc: "Document workflows, client onboarding, billing automation, and secure communication — your billable hours stay billable.",
-      icon: Scale,
-    },
-    {
-      title: "Professional Services",
-      desc: "Workspace setup, team communication, cloud systems, and client portals — streamlined so your back office keeps up with your front office.",
-      icon: Briefcase,
     },
   ];
 
