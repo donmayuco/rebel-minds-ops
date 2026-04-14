@@ -1973,9 +1973,9 @@ function Footer() {
           </div>
           <nav className="flex flex-col flex-wrap items-center justify-center gap-3 text-sm text-slate-400 sm:items-end">
             <div className="mb-2 flex gap-5">
-              <a href="#for-who" className="transition-colors hover:text-white">For who</a>
-              <a href="#what-we-build" className="transition-colors hover:text-white">What we build</a>
-              <a href="#how" className="transition-colors hover:text-white">How we work</a>
+              <a href="/" className="transition-colors hover:text-white">Home</a>
+              <a href="/our-science" className="transition-colors hover:text-white">Our Science</a>
+              <a href="/cybersecurity" className="transition-colors hover:text-white">Cybersecurity</a>
             </div>
             <a
               href="#book"
