@@ -1925,20 +1925,32 @@ function Connect() {
 // ─── FAQ ──────────────────────────────────────────────────────────────────────
 const FAQS = [
   {
-    q: "Do you only do setup, or do you manage the tools?",
-    a: "We are a hybrid team. We design the architecture, implement the integration, and offer ongoing stabilization support. We don't just hand you a login—we make sure the system stays running smoothly.",
+    q: "Do you only do automation, or do you handle general IT too?",
+    a: "Both. We started in automation and operational systems, but we now offer full IT consulting — workspace setup (Microsoft 365, Google Workspace, Slack), network and WiFi management, cybersecurity, cloud systems, and ongoing IT support. Think of us as your full IT department, without the full-time salary.",
   },
   {
-    q: "Do my crews need to install new apps?",
-    a: "Usually no. We design around the tools your team already uses daily — mobile-first, zero learning curve. That\u2019s how we prevent adoption friction.",
+    q: "Do you work with healthcare businesses?",
+    a: "Yes — healthcare is one of our primary verticals. We build HIPAA-aware patient intake systems, bilingual appointment reminders, review routing, and secure communication workflows. Our founder has a pre-medical sciences background and peer-reviewed research in cognitive psychology, which informs how we design systems for clinical environments.",
+  },
+  {
+    q: "Do my crews or staff need to install new apps?",
+    a: "Usually no. We design around the tools your team already uses daily — WhatsApp, email, mobile cameras. Zero learning curve. That\u2019s how we prevent adoption friction.",
   },
   {
     q: "How fast can we go live with a new system?",
-    a: "Most foundational modules (like ExpenseTracking or custom forms) take 2–3 weeks from audit to launch. Complex operational architectures can take a month or more, broken down into launch phases.",
+    a: "IT services like workspace setup or network fixes can be done in days. Automation modules like expense tracking or patient review systems take 2\u20133 weeks. Complex multi-system architectures take a month or more, broken into launch phases.",
+  },
+  {
+    q: "Do you offer ongoing support or just setup?",
+    a: "Both. We offer one-time project work (network setup, workspace migration, automation builds) and monthly managed support (IT help desk, system monitoring, automation maintenance). Most clients start with a project and then move to a monthly plan.",
   },
   {
     q: "What does pricing depend on?",
-    a: "Pricing relies on workflow complexity, system components, and integration difficulty. We estimate a straightforward project timeline and costs during our Free Ops Scan.",
+    a: "For one-time projects: scope and complexity. For monthly support: number of users and services included. We estimate everything during a free 15-minute Ops Scan — no surprises.",
+  },
+  {
+    q: "Do you sell templates for people who want to build it themselves?",
+    a: "Yes. We offer production-tested n8n automation templates on our Gumroad store for builders who want the DIY route. Visit rebelmindsops.gumroad.com to browse.",
   },
 ];
 
