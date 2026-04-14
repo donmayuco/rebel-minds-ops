@@ -9,7 +9,6 @@ import {
   Clock,
   Globe,
   MapPin,
-  ClipboardCheck,
   HardHat,
   Home as HomeIcon,
   KeyRound,
@@ -865,14 +864,62 @@ function WhoItsFor() {
 // ─── What We Build (Bento Grid) ───────────────────────────────────────────────
 function WhatWeBuild() {
   const systems = [
-    { title: "Field Data Capture",   desc: "Field-ready capture tools your crews already know how to use — zero new apps, zero learning curve.",  icon: ScanLine,      span: "lg:col-span-2", accent: "#8B5CF6" },
-    { title: "Expense Tracking",     desc: "Expense workflows that keep your books clean without the manual work.",                          icon: Receipt,       span: "lg:col-span-2", accent: "#F97316" },
-    { title: "Client Portals",       desc: "Unified dashboards where your customers can review project status.",                             icon: LayoutDashboard, span: "lg:col-span-1", accent: "#A855F7" },
-    { title: "Inventory Workflows",  desc: "Barcode scanning and stock alert systems synced to your core database.",                         icon: Package,       span: "lg:col-span-2", accent: "#F59E0B" },
-    { title: "Custom Dashboards",    desc: "Real-time KPI visualization tailored exactly to what ownership wants to see.",                   icon: ClipboardCheck, span: "lg:col-span-1", accent: "#C084FC" },
-    { title: "Workspace & Communication",  desc: "We deploy and configure Microsoft 365, Google Workspace, Slack, or Teams. Proper channels, permissions, and security from day one — no more scattered emails and group texts.",  icon: MessageCircle,  span: "lg:col-span-2", accent: "#3B82F6" },
-    { title: "Network & Connectivity",     desc: "Reliable WiFi and clean network architecture for offices, clinics, and job sites. We audit what you have, fix what's broken, and set up what's missing — routers, access points, and secure remote access.",  icon: Globe,          span: "lg:col-span-1", accent: "#14B8A6" },
-    { title: "Patient Experience Systems",  desc: "Bilingual patient intake, automated appointment reminders, review collection and routing, and HIPAA-compliant communication workflows. Built for clinics serving Spanish-speaking communities.",  icon: HeartPulse,     span: "lg:col-span-1", accent: "#F472B6" },
+    {
+      title: "Expense & Receipt Automation",
+      desc: "WhatsApp-based receipt capture with AI extraction. Your crews snap a photo, the system does the rest — vendor, amount, date, category, all organized automatically.",
+      icon: Receipt,
+      span: "lg:col-span-2",
+      accent: "#F97316"
+    },
+    {
+      title: "Workspace & Communication",
+      desc: "Microsoft 365, Google Workspace, Slack, or Teams — deployed and configured correctly. Proper channels, permissions, and security from day one.",
+      icon: MessageCircle,
+      span: "lg:col-span-2",
+      accent: "#3B82F6"
+    },
+    {
+      title: "Network & Connectivity",
+      desc: "WiFi that actually works. We audit, fix, and set up routers, access points, VPNs, and firewalls for offices, clinics, and job sites.",
+      icon: Globe,
+      span: "lg:col-span-2",
+      accent: "#14B8A6"
+    },
+    {
+      title: "Business Data & Cloud Systems",
+      desc: "Database design, data migration from spreadsheets, cloud hosting, and automated backups. Your business data — organized, secure, and accessible from anywhere.",
+      icon: Package,
+      span: "lg:col-span-2",
+      accent: "#8B5CF6"
+    },
+    {
+      title: "Patient Experience Systems",
+      desc: "Bilingual patient intake, automated appointment reminders, review collection and routing, and HIPAA-compliant communication workflows.",
+      icon: HeartPulse,
+      span: "lg:col-span-1",
+      accent: "#F472B6"
+    },
+    {
+      title: "Document & Contract Analysis",
+      desc: "Send a PDF via WhatsApp — AI reads the full document, extracts key data, flags risks, and sends you a summary in seconds. Built for rate cons, invoices, and contracts.",
+      icon: ScanLine,
+      span: "lg:col-span-2",
+      accent: "#A855F7"
+    },
+    {
+      title: "Cybersecurity Essentials",
+      desc: "2FA rollout, password manager setup, email security hardening, and team training. The baseline protection every business needs but most skip.",
+      icon: KeyRound,
+      span: "lg:col-span-1",
+      accent: "#EF4444"
+    },
+    {
+      title: "Custom Dashboards & Reporting",
+      desc: "Real-time KPI visualization built for ownership. See what matters — revenue, job costs, team performance — without digging through spreadsheets.",
+      icon: LayoutDashboard,
+      span: "lg:col-span-2",
+      accent: "#F59E0B"
+    },
   ];
 
   const pipelineSteps = [
