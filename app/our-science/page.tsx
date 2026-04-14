@@ -464,10 +464,22 @@ function Credentials() {
       desc: "Selected for a full-ride graduate scholarship to one of the nation\u2019s leading I-O Psychology programs. Studied organizational behavior, psychometrics, training design, and human factors research at the graduate level.",
     },
     {
+      color: "#F472B6",
+      label: "Pre-Medical Sciences",
+      title: "Pre-Medical Studies — Biology, Chemistry, Anatomy & Physiology",
+      desc: "Completed pre-medical coursework building a foundation in clinical sciences, medical terminology, and human systems. This background shapes how we approach healthcare technology — we understand patient workflows, clinical data sensitivity, and why HIPAA compliance isn\u2019t just a checkbox but a design requirement.",
+    },
+    {
       color: "#7DE3E6",
       label: "Undergraduate — Summa Cum Laude",
       title: "University of Texas Rio Grande Valley (UTRGV) — Psychology",
       desc: "Graduated with the highest academic distinction from our own Valley university. Research focus on organizational psychology, human performance, and behavioral systems. UTRGV alumni building systems for UTRGV businesses.",
+    },
+    {
+      color: "#7DE3E6",
+      label: "Peer-Reviewed Researcher",
+      title: "Published Research — Cognitive Psychology & Behavioral Systems",
+      desc: "Author of peer-reviewed publications in cognitive psychology and a published thesis examining human behavior and decision-making. This research discipline is the foundation of every system we design — because technology that ignores how people actually think and behave doesn\u2019t get adopted. It gets abandoned.",
     },
     {
       color: "#F59E0B",
