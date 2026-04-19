@@ -2011,7 +2011,9 @@ function Footer() {
             </span>
             <div className="mt-2 space-y-1 text-sm text-slate-400">
               <p>
-                
+                <a href="tel:+19565204123" className="transition-colors hover:text-white">
+                  (956) 520-4123
+                </a>
               </p>
             </div>
           </div>
@@ -2040,7 +2042,7 @@ export default function Home() {
   const businessDescription =
     "Reduce manual work, improve visibility, and streamline operations with practical automation systems built for real businesses under real pressure.";
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@rebelmindsops.com";
-  const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+19560000000";
+  const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+19565204123";
 
   const jsonLd = useMemo(
     () => ({
