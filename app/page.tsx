@@ -1229,7 +1229,7 @@ function JPCCaseStudy() {
                     />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-white">Pepe Pe&ntilde;a</p>
+                    <p className="text-sm font-bold text-white">Jose Pe&ntilde;a</p>
                     <p className="text-xs text-slate-400 mt-0.5">Owner — J. Pe&ntilde;a Construction</p>
                     <p className="text-xs text-slate-500">Rio Grande Valley, Texas</p>
                   </div>
@@ -1311,6 +1311,12 @@ function JPCCaseStudy() {
                   <CheckCircle className="h-4 w-4 text-[#7DE3E6] mt-0.5 flex-shrink-0" />
                   <p className="text-sm text-slate-300 leading-relaxed">
                     Buyer and seller info — including securely stored copies of identification — is captured inside each transaction. The team stops chasing texts for documents and protects sensitive client data behind authentication.
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <CheckCircle className="h-4 w-4 text-[#7DE3E6] mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Yard signs become live lead capture. A buyer scans the QR, talks to a stateful WhatsApp bot that qualifies their interest, and only real, qualified buyers ping Leslie&apos;s phone — with the listing and contact info already attached.
                   </p>
                 </div>
                 <div className="flex gap-3">
