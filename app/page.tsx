@@ -1140,7 +1140,7 @@ function JPCCaseStudy() {
         <FadeIn>
           <div className="mb-12 text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F59E0B]/30 bg-[#F59E0B]/[0.08] px-3 py-1.5 text-xs font-semibold text-[#F59E0B]">
-              Real Work. Real Client.
+              Real Work. Real Clients.
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
               What Happens When a Growing Business Finally Stops Chasing Its Own Paperwork.
@@ -1231,6 +1231,118 @@ function JPCCaseStudy() {
                   <div>
                     <p className="text-sm font-bold text-white">Pepe Pe&ntilde;a</p>
                     <p className="text-xs text-slate-400 mt-0.5">Owner — J. Pe&ntilde;a Construction</p>
+                    <p className="text-xs text-slate-500">Rio Grande Valley, Texas</p>
+                  </div>
+                </div>
+                <span className="inline-block mt-4 rounded-full border border-[#F59E0B]/30 bg-[#F59E0B]/[0.08] px-3 py-1 text-[10px] font-semibold text-[#F59E0B]">
+                  Active Case Study Partner
+                </span>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Divider between case studies */}
+        <FadeIn delay={250}>
+          <div className="my-16 flex items-center gap-4">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Next Client</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          </div>
+        </FadeIn>
+
+        {/* Abolengo Properties — case header */}
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+              What Happens When Every Open Transaction Finally Lives in One Place.
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-slate-400">
+              Abolengo Properties is a real estate brokerage in the Rio Grande Valley running multiple active transactions in parallel — own listings and co-op deals. Each closing has dozens of moving parts. We built Leslie a system so none of them slip.
+            </p>
+          </div>
+        </FadeIn>
+
+        {/* Pain Block */}
+        <FadeIn delay={100}>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 mb-6">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              The Operational Cost — Before
+            </p>
+            <div className="space-y-4">
+              <div className="flex gap-3">
+                <Clock className="h-4 w-4 text-[#F59E0B] mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  With multiple active transactions running at once, deal information was scattered across email threads, paper folders, PDFs, and group texts. There was no single place to see — at a glance — the real-time status of every open deal.
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <Clock className="h-4 w-4 text-[#F59E0B] mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Closing day depends on dozens of small steps — utilities transferred, MLS updated, lock box removed, alarm codes released, keys delivered. Manual checklists rely on memory and discipline alone, and even one missed item erodes the professional polish that defines the brand.
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <Clock className="h-4 w-4 text-[#F59E0B] mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Vendor and party info — lender, title, inspector, surveyor, co-broker, buyer and seller IDs — lived in different inboxes and phones. Onboarding an assistant or a new team member meant rebuilding the rolodex from scratch every time.
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Result Block */}
+        <FadeIn delay={200}>
+          <div className="grid gap-6 mt-6 lg:grid-cols-2">
+            {/* Left Card — Outcomes */}
+            <div className="rounded-2xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.04] p-8">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+                After Rebel Minds OPS
+              </p>
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <CheckCircle className="h-4 w-4 text-[#7DE3E6] mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Every active transaction lives on one intelligent dashboard. Address, key dates, parties, vendors, and live closing-day checklist progress — all in a single view, shared across the team.
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <CheckCircle className="h-4 w-4 text-[#7DE3E6] mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Buyer and seller info — including securely stored copies of identification — is captured inside each transaction. The team stops chasing texts for documents and protects sensitive client data behind authentication.
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <CheckCircle className="h-4 w-4 text-[#7DE3E6] mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    A persistent business contacts directory replaces scattered phone lists. New deals pull from a trusted pool of vendors. Onboarding new staff takes minutes — not weeks.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Card — Pull Quote */}
+            <div className="flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+              <div>
+                <div className="text-6xl text-[#7DE3E6]/20 font-serif leading-none mb-4">&ldquo;</div>
+                <p className="text-xl font-semibold text-white leading-relaxed italic">
+                  &ldquo;Every deal in one place. Every closing under control.&rdquo;
+                </p>
+              </div>
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-xl bg-white px-4 py-3 shadow-[0_2px_12px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/Abolengo_logo.jpg"
+                      alt="Abolengo Properties"
+                      className="h-14 w-auto object-contain"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-white">Leslie De Le&oacute;n</p>
+                    <p className="text-xs text-slate-400 mt-0.5">Owner &mdash; Abolengo Properties</p>
                     <p className="text-xs text-slate-500">Rio Grande Valley, Texas</p>
                   </div>
                 </div>
