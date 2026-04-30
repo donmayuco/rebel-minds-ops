@@ -1343,7 +1343,7 @@ function JPCCaseStudy() {
                     <img
                       src="/Abolengo_logo.jpg"
                       alt="Abolengo Properties"
-                      className="h-14 w-auto object-contain"
+                      className="h-20 w-auto object-contain"
                     />
                   </div>
                   <div>
