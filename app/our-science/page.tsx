@@ -87,6 +87,7 @@ function Nav() {
 
           <div className="hidden items-center gap-6 md:flex">
             <a href="/our-science" className="text-sm text-slate-400 transition-colors hover:text-white">Our Science</a>
+            <a href="/healthcare" className="text-sm text-slate-400 transition-colors hover:text-white">Healthcare</a>
             <a href="/#what-we-build" className="text-sm text-slate-400 transition-colors hover:text-white">What We Build</a>
             <div
               className="relative"
@@ -109,8 +110,15 @@ function Nav() {
                       Cybersecurity
                       <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                     </a>
+                    <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
+                      Healthcare
+                      <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                    </a>
                     <a href="/cybersecurity#cyber-intake" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Free Security Assessment
+                    </a>
+                    <a href="/healthcare#hipaa-audit" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
+                      Free HIPAA Stack Audit
                     </a>
                     <a href="/our-science" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Our Science
@@ -159,6 +167,9 @@ function Nav() {
             <a href="/our-science" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
               Our Science
             </a>
+            <a href="/healthcare" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+              Healthcare
+            </a>
             <a href="/#what-we-build" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
               What We Build
             </a>
@@ -177,8 +188,15 @@ function Nav() {
                   Cybersecurity
                   <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                 </a>
+                <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+                  Healthcare
+                  <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                </a>
                 <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Free Security Assessment
+                </a>
+                <a href="/healthcare#hipaa-audit" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+                  Free HIPAA Stack Audit
                 </a>
                 <a href="/our-science" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Our Science
@@ -491,8 +509,8 @@ function Credentials() {
     {
       color: "#7DE3E6",
       label: "Peer-Reviewed Researcher",
-      title: "Published Research — Cognitive Psychology & Behavioral Systems",
-      desc: "Author of peer-reviewed publications in cognitive psychology and a published thesis examining human behavior and decision-making. This research discipline is the foundation of every system we design — because technology that ignores how people actually think and behave doesn\u2019t get adopted. It gets abandoned.",
+      title: "Published Research — Cognitive Psychology & Industrial-Organizational Psychology",
+      desc: "Published research in cognitive psychology and Industrial-Organizational Psychology — the sciences of how individuals process information and how teams behave inside organizations. The methodological discipline academic journals demand is the same discipline we bring to healthcare automation: hypothesis-driven design, evidence-based methods, measurable outcomes. Healthcare deserves nothing less.",
     },
     {
       color: "#F59E0B",
@@ -657,9 +675,10 @@ function Footer() {
             </span>
           </div>
           <nav className="flex flex-col flex-wrap items-center justify-center gap-3 text-sm text-slate-400 sm:items-end">
-            <div className="mb-2 flex gap-5">
+            <div className="mb-2 flex flex-wrap justify-center gap-5">
               <a href="/" className="transition-colors hover:text-white">Home</a>
               <a href="/our-science" className="transition-colors hover:text-white">Our Science</a>
+              <a href="/healthcare" className="transition-colors hover:text-white">Healthcare</a>
               <a href="/cybersecurity" className="transition-colors hover:text-white">Cybersecurity</a>
             </div>
             <a

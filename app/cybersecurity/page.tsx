@@ -97,6 +97,7 @@ function Nav() {
 
           <div className="hidden items-center gap-6 md:flex">
             <a href="/our-science" className="text-sm text-slate-400 transition-colors hover:text-white">Our Science</a>
+            <a href="/healthcare" className="text-sm text-slate-400 transition-colors hover:text-white">Healthcare</a>
             <a href="/#what-we-build" className="text-sm text-slate-400 transition-colors hover:text-white">What We Build</a>
             <div
               className="relative"
@@ -119,8 +120,15 @@ function Nav() {
                       Cybersecurity
                       <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                     </a>
+                    <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
+                      Healthcare
+                      <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                    </a>
                     <a href="/cybersecurity#cyber-intake" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Free Security Assessment
+                    </a>
+                    <a href="/healthcare#hipaa-audit" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
+                      Free HIPAA Stack Audit
                     </a>
                     <a href="/our-science" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Our Science
@@ -169,6 +177,9 @@ function Nav() {
             <a href="/our-science" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
               Our Science
             </a>
+            <a href="/healthcare" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+              Healthcare
+            </a>
             <a href="/#what-we-build" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
               What We Build
             </a>
@@ -187,8 +198,15 @@ function Nav() {
                   Cybersecurity
                   <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                 </a>
+                <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+                  Healthcare
+                  <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                </a>
                 <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Free Security Assessment
+                </a>
+                <a href="/healthcare#hipaa-audit" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+                  Free HIPAA Stack Audit
                 </a>
                 <a href="/our-science" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Our Science

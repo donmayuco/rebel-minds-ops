@@ -244,6 +244,7 @@ function IndustryGrid() {
       title: "Healthcare",
       pain: "Patient intake, reviews, HIPAA messaging, and appointment automation — so your staff focuses on care, not paperwork.",
       badge: "HIPAA-Aware Development",
+      href: "/healthcare",
     },
     {
       icon: Briefcase,
@@ -266,53 +267,59 @@ function IndustryGrid() {
         </div>
 
         <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-          {industries.map((ind) => (
-            <div
-              key={ind.title}
-              className="group relative flex min-h-[120px] flex-col overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.03] p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.06]"
-            >
-              <div
-                className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                style={{
-                  background: `linear-gradient(90deg, transparent, ${ind.accent}, transparent)`,
-                }}
-              />
-              <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-[1px] rounded-b-xl opacity-0 transition-opacity duration-300 group-hover:opacity-60"
-                style={{
-                  background: `linear-gradient(90deg, transparent, ${ind.accent}60, transparent)`,
-                }}
-              />
-
-              <div
-                className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border"
-                style={{
-                  borderColor: `${ind.accent}30`,
-                  backgroundColor: `${ind.accent}15`,
-                }}
+          {industries.map((ind) => {
+            const href = "href" in ind ? (ind as { href?: string }).href : undefined;
+            const Wrapper = href ? "a" : "div";
+            const wrapperProps = href ? { href } : {};
+            return (
+              <Wrapper
+                key={ind.title}
+                {...wrapperProps}
+                className={`group relative flex min-h-[120px] flex-col overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.03] p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.06] ${href ? "cursor-pointer" : ""}`}
               >
-                <ind.icon
-                  className="h-[18px] w-[18px]"
-                  style={{ color: ind.accent }}
-                  aria-hidden="true"
+                <div
+                  className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${ind.accent}, transparent)`,
+                  }}
                 />
-              </div>
+                <div
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-[1px] rounded-b-xl opacity-0 transition-opacity duration-300 group-hover:opacity-60"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${ind.accent}60, transparent)`,
+                  }}
+                />
 
-              <p className="mb-2 text-[13px] font-semibold leading-tight text-white">
-                {ind.title}
-              </p>
+                <div
+                  className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border"
+                  style={{
+                    borderColor: `${ind.accent}30`,
+                    backgroundColor: `${ind.accent}15`,
+                  }}
+                >
+                  <ind.icon
+                    className="h-[18px] w-[18px]"
+                    style={{ color: ind.accent }}
+                    aria-hidden="true"
+                  />
+                </div>
 
-              <p className="flex-1 text-[11px] leading-relaxed text-slate-400/80">
-                {ind.pain}
-              </p>
+                <p className="mb-2 text-[13px] font-semibold leading-tight text-white">
+                  {ind.title}
+                </p>
 
-              {ind.badge && (
-                <span className="mt-3 inline-block rounded-full border border-[#F472B6]/30 bg-[#F472B6]/[0.08] px-2 py-0.5 text-[10px] font-medium text-[#F472B6]">
-                  🔒 {ind.badge}
-                </span>
-              )}
-            </div>
-          ))}
+                <p className="flex-1 text-[11px] leading-relaxed text-slate-400/80">
+                  {ind.pain}
+                </p>
+
+                {ind.badge && (
+                  <span className="mt-3 inline-block rounded-full border border-[#F472B6]/30 bg-[#F472B6]/[0.08] px-2 py-0.5 text-[10px] font-medium text-[#F472B6]">
+                    🔒 {ind.badge}
+                  </span>
+                )}
+              </Wrapper>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -525,6 +532,7 @@ function Nav() {
           {/* Desktop links */}
           <div className="hidden items-center gap-6 md:flex">
             <a href="/our-science" className="text-sm text-slate-400 transition-colors hover:text-white">Our Science</a>
+            <a href="/healthcare" className="text-sm text-slate-400 transition-colors hover:text-white">Healthcare</a>
             <a href="#what-we-build" className="text-sm text-slate-400 transition-colors hover:text-white">What We Build</a>
             <div
               className="relative"
@@ -547,8 +555,15 @@ function Nav() {
                       Cybersecurity
                       <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                     </a>
+                    <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
+                      Healthcare
+                      <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                    </a>
                     <a href="/cybersecurity#cyber-intake" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Free Security Assessment
+                    </a>
+                    <a href="/healthcare#hipaa-audit" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
+                      Free HIPAA Stack Audit
                     </a>
                     <a href="/our-science" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Our Science
@@ -600,6 +615,9 @@ function Nav() {
             <a href="/our-science" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
               Our Science
             </a>
+            <a href="/healthcare" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+              Healthcare
+            </a>
             <a href="#what-we-build" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
               What We Build
             </a>
@@ -618,8 +636,15 @@ function Nav() {
                   Cybersecurity
                   <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                 </a>
+                <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+                  Healthcare
+                  <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                </a>
                 <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Free Security Assessment
+                </a>
+                <a href="/healthcare#hipaa-audit" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
+                  Free HIPAA Stack Audit
                 </a>
                 <a href="/our-science" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Our Science
@@ -2139,6 +2164,7 @@ function Footer() {
             <div className="mb-2 flex gap-5">
               <a href="/" className="transition-colors hover:text-white">Home</a>
               <a href="/our-science" className="transition-colors hover:text-white">Our Science</a>
+              <a href="/healthcare" className="transition-colors hover:text-white">Healthcare</a>
               <a href="/cybersecurity" className="transition-colors hover:text-white">Cybersecurity</a>
             </div>
             <a
