@@ -14,7 +14,6 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
-import IPNotice from "@/app/components/IPNotice";
 
 // ─── Shared Components ───────────────────────────────────────────────────────
 
@@ -216,8 +215,8 @@ function Nav() {
 
 function ScienceHero() {
   const credentials = [
-    "I-O Psychology — UTRGV, Summa Cum Laude",
-    "Full Scholarship — SUNY Graduate Program",
+    "Two Summa Cum Laude degrees · UTRGV",
+    "Graduate I-O Psychology, SUNY Albany (full scholarship)",
     "Bicultural \u00B7 Bilingual \u00B7 30+ Years RGV Business Operations",
   ];
 
@@ -400,6 +399,12 @@ function Applied() {
       desc: "We assess your organization\u2019s psychological relationship with risk before designing your training program. Employees who feel psychologically safe reporting mistakes catch more threats than those who hide errors out of fear. We build that culture intentionally.",
     },
     {
+      accent: "#F472B6",
+      badge: "Healthcare",
+      title: "Clinical workflows designed for the humans who run them",
+      desc: "Pre-medical coursework taught us what\u2019s at stake when clinical data moves through a system. I-O Psychology taught us why most healthcare software gets ignored by the front desk that\u2019s supposed to use it. We design patient communication systems, intake automations, and reputation tools that actually get adopted \u2014 and that handle PHI through BAA-signed infrastructure (Twilio, AWS) from day one.",
+    },
+    {
       accent: "#7DE3E6",
       badge: "Operations",
       title: "Systems built for human adoption",
@@ -473,9 +478,9 @@ function Credentials() {
     },
     {
       color: "#F472B6",
-      label: "Pre-Medical Sciences",
-      title: "Pre-Medical Studies — Biology, Chemistry, Anatomy & Physiology",
-      desc: "Completed pre-medical coursework building a foundation in clinical sciences, medical terminology, and human systems. This background shapes how we approach healthcare technology — we understand patient workflows, clinical data sensitivity, and why HIPAA compliance isn\u2019t just a checkbox but a design requirement.",
+      label: "Undergraduate — Summa Cum Laude (expected)",
+      title: "B.S. Biology, Biological Sciences Concentration — UTRGV",
+      desc: "Pre-medical-track curriculum spanning anatomy, physiology, biochemistry, microbiology, and human systems. Graduating with the highest academic distinction — Summa Cum Laude requires the top GPA tier of the graduating class.\n\nThis is more than a credential. It’s the lens we bring to healthcare technology. We understand patient workflows because we studied the science behind them. We know HIPAA isn’t a checkbox because we know what’s encoded in the data it protects.",
     },
     {
       color: "#10B981",
@@ -555,12 +560,13 @@ function StatsCTA() {
     { value: "91%", label: "of cyberattacks start with human error — the problem is behavioral, not technical" },
     { value: "70%", label: "of software implementations fail due to change resistance and poor adoption design" },
     { value: "4x", label: "better retention from spaced training vs. single-session compliance" },
+    { value: "30-50%", label: "of presented dental treatment plans never get scheduled — revenue currently leaving the practice" },
   ];
 
   return (
     <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0d1117" }}>
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 grid gap-6 sm:grid-cols-3">
+        <div className="mb-16 grid gap-6 grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <FadeIn key={stat.value} delay={i * 80}>
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center backdrop-blur-sm">
@@ -572,7 +578,26 @@ function StatsCTA() {
         </div>
 
         <div className="mx-auto mb-12 max-w-3xl">
-          <IPNotice />
+          <div className="mt-6 flex items-start gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-4">
+            <span className="mt-0.5 flex-shrink-0 text-[#7DE3E6]">
+              🔒
+            </span>
+            <div className="space-y-3 text-xs leading-relaxed text-slate-500 italic">
+              <p>
+                We intentionally don&apos;t publish implementation details. The
+                methodology behind our systems is the result of significant original
+                research — combining I-O Psychology, behavioral design, biological
+                sciences, and operational architecture.
+              </p>
+              <p>
+                For healthcare clients, our compliance posture is similarly
+                disciplined: every system flows through BAA-signed vendors only
+                (Twilio, AWS, Microsoft 365 where applicable). We share outcomes
+                freely. We protect the work — and the patient data — that produces
+                them. That protection is part of what you&apos;re hiring us for.
+              </p>
+            </div>
+          </div>
         </div>
 
         <FadeIn delay={300}>
