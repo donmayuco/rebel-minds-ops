@@ -18,29 +18,30 @@ const siteUrl =
       : "https://rebelmindsops.com";
 
 export const metadata: Metadata = {
-  title: "Rebel Minds Ops | Operations, Automation & Cybersecurity — RGV",
+  title: "Rebel Minds OPS | Healthcare Technology Consultant — RGV-built, HIPAA-aware",
   description:
-    "South Texas operations automation and cybersecurity services for small businesses. I-O Psychology-backed training and systems design. Based in Edinburg, TX.",
- metadataBase: (() => {
-  try {
-    return new URL(siteUrl);
-  } catch {
-    return new URL("http://localhost:3000");
-  }
-})(),
+    "Rio Grande Valley technology consultancy specializing in healthcare practices — HIPAA-aware patient communication, automation, and operational systems. Bilingual by default. Serving McAllen, Edinburg, and South Texas. Free discovery calls and HIPAA Stack Audit available.",
+  metadataBase: (() => {
+    try {
+      return new URL(siteUrl);
+    } catch {
+      return new URL("http://localhost:3000");
+    }
+  })(),
 
   alternates: {
     canonical: "/",
   },
 
   keywords: [
-    "operational systems",
-    "business automation",
-    "workflow automation",
-    "RGV businesses",
+    "healthcare technology consultant",
+    "HIPAA-aware automation",
+    "RGV healthcare automation",
+    "McAllen healthcare consultant",
+    "patient communication systems",
+    "BAA-signed infrastructure",
+    "bilingual patient automation",
     "South Texas operations",
-    "custom dashboards",
-    "process automation",
   ],
 
   icons: {
@@ -52,27 +53,28 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Rebel Minds Ops",
+    title: "Rebel Minds OPS | Healthcare Technology Consultant — RGV-built, HIPAA-aware",
     description:
-      "Operational systems and automation for growing RGV businesses.",
+      "Healthcare technology consulting for RGV practices — HIPAA-aware patient communication, automation, and operational systems. Bilingual by default. Serving McAllen, Edinburg, and South Texas.",
     url: siteUrl,
-    siteName: "Rebel Minds Ops",
+    siteName: "Rebel Minds OPS",
     images: [
       {
         url: "/icon.png",
         width: 512,
         height: 512,
-        alt: "Rebel Minds Ops",
+        alt: "Rebel Minds OPS",
       },
     ],
     type: "website",
+    locale: "en_US",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Rebel Minds Ops",
+    title: "Rebel Minds OPS | Healthcare Technology Consultant",
     description:
-      "Operational systems and automation for growing RGV businesses.",
+      "Healthcare technology consulting for RGV practices — HIPAA-aware. Bilingual by default. Serving McAllen, Edinburg, and South Texas.",
     images: ["/icon.png"],
   },
 };
