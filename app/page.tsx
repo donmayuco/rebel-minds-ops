@@ -694,7 +694,7 @@ function Hero() {
                   style={{ height: "2.9em" }}
                 >
                   <span
-                    className="gradient-text absolute left-0 top-0 right-0"
+                    className="gradient-text absolute left-0 top-0 right-0 block"
                     style={{ lineHeight: "1.4" }}
                   >
                     {typewriterText}
