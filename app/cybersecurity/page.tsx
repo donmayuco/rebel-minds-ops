@@ -138,15 +138,6 @@ function Nav() {
               )}
             </div>
             <a
-              href="https://rebelmindsops.gumroad.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-slate-400 transition-colors hover:text-white"
-            >
-              For Developers
-              <span className="rounded-full bg-[#F59E0B]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F59E0B]">Shop</span>
-            </a>
-            <a
               href="#cyber-intake"
               className="glow-teal rounded-lg bg-[#7DE3E6] px-4 py-2 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
             >
@@ -213,16 +204,6 @@ function Nav() {
                 </a>
               </div>
             )}
-            <a
-              href="https://rebelmindsops.gumroad.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
-              onClick={() => setOpen(false)}
-            >
-              For Developers
-              <span className="rounded-full bg-[#F59E0B]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F59E0B]">Shop</span>
-            </a>
             <div className="pt-2">
               <a
                 href="#cyber-intake"
