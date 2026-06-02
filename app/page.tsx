@@ -2249,8 +2249,16 @@ export default function Home() {
 
       {/* Fixed background layers */}
       <div className="pointer-events-none fixed inset-0 z-0 bg-grid" />
-      <div className="pointer-events-none fixed left-1/2 top-0 z-0 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-[#7DE3E6]/[0.04] blur-[180px]" />
-      <div className="pointer-events-none fixed bottom-0 right-0 z-0 h-[500px] w-[600px] rounded-full bg-[#7DE3E6]/[0.025] blur-[140px]" />
+      {/* Ambient teal glow — radial-gradient instead of blurred circles to avoid
+          the async-filter "glare" flash on cold paints (no GPU blur layer). */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          background:
+            "radial-gradient(800px 500px at 50% 0%, rgba(125,227,230,0.06), transparent 70%), " +
+            "radial-gradient(500px 400px at 100% 100%, rgba(125,227,230,0.035), transparent 70%)",
+        }}
+      />
 
       {/* Noise / grain texture overlay */}
       <div
