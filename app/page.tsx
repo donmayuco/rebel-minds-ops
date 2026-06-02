@@ -259,7 +259,7 @@ function IndustryGrid() {
     <div className="relative w-full">
       <div className="relative">
         <div className="mb-6 text-center lg:text-left">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
             Operations-First &middot; Built for Your Industry
           </span>
         </div>
@@ -676,7 +676,7 @@ function Hero() {
                 {["Operations First · South Texas", "🇺🇸🇲🇽 100% Bilingüe · English & Spanish", "End-to-end implementation"].map((pill) => (
                   <span
                     key={pill}
-                    className="rounded-full border border-[#7DE3E6]/25 bg-[#7DE3E6]/[0.06] px-3 py-1 text-xs font-medium text-[#7DE3E6]"
+                    className="rounded-full border border-[rgba(125,227,230,0.25)] bg-[rgba(125,227,230,0.06)] px-3 py-1 text-xs font-medium text-[#7DE3E6]"
                   >
                     {pill}
                   </span>
