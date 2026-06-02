@@ -257,7 +257,10 @@ function IndustryGrid() {
 
   return (
     <div className="relative w-full">
-      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[#7DE3E6]/[0.04] blur-3xl" />
+      <div
+        className="pointer-events-none absolute inset-0 rounded-3xl"
+        style={{ background: "radial-gradient(closest-side at 50% 50%, rgba(125,227,230,0.06), rgba(125,227,230,0))" }}
+      />
 
       <div className="relative">
         <div className="mb-6 text-center lg:text-left">
@@ -957,10 +960,15 @@ function WhatWeBuild() {
   return (
     <section id="what-we-build" className="relative px-4 py-20 sm:px-6">
       {/* Subtle background gradient blobs */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-20 top-1/4 h-80 w-80 rounded-full bg-[#8B5CF6] opacity-[0.07] blur-[120px]" />
-        <div className="absolute -right-20 bottom-1/4 h-80 w-80 rounded-full bg-[#F97316] opacity-[0.07] blur-[120px]" />
-      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(440px 440px at 0% 25%, rgba(139,92,246,0.10), rgba(139,92,246,0) 70%), " +
+            "radial-gradient(440px 440px at 100% 75%, rgba(249,115,22,0.10), rgba(249,115,22,0) 70%)",
+        }}
+      />
 
       <div className="relative mx-auto max-w-6xl">
         <FadeIn>
@@ -1143,7 +1151,10 @@ function FeaturedSystem() {
 
           <FadeIn delay={150}>
             <div className="relative">
-              <div className="absolute inset-0 rounded-3xl bg-[#7DE3E6]/[0.06] blur-3xl" />
+              <div
+                className="absolute inset-0 rounded-3xl"
+                style={{ background: "radial-gradient(closest-side at 50% 50%, rgba(125,227,230,0.08), rgba(125,227,230,0))" }}
+              />
               <div className="relative">
                 <TerminalPreview />
               </div>
@@ -1159,7 +1170,10 @@ function FeaturedSystem() {
 function JPCCaseStudy() {
   return (
     <section className="relative overflow-hidden px-4 py-20 sm:px-6" style={{ backgroundColor: "#060D18" }}>
-      <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#F59E0B] opacity-[0.06] blur-[80px]" />
+      <div
+        className="pointer-events-none absolute -top-20 -right-20 h-64 w-64"
+        style={{ background: "radial-gradient(closest-side, rgba(245,158,11,0.10), rgba(245,158,11,0))" }}
+      />
 
       <div className="relative mx-auto max-w-5xl">
         <FadeIn>
@@ -1865,11 +1879,16 @@ function Connect() {
   return (
     <section id="book" className="relative px-4 py-20 sm:px-6">
       {/* Accent gradient blobs — purple → orange, scoped to this section */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-24 top-8 h-96 w-96 rounded-full bg-[#7B2FBE] opacity-[0.18] blur-[110px]" />
-        <div className="absolute -right-24 bottom-8 h-96 w-96 rounded-full bg-[#F97316] opacity-[0.14] blur-[110px]" />
-        <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C2410C] opacity-[0.09] blur-[80px]" />
-      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(420px 420px at 0% 12%, rgba(123,47,190,0.26), rgba(123,47,190,0) 70%), " +
+            "radial-gradient(420px 420px at 100% 88%, rgba(249,115,22,0.20), rgba(249,115,22,0) 70%), " +
+            "radial-gradient(300px 300px at 50% 50%, rgba(194,65,12,0.14), rgba(194,65,12,0) 70%)",
+        }}
+      />
 
       <div className="relative mx-auto max-w-2xl">
         <FadeIn>
