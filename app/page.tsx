@@ -257,11 +257,6 @@ function IndustryGrid() {
 
   return (
     <div className="relative w-full">
-      <div
-        className="pointer-events-none absolute inset-0 rounded-3xl"
-        style={{ background: "radial-gradient(closest-side at 50% 50%, rgba(125,227,230,0.06), rgba(125,227,230,0))" }}
-      />
-
       <div className="relative">
         <div className="mb-6 text-center lg:text-left">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
@@ -786,9 +781,17 @@ function Hero() {
           </div>
 
           {/* Right: dashboard visual */}
-          <FadeIn delay={150} className="w-full">
-            <IndustryGrid />
-          </FadeIn>
+          <div className="relative w-full">
+            {/* Ambient glow — kept OUTSIDE FadeIn so it stays static and never
+                rides the opacity transition (which made it "swell" in on load). */}
+            <div
+              className="pointer-events-none absolute inset-0 rounded-3xl"
+              style={{ background: "radial-gradient(closest-side at 50% 50%, rgba(125,227,230,0.06), rgba(125,227,230,0))" }}
+            />
+            <FadeIn delay={150} className="w-full">
+              <IndustryGrid />
+            </FadeIn>
+          </div>
         </div>
       </div>
     </section>
