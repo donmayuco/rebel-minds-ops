@@ -179,7 +179,7 @@ function FadeIn({
 
 function SectionDivider() {
   return (
-    <div className="h-px bg-gradient-to-r from-transparent via-[#7DE3E6]/15 to-transparent" />
+    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(125,227,230,0.15)] to-transparent" />
   );
 }
 
@@ -311,7 +311,7 @@ function IndustryGrid() {
                 </p>
 
                 {ind.badge && (
-                  <span className="mt-3 inline-block rounded-full border border-[#F472B6]/30 bg-[#F472B6]/[0.08] px-2 py-0.5 text-[10px] font-medium text-[#F472B6]">
+                  <span className="mt-3 inline-block rounded-full border border-[rgba(244,114,182,0.3)] bg-[rgba(244,114,182,0.08)] px-2 py-0.5 text-[10px] font-medium text-[#F472B6]">
                     🔒 {ind.badge}
                   </span>
                 )}
@@ -408,7 +408,7 @@ function TerminalPreview() {
         <span className="ml-3 font-mono text-[11px] text-slate-500">
           fieldops.terminal
         </span>
-        <span className="ml-auto rounded-full border border-[#7DE3E6]/25 bg-[#7DE3E6]/10 px-2 py-0.5 text-[10px] font-semibold text-[#7DE3E6]">
+        <span className="ml-auto rounded-full border border-[rgba(125,227,230,0.25)] bg-[rgba(125,227,230,0.1)] px-2 py-0.5 text-[10px] font-semibold text-[#7DE3E6]">
           LIVE
         </span>
       </div>
@@ -505,7 +505,7 @@ function Nav() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#0B1220]/90 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-white/[0.08] bg-[rgba(11,18,32,0.9)] backdrop-blur-md">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-24 items-center justify-between">
           <a href="#" className="flex items-center gap-2.5">
@@ -551,11 +551,11 @@ function Nav() {
                   <div className="rounded-xl border border-white/[0.08] bg-[#0B1220] p-1.5 shadow-xl backdrop-blur-md">
                     <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Cybersecurity
-                      <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                      <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                     </a>
                     <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Healthcare
-                      <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                      <span className="rounded-full bg-[rgba(244,114,182,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
                     </a>
                     <a href="/cybersecurity#cyber-intake" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Free Security Assessment
@@ -623,11 +623,11 @@ function Nav() {
               <div className="flex flex-col gap-0.5 pl-4">
                 <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Cybersecurity
-                  <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                  <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                 </a>
                 <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Healthcare
-                  <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                  <span className="rounded-full bg-[rgba(244,114,182,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
                 </a>
                 <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Free Security Assessment
@@ -707,19 +707,19 @@ function Hero() {
             <FadeIn delay={200}>
               <ul className="mb-6 flex flex-col gap-2">
                 <li className="flex items-center gap-3">
-                  <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#7DE3E6]/60" />
+                  <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[rgba(125,227,230,0.6)]" />
                   <span className="text-lg leading-relaxed text-slate-300">
                     Reduce administrative workload
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#7DE3E6]/60" />
+                  <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[rgba(125,227,230,0.6)]" />
                   <span className="text-lg leading-relaxed text-slate-300">
                     Improve operational visibility
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#7DE3E6]/60" />
+                  <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[rgba(125,227,230,0.6)]" />
                   <span className="text-lg leading-relaxed text-slate-300">
                     Eliminate manual process friction
                   </span>
@@ -815,7 +815,7 @@ function WhoItsFor() {
   ];
 
   return (
-    <section id="for-who" className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+    <section id="for-who" className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
@@ -836,7 +836,7 @@ function WhoItsFor() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((ind, i) => (
             <FadeIn key={ind.title} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#7DE3E6]/30 hover:bg-white/[0.06] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.06] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
 
                 {/* Thin top accent line (stable, no snapping) */}
                 <div
@@ -848,8 +848,8 @@ function WhoItsFor() {
                 />
 
                 <div className="relative mb-3">
-                  <div className="absolute inset-0 rounded-xl bg-[#7DE3E6]/20 blur-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/10">
+                  <div className="absolute inset-0 rounded-xl bg-[rgba(125,227,230,0.2)] blur-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)]">
                     <ind.icon
                       className="h-5 w-5 text-[#7DE3E6]"
                       aria-hidden="true"
@@ -957,7 +957,7 @@ function WhatWeBuild() {
       <div className="relative mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#A855F7]/30 bg-[#A855F7]/[0.08] px-3 py-1.5 text-xs font-semibold text-[#C084FC]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(168,85,247,0.3)] bg-[rgba(168,85,247,0.08)] px-3 py-1.5 text-xs font-semibold text-[#C084FC]">
               What We Build
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -1019,7 +1019,7 @@ function WhatWeBuild() {
 
           {/* Featured full-width bento card — Approval Pipelines */}
           <FadeIn delay={300} className="lg:col-span-4">
-            <div className="group relative overflow-hidden rounded-2xl border border-[#8B5CF6]/25 bg-gradient-to-r from-[#8B5CF6]/[0.08] via-[#0B1220]/80 to-[#F97316]/[0.08] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#8B5CF6]/45 hover:shadow-[0_12px_56px_rgba(139,92,246,0.14)]">
+            <div className="group relative overflow-hidden rounded-2xl border border-[rgba(139,92,246,0.25)] bg-gradient-to-r from-[rgba(139,92,246,0.08)] via-[rgba(11,18,32,0.8)] to-[rgba(249,115,22,0.08)] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[rgba(139,92,246,0.45)] hover:shadow-[0_12px_56px_rgba(139,92,246,0.14)]">
               {/* Diagonal shine sweep */}
               <div className="pointer-events-none absolute inset-0 -translate-x-full skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/[0.05] to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-[250%]" />
 
@@ -1030,12 +1030,12 @@ function WhatWeBuild() {
               <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center">
                 <div className="lg:w-1/2">
                   <div className="relative mb-4">
-                    <div className="absolute inset-0 rounded-xl bg-[#8B5CF6]/40 blur-xl opacity-0 transition-opacity duration-300 group-hover:opacity-50" />
-                    <div className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-[#8B5CF6]/35 bg-[#8B5CF6]/15 transition-all duration-300 group-hover:scale-110">
+                    <div className="absolute inset-0 rounded-xl bg-[rgba(139,92,246,0.4)] blur-xl opacity-0 transition-opacity duration-300 group-hover:opacity-50" />
+                    <div className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-[rgba(139,92,246,0.35)] bg-[rgba(139,92,246,0.15)] transition-all duration-300 group-hover:scale-110">
                       <Workflow className="h-6 w-6 text-[#C084FC] transition-transform duration-300 group-hover:rotate-6" aria-hidden="true" />
                     </div>
                   </div>
-                  <span className="mb-2 inline-block rounded-full border border-[#F97316]/35 bg-[#F97316]/12 px-2.5 py-0.5 text-[11px] font-semibold text-[#FB923C]">
+                  <span className="mb-2 inline-block rounded-full border border-[rgba(249,115,22,0.35)] bg-[rgba(249,115,22,0.12)] px-2.5 py-0.5 text-[11px] font-semibold text-[#FB923C]">
                     Most Requested
                   </span>
                   <h3 className="mb-2 text-xl font-bold text-white">Approval Pipelines</h3>
@@ -1088,7 +1088,7 @@ function FeaturedSystem() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold text-[#7DE3E6]">
               Featured Proof Module
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -1105,7 +1105,7 @@ function FeaturedSystem() {
           <FadeIn>
             <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
               <h3 className="mb-6 flex items-center gap-2 text-xl font-bold text-white">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#7DE3E6]/20 text-sm text-[#7DE3E6]">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[rgba(125,227,230,0.2)] text-sm text-[#7DE3E6]">
                   ✦
                 </span>
                 ExpenseOps™ Workflow & Outcomes
@@ -1113,7 +1113,7 @@ function FeaturedSystem() {
               <ul className="space-y-4">
                 {outcomes.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-slate-300">
-                    <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#7DE3E6]/20 text-xs text-[#7DE3E6]">
+                    <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[rgba(125,227,230,0.2)] text-xs text-[#7DE3E6]">
                       ✓
                     </span>
                     {item}
@@ -1124,7 +1124,7 @@ function FeaturedSystem() {
               <div className="mt-8">
                 <a
                   href="#book"
-                  className="glow-teal inline-block rounded-xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/10 px-6 py-3 text-sm font-bold text-[#7DE3E6] transition-all hover:bg-[#7DE3E6]/20"
+                  className="glow-teal inline-block rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)] px-6 py-3 text-sm font-bold text-[#7DE3E6] transition-all hover:bg-[rgba(125,227,230,0.2)]"
                   onClick={() => trackEvent("CTA_Click", { location: "featured_system", cta: "Discuss ExpenseOps Integration" })}
                 >
                   Discuss an ExpenseOps Integration
@@ -1162,7 +1162,7 @@ function JPCCaseStudy() {
       <div className="relative mx-auto max-w-5xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F59E0B]/30 bg-[#F59E0B]/[0.08] px-3 py-1.5 text-xs font-semibold text-[#F59E0B]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(245,158,11,0.3)] bg-[rgba(245,158,11,0.08)] px-3 py-1.5 text-xs font-semibold text-[#F59E0B]">
               Real Work. Real Clients.
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -1207,7 +1207,7 @@ function JPCCaseStudy() {
         <FadeIn delay={200}>
           <div className="grid gap-6 mt-6 lg:grid-cols-2">
             {/* Left Card — Outcomes */}
-            <div className="rounded-2xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.04] p-8">
+            <div className="rounded-2xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.04)] p-8">
               <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
                 After Rebel Minds OPS
               </p>
@@ -1236,7 +1236,7 @@ function JPCCaseStudy() {
             {/* Right Card — Pull Quote */}
             <div className="flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-white/[0.03] p-8">
               <div>
-                <div className="text-6xl text-[#7DE3E6]/20 font-serif leading-none mb-4">&ldquo;</div>
+                <div className="text-6xl text-[rgba(125,227,230,0.2)] font-serif leading-none mb-4">&ldquo;</div>
                 <p className="text-xl font-semibold text-white leading-relaxed italic">
                   &ldquo;I can finally focus on my jobs.&rdquo;
                 </p>
@@ -1257,7 +1257,7 @@ function JPCCaseStudy() {
                     <p className="text-xs text-slate-500">Rio Grande Valley, Texas</p>
                   </div>
                 </div>
-                <span className="inline-block mt-4 rounded-full border border-[#F59E0B]/30 bg-[#F59E0B]/[0.08] px-3 py-1 text-[10px] font-semibold text-[#F59E0B]">
+                <span className="inline-block mt-4 rounded-full border border-[rgba(245,158,11,0.3)] bg-[rgba(245,158,11,0.08)] px-3 py-1 text-[10px] font-semibold text-[#F59E0B]">
                   Active Case Study Partner
                 </span>
               </div>
@@ -1319,7 +1319,7 @@ function JPCCaseStudy() {
         <FadeIn delay={200}>
           <div className="grid gap-6 mt-6 lg:grid-cols-2">
             {/* Left Card — Outcomes */}
-            <div className="rounded-2xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.04] p-8">
+            <div className="rounded-2xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.04)] p-8">
               <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
                 After Rebel Minds OPS
               </p>
@@ -1354,7 +1354,7 @@ function JPCCaseStudy() {
             {/* Right Card — Pull Quote */}
             <div className="flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-white/[0.03] p-8">
               <div>
-                <div className="text-6xl text-[#7DE3E6]/20 font-serif leading-none mb-4">&ldquo;</div>
+                <div className="text-6xl text-[rgba(125,227,230,0.2)] font-serif leading-none mb-4">&ldquo;</div>
                 <p className="text-xl font-semibold text-white leading-relaxed italic">
                   &ldquo;Every deal in one place. Every closing under control.&rdquo;
                 </p>
@@ -1375,7 +1375,7 @@ function JPCCaseStudy() {
                     <p className="text-xs text-slate-500">Rio Grande Valley, Texas</p>
                   </div>
                 </div>
-                <span className="inline-block mt-4 rounded-full border border-[#F59E0B]/30 bg-[#F59E0B]/[0.08] px-3 py-1 text-[10px] font-semibold text-[#F59E0B]">
+                <span className="inline-block mt-4 rounded-full border border-[rgba(245,158,11,0.3)] bg-[rgba(245,158,11,0.08)] px-3 py-1 text-[10px] font-semibold text-[#F59E0B]">
                   Active Case Study Partner
                 </span>
               </div>
@@ -1490,11 +1490,11 @@ function SpanishSection() {
   }
 
   return (
-    <section className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+    <section className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold text-[#7DE3E6]">
               &#127474;&#127485; Hablamos Tu Idioma
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -1509,7 +1509,7 @@ function SpanishSection() {
         <div className="grid gap-4 sm:grid-cols-3">
           {cards.map((card, i) => (
             <FadeIn key={card.title} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#7DE3E6]/30 hover:bg-white/[0.06] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.06] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
                 <div
                   className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   style={{
@@ -1518,8 +1518,8 @@ function SpanishSection() {
                   }}
                 />
                 <div className="relative mb-3">
-                  <div className="absolute inset-0 rounded-xl bg-[#7DE3E6]/20 blur-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/10">
+                  <div className="absolute inset-0 rounded-xl bg-[rgba(125,227,230,0.2)] blur-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)]">
                     <card.icon className="h-5 w-5 text-[#7DE3E6]" aria-hidden="true" />
                   </div>
                 </div>
@@ -1540,7 +1540,7 @@ function SpanishSection() {
             </p>
             {success ? (
               <div className="flex flex-col items-center gap-4 py-8 text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#7DE3E6]/30 bg-[#7DE3E6]/10">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[rgba(125,227,230,0.3)] bg-[rgba(125,227,230,0.1)]">
                   <svg className="h-7 w-7 text-[#7DE3E6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -1569,7 +1569,7 @@ function SpanishSection() {
                     placeholder="Ej. Construcciones Pe&ntilde;a LLC"
                     value={form.business}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
                   />
                 </div>
 
@@ -1584,7 +1584,7 @@ function SpanishSection() {
                     required
                     value={form.type}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
                   >
                     <option value="" disabled>Selecciona tu industria&hellip;</option>
                     <option value="construction">Construcci&oacute;n / Oficios</option>
@@ -1606,7 +1606,7 @@ function SpanishSection() {
                     required
                     value={form.priorityArea}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
                   >
                     <option value="" disabled>Selecciona el &aacute;rea con m&aacute;s fricci&oacute;n...</option>
                     <option value="Organize receipts and expenses for better accounting">Organizar recibos y gastos para contabilidad</option>
@@ -1637,7 +1637,7 @@ function SpanishSection() {
                       placeholder="(956) 000-0000"
                       value={form.phone}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
                     />
                   </div>
                   <div>
@@ -1652,7 +1652,7 @@ function SpanishSection() {
                       placeholder="tu@negocio.com"
                       value={form.email}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
                     />
                   </div>
                 </div>
@@ -1690,12 +1690,12 @@ function WhyRebelMindsOps() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[#7DE3E6]/[0.02] to-transparent" />
+    <section className="relative overflow-hidden bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(125,227,230,0.02)] to-transparent" />
       <div className="relative mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold text-[#7DE3E6]">
               Our Credibility
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -1710,7 +1710,7 @@ function WhyRebelMindsOps() {
         <div className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {points.map((pt, i) => (
             <FadeIn key={pt.title} delay={i * 70}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#7DE3E6]/30 hover:bg-white/[0.05] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.05] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
                 {/* Top accent line (thin = no snapping) */}
                 <div
                   className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -1721,8 +1721,8 @@ function WhyRebelMindsOps() {
                 />
 
                 <div className="relative mb-4">
-                  <div className="absolute inset-0 rounded-xl bg-[#7DE3E6]/20 blur-lg opacity-0 transition duration-300 group-hover:opacity-100" />
-                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/10">
+                  <div className="absolute inset-0 rounded-xl bg-[rgba(125,227,230,0.2)] blur-lg opacity-0 transition duration-300 group-hover:opacity-100" />
+                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)]">
                     <pt.icon className="h-5 w-5 text-[#7DE3E6]" aria-hidden="true" />
                   </div>
                 </div>
@@ -1748,11 +1748,11 @@ function CyberTeaser() {
 
   return (
     <section id="cybersecurity" className="relative px-4 py-20 sm:px-6" style={{ backgroundColor: "#060D18" }}>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[#7DE3E6]/[0.015] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(125,227,230,0.015)] to-transparent" />
       <div className="relative mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
               New Service
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -1877,7 +1877,7 @@ function Connect() {
       <div className="relative mx-auto max-w-2xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F97316]/30 bg-[#F97316]/[0.08] px-3 py-1.5 text-xs font-semibold text-[#F97316]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(249,115,22,0.3)] bg-[rgba(249,115,22,0.08)] px-3 py-1.5 text-xs font-semibold text-[#F97316]">
               Start Here
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -1894,7 +1894,7 @@ function Connect() {
           <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
             {success ? (
               <div className="flex flex-col items-center gap-4 py-8 text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#7DE3E6]/30 bg-[#7DE3E6]/10">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[rgba(125,227,230,0.3)] bg-[rgba(125,227,230,0.1)]">
                   <svg className="h-7 w-7 text-[#7DE3E6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -1923,7 +1923,7 @@ function Connect() {
                     placeholder="e.g. Acme Construction LLC"
                     value={form.business}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
                   />
                 </div>
 
@@ -1938,7 +1938,7 @@ function Connect() {
                     required
                     value={form.type}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
                   >
                     <option value="" disabled>Select your industry…</option>
                     <option value="construction">Construction / Trades</option>
@@ -1961,7 +1961,7 @@ function Connect() {
                     required
                     value={form.priorityArea}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                    className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 text-sm text-white outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
                   >
                     <option value="" disabled>
                       Select the area causing the most friction...
@@ -2011,7 +2011,7 @@ function Connect() {
                       placeholder="(956) 000-0000"
                       value={form.phone}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
                     />
                   </div>
 
@@ -2027,7 +2027,7 @@ function Connect() {
                       placeholder="you@company.com"
                       value={form.email}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[#7DE3E6]/40 focus:ring-1 focus:ring-[#7DE3E6]/30"
+                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
                     />
                   </div>
                 </div>
@@ -2089,7 +2089,7 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+    <section className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-12 text-center">

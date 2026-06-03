@@ -61,7 +61,7 @@ function FadeIn({
 
 function SectionDivider() {
   return (
-    <div className="h-px bg-gradient-to-r from-transparent via-[#7DE3E6]/15 to-transparent" />
+    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(125,227,230,0.15)] to-transparent" />
   );
 }
 
@@ -73,7 +73,7 @@ function Nav() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#0B1220]/90 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-white/[0.08] bg-[rgba(11,18,32,0.9)] backdrop-blur-md">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-24 items-center justify-between">
           <a href="/" className="flex items-center gap-2.5">
@@ -118,11 +118,11 @@ function Nav() {
                   <div className="rounded-xl border border-white/[0.08] bg-[#0B1220] p-1.5 shadow-xl backdrop-blur-md">
                     <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Cybersecurity
-                      <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                      <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                     </a>
                     <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Healthcare
-                      <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                      <span className="rounded-full bg-[rgba(244,114,182,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
                     </a>
                     <a href="/cybersecurity#cyber-intake" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Free Security Assessment
@@ -187,11 +187,11 @@ function Nav() {
               <div className="flex flex-col gap-0.5 pl-4">
                 <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Cybersecurity
-                  <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                  <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                 </a>
                 <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Healthcare
-                  <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                  <span className="rounded-full bg-[rgba(244,114,182,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
                 </a>
                 <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Free Security Assessment
@@ -225,10 +225,10 @@ function Nav() {
 function CyberHero() {
   return (
     <section className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#7DE3E6]/[0.03] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(125,227,230,0.03)] to-transparent" />
       <div className="relative mx-auto max-w-4xl text-center">
         <FadeIn>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-4 py-2">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-4 py-2">
             <Shield className="h-4 w-4 text-[#7DE3E6]" />
             <span className="text-xs font-semibold text-[#7DE3E6]">Managed Cybersecurity</span>
           </div>
@@ -586,11 +586,11 @@ function CyberWhy() {
   ];
 
   return (
-    <section id="cyber-why" className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+    <section id="cyber-why" className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
               Why It Matters
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -607,10 +607,10 @@ function CyberWhy() {
         <div className="grid gap-6 sm:grid-cols-3">
           {problems.map((p, i) => (
             <FadeIn key={p.title} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#7DE3E6]/30 hover:bg-white/[0.05] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.05] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(125,227,230,0.9), transparent)" }} />
                 <div className="relative mb-4">
-                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/10">
+                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)]">
                     <p.icon className="h-5 w-5 text-[#7DE3E6]" aria-hidden="true" />
                   </div>
                 </div>
@@ -711,7 +711,7 @@ function CyberPlans() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-8 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
               Plans
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -730,15 +730,15 @@ function CyberPlans() {
               {/* Header */}
               <thead>
                 <tr>
-                  <th className="w-[220px] bg-[#0E1A2B]/60 p-4 text-left text-xs font-medium uppercase tracking-wider text-slate-500" />
+                  <th className="w-[220px] bg-[rgba(14,26,43,0.6)] p-4 text-left text-xs font-medium uppercase tracking-wider text-slate-500" />
                   <th className="bg-white/[0.02] p-4 text-center">
                     <div className="text-sm font-semibold text-white">Starter</div>
                     <div className="text-2xl font-bold text-white">$299<span className="text-xs font-normal text-slate-400">/mo</span></div>
                     <div className="mt-1 text-xs text-slate-500">Essentials + automated training</div>
                   </th>
-                  <th className="border-x-2 border-[#534AB7]/50 bg-[#534AB7]/[0.06] p-4 text-center">
+                  <th className="border-x-2 border-[rgba(83,74,183,0.5)] bg-[rgba(83,74,183,0.06)] p-4 text-center">
                     <div className="mb-1">
-                      <span className="rounded-full bg-[#534AB7]/20 px-2 py-0.5 text-[10px] font-semibold text-[#534AB7]">Most popular</span>
+                      <span className="rounded-full bg-[rgba(83,74,183,0.2)] px-2 py-0.5 text-[10px] font-semibold text-[#534AB7]">Most popular</span>
                     </div>
                     <div className="text-sm font-semibold text-white">Growth</div>
                     <div className="text-2xl font-bold text-[#534AB7]">$699<span className="text-xs font-normal text-slate-400">/mo</span></div>
@@ -756,11 +756,11 @@ function CyberPlans() {
                   <Fragment key={g.group}>
                     {/* Group header */}
                     <tr>
-                      <td colSpan={4} className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider ${g.highlight ? "bg-[#534AB7]/[0.08] text-[#534AB7]" : "bg-[#0E1A2B]/80 text-slate-400"}`}>
+                      <td colSpan={4} className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider ${g.highlight ? "bg-[rgba(83,74,183,0.08)] text-[#534AB7]" : "bg-[rgba(14,26,43,0.8)] text-slate-400"}`}>
                         <span className="flex items-center gap-2">
                           {g.group}
                           {g.badge && (
-                            <span className="rounded-full bg-[#534AB7]/20 px-2 py-0.5 text-[10px] font-semibold normal-case text-[#534AB7]">
+                            <span className="rounded-full bg-[rgba(83,74,183,0.2)] px-2 py-0.5 text-[10px] font-semibold normal-case text-[#534AB7]">
                               {g.badge}
                             </span>
                           )}
@@ -769,10 +769,10 @@ function CyberPlans() {
                     </tr>
                     {/* Feature rows */}
                     {g.rows.map((row) => (
-                      <tr key={row.feature} className={`border-t border-white/[0.04] ${g.highlight ? "bg-[#534AB7]/[0.02]" : ""}`}>
-                        <td className="bg-[#0E1A2B]/40 px-4 py-3 text-sm text-slate-300">{row.feature}</td>
+                      <tr key={row.feature} className={`border-t border-white/[0.04] ${g.highlight ? "bg-[rgba(83,74,183,0.02)]" : ""}`}>
+                        <td className="bg-[rgba(14,26,43,0.4)] px-4 py-3 text-sm text-slate-300">{row.feature}</td>
                         <td className="px-4 py-3 text-center text-sm"><CellContent value={row.starter} /></td>
-                        <td className="border-x-2 border-[#534AB7]/50 bg-[#534AB7]/[0.03] px-4 py-3 text-center text-sm"><CellContent value={row.growth} /></td>
+                        <td className="border-x-2 border-[rgba(83,74,183,0.5)] bg-[rgba(83,74,183,0.03)] px-4 py-3 text-center text-sm"><CellContent value={row.growth} /></td>
                         <td className="px-4 py-3 text-center text-sm"><CellContent value={row.shield} /></td>
                       </tr>
                     ))}
@@ -816,7 +816,7 @@ function CyberPlans() {
 
         {/* Free add-on */}
         <FadeIn delay={400}>
-          <div className="mt-10 rounded-2xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.04] p-8 text-center">
+          <div className="mt-10 rounded-2xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.04)] p-8 text-center">
             <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">Free Add-on</div>
             <h3 className="mb-2 text-xl font-bold text-white">Security Risk Assessment</h3>
             <p className="mb-1 text-sm text-slate-400">
@@ -872,7 +872,7 @@ function RGVIndustries() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((ind, i) => (
             <FadeIn key={ind.title} delay={i * 80}>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-[#7DE3E6]/30 hover:bg-[#7DE3E6]/[0.04]">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-[rgba(125,227,230,0.3)] hover:bg-[rgba(125,227,230,0.04)]">
                 <ind.icon className="mb-3 h-6 w-6 text-[#7DE3E6]" />
                 <h3 className="mb-1 text-sm font-semibold text-white">{ind.title}</h3>
                 <p className="text-xs text-slate-400">{ind.desc}</p>
@@ -897,11 +897,11 @@ function CyberHow() {
   ];
 
   return (
-    <section id="cyber-how" className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+    <section id="cyber-how" className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-4xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
               How It Works
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -913,8 +913,8 @@ function CyberHow() {
         <div className="space-y-6">
           {steps.map((s, i) => (
             <FadeIn key={s.num} delay={i * 80}>
-              <div className="flex gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#7DE3E6]/30 hover:bg-white/[0.05]">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/10 text-sm font-bold text-[#7DE3E6]">
+              <div className="flex gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.05]">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)] text-sm font-bold text-[#7DE3E6]">
                   {s.num}
                 </div>
                 <div>
@@ -967,7 +967,7 @@ function CyberTrust() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
               Why Trust Us
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -979,10 +979,10 @@ function CyberTrust() {
         <div className="grid auto-rows-fr gap-6 sm:grid-cols-2">
           {points.map((pt, i) => (
             <FadeIn key={pt.title} delay={i * 70}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#7DE3E6]/30 hover:bg-white/[0.05] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.05] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(125,227,230,0.9), transparent)" }} />
                 <div className="relative mb-4">
-                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/10">
+                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)]">
                     <pt.icon className="h-5 w-5 text-[#7DE3E6]" aria-hidden="true" />
                   </div>
                 </div>
@@ -1035,7 +1035,7 @@ function CardSelect({
           onClick={() => onChange(opt.value)}
           className={`rounded-xl border px-4 py-3 text-sm font-medium transition-all ${
             value === opt.value
-              ? "border-[#7DE3E6] bg-[#7DE3E6]/10 text-[#7DE3E6]"
+              ? "border-[#7DE3E6] bg-[rgba(125,227,230,0.1)] text-[#7DE3E6]"
               : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:bg-white/[0.06]"
           }`}
         >
@@ -1103,7 +1103,7 @@ function CyberIntake() {
         <div className="mx-auto max-w-2xl">
           <FadeIn>
             <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 text-center backdrop-blur-sm">
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#7DE3E6]/30 bg-[#7DE3E6]/10">
+              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[rgba(125,227,230,0.3)] bg-[rgba(125,227,230,0.1)]">
                 <ShieldCheck className="h-8 w-8 text-[#7DE3E6]" />
               </div>
               <h2 className="mb-3 text-2xl font-bold text-white">Your security score is on its way.</h2>
@@ -1153,7 +1153,7 @@ function CyberIntake() {
       <div className="relative mx-auto max-w-2xl">
         <FadeIn>
           <div className="mb-8 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
               Free Assessment
             </span>
             <h2 className="mb-2 text-3xl font-bold text-white sm:text-4xl">
@@ -1170,9 +1170,9 @@ function CyberIntake() {
           {[1, 2, 3].map((s) => (
             <div key={s} className="flex items-center gap-2">
               <div className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold transition-colors ${
-                s === step ? "bg-[#7DE3E6] text-[#0B1220]" : s < step ? "bg-[#7DE3E6]/20 text-[#7DE3E6]" : "bg-white/10 text-slate-500"
+                s === step ? "bg-[#7DE3E6] text-[#0B1220]" : s < step ? "bg-[rgba(125,227,230,0.2)] text-[#7DE3E6]" : "bg-white/10 text-slate-500"
               }`}>{s}</div>
-              {s < 3 && <div className={`h-0.5 w-8 rounded-full transition-colors ${s < step ? "bg-[#7DE3E6]/40" : "bg-white/10"}`} />}
+              {s < 3 && <div className={`h-0.5 w-8 rounded-full transition-colors ${s < step ? "bg-[rgba(125,227,230,0.4)]" : "bg-white/10"}`} />}
             </div>
           ))}
           <span className="ml-2 text-xs text-slate-500">Step {step} of 3</span>
@@ -1270,22 +1270,22 @@ function CyberIntake() {
                 <div>
                   <label htmlFor="cyber-name" className="mb-1.5 block text-sm font-medium text-white">Your name <span className="text-red-400">*</span></label>
                   <input id="cyber-name" type="text" required value={form.name} onChange={(e) => updateField("name", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[#7DE3E6]/50" placeholder="Your name" />
+                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[rgba(125,227,230,0.5)]" placeholder="Your name" />
                 </div>
                 <div>
                   <label htmlFor="cyber-biz" className="mb-1.5 block text-sm font-medium text-white">Business name <span className="text-red-400">*</span></label>
                   <input id="cyber-biz" type="text" required value={form.businessName} onChange={(e) => updateField("businessName", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[#7DE3E6]/50" placeholder="Business name" />
+                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[rgba(125,227,230,0.5)]" placeholder="Business name" />
                 </div>
                 <div>
                   <label htmlFor="cyber-email" className="mb-1.5 block text-sm font-medium text-white">Email address <span className="text-red-400">*</span></label>
                   <input id="cyber-email" type="email" required value={form.email} onChange={(e) => updateField("email", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[#7DE3E6]/50" placeholder="Email address" />
+                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[rgba(125,227,230,0.5)]" placeholder="Email address" />
                 </div>
                 <div>
                   <label htmlFor="cyber-phone" className="mb-1.5 block text-sm font-medium text-white">Phone <span className="text-xs text-slate-500">(optional — only if you&apos;d like a follow-up call)</span></label>
                   <input id="cyber-phone" type="tel" value={form.phone} onChange={(e) => updateField("phone", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[#7DE3E6]/50" placeholder="Phone number (optional)" />
+                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[rgba(125,227,230,0.5)]" placeholder="Phone number (optional)" />
                 </div>
                 <label className="flex cursor-pointer items-start gap-3">
                   <input type="checkbox" checked={form.newsletter} onChange={(e) => updateField("newsletter", e.target.checked)}
@@ -1336,7 +1336,7 @@ function CyberFAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section id="cyber-faq" className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+    <section id="cyber-faq" className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-12 text-center">
@@ -1419,8 +1419,8 @@ export default function CybersecurityPage() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#0B1220]">
       <div className="pointer-events-none fixed inset-0 z-0 bg-grid" />
-      <div className="pointer-events-none fixed left-1/2 top-0 z-0 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-[#7DE3E6]/[0.04] blur-[180px]" />
-      <div className="pointer-events-none fixed bottom-0 right-0 z-0 h-[500px] w-[600px] rounded-full bg-[#7DE3E6]/[0.025] blur-[140px]" />
+      <div className="pointer-events-none fixed left-1/2 top-0 z-0 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-[rgba(125,227,230,0.04)] blur-[180px]" />
+      <div className="pointer-events-none fixed bottom-0 right-0 z-0 h-[500px] w-[600px] rounded-full bg-[rgba(125,227,230,0.025)] blur-[140px]" />
       <div className="pointer-events-none fixed inset-0 z-[1] opacity-[0.032]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: "200px 200px" }} />
       <div className="relative z-10">
         <Nav />

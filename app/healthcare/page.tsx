@@ -39,7 +39,7 @@ function FadeIn({
 
 function SectionDivider() {
   return (
-    <div className="h-px bg-gradient-to-r from-transparent via-[#7DE3E6]/15 to-transparent" />
+    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(125,227,230,0.15)] to-transparent" />
   );
 }
 
@@ -51,7 +51,7 @@ function Nav() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#0B1220]/90 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-white/[0.08] bg-[rgba(11,18,32,0.9)] backdrop-blur-md">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-24 items-center justify-between">
           <a href="/" className="flex items-center gap-2.5">
@@ -96,11 +96,11 @@ function Nav() {
                   <div className="rounded-xl border border-white/[0.08] bg-[#0B1220] p-1.5 shadow-xl backdrop-blur-md">
                     <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Cybersecurity
-                      <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                      <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                     </a>
                     <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Healthcare
-                      <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                      <span className="rounded-full bg-[rgba(244,114,182,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
                     </a>
                     <a href="/cybersecurity#cyber-intake" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Free Security Assessment
@@ -165,11 +165,11 @@ function Nav() {
               <div className="flex flex-col gap-0.5 pl-4">
                 <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Cybersecurity
-                  <span className="rounded-full bg-[#7DE3E6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                  <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
                 </a>
                 <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Healthcare
-                  <span className="rounded-full bg-[#F472B6]/15 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
+                  <span className="rounded-full bg-[rgba(244,114,182,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
                 </a>
                 <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Free Security Assessment
@@ -206,10 +206,10 @@ function Hero() {
       className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6"
       style={{ backgroundColor: "#0d1117" }}
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#F472B6]/[0.03] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(244,114,182,0.03)] to-transparent" />
       <div className="relative mx-auto max-w-4xl text-center">
         <FadeIn>
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#F472B6]/25 bg-[#F472B6]/[0.07] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(244,114,182,0.25)] bg-[rgba(244,114,182,0.07)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
             Healthcare &middot; HIPAA-Aware
           </span>
         </FadeIn>
@@ -274,11 +274,11 @@ function PainLandscape() {
   ];
 
   return (
-    <section className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+    <section className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F472B6]/20 bg-[#F472B6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(244,114,182,0.2)] bg-[rgba(244,114,182,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
               The Reality
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -354,7 +354,7 @@ function HipaaDifferentiator() {
       <div className="mx-auto max-w-5xl">
         <FadeIn>
           <div className="mb-10 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
               The Trust Gate
             </span>
             <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
@@ -434,10 +434,10 @@ function HipaaDifferentiator() {
 
 function WhyHipaaStandard() {
   return (
-    <section className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+    <section className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
             Operational Reality
           </span>
           <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
@@ -499,7 +499,7 @@ function Services() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F472B6]/20 bg-[#F472B6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(244,114,182,0.2)] bg-[rgba(244,114,182,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
               Healthcare Services
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -593,11 +593,11 @@ function Background() {
   ];
 
   return (
-    <section className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+    <section className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
               The Background
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -671,7 +671,7 @@ function BilingualRGV() {
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-10 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F472B6]/20 bg-[#F472B6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(244,114,182,0.2)] bg-[rgba(244,114,182,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
               Local By Design
             </span>
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
@@ -725,11 +725,11 @@ function HowItWorks() {
   ];
 
   return (
-    <section className="bg-[#0E1A2B]/60 px-4 py-20 sm:px-6">
+    <section className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#7DE3E6]/20 bg-[#7DE3E6]/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
               The Engagement
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -741,7 +741,7 @@ function HowItWorks() {
         <div className="grid gap-6 sm:grid-cols-3">
           {steps.map((s, i) => (
             <FadeIn key={s.num} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#7DE3E6]/30 hover:bg-white/[0.05]">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.05]">
                 <div
                   className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   style={{
@@ -749,7 +749,7 @@ function HowItWorks() {
                       "linear-gradient(90deg, transparent, rgba(125,227,230,0.9), transparent)",
                   }}
                 />
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-[#7DE3E6]/20 bg-[#7DE3E6]/10 text-sm font-bold text-[#7DE3E6]">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)] text-sm font-bold text-[#7DE3E6]">
                   {s.num}
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-white">{s.title}</h3>
@@ -770,7 +770,7 @@ function TrustProof() {
     <section className="px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#10B981]/25 bg-[#10B981]/[0.07] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#10B981]">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(16,185,129,0.25)] bg-[rgba(16,185,129,0.07)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#10B981]">
             Currently Active
           </span>
           <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
@@ -805,8 +805,8 @@ function HipaaAudit() {
     >
       <div className="mx-auto max-w-3xl">
         <FadeIn>
-          <div className="rounded-3xl border border-[#F472B6]/30 bg-[#0E1A2B]/80 p-8 backdrop-blur-sm sm:p-12">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F472B6]/30 bg-[#F472B6]/[0.1] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
+          <div className="rounded-3xl border border-[rgba(244,114,182,0.3)] bg-[rgba(14,26,43,0.8)] p-8 backdrop-blur-sm sm:p-12">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(244,114,182,0.3)] bg-[rgba(244,114,182,0.1)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
               Free Service · No Commitment
             </span>
             <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
@@ -933,8 +933,8 @@ export default function HealthcarePage() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#0B1220]">
       <div className="pointer-events-none fixed inset-0 z-0 bg-grid" />
-      <div className="pointer-events-none fixed left-1/2 top-0 z-0 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-[#F472B6]/[0.04] blur-[180px]" />
-      <div className="pointer-events-none fixed bottom-0 right-0 z-0 h-[500px] w-[600px] rounded-full bg-[#7DE3E6]/[0.025] blur-[140px]" />
+      <div className="pointer-events-none fixed left-1/2 top-0 z-0 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-[rgba(244,114,182,0.04)] blur-[180px]" />
+      <div className="pointer-events-none fixed bottom-0 right-0 z-0 h-[500px] w-[600px] rounded-full bg-[rgba(125,227,230,0.025)] blur-[140px]" />
 
       <div
         className="pointer-events-none fixed inset-0 z-[1] opacity-[0.032]"
