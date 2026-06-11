@@ -5,6 +5,7 @@ const industryMap: Record<string, string> = {
   "logistics": "Logistics/Transport",
   "home-services": "Home Services",
   "professional": "Professional Services",
+  "professional-services": "Professional Services",
   "healthcare": "Healthcare/Medical",
   "other": "Other",
   "Construction/Trades": "Construction/Trades",

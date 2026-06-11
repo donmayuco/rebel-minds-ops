@@ -833,7 +833,7 @@ function HipaaAudit() {
             </div>
             <div className="mt-8">
               <a
-                href="/#book?topic=hipaa-stack-audit"
+                href="/#book"
                 className="inline-flex items-center gap-2 rounded-lg bg-[#F472B6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#EC4899]"
               >
                 Request your HIPAA Stack Audit
