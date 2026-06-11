@@ -1,3 +1,5 @@
+import { track } from "@vercel/analytics";
+
 export function trackEvent(
   eventName: string,
   payload: Record<string, any> = {}
@@ -9,7 +11,7 @@ export function trackEvent(
       console.log("[trackEvent]", eventName, payload);
     }
 
-    // Future: plug into GA4 / PostHog / etc.
+    track(eventName, payload);
   } catch (err) {
     console.error("Analytics error:", err);
   }

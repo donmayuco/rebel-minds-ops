@@ -136,7 +136,7 @@ function Nav() {
           </div>
 
           <button
-            className="rounded-lg p-2 text-slate-400 transition-colors hover:text-white md:hidden"
+            className="rounded-lg p-3 text-slate-400 transition-colors hover:text-white md:hidden"
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation"
             aria-expanded={open}
@@ -375,9 +375,9 @@ function WhyTrainingFails() {
             {/* Rows */}
             {rows.map((row, i) => (
               <div key={i} className="grid grid-cols-[1fr_auto_1fr] border-t border-white/[0.06]">
-                <div className="bg-red-500/[0.04] px-5 py-4 text-sm text-red-200/80">{row.bad}</div>
+                <div className="bg-red-500/[0.04] px-5 py-4 text-sm text-red-200">{row.bad}</div>
                 <div className="flex items-center bg-white/[0.02] px-3 text-slate-600 text-xs">vs</div>
-                <div className="bg-green-500/[0.04] px-5 py-4 text-sm text-green-200/80">{row.good}</div>
+                <div className="bg-green-500/[0.04] px-5 py-4 text-sm text-green-200">{row.good}</div>
               </div>
             ))}
           </div>

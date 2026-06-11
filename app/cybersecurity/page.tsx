@@ -146,7 +146,7 @@ function Nav() {
           </div>
 
           <button
-            className="rounded-lg p-2 text-slate-400 transition-colors hover:text-white md:hidden"
+            className="rounded-lg p-3 text-slate-400 transition-colors hover:text-white md:hidden"
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation"
             aria-expanded={open}
@@ -267,7 +267,7 @@ function CyberHero() {
         </FadeIn>
 
         <FadeIn delay={400}>
-          <p className="mt-6 text-xs text-slate-500">
+          <p className="mt-6 text-xs text-slate-400">
             No contracts. No jargon. Cancel anytime.
           </p>
         </FadeIn>
@@ -1230,7 +1230,7 @@ function CyberIntake() {
                 </div>
                 <div>
                   <label className="mb-3 block text-sm font-medium text-white">Do you have multi-factor authentication (MFA) enabled?</label>
-                  <p className="mb-3 text-xs text-slate-500">A second verification step when logging in — like a code texted to your phone.</p>
+                  <p className="mb-3 text-xs text-slate-400">A second verification step when logging in — like a code texted to your phone.</p>
                   <CardSelect
                     options={[
                       { value: "YesEverywhere", label: "Yes, everywhere" },

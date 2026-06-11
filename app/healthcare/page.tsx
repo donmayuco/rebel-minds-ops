@@ -124,7 +124,7 @@ function Nav() {
           </div>
 
           <button
-            className="rounded-lg p-2 text-slate-400 transition-colors hover:text-white md:hidden"
+            className="rounded-lg p-3 text-slate-400 transition-colors hover:text-white md:hidden"
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation"
             aria-expanded={open}
