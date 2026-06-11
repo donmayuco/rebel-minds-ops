@@ -2193,9 +2193,9 @@ export default function Home() {
       "@graph": [
         {
           "@type": "LocalBusiness",
-          "@id": "https://rebelmindsops.com/#organization",
+          "@id": "https://www.rebelmindsops.com/#organization",
           name: "Rebel Minds Ops",
-          url: "https://rebelmindsops.com",
+          url: "https://www.rebelmindsops.com",
           description: businessDescription,
           areaServed: ["Rio Grande Valley (RGV)", "South Texas"],
           sameAs: [],
@@ -2203,13 +2203,13 @@ export default function Home() {
         },
         {
           "@type": "ProfessionalService",
-          "@id": "https://rebelmindsops.com/#service",
+          "@id": "https://www.rebelmindsops.com/#service",
           name: "Rebel Minds Ops",
-          url: "https://rebelmindsops.com",
+          url: "https://www.rebelmindsops.com",
           description: businessDescription,
           areaServed: ["Rio Grande Valley (RGV)", "South Texas"],
           sameAs: [],
-          provider: { "@id": "https://rebelmindsops.com/#organization" },
+          provider: { "@id": "https://www.rebelmindsops.com/#organization" },
           contactPoint: [{ "@type": "ContactPoint", contactType: "sales", email: contactEmail, telephone: contactPhone, areaServed: "US-TX" }],
         },
       ],

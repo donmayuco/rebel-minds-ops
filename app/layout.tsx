@@ -15,7 +15,7 @@ const siteUrl =
     ? rawSiteUrl
     : process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : "https://rebelmindsops.com";
+      : "https://www.rebelmindsops.com";
 
 export const metadata: Metadata = {
   title: "Rebel Minds OPS | Healthcare Technology Consultant — RGV-built, HIPAA-aware",
@@ -58,14 +58,6 @@ export const metadata: Metadata = {
       "Healthcare technology consulting for RGV practices — HIPAA-aware patient communication, automation, and operational systems. Bilingual by default. Serving McAllen, Edinburg, and South Texas.",
     url: siteUrl,
     siteName: "Rebel Minds OPS",
-    images: [
-      {
-        url: "/icon.png",
-        width: 512,
-        height: 512,
-        alt: "Rebel Minds OPS",
-      },
-    ],
     type: "website",
     locale: "en_US",
   },
@@ -75,7 +67,6 @@ export const metadata: Metadata = {
     title: "Rebel Minds OPS | Healthcare Technology Consultant",
     description:
       "Healthcare technology consulting for RGV practices — HIPAA-aware. Bilingual by default. Serving McAllen, Edinburg, and South Texas.",
-    images: ["/icon.png"],
   },
 };
 
