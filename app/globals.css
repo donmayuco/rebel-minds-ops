@@ -89,14 +89,6 @@ select:focus-visible {
   animation: cursor-blink 1s step-end infinite;
 }
 
-/* Gradient text utility */
-.gradient-text {
-  background: linear-gradient(135deg, #7DE3E6 0%, #A5F3FC 60%, #e0f7ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* Glow button */
 .glow-teal {
   box-shadow: 0 0 28px rgba(125, 227, 230, 0.35);

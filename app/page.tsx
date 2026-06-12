@@ -187,10 +187,12 @@ function StatCard({
   target,
   suffix,
   label,
+  prefix,
 }: {
   target: number;
   suffix: string;
   label: string;
+  prefix?: string;
 }) {
   const { count, ref } = useCountUp(target);
   return (
@@ -199,6 +201,7 @@ function StatCard({
       className="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3.5 backdrop-blur-sm"
     >
       <div className="text-lg font-bold text-[#7DE3E6]">
+        {prefix ? `${prefix} ` : ""}
         {count}
         {suffix}
       </div>
@@ -689,12 +692,9 @@ function Hero() {
                 <span className="block leading-[1.15]">
                   Operational Systems &amp; Automation for
                 </span>
-                <span
-                  className="relative block"
-                  style={{ height: "2.9em" }}
-                >
+                <span className="relative block h-[4.3em] sm:h-[2.9em]">
                   <span
-                    className="gradient-text absolute left-0 top-0 right-0 block"
+                    className="absolute left-0 top-0 right-0 block text-[#7DE3E6]"
                     style={{ lineHeight: "1.4" }}
                   >
                     {typewriterText}
@@ -754,7 +754,7 @@ function Hero() {
 
             <FadeIn delay={400} className="mt-2">
               <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
-                <StatCard target={80} suffix="%" label="Admin Work Reduced" />
+                <StatCard prefix="Up to" target={80} suffix="%" label="Less Manual Data Entry" />
                 <StatCard target={3} suffix=" wks" label="Average Time to Launch" />
                 <StatCard target={100} suffix="%" label="Custom-Built Systems" />
               </div>
@@ -1389,7 +1389,7 @@ function JPCCaseStudy() {
         <FadeIn delay={300}>
           <div className="mt-10 text-center">
             <p className="text-2xl font-bold text-white sm:text-3xl">Protect your focus.</p>
-            <p className="text-2xl font-bold sm:text-3xl gradient-text">Automate the rest.</p>
+            <p className="text-2xl font-bold sm:text-3xl text-[#7DE3E6]">Automate the rest.</p>
             <p className="mt-3 text-sm text-slate-500">
               That&apos;s not a tagline. That&apos;s what we actually build.
             </p>
@@ -1693,45 +1693,40 @@ function WhyRebelMindsOps() {
     <section className="relative overflow-hidden bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(125,227,230,0.02)] to-transparent" />
       <div className="relative mx-auto max-w-6xl">
-        <FadeIn>
-          <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold text-[#7DE3E6]">
-              Our Credibility
-            </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              Why Rebel Minds Ops
-            </h2>
-            <p className="mx-auto max-w-xl text-slate-400">
-              Other automation companies sell you a tool and disappear. We start with how your business actually operates — the friction, the cognitive overload, the habits your team already has — and we build around all of it.
-            </p>
+        <div className="grid gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">
+          {/* Left: section intro, sticky on desktop */}
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <FadeIn>
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold text-[#7DE3E6]">
+                Our Credibility
+              </span>
+              <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+                Why Rebel Minds Ops
+              </h2>
+              <p className="max-w-md text-slate-400">
+                Other automation companies sell you a tool and disappear. We start with how your business actually operates — the friction, the cognitive overload, the habits your team already has — and we build around all of it.
+              </p>
+            </FadeIn>
           </div>
-        </FadeIn>
 
-        <div className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {points.map((pt, i) => (
-            <FadeIn key={pt.title} delay={i * 70}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.05] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
-                {/* Top accent line (thin = no snapping) */}
+          {/* Right: editorial numbered list */}
+          <div>
+            {points.map((pt, i) => (
+              <FadeIn key={pt.title} delay={i * 70}>
                 <div
-                  className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, transparent, rgba(125,227,230,0.9), transparent)",
-                  }}
-                />
-
-                <div className="relative mb-4">
-                  <div className="absolute inset-0 rounded-xl bg-[rgba(125,227,230,0.2)] blur-lg opacity-0 transition duration-300 group-hover:opacity-100" />
-                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)]">
-                    <pt.icon className="h-5 w-5 text-[#7DE3E6]" aria-hidden="true" />
+                  className={`grid grid-cols-[3rem_1fr] gap-4 py-7 ${i > 0 ? "border-t border-white/[0.08]" : "pt-0 lg:pt-2"}`}
+                >
+                  <span className="pt-1 font-mono text-sm font-semibold text-[#7DE3E6]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="mb-2 text-lg font-semibold text-white">{pt.title}</h3>
+                    <p className="text-sm leading-relaxed text-slate-400">{pt.desc}</p>
                   </div>
                 </div>
-
-                <h3 className="mb-2 text-lg font-semibold text-white">{pt.title}</h3>
-                <p className="text-sm text-slate-400">{pt.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -1767,7 +1762,7 @@ function CyberTeaser() {
           </div>
         </FadeIn>
 
-        <div className="mb-12 grid gap-6 sm:grid-cols-3">
+        <div className="mb-4 grid gap-6 sm:grid-cols-3">
           {stats.map((stat, i) => (
             <FadeIn key={stat.value} delay={i * 80}>
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center backdrop-blur-sm">
@@ -1777,6 +1772,13 @@ function CyberTeaser() {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={250}>
+          <p className="mx-auto mb-12 max-w-2xl text-center text-xs text-slate-400">
+            Commonly cited industry estimates (Verizon DBIR, Hiscox Cyber Readiness
+            Report). The free assessment shows your numbers — not the internet&apos;s.
+          </p>
+        </FadeIn>
 
         <FadeIn delay={300}>
           <div className="flex flex-col items-center gap-3 text-center">

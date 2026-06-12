@@ -536,6 +536,14 @@ function Services() {
           ))}
         </div>
 
+        <FadeIn delay={160}>
+          <p className="mt-6 text-center text-xs text-slate-400">
+            Revenue figures are illustrative ranges drawn from RGV practice work and
+            published dental industry benchmarks — your numbers depend on volume and
+            case mix.
+          </p>
+        </FadeIn>
+
         <FadeIn delay={200}>
           <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
             <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-slate-500">

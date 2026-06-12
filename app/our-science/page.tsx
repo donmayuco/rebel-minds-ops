@@ -565,7 +565,7 @@ function StatsCTA() {
   return (
     <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0d1117" }}>
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 grid gap-6 grid-cols-2 lg:grid-cols-4">
+        <div className="mb-4 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <FadeIn key={stat.value} delay={i * 80}>
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center backdrop-blur-sm">
@@ -575,6 +575,14 @@ function StatsCTA() {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={300}>
+          <p className="mx-auto mb-16 max-w-2xl text-center text-xs text-slate-400">
+            Figures are widely reported industry estimates from security, change
+            management, learning science, and dental practice research — cited as
+            context, not as guarantees.
+          </p>
+        </FadeIn>
 
         <div className="mx-auto mb-12 max-w-3xl">
           <div className="mt-6 flex items-start gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-4">
