@@ -2200,7 +2200,9 @@ export default function Home() {
           url: "https://www.rebelmindsops.com",
           description: businessDescription,
           areaServed: ["Rio Grande Valley (RGV)", "South Texas"],
-          sameAs: [],
+          // Cross-domain consolidation: the science/authority brand is rebelminds.ai
+          sameAs: ["https://rebelminds.ai"],
+          founder: { "@id": "https://www.rebelmindsops.com/#founder" },
           contactPoint: [{ "@type": "ContactPoint", contactType: "customer support", email: contactEmail, telephone: contactPhone, areaServed: "US-TX" }],
         },
         {
@@ -2210,9 +2212,26 @@ export default function Home() {
           url: "https://www.rebelmindsops.com",
           description: businessDescription,
           areaServed: ["Rio Grande Valley (RGV)", "South Texas"],
-          sameAs: [],
+          sameAs: ["https://rebelminds.ai"],
           provider: { "@id": "https://www.rebelmindsops.com/#organization" },
           contactPoint: [{ "@type": "ContactPoint", contactType: "sales", email: contactEmail, telephone: contactPhone, areaServed: "US-TX" }],
+        },
+        {
+          // The person behind both brands — scientist (rebelminds.ai) + builder (here).
+          "@type": "Person",
+          "@id": "https://www.rebelmindsops.com/#founder",
+          name: "Mario L. Arredondo",
+          url: "https://rebelminds.ai",
+          jobTitle: "AI Adoption Strategist & Systems Builder",
+          description:
+            "M.A., Industrial-Organizational Psychology. Builds the AI automation systems and researches the human layer of AI adoption.",
+          worksFor: { "@id": "https://www.rebelmindsops.com/#organization" },
+          sameAs: [
+            "https://rebelminds.ai",
+            "https://doi.org/10.54014/DKAX-FS1S",
+            "https://doi.org/10.1080/17470218.2016.1222446",
+            "https://doi.org/10.1080/17470218.2016.1256416",
+          ],
         },
       ],
     }),
