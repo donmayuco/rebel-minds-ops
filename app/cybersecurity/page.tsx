@@ -1398,6 +1398,7 @@ function Footer() {
               <span className="text-sm font-bold tracking-wide text-white">Rebel Minds OPS</span>
             </div>
             <span className="text-sm text-slate-400">&copy; {new Date().getFullYear()} Rebel Minds OPS LLC. All rights reserved.</span>
+            <span className="text-xs text-slate-500">Founded by Mario Arredondo, M.A. — the science behind the systems lives at <a href="https://rebelminds.ai" target="_blank" rel="noopener" className="text-slate-400 underline-offset-2 transition-colors hover:text-white hover:underline">rebelminds.ai</a>.</span>
           </div>
           <nav className="flex flex-col flex-wrap items-center justify-center gap-3 text-sm text-slate-400 sm:items-end">
             <div className="mb-2 flex gap-5">

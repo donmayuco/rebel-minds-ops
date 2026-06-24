@@ -2153,6 +2153,18 @@ function Footer() {
             <span className="text-sm text-slate-400">
               © {new Date().getFullYear()} Rebel Minds OPS LLC. All rights reserved.
             </span>
+            <span className="text-xs text-slate-500">
+              Founded by Mario Arredondo, M.A. — the science behind the systems lives at{" "}
+              <a
+                href="https://rebelminds.ai"
+                target="_blank"
+                rel="noopener"
+                className="text-slate-400 underline-offset-2 transition-colors hover:text-white hover:underline"
+              >
+                rebelminds.ai
+              </a>
+              .
+            </span>
             <div className="mt-2 space-y-1 text-sm text-slate-400">
               <p>
                 <a href="tel:+19565204123" className="transition-colors hover:text-white">
