@@ -1200,6 +1200,7 @@ export default function Home() {
             "M.A., Industrial & Organizational Psychology. Builds the AI automation systems and researches the human layer of AI adoption.",
           worksFor: { "@id": "https://www.rebelmindsops.com/#organization" },
           sameAs: [
+            "https://www.linkedin.com/in/mario-arredondo-romo/",
             "https://rebelminds.ai",
             "https://doi.org/10.54014/DKAX-FS1S",
             "https://doi.org/10.1080/17470218.2016.1222446",
