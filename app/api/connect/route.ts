@@ -29,7 +29,8 @@ const priorityAreaMap: Record<string, string> = {
   "Simplify scheduling and team coordination": "Simplify scheduling and team coordination",
   "Set up or improve IT infrastructure (WiFi, email, workspace tools)": "Set up or improve IT infrastructure (WiFi, email, workspace tools)",
   "Healthcare patient systems (intake, reviews, HIPAA messaging)": "Healthcare patient systems (intake, reviews, HIPAA messaging)",
-  "Not sure yet — show me what's possible": "Not sure yet — show me what's possible",
+  "Not sure yet — show me what's possible": "Not sure yet — show me what’s possible",
+  "Not sure yet — show me what’s possible": "Not sure yet — show me what’s possible",
   "Organizar recibos y gastos para contabilidad": "Organize receipts and expenses for better accounting",
   "Mejorar la visibilidad y seguimiento de proyectos": "Improve project visibility and tracking",
   "Reducir captura manual de datos y papeleo": "Reduce manual data entry and paperwork",
@@ -37,7 +38,7 @@ const priorityAreaMap: Record<string, string> = {
   "Simplificar horarios y coordinación del equipo": "Simplify scheduling and team coordination",
   "Configurar o mejorar infraestructura de TI": "Set up or improve IT infrastructure (WiFi, email, workspace tools)",
   "Sistemas para pacientes (formularios, reseñas, mensajería HIPAA)": "Healthcare patient systems (intake, reviews, HIPAA messaging)",
-  "No estoy seguro — muéstrame qué es posible": "Not sure yet — show me what's possible",
+  "No estoy seguro — muéstrame qué es posible": "Not sure yet — show me what’s possible",
 };
 
 export async function POST(req: NextRequest) {
@@ -69,6 +70,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const fields: Record<string, string> = {
+      fldkbSxDNI7GSCUAh: payload.businessName,
+      fldFItGDGCdyarvQR: payload.email,
+      fldlEr9xm942RDvny: payload.phone,
+      fldE1f8cvYQjpNmV8: payload.status,
+      fldlLqCohSaS6MW5T: payload.notes,
+      fld23FyFgCGQDRrHB: payload.submittedAt,
+    };
+    if (payload.industry) fields.fldF4hkke0PHS0AOQ = payload.industry;
+    if (payload.priorityArea) fields.fldAoi9N7uLFbcBWk = payload.priorityArea;
+    if (payload.source) fields.fldYvhuvdNtlBSedY = payload.source;
+
     const airtableRes = await fetch(
       `https://api.airtable.com/v0/${baseId}/${tableId}`,
       {
@@ -78,17 +91,8 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          fields: {
-            fldkbSxDNI7GSCUAh: payload.businessName,
-            fldFItGDGCdyarvQR: payload.email,
-            fldlEr9xm942RDvny: payload.phone,
-            fldF4hkke0PHS0AOQ: payload.industry,
-            fldAoi9N7uLFbcBWk: payload.priorityArea,
-            fldYvhuvdNtlBSedY: payload.source,
-            fldE1f8cvYQjpNmV8: payload.status,
-            fldlLqCohSaS6MW5T: payload.notes,
-            fld23FyFgCGQDRrHB: payload.submittedAt,
-          },
+          fields,
+          typecast: true,
         }),
       }
     );
