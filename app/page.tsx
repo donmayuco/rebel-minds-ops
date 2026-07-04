@@ -1682,7 +1682,7 @@ function SpanishSection() {
 // ─── Why Rebel Minds Ops ──────────────────────────────────────────────────────
 function WhyRebelMindsOps() {
   const points = [
-    { title: "RGV Roots", desc: "Bicultural. Bilingual. Over 30 years navigating the unique business culture of the Rio Grande Valley — where relationships, language, and trust work differently. We don\u2019t just know this market. We are this market.", icon: MapPin },
+    { title: "RGV Roots", desc: "Bicultural. Bilingual. Over 25 years navigating the unique business culture of the Rio Grande Valley — where relationships, language, and trust work differently. We don\u2019t just know this market. We are this market.", icon: MapPin },
     { title: "Industrial & Org. Psychology Lens", desc: "Cognitive overload kills adoption. We design every system around the humans who have to use it daily — because a tool your team resists is just expensive shelf furniture.", icon: Brain },
     { title: "Business Ownership", desc: "We're not just coders; we are operators who have built and run businesses.", icon: HardHat },
     { title: "Modern Architecture", desc: "We utilize API-first toolchains and serverless functions to keep overhead low.", icon: Zap },

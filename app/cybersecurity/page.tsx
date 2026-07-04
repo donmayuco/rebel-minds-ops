@@ -936,7 +936,7 @@ function CyberTrust() {
   const points = [
     {
       icon: MapPin,
-      title: "RGV — 30 Years and Counting",
+      title: "RGV — 25 Years and Counting",
       desc: "Deep roots in South Texas — we know this market, these businesses, and these communities because we\u2019ve lived and worked here for decades. Family-owned medical offices, trades companies, law firms, logistics operators. We\u2019re not a faceless SaaS platform. We\u2019re your neighbors.",
     },
     {

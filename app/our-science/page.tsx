@@ -216,7 +216,7 @@ function ScienceHero() {
   const credentials = [
     "Two Summa Cum Laude degrees · UTRGV",
     "Graduate I-O Psychology, SUNY Albany (full scholarship)",
-    "Bicultural \u00B7 Bilingual \u00B7 30+ Years RGV Business Operations",
+    "Bicultural \u00B7 Bilingual \u00B7 25+ Years RGV Business Operations",
   ];
 
   return (
@@ -495,9 +495,9 @@ function Credentials() {
     },
     {
       color: "#F59E0B",
-      label: "Practitioner — 30 Years in the Valley",
+      label: "Practitioner — 25 Years in the Valley",
       title: "Rebel Minds OPS — Founder & Systems Architect",
-      desc: "Bicultural and bilingual by lived experience — not by geography alone. The RGV has its own identity, its own rhythm, and its own relationship between owner, crew, and client. Over 30 years of operating in this market means we understand not just the business problems, but the human context surrounding every one of them. That context is what makes our systems get adopted instead of abandoned.",
+      desc: "Bicultural and bilingual by lived experience — not by geography alone. The RGV has its own identity, its own rhythm, and its own relationship between owner, crew, and client. Over 25 years of operating in this market means we understand not just the business problems, but the human context surrounding every one of them. That context is what makes our systems get adopted instead of abandoned.",
     },
   ];
 
@@ -663,16 +663,17 @@ function Footer() {
               &copy; {new Date().getFullYear()} Rebel Minds OPS LLC. All rights reserved.
             </span>
             <span className="text-xs text-slate-500">
-              Founded by Mario Arredondo, M.A. — the science behind the systems lives at{" "}
+              Founded by Mario Arredondo, M.A. — the science behind the systems
+              is{" "}
               <a
-                href="https://rebelminds.ai"
+                href="https://rebelminds.ai/framework"
                 target="_blank"
                 rel="noopener"
                 className="text-slate-400 underline-offset-2 transition-colors hover:text-white hover:underline"
               >
-                rebelminds.ai
-              </a>
-              .
+                The Human Layer Framework
+              </a>{" "}
+              at rebelminds.ai.
             </span>
           </div>
           <nav className="flex flex-col flex-wrap items-center justify-center gap-3 text-sm text-slate-400 sm:items-end">
