@@ -1,6 +1,16 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Check, X } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarClock,
+  Check,
+  Inbox,
+  MessagesSquare,
+  PhoneCall,
+  PhoneMissed,
+  Star,
+  X,
+} from "lucide-react";
 import SiteNav from "@/app/components/SiteNav";
 import SiteFooter from "@/app/components/SiteFooter";
 import ComplianceDiagram from "@/app/components/ComplianceDiagram";
@@ -104,19 +114,19 @@ function Hero() {
 function PainLandscape() {
   const cards = [
     {
-      accent: "#7fd7e2",
+      icon: Inbox,
       title: "Your front desk is drowning in paperwork.",
       body: "Manual intake forms. Insurance verification on hold. Treatment plans that get presented and never followed up. The math: every untracked treatment plan that walks out the door is revenue you'll never see.",
     },
     {
-      accent: "#7fd7e2",
+      icon: PhoneMissed,
       title: "After-hours emergencies are walking to competitors.",
-      body: "A patient calls at 8pm with a cracked tooth. Voicemail. Three minutes later they're Googling the next office. By 9pm they're someone else's patient. Every emergency you miss is $300–$2,000+ of revenue lost — and a referral relationship that didn't form.",
+      body: "A patient calls at 8pm with a cracked tooth. Voicemail. Three minutes later they're Googling the next office. By 9pm they're someone else's patient. Every emergency you miss is $300–$2,000+ of revenue lost, and a referral relationship that didn't form.",
     },
     {
-      accent: "#7fd7e2",
+      icon: Star,
       title: "Your reputation is left to chance.",
-      body: "Happy patients quietly leave. Frustrated patients post publicly. No system catches the difference. Practices with structured review systems consistently outpace competitors with similar care quality — because online perception drives new patient choice.",
+      body: "Happy patients quietly leave. Frustrated patients post publicly. No system catches the difference. Practices with structured review systems consistently outpace competitors with similar care quality, because online perception drives new patient choice.",
     },
   ];
 
@@ -137,10 +147,13 @@ function PainLandscape() {
         <div className="grid gap-6 sm:grid-cols-3">
           {cards.map((c, i) => (
             <FadeIn key={c.title} delay={i * 80}>
-              <div
-                className="h-full rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:border-white/20 hover:bg-[#141d2c]"
-                style={{ borderLeftWidth: 3, borderLeftColor: c.accent }}
-              >
+              <div className="h-full rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:border-white/20">
+                <div
+                  className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border"
+                  style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}
+                >
+                  <c.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
+                </div>
                 <h3 className="mb-2 text-lg font-semibold text-[#e9edf4]">{c.title}</h3>
                 <p className="text-sm text-[#8fa0b3]">{c.body}</p>
               </div>
@@ -314,18 +327,21 @@ function Services() {
   const featured = [
     {
       accent: "#7fd7e2",
+      icon: MessagesSquare,
       title: "Reputation routing & review acquisition",
       body: "Post-visit messaging that detects sentiment automatically. Happy patients get routed to your Google Business Profile. Frustrated patients get routed to private feedback, so they vent to you, not online.",
       roi: "Protects existing rating. Compounds over time. Already running for our first dental client.",
     },
     {
       accent: "#7fd7e2",
+      icon: PhoneCall,
       title: "After-hours AI receptionist & voicemail triage",
       body: "Patient calls at 8pm with a cracked tooth. AI triages urgency, sends emergency alert to the on-call clinician's phone, books non-urgent for next morning. HIPAA-aware end to end.",
       roi: "Captures an estimated $300–$2,000+ per emergency case currently going to competitors.",
     },
     {
       accent: "#7fd7e2",
+      icon: CalendarClock,
       title: "Treatment plan follow-up & patient reactivation",
       body: "30–50% of presented treatment plans never get scheduled. We systematically follow up with calibrated, sentiment-aware outreach, so revenue doesn't walk out the door.",
       roi: "Even a 5 to 10% lift in case acceptance is $20 to 50K a year for a typical practice.",
@@ -362,10 +378,13 @@ function Services() {
         <div className="grid gap-6 lg:grid-cols-3">
           {featured.map((card, i) => (
             <FadeIn key={card.title} delay={i * 80}>
-              <div
-                className="flex h-full flex-col rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:border-white/20 hover:bg-[#141d2c]"
-                style={{ borderLeftWidth: 3, borderLeftColor: card.accent }}
-              >
+              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:border-white/20">
+                <div
+                  className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border"
+                  style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}
+                >
+                  <card.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
+                </div>
                 <h3 className="mb-3 text-lg font-semibold text-[#e9edf4]">{card.title}</h3>
                 <p className="mb-4 text-sm text-[#8fa0b3]">{card.body}</p>
                 <p

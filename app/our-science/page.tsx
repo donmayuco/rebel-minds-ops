@@ -1,6 +1,13 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  GraduationCap,
+  HeartPulse,
+  MousePointerClick,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
 import SiteNav from "@/app/components/SiteNav";
 import SiteFooter from "@/app/components/SiteFooter";
 
@@ -227,30 +234,35 @@ function Applied() {
   const cards = [
     {
       accent: "#8fa0b3",
+      icon: ShieldCheck,
       badge: "Cybersecurity",
       title: "Security culture, not security compliance",
       desc: "We assess your organization\u2019s psychological relationship with risk before designing your training program. Employees who feel psychologically safe reporting mistakes catch more threats than those who hide errors out of fear. We build that culture intentionally.",
     },
     {
       accent: "#7fd7e2",
+      icon: HeartPulse,
       badge: "Healthcare",
       title: "Clinical workflows designed for the humans who run them",
       desc: "Pre-medical coursework taught us what\u2019s at stake when clinical data moves through a system. I-O Psychology taught us why most healthcare software gets ignored by the front desk that\u2019s supposed to use it. We design patient communication systems, intake automations, and reputation tools that actually get adopted \u2014 and that handle PHI through BAA-signed infrastructure (Twilio, AWS) from day one.",
     },
     {
       accent: "#7fd7e2",
+      icon: Workflow,
       badge: "Operations",
       title: "Systems built for human adoption",
       desc: "The #1 reason automation projects fail is change resistance — not bad technology. We map how your team actually works, identify adoption barriers before they become problems, and design onboarding that makes new systems feel natural, not imposed.",
     },
     {
       accent: "#7fd7e2",
+      icon: GraduationCap,
       badge: "Training design",
       title: "Spaced repetition + retrieval practice",
       desc: "The forgetting curve is real. Information without reinforcement disappears within 48 hours. Our training programs use evidence-based spacing — short sessions distributed over time — because that is what the research consistently shows drives retention.",
     },
     {
       accent: "#8fa0b3",
+      icon: MousePointerClick,
       badge: "Risk perception",
       title: "Why employees click phishing emails",
       desc: "Attackers exploit predictable cognitive biases — authority bias, urgency response, social proof, reciprocity. We teach your team to recognize these manipulation patterns as they happen, not just after the fact. That is threat appraisal theory applied to your inbox.",
@@ -278,16 +290,21 @@ function Applied() {
         <div className="grid gap-6 sm:grid-cols-2">
           {cards.map((card, i) => (
             <FadeIn key={card.title} delay={i * 80}>
-              <div
-                className="h-full rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:border-white/20 hover:bg-[#141d2c]"
-                style={{ borderLeftWidth: 3, borderLeftColor: card.accent }}
-              >
-                <span
-                  className="mb-3 inline-block rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider"
-                  style={{ backgroundColor: `${card.accent}15`, color: card.accent }}
-                >
-                  {card.badge}
-                </span>
+              <div className="h-full rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:border-white/20">
+                <div className="mb-4 flex items-center justify-between">
+                  <div
+                    className="flex h-10 w-10 items-center justify-center rounded-lg border"
+                    style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}
+                  >
+                    <card.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
+                  </div>
+                  <span
+                    className="inline-block rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider"
+                    style={{ backgroundColor: `${card.accent}15`, color: card.accent }}
+                  >
+                    {card.badge}
+                  </span>
+                </div>
                 <h3 className="mb-2 text-lg font-semibold text-[#e9edf4]">{card.title}</h3>
                 <p className="text-sm text-[#8fa0b3]">{card.desc}</p>
               </div>
