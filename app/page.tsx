@@ -157,19 +157,12 @@ function JPCProof() {
           </div>
         </div>
         <div
-          className="flex flex-wrap items-baseline justify-between gap-3.5 border-t px-4 py-6 sm:px-8"
+          className="border-t px-4 py-6 sm:px-8"
           style={{ borderColor: HAIRLINE }}
         >
           <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
             Named case studies are published with the owner&rsquo;s permission · most
             clients stay unnamed
-          </span>
-          <span className="text-[0.85rem] text-[#8fa0b3]">
-            Also on the bench right now:{" "}
-            <span className="text-[#e9edf4]">
-              patient intake for a clinical practice · dispatch boards for a service fleet
-              · books cleanup for a professional firm
-            </span>
           </span>
         </div>
       </div>
