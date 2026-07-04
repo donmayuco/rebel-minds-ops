@@ -102,17 +102,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── n8n webhook: Slack + Email notifications ──
-    try {
-      await fetch("https://rebelminds.app.n8n.cloud/webhook/connect-intake", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-    } catch (err) {
-      console.error("n8n webhook error:", err);
-    }
-
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Connect submission error:", err);
