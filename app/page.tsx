@@ -1201,6 +1201,8 @@ export default function Home() {
           worksFor: { "@id": "https://www.rebelmindsops.com/#organization" },
           sameAs: [
             "https://www.linkedin.com/in/mario-arredondo-romo/",
+            "https://www.youtube.com/@rebelmindsai",
+            "https://www.youtube.com/@mentesrebeldesia",
             "https://rebelminds.ai",
             "https://doi.org/10.54014/DKAX-FS1S",
             "https://doi.org/10.1080/17470218.2016.1222446",
