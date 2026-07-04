@@ -1182,6 +1182,15 @@ export default function Home() {
           contactPoint: [{ "@type": "ContactPoint", contactType: "sales", email: contactEmail, telephone: contactPhone, areaServed: "US" }],
         },
         {
+          "@type": "FAQPage",
+          "@id": "https://www.rebelmindsops.com/#faq",
+          mainEntity: FAQS.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+        {
           "@type": "Person",
           "@id": "https://www.rebelmindsops.com/#founder",
           name: "Mario L. Arredondo",

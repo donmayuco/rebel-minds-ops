@@ -808,9 +808,23 @@ function FooterCTA() {
 
 // ─── Page Root ───────────────────────────────────────────────────────────────
 
+const CYBER_FAQ_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: CYBER_FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function CybersecurityPage() {
   return (
     <div className="min-h-screen bg-[#0c131e]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(CYBER_FAQ_JSONLD) }}
+      />
       <SiteNav />
       <CyberHero />
       <SectionDivider />
