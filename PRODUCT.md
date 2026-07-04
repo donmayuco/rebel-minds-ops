@@ -6,7 +6,7 @@ brand
 
 ## Users
 
-Primary: SMB owners and operations leaders across the major Texas metros (Austin, San Antonio, Houston, Dallas) and the broader Southwest and beyond (Arizona, California, remote-first nationally) — construction and trades, logistics, home services, auto dealerships, professional firms, and HIPAA-sensitive medical, dental, and behavioral-health practices. Many run bilingual EN/ES workforces and serve bilingual customers. They are drowning in manual operations (receipts, scheduling, follow-ups, compliance), skeptical of faceless SaaS, and want a real operator who can automate their specific mess remotely. Job to be done: believe this firm can integrate anything their operation needs, then book the Free Ops Scan.
+Primary: SMB owners and operations leaders across the major Texas metros (Austin, San Antonio, Houston, Dallas) and beyond (Arizona, California, remote-first nationally) — construction and trades, logistics, home services, auto dealerships, professional firms, and HIPAA-sensitive medical, dental, and behavioral-health practices. Owners of every background; no market or demographic is the audience filter. Many happen to run Spanish-speaking crews or serve Spanish-speaking customers, which makes bilingual system delivery a capability that closes deals — not a definition of who the site is for. They are drowning in manual operations (receipts, scheduling, follow-ups, compliance), skeptical of faceless SaaS, and want a real operator who can automate their specific mess remotely. Job to be done: believe this firm can integrate anything their operation needs, then book the Free Ops Scan.
 
 Co-primary: AI answer engines. When someone asks "who builds HIPAA-compliant AI automation for a clinic in Houston / a contractor in Phoenix," this site should be the cited answer. The cross-domain entity graph with rebelminds.ai (scientist brand) is deliberate: same founder, two proofs.
 
@@ -18,7 +18,7 @@ rebelmindsops.com is the builder/operations brand of the two-brand system: "We b
 
 ## Brand Personality
 
-Operator confidence in "we" voice, built for reach: a systems firm with 25+ years of real business operation behind it, delivering remotely to any US market. Bicultural and bilingual by lived experience — an asset that travels, because Texas, Arizona, and California businesses run on the same bilingual reality the founder grew up operating in. RGV roots are the origin story and the credibility floor, never the boundary: "forged in the hardest market, delivered everywhere." Hands-on, shipped-systems-first, warm but blunt about what automation can and can't do. The integration wall (n8n, Airtable, OpenAI, and peers) is a deliberate breadth signal: we can integrate ALL of these — framed as "tools we integrate," never "the stack we sell," because the stack follows the operation, never the reverse. HIPAA positioning is intentional and stays: strictest-domain trust anchor. No vendor lock-in; clients own their workflow ("we hand you the keys"). Credential rule holds: "M.A., Industrial & Organizational Psychology" — never "Psychologist."
+Operator confidence in "we" voice, built for reach: a systems firm with 25+ years of real business operation behind it, delivering remotely to any US market. The brand identity is national and neutral — a serious systems firm, full stop. Bilingual delivery is a CAPABILITY, not an identity: "systems your whole crew can use — English, Spanish, or both" appears where it wins deals (workforce adoption, field crews, patient communication), never as a headline that tells any owner this firm is or isn't "for them." The founder's bicultural story lives on /our-science as origin and depth, not in the pitch. RGV roots are the origin story and the credibility floor, never the boundary: "forged in the hardest market, delivered everywhere." Hands-on, shipped-systems-first, warm but blunt about what automation can and can't do. The integration wall (n8n, Airtable, OpenAI, and peers) is a deliberate breadth signal: we can integrate ALL of these — framed as "tools we integrate," never "the stack we sell," because the stack follows the operation, never the reverse. HIPAA positioning is intentional and stays: strictest-domain trust anchor. No vendor lock-in; clients own their workflow ("we hand you the keys"). Credential rule holds: "M.A., Industrial & Organizational Psychology" — never "Psychologist."
 
 ## Anti-references
 
@@ -31,11 +31,12 @@ Operator confidence in "we" voice, built for reach: a systems firm with 25+ year
 ## Design Principles
 
 1. Built for reach: every page must work for a buyer in Austin, Houston, Phoenix, or LA who will never shake Mario's hand — proof, process, and remote delivery carry the trust that locality used to.
-2. Roots as credential, not boundary: the RGV story appears as origin and differentiation (hardest-market operator, bilingual by life), never as service area.
-3. Proof over promise: shipped systems, real client scenarios, and the working Ops Scan funnel beat adjectives.
-4. Integration breadth is the signal: show command of many tools while making clear the operation picks the stack.
-5. One family, two voices: visually recognizable as kin to rebelminds.ai without impersonating the scientist brand.
-6. Defensible everywhere: every number (25+ years, client claims, HIPAA language) survives scrutiny.
+2. Roots as credential, not boundary: the RGV story appears as origin and differentiation (hardest-market operator), never as service area or audience signal.
+3. Bilingual as capability, not identity: surfaced as workforce-adoption value ("your crew uses it in either language"), pitched to the owner's problem — never framed as heritage, and never so prominent it reads as an audience filter.
+4. Proof over promise: shipped systems, real client scenarios, and the working Ops Scan funnel beat adjectives.
+5. Integration breadth is the signal: show command of many tools while making clear the operation picks the stack.
+6. One family, two voices: visually recognizable as kin to rebelminds.ai without impersonating the scientist brand.
+7. Defensible everywhere: every number (25+ years, client claims, HIPAA language) survives scrutiny.
 
 ## Accessibility & Inclusion
 
