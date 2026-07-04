@@ -2206,16 +2206,16 @@ export default function Home() {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "LocalBusiness",
+          "@type": "ProfessionalService",
           "@id": "https://www.rebelmindsops.com/#organization",
           name: "Rebel Minds Ops",
           url: "https://www.rebelmindsops.com",
           description: businessDescription,
-          areaServed: ["Rio Grande Valley (RGV)", "South Texas"],
+          areaServed: ["United States", "Austin, TX", "San Antonio, TX", "Houston, TX", "Dallas, TX", "Arizona", "California"],
           // Cross-domain consolidation: the science/authority brand is rebelminds.ai
           sameAs: ["https://rebelminds.ai"],
           founder: { "@id": "https://www.rebelmindsops.com/#founder" },
-          contactPoint: [{ "@type": "ContactPoint", contactType: "customer support", email: contactEmail, telephone: contactPhone, areaServed: "US-TX" }],
+          contactPoint: [{ "@type": "ContactPoint", contactType: "customer support", email: contactEmail, telephone: contactPhone, areaServed: "US" }],
         },
         {
           "@type": "ProfessionalService",
@@ -2223,10 +2223,10 @@ export default function Home() {
           name: "Rebel Minds Ops",
           url: "https://www.rebelmindsops.com",
           description: businessDescription,
-          areaServed: ["Rio Grande Valley (RGV)", "South Texas"],
+          areaServed: ["United States", "Austin, TX", "San Antonio, TX", "Houston, TX", "Dallas, TX", "Arizona", "California"],
           sameAs: ["https://rebelminds.ai"],
           provider: { "@id": "https://www.rebelmindsops.com/#organization" },
-          contactPoint: [{ "@type": "ContactPoint", contactType: "sales", email: contactEmail, telephone: contactPhone, areaServed: "US-TX" }],
+          contactPoint: [{ "@type": "ContactPoint", contactType: "sales", email: contactEmail, telephone: contactPhone, areaServed: "US" }],
         },
         {
           // The person behind both brands — scientist (rebelminds.ai) + builder (here).
@@ -2236,7 +2236,7 @@ export default function Home() {
           url: "https://rebelminds.ai",
           jobTitle: "AI Adoption Strategist & Systems Builder",
           description:
-            "M.A., Industrial-Organizational Psychology. Builds the AI automation systems and researches the human layer of AI adoption.",
+            "M.A., Industrial & Organizational Psychology. Builds the AI automation systems and researches the human layer of AI adoption.",
           worksFor: { "@id": "https://www.rebelmindsops.com/#organization" },
           sameAs: [
             "https://rebelminds.ai",

@@ -19,9 +19,9 @@ const siteUrl =
       : "https://www.rebelmindsops.com";
 
 export const metadata: Metadata = {
-  title: "Rebel Minds OPS | Healthcare Technology Consultant — RGV-built, HIPAA-aware",
+  title: "Rebel Minds OPS | Human-Centered Automation & Operations Systems",
   description:
-    "Rio Grande Valley technology consultancy specializing in healthcare practices — HIPAA-aware patient communication, automation, and operational systems. Bilingual by default. Serving McAllen, Edinburg, and South Texas. Free discovery calls and HIPAA Stack Audit available.",
+    "We build human-centered automation and operations systems for businesses across the United States: construction, logistics, home services, auto dealerships, professional firms, and HIPAA-sensitive practices. Delivered remotely to Austin, San Antonio, Houston, Dallas, Arizona, California, and nationwide. Systems your whole crew can use, in English, Spanish, or both. Free Ops Scan available.",
   metadataBase: (() => {
     try {
       return new URL(siteUrl);
@@ -35,14 +35,15 @@ export const metadata: Metadata = {
   },
 
   keywords: [
-    "healthcare technology consultant",
+    "business automation consultant",
+    "operations automation systems",
+    "human-centered automation",
     "HIPAA-aware automation",
-    "RGV healthcare automation",
-    "McAllen healthcare consultant",
-    "patient communication systems",
-    "BAA-signed infrastructure",
-    "bilingual patient automation",
-    "South Texas operations",
+    "AI workflow automation for small business",
+    "healthcare practice automation",
+    "construction operations automation",
+    "bilingual workforce systems",
+    "remote automation consultant United States",
   ],
 
   icons: {
@@ -54,9 +55,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Rebel Minds OPS | Healthcare Technology Consultant — RGV-built, HIPAA-aware",
+    title: "Rebel Minds OPS | Human-Centered Automation & Operations Systems",
     description:
-      "Healthcare technology consulting for RGV practices — HIPAA-aware patient communication, automation, and operational systems. Bilingual by default. Serving McAllen, Edinburg, and South Texas.",
+      "Human-centered automation and operations systems for US businesses: construction, logistics, home services, dealerships, professional firms, and HIPAA-sensitive practices. Delivered remotely, nationwide. Free Ops Scan available.",
     url: siteUrl,
     siteName: "Rebel Minds OPS",
     type: "website",
@@ -65,9 +66,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Rebel Minds OPS | Healthcare Technology Consultant",
+    title: "Rebel Minds OPS | Human-Centered Automation Systems",
     description:
-      "Healthcare technology consulting for RGV practices — HIPAA-aware. Bilingual by default. Serving McAllen, Edinburg, and South Texas.",
+      "Human-centered automation and operations systems for US businesses. HIPAA-aware where it matters. Delivered remotely, nationwide. Free Ops Scan available.",
   },
 };
 

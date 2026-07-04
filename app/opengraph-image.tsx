@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Rebel Minds OPS — Healthcare Technology Consultant";
+export const alt = "Rebel Minds OPS | Human-Centered Automation Systems";
 
 export const size = { width: 1200, height: 630 };
 
@@ -46,7 +46,7 @@ export default function Image() {
             color: "#7DE3E6",
           }}
         >
-          Healthcare Technology Consultant
+          Human-Centered Automation Systems
         </div>
         <div
           style={{
@@ -57,7 +57,7 @@ export default function Image() {
             color: "#94A3B8",
           }}
         >
-          HIPAA-aware automation · Bilingual · Rio Grande Valley
+          Human-centered automation · HIPAA-aware · Delivered anywhere in the U.S.
         </div>
       </div>
     ),
