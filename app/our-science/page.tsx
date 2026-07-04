@@ -54,7 +54,7 @@ function ScienceHero() {
   ];
 
   return (
-    <section className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6" style={{ backgroundColor: "#0c171c" }}>
+    <section className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6" style={{ backgroundColor: "#0a101a" }}>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(127,215,226,0.02)] to-transparent" />
       <div className="relative mx-auto max-w-4xl text-center">
         <FadeIn>
@@ -64,14 +64,14 @@ function ScienceHero() {
         </FadeIn>
 
         <FadeIn delay={100}>
-          <h1 className="mb-6 serif text-4xl font-medium leading-tight text-[#e8eef0] sm:text-5xl lg:text-6xl">
+          <h1 className="mb-6 serif text-4xl font-medium leading-tight text-[#e9edf4] sm:text-5xl lg:text-6xl">
             Most consultants sell tools.<br />
             We understand why people use them wrong.
           </h1>
         </FadeIn>
 
         <FadeIn delay={200}>
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-[#8fa3aa]">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-[#8fa0b3]">
             Behind every failed software rollout, every phishing click, every operational
             bottleneck is a human behavior problem — not a technology problem. We bring
             the science of how people think, work, and change to everything we build and
@@ -84,7 +84,7 @@ function ScienceHero() {
             {credentials.map((cred) => (
               <span
                 key={cred}
-                className="rounded-full border border-white/10 bg-[#13242b] px-4 py-2 text-xs font-medium text-[#8fa3aa]"
+                className="rounded-full border border-white/10 bg-[#141d2c] px-4 py-2 text-xs font-medium text-[#8fa0b3]"
               >
                 {cred}
               </span>
@@ -118,17 +118,17 @@ function Discipline() {
   ];
 
   return (
-    <section className="bg-[#0c171c] px-4 py-20 sm:px-6">
+    <section className="bg-[#0a101a] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               The Discipline
             </span>
-            <h2 className="mb-4 serif text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               What is Industrial-Organizational Psychology?
             </h2>
-            <p className="mx-auto max-w-2xl text-[#8fa3aa]">
+            <p className="mx-auto max-w-2xl text-[#8fa0b3]">
               I-O Psychology is the science of human behavior in organizations — how people
               are motivated, how they form habits, how they resist change, and what actually
               makes training stick. It sits at the intersection of psychology, business, and
@@ -141,13 +141,13 @@ function Discipline() {
         <div className="grid gap-6 sm:grid-cols-3">
           {concepts.map((c, i) => (
             <FadeIn key={c.num} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#13242b] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#141d2c] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(127,215,226,0.9), transparent)" }} />
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)] text-sm font-bold text-[#7fd7e2]">
                   {c.num}
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{c.title}</h3>
-                <p className="text-sm text-[#8fa3aa]">{c.desc}</p>
+                <h3 className="mb-2 text-lg font-semibold text-[#e9edf4]">{c.title}</h3>
+                <p className="text-sm text-[#8fa0b3]">{c.desc}</p>
               </div>
             </FadeIn>
           ))}
@@ -187,10 +187,10 @@ function WhyTrainingFails() {
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               The Problem We Solve
             </span>
-            <h2 className="mb-4 serif text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               Why most cybersecurity training fails
             </h2>
-            <p className="mx-auto max-w-2xl text-[#8fa3aa]">
+            <p className="mx-auto max-w-2xl text-[#8fa0b3]">
               It is not a content problem. Employees know phishing is dangerous. They click
               anyway. That is a behavior design problem — and it requires a behavioral
               science solution.
@@ -203,14 +203,14 @@ function WhyTrainingFails() {
             {/* Header */}
             <div className="grid grid-cols-[1fr_auto_1fr] text-center text-xs font-semibold uppercase tracking-wider">
               <div className="bg-red-500/10 px-4 py-3 text-red-300">What most companies do</div>
-              <div className="flex items-center bg-[#13242b] px-3 text-[#6f858c]">vs</div>
+              <div className="flex items-center bg-[#141d2c] px-3 text-[#6f858c]">vs</div>
               <div className="bg-green-500/10 px-4 py-3 text-green-300">What we do</div>
             </div>
             {/* Rows */}
             {rows.map((row, i) => (
               <div key={i} className="grid grid-cols-[1fr_auto_1fr] border-t border-white/[0.06]">
                 <div className="bg-red-500/[0.04] px-5 py-4 text-sm text-red-200">{row.bad}</div>
-                <div className="flex items-center bg-[#13242b] px-3 text-[#5c7178] text-xs">vs</div>
+                <div className="flex items-center bg-[#141d2c] px-3 text-[#5f6e85] text-xs">vs</div>
                 <div className="bg-green-500/[0.04] px-5 py-4 text-sm text-green-200">{row.good}</div>
               </div>
             ))}
@@ -226,7 +226,7 @@ function WhyTrainingFails() {
 function Applied() {
   const cards = [
     {
-      accent: "#8fa3aa",
+      accent: "#8fa0b3",
       badge: "Cybersecurity",
       title: "Security culture, not security compliance",
       desc: "We assess your organization\u2019s psychological relationship with risk before designing your training program. Employees who feel psychologically safe reporting mistakes catch more threats than those who hide errors out of fear. We build that culture intentionally.",
@@ -250,7 +250,7 @@ function Applied() {
       desc: "The forgetting curve is real. Information without reinforcement disappears within 48 hours. Our training programs use evidence-based spacing — short sessions distributed over time — because that is what the research consistently shows drives retention.",
     },
     {
-      accent: "#8fa3aa",
+      accent: "#8fa0b3",
       badge: "Risk perception",
       title: "Why employees click phishing emails",
       desc: "Attackers exploit predictable cognitive biases — authority bias, urgency response, social proof, reciprocity. We teach your team to recognize these manipulation patterns as they happen, not just after the fact. That is threat appraisal theory applied to your inbox.",
@@ -258,17 +258,17 @@ function Applied() {
   ];
 
   return (
-    <section className="bg-[#0c171c] px-4 py-20 sm:px-6">
+    <section className="bg-[#0a101a] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Applied to Your Business
             </span>
-            <h2 className="mb-4 serif text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               Where the science shows up in our work
             </h2>
-            <p className="mx-auto max-w-2xl text-[#8fa3aa]">
+            <p className="mx-auto max-w-2xl text-[#8fa0b3]">
               This is not academic theory. These are the mechanisms we use every day to build
               systems that get adopted and training programs that actually change behavior.
             </p>
@@ -279,7 +279,7 @@ function Applied() {
           {cards.map((card, i) => (
             <FadeIn key={card.title} delay={i * 80}>
               <div
-                className="h-full rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:border-white/20 hover:bg-[#13242b]"
+                className="h-full rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:border-white/20 hover:bg-[#141d2c]"
                 style={{ borderLeftWidth: 3, borderLeftColor: card.accent }}
               >
                 <span
@@ -288,8 +288,8 @@ function Applied() {
                 >
                   {card.badge}
                 </span>
-                <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{card.title}</h3>
-                <p className="text-sm text-[#8fa3aa]">{card.desc}</p>
+                <h3 className="mb-2 text-lg font-semibold text-[#e9edf4]">{card.title}</h3>
+                <p className="text-sm text-[#8fa0b3]">{card.desc}</p>
               </div>
             </FadeIn>
           ))}
@@ -304,7 +304,7 @@ function Applied() {
 function Credentials() {
   const items = [
     {
-      color: "#8fa3aa",
+      color: "#8fa0b3",
       label: "Graduate — Full Scholarship",
       title: "State University of New York (SUNY) — Industrial-Organizational Psychology",
       desc: "Selected for a full-ride graduate scholarship to one of the nation\u2019s leading I-O Psychology programs. Studied organizational behavior, psychometrics, training design, and human factors research at the graduate level.",
@@ -343,7 +343,7 @@ function Credentials() {
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               The Background
             </span>
-            <h2 className="mb-4 serif text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               Credentials that matter in the real world
             </h2>
           </div>
@@ -374,8 +374,8 @@ function Credentials() {
                   >
                     {item.label}
                   </span>
-                  <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-[#8fa3aa]">{item.desc}</p>
+                  <h3 className="mb-2 text-lg font-semibold text-[#e9edf4]">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-[#8fa0b3]">{item.desc}</p>
                 </div>
               </div>
             </FadeIn>
@@ -397,21 +397,21 @@ function StatsCTA() {
   ];
 
   return (
-    <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0c171c" }}>
+    <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-6xl">
         <div className="mb-4 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <FadeIn key={stat.value} delay={i * 80}>
-              <div className="rounded-2xl border border-white/10 bg-[#13242b] p-6 text-center">
+              <div className="rounded-2xl border border-white/10 bg-[#141d2c] p-6 text-center">
                 <div className="mb-3 text-4xl font-bold text-[#7fd7e2]">{stat.value}</div>
-                <p className="text-sm text-[#8fa3aa]">{stat.label}</p>
+                <p className="text-sm text-[#8fa0b3]">{stat.label}</p>
               </div>
             </FadeIn>
           ))}
         </div>
 
         <FadeIn delay={300}>
-          <p className="mx-auto mb-16 max-w-2xl text-center text-xs text-[#8fa3aa]">
+          <p className="mx-auto mb-16 max-w-2xl text-center text-xs text-[#8fa0b3]">
             Figures are widely reported industry estimates from security, change
             management, learning science, and dental practice research — cited as
             context, not as guarantees.
@@ -419,7 +419,7 @@ function StatsCTA() {
         </FadeIn>
 
         <div className="mx-auto mb-12 max-w-3xl">
-          <div className="mt-6 flex items-start gap-3 rounded-xl border border-white/[0.06] bg-[#13242b] px-5 py-4">
+          <div className="mt-6 flex items-start gap-3 rounded-xl border border-white/[0.06] bg-[#141d2c] px-5 py-4">
             <span className="mt-0.5 flex-shrink-0 text-[#7fd7e2]">
               🔒
             </span>
@@ -442,11 +442,11 @@ function StatsCTA() {
         </div>
 
         <FadeIn delay={300}>
-          <div className="rounded-2xl border border-white/10 bg-[#13242b] p-8 text-center sm:p-12">
-            <h2 className="mb-4 serif text-2xl font-medium text-[#e8eef0] sm:text-3xl">
+          <div className="rounded-2xl border border-white/10 bg-[#141d2c] p-8 text-center sm:p-12">
+            <h2 className="mb-4 serif text-2xl font-medium text-[#e9edf4] sm:text-3xl">
               Ready to work with someone who actually understands your team?
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-[#8fa3aa]">
+            <p className="mx-auto mb-8 max-w-2xl text-[#8fa0b3]">
               Most consultants hand you software and leave. We stay until your
               people have adopted it, your security culture has shifted, and your systems
               are running without you having to think about them.
@@ -454,14 +454,14 @@ function StatsCTA() {
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
                 href="/#book"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
               >
                 Get a Free Ops Scan
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="/cybersecurity"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e8eef0] transition-all hover:border-white/40 hover:bg-white/5"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e9edf4] transition-all hover:border-white/40 hover:bg-white/5"
               >
                 See our cybersecurity plans
               </a>
@@ -477,7 +477,7 @@ function StatsCTA() {
 
 export default function OurSciencePage() {
   return (
-    <div className="min-h-screen bg-[#0e1b21]">
+    <div className="min-h-screen bg-[#0c131e]">
       <SiteNav />
       <ScienceHero />
       <SectionDivider />

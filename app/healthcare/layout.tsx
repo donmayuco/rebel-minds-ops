@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "HIPAA-Aware Healthcare Automation | Rebel Minds OPS",
     description:
-      "HIPAA-aware healthcare automation for practices anywhere in the US. Built on BAA-signed infrastructure. Patient communication in English, Spanish, or both.",
+      "HIPAA-aware healthcare automation for practices anywhere in the US. Built on BAA-signed infrastructure. Free HIPAA Stack Audit available.",
   },
 };
 

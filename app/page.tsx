@@ -29,7 +29,7 @@ import SiteNav from "@/app/components/SiteNav";
 import SiteFooter from "@/app/components/SiteFooter";
 import WiringDiagram from "@/app/components/WiringDiagram";
 
-const HAIRLINE = "rgba(232,238,240,0.10)";
+const HAIRLINE = "rgba(233,237,244,0.10)";
 
 // ─── Utility: scroll reveal (reduced-motion neutralized globally) ──────────────
 function FadeIn({
@@ -75,43 +75,48 @@ function Kicker({ children }: { children: React.ReactNode }) {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="px-4 pt-20 pb-14 sm:px-6 sm:pt-24">
-      <div className="mx-auto max-w-3xl">
+    <section className="pt-16 sm:pt-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
           <Kicker>Operations &amp; IT systems, built by operators</Kicker>
         </FadeIn>
         <FadeIn delay={80}>
-          <h1 className="serif mt-6 text-4xl font-medium leading-[1.06] tracking-tight text-[#e8eef0] sm:text-6xl">
+          <h1 className="serif mt-5 max-w-[13ch] text-[clamp(3rem,9vw,5.9rem)] font-medium leading-[0.99] tracking-[-0.02em] text-[#e9edf4]">
             Protect your focus.{" "}
-            <em className="italic text-[#7fd7e2]">Automate the rest.</em>
+            <em className="italic text-[#7fd7e2]">Automate the&nbsp;rest.</em>
           </h1>
         </FadeIn>
-        <FadeIn delay={160}>
-          <p className="mt-6 max-w-[56ch] text-[1.05rem] leading-relaxed text-[#8fa3aa]">
-            We build and manage the systems that run growing businesses: receipts,
-            scheduling, follow-ups, compliance.{" "}
-            <span className="font-medium text-[#e8eef0]">
-              Forged in Texas&rsquo;s hardest market, delivered remotely to any U.S.
-              market.
-            </span>{" "}
-            Your crew uses it in English, Spanish, or both. You own the keys.
-          </p>
-        </FadeIn>
-        <FadeIn delay={240}>
-          <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            <a
-              href="#book"
-              className="rounded-full bg-[#7fd7e2] px-7 py-3.5 text-[0.95rem] font-semibold text-[#0e1b21] transition-opacity hover:opacity-90"
-              onClick={() => trackEvent("CTA_Click", { location: "hero_primary", cta: "Get a Free Ops Scan" })}
-            >
-              Get a Free Ops Scan
-            </a>
-            <span className="text-sm text-[#8fa3aa]">
-              A 15-minute workflow review. No contracts. No jargon.
-            </span>
-          </div>
-        </FadeIn>
+        <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <FadeIn delay={160}>
+            <p className="max-w-[46ch] text-[1.05rem] leading-relaxed text-[#8fa0b3]">
+              We build and manage the systems that run growing businesses: receipts,
+              scheduling, follow-ups, compliance.{" "}
+              <span className="font-medium text-[#e9edf4]">
+                Forged in Texas&rsquo;s hardest market, delivered remotely to any U.S.
+                market.
+              </span>{" "}
+              You own the keys.
+            </p>
+          </FadeIn>
+          <FadeIn delay={240}>
+            <div className="flex flex-col items-start gap-3">
+              <a
+                href="#book"
+                className="rounded-full bg-[#7fd7e2] px-7 py-3.5 text-[0.95rem] font-semibold text-[#0c131e] transition-opacity hover:opacity-90"
+                onClick={() => trackEvent("CTA_Click", { location: "hero_primary", cta: "Get a Free Ops Scan" })}
+              >
+                Get a Free Ops Scan
+              </a>
+              <span className="text-sm text-[#8fa0b3]">
+                A 15-minute workflow review. No contracts. No jargon.
+              </span>
+            </div>
+          </FadeIn>
+        </div>
       </div>
+      <FadeIn delay={320} className="mt-6 sm:mt-8">
+        <WiringDiagram hero />
+      </FadeIn>
     </section>
   );
 }
@@ -119,34 +124,34 @@ function Hero() {
 // ─── JPC Proof (promoted to hero position) ────────────────────────────────────
 function JPCProof() {
   return (
-    <section>
+    <section id="case-studies">
       <div className="mx-auto max-w-6xl">
         <div className="grid border-t md:grid-cols-2" style={{ borderColor: HAIRLINE }}>
           <div
             className="border-b px-4 py-10 sm:px-8 md:border-b-0 md:border-r"
             style={{ borderColor: HAIRLINE }}
           >
-            <p className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa3aa]">
+            <p className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
               Case study 01 · J. Peña Construction
             </p>
-            <p className="serif mt-3.5 text-[2rem] font-medium leading-tight text-[#e8eef0]">
+            <p className="serif mt-3.5 text-[2rem] font-medium leading-tight text-[#e9edf4]">
               8 to 10 hours back, every week
             </p>
-            <p className="mt-3 max-w-[44ch] text-[0.95rem] leading-relaxed text-[#8fa3aa]">
+            <p className="mt-3 max-w-[44ch] text-[0.95rem] leading-relaxed text-[#8fa0b3]">
               Receipts from 15 active jobs used to eat the office alive. Now crews snap a
               photo on WhatsApp and the system files vendor, amount, date, and category on
               its own.
             </p>
           </div>
           <div className="px-4 py-10 sm:px-8">
-            <p className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa3aa]">
+            <p className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
               In the owner&rsquo;s words
             </p>
-            <p className="serif mt-3.5 text-[1.5rem] font-medium italic leading-snug text-[#e8eef0]">
+            <p className="serif mt-3.5 text-[1.5rem] font-medium italic leading-snug text-[#e9edf4]">
               &ldquo;I can finally focus on my jobs.&rdquo;
             </p>
-            <p className="mt-4 text-[0.82rem] text-[#8fa3aa]">
-              <span className="font-semibold text-[#e8eef0]">Jose Peña</span> · Owner, J.
+            <p className="mt-4 text-[0.82rem] text-[#8fa0b3]">
+              <span className="font-semibold text-[#e9edf4]">Jose Peña</span> · Owner, J.
               Peña Construction
             </p>
           </div>
@@ -155,13 +160,13 @@ function JPCProof() {
           className="flex flex-wrap items-baseline justify-between gap-3.5 border-t px-4 py-6 sm:px-8"
           style={{ borderColor: HAIRLINE }}
         >
-          <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa3aa]">
+          <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
             Named case studies are published with the owner&rsquo;s permission · most
             clients stay unnamed
           </span>
-          <span className="text-[0.85rem] text-[#8fa3aa]">
+          <span className="text-[0.85rem] text-[#8fa0b3]">
             Also on the bench right now:{" "}
-            <span className="text-[#e8eef0]">
+            <span className="text-[#e9edf4]">
               patient intake for a clinical practice · dispatch boards for a service fleet
               · books cleanup for a professional firm
             </span>
@@ -175,24 +180,24 @@ function JPCProof() {
 // ─── Who It's For ─────────────────────────────────────────────────────────────
 function WhoItsFor() {
   const industries = [
-    { title: "Healthcare & Clinics", desc: "Patient intake, appointment reminders, review routing, and HIPAA-aware messaging, for clinics serving Spanish-speaking communities.", icon: HeartPulse },
+    { title: "Healthcare & Clinics", desc: "Patient intake, appointment reminders, review routing, and HIPAA-aware messaging, so your staff focuses on care, not paperwork.", icon: HeartPulse },
     { title: "Legal Offices", desc: "Document workflows, client onboarding, billing automation, and secure communication, so your billable hours stay billable.", icon: Scale },
     { title: "Construction & Trades", desc: "Receipt automation, job costing, mobile field capture, and project tracking, built for crews that work with their hands, not keyboards.", icon: HardHat },
-    { title: "Logistics & Transport", desc: "Rate con analysis, compliance docs, expense tracking, and driver-facing tools, in Spanish and English.", icon: Truck },
+    { title: "Logistics & Transport", desc: "Rate con analysis, compliance docs, expense tracking, and driver-facing tools your drivers actually use.", icon: Truck },
     { title: "Professional Services", desc: "Workspace setup, team communication, cloud systems, and client portals, streamlined so your back office keeps up with your front office.", icon: Briefcase },
     { title: "Home Services", desc: "Lead capture, dispatch coordination, invoicing, and customer follow-up, so you never lose a job to a missed call.", icon: HomeIcon },
   ];
 
   return (
-    <section id="for-who" className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0c171c" }}>
+    <section id="for-who" className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12">
             <Kicker>Who it&rsquo;s for</Kicker>
-            <h2 className="serif mt-3 text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+            <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               Built for operators, wherever you operate
             </h2>
-            <p className="mt-4 max-w-xl text-[#8fa3aa]">
+            <p className="mt-4 max-w-xl text-[#8fa0b3]">
               We partner with businesses that have outgrown their spreadsheets and paper
               forms. If your team is spending hours on data entry, it&rsquo;s time for a
               system. Every system we build is designed, delivered, and supported remotely,
@@ -204,12 +209,12 @@ function WhoItsFor() {
         <div className="grid gap-px overflow-hidden rounded-xl border sm:grid-cols-2 lg:grid-cols-3" style={{ borderColor: HAIRLINE, backgroundColor: HAIRLINE }}>
           {industries.map((ind, i) => (
             <FadeIn key={ind.title} delay={i * 60}>
-              <div className="h-full bg-[#13242b] p-6">
+              <div className="h-full bg-[#141d2c] p-6">
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg border" style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}>
                   <ind.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
                 </div>
-                <h3 className="mb-2 text-base font-semibold leading-tight text-[#e8eef0]">{ind.title}</h3>
-                <p className="text-sm leading-relaxed text-[#8fa3aa]">{ind.desc}</p>
+                <h3 className="mb-2 text-base font-semibold leading-tight text-[#e9edf4]">{ind.title}</h3>
+                <p className="text-sm leading-relaxed text-[#8fa0b3]">{ind.desc}</p>
               </div>
             </FadeIn>
           ))}
@@ -226,7 +231,7 @@ function WhatWeBuild() {
     { title: "Workspace & Communication", desc: "Microsoft 365, Google Workspace, Slack, or Teams, deployed and configured correctly. Proper channels, permissions, and security from day one.", icon: MessageCircle },
     { title: "Network & Connectivity", desc: "WiFi that actually works. We audit, fix, and set up routers, access points, VPNs, and firewalls for offices, clinics, and job sites.", icon: Globe },
     { title: "Business Data & Cloud Systems", desc: "Database design, data migration from spreadsheets, cloud hosting, and automated backups. Your business data: organized, secure, and accessible from anywhere.", icon: Package },
-    { title: "Patient Experience Systems", desc: "Bilingual patient intake, automated appointment reminders, review collection and routing, and HIPAA-aware communication workflows.", icon: HeartPulse },
+    { title: "Patient Experience Systems", desc: "Patient intake, automated appointment reminders, review collection and routing, and HIPAA-aware communication workflows.", icon: HeartPulse },
     { title: "Document & Contract Analysis", desc: "Send a PDF via WhatsApp. AI reads the full document, extracts key data, flags risks, and sends you a summary in seconds. Built for rate cons, invoices, and contracts.", icon: ScanLine },
     { title: "Human Layer Security Workshops", desc: "Security awareness training built on behavior science: phishing recognition, password and MFA habits, incident reporting. Technical hardening like 2FA rollout and email security available on request.", icon: KeyRound },
     { title: "Custom Dashboards & Reporting", desc: "Real-time KPI visualization built for ownership. See what matters (revenue, job costs, team performance) without digging through spreadsheets.", icon: LayoutDashboard },
@@ -240,10 +245,10 @@ function WhatWeBuild() {
         <FadeIn>
           <div className="mb-12">
             <Kicker>What we build</Kicker>
-            <h2 className="serif mt-3 text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+            <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               Modular systems, connected to what you run
             </h2>
-            <p className="mt-4 max-w-xl text-[#8fa3aa]">
+            <p className="mt-4 max-w-xl text-[#8fa0b3]">
               We don&rsquo;t sell bloated software. We build focused modules connected
               seamlessly via APIs and webhooks.
             </p>
@@ -253,19 +258,19 @@ function WhatWeBuild() {
         <div className="grid gap-px overflow-hidden rounded-xl border sm:grid-cols-2 lg:grid-cols-4" style={{ borderColor: HAIRLINE, backgroundColor: HAIRLINE }}>
           {systems.map((sys, i) => (
             <FadeIn key={sys.title} delay={i * 50}>
-              <div className="h-full bg-[#13242b] p-6">
+              <div className="h-full bg-[#141d2c] p-6">
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border" style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}>
                   <sys.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
                 </div>
-                <h3 className="mb-2 text-[1.05rem] font-semibold leading-tight text-[#e8eef0]">{sys.title}</h3>
-                <p className="text-sm leading-relaxed text-[#8fa3aa]">{sys.desc}</p>
+                <h3 className="mb-2 text-[1.05rem] font-semibold leading-tight text-[#e9edf4]">{sys.title}</h3>
+                <p className="text-sm leading-relaxed text-[#8fa0b3]">{sys.desc}</p>
               </div>
             </FadeIn>
           ))}
         </div>
 
         <FadeIn delay={300}>
-          <div className="mt-px flex flex-col gap-6 rounded-xl border bg-[#13242b] p-6 lg:flex-row lg:items-center" style={{ borderColor: HAIRLINE }}>
+          <div className="mt-px flex flex-col gap-6 rounded-xl border bg-[#141d2c] p-6 lg:flex-row lg:items-center" style={{ borderColor: HAIRLINE }}>
             <div className="lg:w-1/2">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg border" style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}>
                 <Workflow className="h-6 w-6 text-[#7fd7e2]" aria-hidden="true" />
@@ -273,8 +278,8 @@ function WhatWeBuild() {
               <span className="mono mb-2 inline-block text-[0.62rem] uppercase tracking-[0.16em] text-[#7fd7e2]">
                 Most requested
               </span>
-              <h3 className="mb-2 serif text-xl font-medium text-[#e8eef0]">Approval Pipelines</h3>
-              <p className="text-sm leading-relaxed text-[#8fa3aa]">
+              <h3 className="mb-2 serif text-xl font-medium text-[#e9edf4]">Approval Pipelines</h3>
+              <p className="text-sm leading-relaxed text-[#8fa0b3]">
                 Multi-step conditional routing for POs, vacations, and large expenses.
                 Custom logic, any tool stack, no rigid SaaS limits.
               </p>
@@ -282,10 +287,10 @@ function WhatWeBuild() {
             <div className="flex flex-wrap items-center gap-3 lg:w-1/2">
               {pipelineSteps.map((label, idx, arr) => (
                 <div key={label} className="flex items-center gap-2">
-                  <div className="rounded-md border px-3 py-2 text-xs font-semibold text-[#8fa3aa]" style={{ borderColor: HAIRLINE }}>
+                  <div className="rounded-md border px-3 py-2 text-xs font-semibold text-[#8fa0b3]" style={{ borderColor: HAIRLINE }}>
                     {label}
                   </div>
-                  {idx < arr.length - 1 && <ArrowRight className="h-3.5 w-3.5 text-[#5c7178]" aria-hidden="true" />}
+                  {idx < arr.length - 1 && <ArrowRight className="h-3.5 w-3.5 text-[#5f6e85]" aria-hidden="true" />}
                 </div>
               ))}
             </div>
@@ -306,15 +311,15 @@ function FeaturedSystem() {
   ];
 
   return (
-    <section id="featured-system" className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0c171c" }}>
+    <section id="featured-system" className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-10">
             <Kicker>Featured proof module</Kicker>
-            <h2 className="serif mt-3 text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+            <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               ExpenseOps&trade;
             </h2>
-            <p className="mt-4 max-w-xl text-[#8fa3aa]">
+            <p className="mt-4 max-w-xl text-[#8fa0b3]">
               A real-world example of what we build: a dedicated system designed to end
               expense documentation chaos for field-heavy teams.
             </p>
@@ -322,13 +327,13 @@ function FeaturedSystem() {
         </FadeIn>
 
         <FadeIn>
-          <div className="rounded-xl border bg-[#13242b] p-8" style={{ borderColor: HAIRLINE }}>
-            <h3 className="mb-6 serif text-xl font-medium text-[#e8eef0]">
+          <div className="rounded-xl border bg-[#141d2c] p-8" style={{ borderColor: HAIRLINE }}>
+            <h3 className="mb-6 serif text-xl font-medium text-[#e9edf4]">
               ExpenseOps&trade; workflow &amp; outcomes
             </h3>
             <ul className="space-y-4">
               {outcomes.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-[#8fa3aa]">
+                <li key={item} className="flex items-start gap-3 text-sm text-[#8fa0b3]">
                   <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#7fd7e2]" aria-hidden="true" />
                   {item}
                 </li>
@@ -378,21 +383,21 @@ function CaseStudyBlock({
     <>
       <FadeIn>
         <div className="mb-10">
-          <h2 className="serif text-3xl font-medium text-[#e8eef0] sm:text-4xl">{header}</h2>
-          <p className="mt-4 max-w-2xl text-lg text-[#8fa3aa]">{intro}</p>
+          <h2 className="serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">{header}</h2>
+          <p className="mt-4 max-w-2xl text-lg text-[#8fa0b3]">{intro}</p>
         </div>
       </FadeIn>
 
       <FadeIn delay={100}>
-        <div className="mb-6 rounded-xl border bg-[#13242b] p-8" style={{ borderColor: HAIRLINE }}>
-          <p className="mono mb-4 text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa3aa]">
+        <div className="mb-6 rounded-xl border bg-[#141d2c] p-8" style={{ borderColor: HAIRLINE }}>
+          <p className="mono mb-4 text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
             The operational cost, before
           </p>
           <div className="space-y-4">
             {pains.map((p, i) => (
               <div key={i} className="flex gap-3">
                 <Clock className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#7fd7e2]" aria-hidden="true" />
-                <p className="text-sm leading-relaxed text-[#8fa3aa]">{p}</p>
+                <p className="text-sm leading-relaxed text-[#8fa0b3]">{p}</p>
               </div>
             ))}
           </div>
@@ -409,14 +414,14 @@ function CaseStudyBlock({
               {outcomes.map((o, i) => (
                 <div key={i} className="flex gap-3">
                   <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#7fd7e2]" aria-hidden="true" />
-                  <p className="text-sm leading-relaxed text-[#8fa3aa]">{o}</p>
+                  <p className="text-sm leading-relaxed text-[#8fa0b3]">{o}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex h-full flex-col justify-between rounded-xl border bg-[#13242b] p-8" style={{ borderColor: HAIRLINE }}>
-            <p className="serif text-xl font-medium italic leading-relaxed text-[#e8eef0]">
+          <div className="flex h-full flex-col justify-between rounded-xl border bg-[#141d2c] p-8" style={{ borderColor: HAIRLINE }}>
+            <p className="serif text-xl font-medium italic leading-relaxed text-[#e9edf4]">
               {quote}
             </p>
             <div className="mt-6 border-t pt-6" style={{ borderColor: HAIRLINE }}>
@@ -426,8 +431,8 @@ function CaseStudyBlock({
                   <img src={logo} alt={logoAlt} className="h-14 w-auto object-contain" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-[#e8eef0]">{who}</p>
-                  <p className="mt-0.5 text-xs text-[#8fa3aa]">{role}</p>
+                  <p className="text-sm font-bold text-[#e9edf4]">{who}</p>
+                  <p className="mt-0.5 text-xs text-[#8fa0b3]">{role}</p>
                 </div>
               </div>
               <span className="mono mt-4 inline-block rounded-full border px-3 py-1 text-[0.6rem] uppercase tracking-[0.12em] text-[#7fd7e2]" style={{ borderColor: "rgba(127,215,226,0.3)" }}>
@@ -506,15 +511,15 @@ function CaseStudies() {
 
         <FadeIn delay={300}>
           <div className="mt-12 text-center">
-            <p className="serif text-2xl font-medium text-[#e8eef0] sm:text-3xl">Protect your focus.</p>
+            <p className="serif text-2xl font-medium text-[#e9edf4] sm:text-3xl">Protect your focus.</p>
             <p className="serif text-2xl font-medium italic text-[#7fd7e2] sm:text-3xl">Automate the rest.</p>
-            <p className="mt-3 text-sm text-[#8fa3aa]">
+            <p className="mt-3 text-sm text-[#8fa0b3]">
               That&rsquo;s not a tagline. That&rsquo;s what we actually build.
             </p>
             <div className="mt-8">
               <a
                 href="#book"
-                className="inline-block rounded-full bg-[#7fd7e2] px-7 py-3.5 text-sm font-semibold text-[#0e1b21] transition-opacity hover:opacity-90"
+                className="inline-block rounded-full bg-[#7fd7e2] px-7 py-3.5 text-sm font-semibold text-[#0c131e] transition-opacity hover:opacity-90"
               >
                 See if your business qualifies
               </a>
@@ -537,16 +542,16 @@ function WhyRebelMindsOps() {
   ];
 
   return (
-    <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0c171c" }}>
+    <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <FadeIn>
               <Kicker>Our credibility</Kicker>
-              <h2 className="serif mt-3 text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+              <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
                 Why Rebel Minds OPS
               </h2>
-              <p className="mt-4 max-w-md text-[#8fa3aa]">
+              <p className="mt-4 max-w-md text-[#8fa0b3]">
                 Other automation companies sell you a tool and disappear. We start with how
                 your business actually operates (the friction, the cognitive overload, the
                 habits your team already has) and we build around all of it.
@@ -562,8 +567,8 @@ function WhyRebelMindsOps() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{pt.title}</h3>
-                    <p className="text-sm leading-relaxed text-[#8fa3aa]">{pt.desc}</p>
+                    <h3 className="mb-2 text-lg font-semibold text-[#e9edf4]">{pt.title}</h3>
+                    <p className="text-sm leading-relaxed text-[#8fa0b3]">{pt.desc}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -582,10 +587,10 @@ function CyberTeaser() {
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <Kicker>Security workshops</Kicker>
-          <h2 className="serif mt-3 text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+          <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
             Most breaches start with a person. So does prevention.
           </h2>
-          <p className="mt-4 max-w-2xl text-[#8fa3aa]">
+          <p className="mt-4 max-w-2xl text-[#8fa0b3]">
             The systems we build store sensitive data and connect your whole team, and the
             biggest risk to any of it is a rushed click on a convincing email. Our security
             awareness workshops train the human layer using{" "}
@@ -593,12 +598,12 @@ function CyberTeaser() {
               href="https://rebelminds.ai/framework"
               target="_blank"
               rel="noopener"
-              className="font-medium text-[#7fd7e2] underline-offset-2 transition-colors hover:text-[#e8eef0] hover:underline"
+              className="font-medium text-[#7fd7e2] underline-offset-2 transition-colors hover:text-[#e9edf4] hover:underline"
             >
               The Human Layer Framework
             </a>{" "}
             and behavior science, so your team knows what to do when a real phishing attempt
-            lands. Delivered remotely or on-site, in English, Spanish, or both.
+            lands. Delivered remotely or on-site, anywhere in the U.S.
           </p>
           <p className="mt-4 max-w-2xl text-sm text-[#6f858c]">
             Technical security assessments are also available on request, scoped to your
@@ -606,7 +611,7 @@ function CyberTeaser() {
           </p>
           <a
             href="/cybersecurity"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-opacity hover:opacity-90"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-opacity hover:opacity-90"
           >
             Explore the security workshops
             <ArrowRight className="h-4 w-4" />
@@ -619,7 +624,7 @@ function CyberTeaser() {
 
 // ─── Shared form field styles ─────────────────────────────────────────────────
 const inputCls =
-  "w-full rounded-lg border bg-[#0e1b21] px-4 py-3 text-sm text-[#e8eef0] placeholder-[#5c7178] outline-none transition focus:border-[rgba(127,215,226,0.5)]";
+  "w-full rounded-lg border bg-[#0c131e] px-4 py-3 text-sm text-[#e9edf4] placeholder-[#5f6e85] outline-none transition focus:border-[rgba(127,215,226,0.5)]";
 const inputStyle = { borderColor: HAIRLINE };
 
 // ─── Connect (EN form — /api/connect contract FROZEN) ─────────────────────────
@@ -686,15 +691,15 @@ function Connect() {
   }
 
   return (
-    <section id="book" className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0c171c" }}>
+    <section id="book" className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-2xl">
         <FadeIn>
           <div className="mb-10 text-center">
             <Kicker>Start here</Kicker>
-            <h2 className="serif mt-3 text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+            <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               Get your Free Ops Scan
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-[#8fa3aa]">
+            <p className="mx-auto mt-4 max-w-xl text-[#8fa0b3]">
               Tell us about your business and we&rsquo;ll reach out to map your operational
               workflow and show you what can be systemized today.
             </p>
@@ -702,17 +707,17 @@ function Connect() {
         </FadeIn>
 
         <FadeIn delay={100}>
-          <div className="rounded-xl border bg-[#13242b] p-8" style={{ borderColor: HAIRLINE }}>
+          <div className="rounded-xl border bg-[#141d2c] p-8" style={{ borderColor: HAIRLINE }}>
             {success ? (
               <div className="flex flex-col items-center gap-4 py-8 text-center">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full border" style={{ borderColor: "rgba(127,215,226,0.3)", backgroundColor: "rgba(127,215,226,0.1)" }}>
                   <CheckCircle className="h-7 w-7 text-[#7fd7e2]" />
                 </div>
-                <p className="text-lg font-semibold text-[#e8eef0]">Request received.</p>
-                <p className="text-[#8fa3aa]">We&rsquo;ll call you shortly.</p>
+                <p className="text-lg font-semibold text-[#e9edf4]">Request received.</p>
+                <p className="text-[#8fa0b3]">We&rsquo;ll call you shortly.</p>
                 <button
                   onClick={() => setSuccess(false)}
-                  className="mt-2 text-xs text-[#6f858c] underline hover:text-[#8fa3aa]"
+                  className="mt-2 text-xs text-[#6f858c] underline hover:text-[#8fa0b3]"
                 >
                   Submit another request
                 </button>
@@ -720,7 +725,7 @@ function Connect() {
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-[#8fa3aa]" htmlFor="connect-business">
+                  <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-business">
                     Business Name <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <input
@@ -737,7 +742,7 @@ function Connect() {
                 </div>
 
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-[#8fa3aa]" htmlFor="connect-type">
+                  <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-type">
                     Type of Business <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <select
@@ -760,7 +765,7 @@ function Connect() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-[#8fa3aa]">
+                  <label className="text-sm font-medium text-[#8fa0b3]">
                     What would you most like to improve right now? <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <select
@@ -788,7 +793,7 @@ function Connect() {
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-[#8fa3aa]" htmlFor="connect-phone">
+                    <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-phone">
                       Phone Number <span className="text-[#7fd7e2]">*</span>
                     </label>
                     <input
@@ -805,7 +810,7 @@ function Connect() {
                   </div>
 
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-[#8fa3aa]" htmlFor="connect-email">
+                    <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-email">
                       Email Address <span className="text-[#7fd7e2]">*</span>
                     </label>
                     <input
@@ -831,11 +836,11 @@ function Connect() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full rounded-full bg-[#7fd7e2] px-6 py-3.5 text-sm font-semibold text-[#0e1b21] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="w-full rounded-full bg-[#7fd7e2] px-6 py-3.5 text-sm font-semibold text-[#0c131e] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {submitting ? "Sending…" : "Get My Free Ops Scan"}
                 </button>
-                <p className="mt-3 text-center text-xs text-[#8fa3aa]">
+                <p className="mt-3 text-center text-xs text-[#8fa0b3]">
                   The Ops Scan is a free 15-minute workflow review. No obligation.
                 </p>
               </form>
@@ -922,10 +927,10 @@ function SpanishSection() {
         <FadeIn>
           <div className="mb-12">
             <Kicker>Sistemas en Español</Kicker>
-            <h2 className="serif mt-3 text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+            <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               ¿Tu equipo trabaja en español? Tus sistemas también pueden.
             </h2>
-            <p className="mt-4 max-w-2xl text-[#8fa3aa]">
+            <p className="mt-4 max-w-2xl text-[#8fa0b3]">
               Los sistemas que construimos funcionan en español y en inglés desde el primer
               día. La consulta, la capacitación y el soporte también, si así lo prefieres. No
               necesitas un intérprete para modernizar tu negocio.
@@ -936,19 +941,19 @@ function SpanishSection() {
         <div className="grid gap-px overflow-hidden rounded-xl border sm:grid-cols-3" style={{ borderColor: HAIRLINE, backgroundColor: HAIRLINE }}>
           {cards.map((card, i) => (
             <FadeIn key={card.title} delay={i * 60}>
-              <div className="h-full bg-[#13242b] p-6">
+              <div className="h-full bg-[#141d2c] p-6">
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg border" style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}>
                   <card.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
                 </div>
-                <h3 className="mb-2 text-base font-semibold leading-tight text-[#e8eef0]">{card.title}</h3>
-                <p className="text-sm leading-relaxed text-[#8fa3aa]">{card.desc}</p>
+                <h3 className="mb-2 text-base font-semibold leading-tight text-[#e9edf4]">{card.title}</h3>
+                <p className="text-sm leading-relaxed text-[#8fa0b3]">{card.desc}</p>
               </div>
             </FadeIn>
           ))}
         </div>
 
         <FadeIn delay={300}>
-          <div className="mx-auto mt-10 max-w-2xl rounded-xl border bg-[#13242b] p-8" style={{ borderColor: HAIRLINE }}>
+          <div className="mx-auto mt-10 max-w-2xl rounded-xl border bg-[#141d2c] p-8" style={{ borderColor: HAIRLINE }}>
             <p className="mono mb-6 text-center text-[0.66rem] uppercase tracking-[0.16em] text-[#7fd7e2]">
               Solicita tu Ops Scan gratis. Cuéntanos de tu negocio.
             </p>
@@ -957,11 +962,11 @@ function SpanishSection() {
                 <div className="flex h-14 w-14 items-center justify-center rounded-full border" style={{ borderColor: "rgba(127,215,226,0.3)", backgroundColor: "rgba(127,215,226,0.1)" }}>
                   <CheckCircle className="h-7 w-7 text-[#7fd7e2]" />
                 </div>
-                <p className="text-lg font-semibold text-[#e8eef0]">Solicitud recibida.</p>
-                <p className="text-[#8fa3aa]">Te llamamos pronto.</p>
+                <p className="text-lg font-semibold text-[#e9edf4]">Solicitud recibida.</p>
+                <p className="text-[#8fa0b3]">Te llamamos pronto.</p>
                 <button
                   onClick={() => setSuccess(false)}
-                  className="mt-2 text-xs text-[#6f858c] underline hover:text-[#8fa3aa]"
+                  className="mt-2 text-xs text-[#6f858c] underline hover:text-[#8fa0b3]"
                 >
                   Enviar otra solicitud
                 </button>
@@ -969,7 +974,7 @@ function SpanishSection() {
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-[#8fa3aa]" htmlFor="es-business">
+                  <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-business">
                     Nombre del negocio <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <input
@@ -986,7 +991,7 @@ function SpanishSection() {
                 </div>
 
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-[#8fa3aa]" htmlFor="es-type">
+                  <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-type">
                     Tipo de negocio <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <select
@@ -1009,7 +1014,7 @@ function SpanishSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-[#8fa3aa]">
+                  <label className="text-sm font-medium text-[#8fa0b3]">
                     ¿Qué te gustaría mejorar? <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <select
@@ -1037,7 +1042,7 @@ function SpanishSection() {
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-[#8fa3aa]" htmlFor="es-phone">
+                    <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-phone">
                       Teléfono <span className="text-[#7fd7e2]">*</span>
                     </label>
                     <input
@@ -1053,7 +1058,7 @@ function SpanishSection() {
                     />
                   </div>
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-[#8fa3aa]" htmlFor="es-email">
+                    <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-email">
                       Correo electrónico <span className="text-[#7fd7e2]">*</span>
                     </label>
                     <input
@@ -1079,11 +1084,11 @@ function SpanishSection() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full rounded-full bg-[#7fd7e2] px-6 py-3.5 text-sm font-semibold text-[#0e1b21] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="w-full rounded-full bg-[#7fd7e2] px-6 py-3.5 text-sm font-semibold text-[#0c131e] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {submitting ? "Enviando…" : "Solicitar mi Ops Scan gratis"}
                 </button>
-                <p className="mt-3 text-center text-xs text-[#8fa3aa]">
+                <p className="mt-3 text-center text-xs text-[#8fa0b3]">
                   El Ops Scan es una revisión gratuita de 15 minutos de tu flujo de trabajo.
                   Sin compromiso.
                 </p>
@@ -1099,7 +1104,7 @@ function SpanishSection() {
 // ─── FAQ ──────────────────────────────────────────────────────────────────────
 const FAQS = [
   { q: "Do you only do automation, or do you handle general IT too?", a: "Both. We started in automation and operational systems, but we now offer full IT consulting: workspace setup (Microsoft 365, Google Workspace, Slack), network and WiFi management, cybersecurity, cloud systems, and ongoing IT support. Think of us as your full IT department, without the full-time salary." },
-  { q: "Do you work with healthcare businesses?", a: "Yes. Healthcare is one of our primary verticals. We build HIPAA-aware patient intake systems, bilingual appointment reminders, review routing, and secure communication workflows. Our founder has a pre-medical sciences background and peer-reviewed research in cognitive psychology, which informs how we design systems for clinical environments." },
+  { q: "Do you work with healthcare businesses?", a: "Yes. Healthcare is one of our primary verticals. We build HIPAA-aware patient intake systems, appointment reminders, review routing, and secure communication workflows. Our founder has a pre-medical sciences background and peer-reviewed research in cognitive psychology, which informs how we design systems for clinical environments." },
   { q: "Do my crews or staff need to install new apps?", a: "Usually no. We design around the tools your team already uses daily: WhatsApp, email, mobile cameras. Zero learning curve. That's how we prevent adoption friction." },
   { q: "How fast can we go live with a new system?", a: "IT services like workspace setup or network fixes can be done in days. Automation modules like expense tracking or patient review systems take 2 to 3 weeks. Complex multi-system architectures take a month or more, broken into launch phases." },
   { q: "Do you offer ongoing support or just setup?", a: "Both. We offer one-time project work (network setup, workspace migration, automation builds) and monthly managed support (IT help desk, system monitoring, automation maintenance). Most clients start with a project and then move to a monthly plan." },
@@ -1110,11 +1115,11 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0c171c" }}>
+    <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="serif text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+            <h2 className="serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               Frequently asked questions
             </h2>
           </div>
@@ -1122,14 +1127,14 @@ function FAQ() {
         <div className="space-y-2.5">
           {FAQS.map((faq, i) => (
             <FadeIn key={i} delay={i * 50}>
-              <div className="overflow-hidden rounded-xl border bg-[#13242b]" style={{ borderColor: HAIRLINE }}>
+              <div className="overflow-hidden rounded-xl border bg-[#141d2c]" style={{ borderColor: HAIRLINE }}>
                 <button
                   className="flex w-full items-center justify-between px-6 py-5 text-left"
                   onClick={() => setOpenIdx(openIdx === i ? null : i)}
                   aria-expanded={openIdx === i}
                   aria-controls={`faq-panel-${i}`}
                 >
-                  <span className="pr-4 text-sm font-medium text-[#e8eef0] sm:text-base">{faq.q}</span>
+                  <span className="pr-4 text-sm font-medium text-[#e9edf4] sm:text-base">{faq.q}</span>
                   <span className={`flex h-5 w-5 flex-shrink-0 items-center justify-center text-[#7fd7e2] transition-transform duration-200 ${openIdx === i ? "rotate-45" : ""}`}>
                     <svg fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
@@ -1138,7 +1143,7 @@ function FAQ() {
                 </button>
                 {openIdx === i && (
                   <div id={`faq-panel-${i}`} className="px-6 pb-5">
-                    <p className="text-sm leading-relaxed text-[#8fa3aa]">{faq.a}</p>
+                    <p className="text-sm leading-relaxed text-[#8fa0b3]">{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -1227,7 +1232,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0e1b21]">
+    <div className="min-h-screen bg-[#0c131e]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -1235,7 +1240,6 @@ export default function Home() {
       <SiteNav />
       <Hero />
       <JPCProof />
-      <WiringDiagram />
       <WhoItsFor />
       <WhatWeBuild />
       <FeaturedSystem />

@@ -78,13 +78,13 @@ function CyberHero() {
         </FadeIn>
 
         <FadeIn delay={100}>
-          <h1 className="mb-6 text-4xl font-bold leading-tight text-[#e8eef0] sm:text-5xl lg:text-6xl">
+          <h1 className="mb-6 text-4xl font-bold leading-tight text-[#e9edf4] sm:text-5xl lg:text-6xl">
             Security Workshops That Train the Human Layer
           </h1>
         </FadeIn>
 
         <FadeIn delay={200}>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-[#8fa3aa]">
+          <p className="mx-auto mb-8 max-w-2xl text-lg text-[#8fa0b3]">
             Most breaches start with a person, not a firewall. We run security awareness
             workshops built on The Human Layer Framework and behavior science from Industrial
             and Organizational Psychology. Technical security assessments are available on
@@ -96,7 +96,7 @@ function CyberHero() {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href="#cyber-intake"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
               onClick={() => trackEvent("CTA_Click", { location: "cyber_hero_primary", cta: "Human Layer Pre-Assessment" })}
             >
               See where your human layer stands
@@ -104,7 +104,7 @@ function CyberHero() {
             </a>
             <a
               href="#workshops"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e8eef0] transition-all hover:border-white/40 hover:bg-white/5"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e9edf4] transition-all hover:border-white/40 hover:bg-white/5"
             >
               See the workshops
             </a>
@@ -112,8 +112,8 @@ function CyberHero() {
         </FadeIn>
 
         <FadeIn delay={400}>
-          <p className="mt-6 text-xs text-[#8fa3aa]">
-            Delivered remotely or on-site, anywhere in the US. In English, Spanish, or both.
+          <p className="mt-6 text-xs text-[#8fa0b3]">
+            Delivered remotely or on-site, anywhere in the US.
           </p>
         </FadeIn>
       </div>
@@ -143,17 +143,17 @@ function CyberWhy() {
   ];
 
   return (
-    <section id="cyber-why" className="bg-[#0c171c] px-4 py-20 sm:px-6">
+    <section id="cyber-why" className="bg-[#0a101a] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Why the Human Layer
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
               The Person at the Keyboard Is the Entry Point
             </h2>
-            <p className="mx-auto max-w-2xl text-[#8fa3aa]">
+            <p className="mx-auto max-w-2xl text-[#8fa0b3]">
               Year after year, industry breach reports find that the majority of breaches
               involve a human element: a click, a reused password, a rushed reply. Training
               the person is the highest-leverage security move most small businesses never make.
@@ -164,15 +164,15 @@ function CyberWhy() {
         <div className="grid gap-6 sm:grid-cols-3">
           {problems.map((p, i) => (
             <FadeIn key={p.title} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#13242b] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#141d2c] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(127,215,226,0.9), transparent)" }} />
                 <div className="relative mb-4">
                   <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)]">
                     <p.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
                   </div>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{p.title}</h3>
-                <p className="text-sm text-[#8fa3aa]">{p.desc}</p>
+                <h3 className="mb-2 text-lg font-semibold text-[#e9edf4]">{p.title}</h3>
+                <p className="text-sm text-[#8fa0b3]">{p.desc}</p>
               </div>
             </FadeIn>
           ))}
@@ -204,38 +204,37 @@ function CyberWorkshops() {
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               The Offer
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
               Human Layer Security Workshops
             </h2>
-            <p className="mx-auto max-w-2xl text-[#8fa3aa]">
+            <p className="mx-auto max-w-2xl text-[#8fa0b3]">
               Live security awareness training for your team, built on{" "}
               <a
                 href="https://rebelminds.ai/framework"
                 target="_blank"
                 rel="noopener"
-                className="font-medium text-[#7fd7e2] underline-offset-2 transition-colors hover:text-[#e8eef0] hover:underline"
+                className="font-medium text-[#7fd7e2] underline-offset-2 transition-colors hover:text-[#e9edf4] hover:underline"
               >
                 The Human Layer Framework
               </a>
               , our founder&apos;s framework for the human side of secure, AI-supported operations.
-              Designed with behavior change science. Delivered remotely or on-site, in English,
-              Spanish, or both.
+              Designed with behavior change science. Delivered remotely or on-site.
             </p>
           </div>
         </FadeIn>
 
         <FadeIn delay={100}>
-          <div className="rounded-2xl border border-white/10 bg-[#13242b] p-8">
-            <h3 className="mb-4 text-lg font-semibold text-[#e8eef0]">What a workshop covers</h3>
+          <div className="rounded-2xl border border-white/10 bg-[#141d2c] p-8">
+            <h3 className="mb-4 text-lg font-semibold text-[#e9edf4]">What a workshop covers</h3>
             <ul className="space-y-3">
               {covered.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-[#8fa3aa]">
+                <li key={item} className="flex items-start gap-3 text-sm text-[#8fa0b3]">
                   <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#7fd7e2]" aria-hidden="true" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-[#8fa3aa]">
+            <p className="mt-6 text-sm text-[#8fa0b3]">
               Every workshop is scoped to your team size and risk profile. You get an estimate
               before you commit to anything.
             </p>
@@ -243,11 +242,11 @@ function CyberWorkshops() {
         </FadeIn>
 
         <FadeIn delay={200}>
-          <div className="mt-6 rounded-2xl border border-white/10 bg-[#13242b] p-8">
-            <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">
+          <div className="mt-6 rounded-2xl border border-white/10 bg-[#141d2c] p-8">
+            <h3 className="mb-2 text-lg font-semibold text-[#e9edf4]">
               Technical security assessments, on request
             </h3>
-            <p className="text-sm text-[#8fa3aa]">
+            <p className="text-sm text-[#8fa0b3]">
               Need more than training? We also take on technical security work: email security
               review, exposed credential checks, MFA and access review, and vendor stack review.
               Every engagement is scoped to your operation and quoted as an estimate. We do not
@@ -260,7 +259,7 @@ function CyberWorkshops() {
           <div className="mt-10 text-center">
             <a
               href="#cyber-intake"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
             >
               See where your human layer stands <ArrowRight className="h-4 w-4" />
             </a>
@@ -292,10 +291,10 @@ function Industries() {
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Who We Protect
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
               We Know Your Industry Because We Work In It
             </h2>
-            <p className="mx-auto max-w-2xl text-[#8fa3aa]">
+            <p className="mx-auto max-w-2xl text-[#8fa0b3]">
               We build and run operational systems in these industries every day. We know what you handle, what data you carry, and what a breach would cost your operation.
             </p>
           </div>
@@ -304,10 +303,10 @@ function Industries() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((ind, i) => (
             <FadeIn key={ind.title} delay={i * 80}>
-              <div className="rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-colors hover:border-[rgba(127,215,226,0.3)] hover:bg-[rgba(127,215,226,0.04)]">
+              <div className="rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-colors hover:border-[rgba(127,215,226,0.3)] hover:bg-[rgba(127,215,226,0.04)]">
                 <ind.icon className="mb-3 h-6 w-6 text-[#7fd7e2]" />
-                <h3 className="mb-1 text-sm font-semibold text-[#e8eef0]">{ind.title}</h3>
-                <p className="text-xs text-[#8fa3aa]">{ind.desc}</p>
+                <h3 className="mb-1 text-sm font-semibold text-[#e9edf4]">{ind.title}</h3>
+                <p className="text-xs text-[#8fa0b3]">{ind.desc}</p>
               </div>
             </FadeIn>
           ))}
@@ -323,20 +322,20 @@ function CyberHow() {
   const steps = [
     { num: "01", title: "Take the 5-minute pre-assessment below", desc: "Five questions on training, MFA, and incident readiness. No scanning, no software, no obligation." },
     { num: "02", title: "You get your human layer snapshot", desc: "A plain-English risk summary showing where your team stands today and what to fix first." },
-    { num: "03", title: "We scope your workshop", desc: "Sized to your team, built around scenarios from your industry, in English, Spanish, or both. You get an estimate before committing." },
+    { num: "03", title: "We scope your workshop", desc: "Sized to your team, built around scenarios from your industry. You get an estimate before committing." },
     { num: "04", title: "We deliver the training", desc: "Live sessions, remote or at your location, designed with behavior change science so it sticks past the session." },
     { num: "05", title: "You keep the playbook", desc: "Workshop materials, follow-up guidance, and a clear picture of what to reinforce. No subscriptions required." },
   ];
 
   return (
-    <section id="cyber-how" className="bg-[#0c171c] px-4 py-20 sm:px-6">
+    <section id="cyber-how" className="bg-[#0a101a] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-4xl">
         <FadeIn>
           <div className="mb-12 text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               How It Works
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
               From Pre-Assessment to Workshop
             </h2>
           </div>
@@ -345,13 +344,13 @@ function CyberHow() {
         <div className="space-y-6">
           {steps.map((s, i) => (
             <FadeIn key={s.num} delay={i * 80}>
-              <div className="flex gap-5 rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#13242b]">
+              <div className="flex gap-5 rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#141d2c]">
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)] text-sm font-bold text-[#7fd7e2]">
                   {s.num}
                 </div>
                 <div>
-                  <h3 className="mb-1 font-semibold text-[#e8eef0]">{s.title}</h3>
-                  <p className="text-sm text-[#8fa3aa]">{s.desc}</p>
+                  <h3 className="mb-1 font-semibold text-[#e9edf4]">{s.title}</h3>
+                  <p className="text-sm text-[#8fa0b3]">{s.desc}</p>
                 </div>
               </div>
             </FadeIn>
@@ -397,7 +396,7 @@ function CyberTrust() {
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Why Trust Us
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
               The Same Team That Automates Your Operations Trains Your People
             </h2>
           </div>
@@ -406,17 +405,17 @@ function CyberTrust() {
         <div className="grid auto-rows-fr gap-6 sm:grid-cols-2">
           {points.map((pt, i) => (
             <FadeIn key={pt.title} delay={i * 70}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#13242b] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#141d2c] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(127,215,226,0.9), transparent)" }} />
                 <div className="relative mb-4">
                   <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)]">
                     <pt.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
                   </div>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{pt.title}</h3>
-                <p className="text-sm text-[#8fa3aa]">{pt.desc}</p>
+                <h3 className="mb-2 text-lg font-semibold text-[#e9edf4]">{pt.title}</h3>
+                <p className="text-sm text-[#8fa0b3]">{pt.desc}</p>
                 {pt.link && (
-                  <a href={pt.link.href} className="mt-3 inline-block text-sm font-medium text-[#7fd7e2] transition-colors hover:text-[#e8eef0]">
+                  <a href={pt.link.href} className="mt-3 inline-block text-sm font-medium text-[#7fd7e2] transition-colors hover:text-[#e9edf4]">
                     {pt.link.label}
                   </a>
                 )}
@@ -463,7 +462,7 @@ function CardSelect({
           className={`rounded-xl border px-4 py-3 text-sm font-medium transition-all ${
             value === opt.value
               ? "border-[#7fd7e2] bg-[rgba(127,215,226,0.1)] text-[#7fd7e2]"
-              : "border-white/10 bg-[#13242b] text-[#8fa3aa] hover:border-white/20 hover:bg-white/[0.06]"
+              : "border-white/10 bg-[#141d2c] text-[#8fa0b3] hover:border-white/20 hover:bg-white/[0.06]"
           }`}
         >
           {opt.label}
@@ -529,14 +528,14 @@ function CyberIntake() {
       <section id="cyber-intake" className="px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-2xl">
           <FadeIn>
-            <div className="rounded-2xl border border-white/10 bg-[#13242b] p-8 text-center">
+            <div className="rounded-2xl border border-white/10 bg-[#141d2c] p-8 text-center">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[rgba(127,215,226,0.3)] bg-[rgba(127,215,226,0.1)]">
                 <ShieldCheck className="h-8 w-8 text-[#7fd7e2]" />
               </div>
-              <h2 className="mb-3 text-2xl font-bold text-[#e8eef0]">Your security score is on its way.</h2>
-              <p className="mb-6 text-[#8fa3aa]">
+              <h2 className="mb-3 text-2xl font-bold text-[#e9edf4]">Your security score is on its way.</h2>
+              <p className="mb-6 text-[#8fa0b3]">
                 We&apos;ll send your personalized risk summary to{" "}
-                <span className="font-medium text-[#e8eef0]">{form.email}</span> within 24 business hours.
+                <span className="font-medium text-[#e9edf4]">{form.email}</span> within 24 business hours.
               </p>
               <div className={`mx-auto mb-6 max-w-lg rounded-xl border p-4 text-left text-sm ${
                 result.riskLevel === "High" ? "border-red-500/30 bg-red-500/10 text-red-300"
@@ -560,7 +559,7 @@ function CyberIntake() {
               <p className="mb-6 text-xs text-[#6f858c]">
                 You&apos;re also subscribed to SMB Cyber Shield Weekly — free threat briefings every Tuesday. No spam, ever.
               </p>
-              <a href="#workshops" className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]">
+              <a href="#workshops" className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]">
                 See the workshops <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -578,11 +577,11 @@ function CyberIntake() {
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Workshop Pre-Assessment
             </span>
-            <h2 className="mb-2 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
+            <h2 className="mb-2 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
               {step === 3 ? "Where should we send your results?" : "See where your human layer stands"}
             </h2>
             {step !== 3 && (
-              <p className="text-[#8fa3aa]">5 quick questions on training, MFA, and incident readiness. You get a real snapshot of where your team stands today.</p>
+              <p className="text-[#8fa0b3]">5 quick questions on training, MFA, and incident readiness. You get a real snapshot of where your team stands today.</p>
             )}
           </div>
         </FadeIn>
@@ -592,7 +591,7 @@ function CyberIntake() {
           {[1, 2, 3].map((s) => (
             <div key={s} className="flex items-center gap-2">
               <div className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold transition-colors ${
-                s === step ? "bg-[#7fd7e2] text-[#0e1b21]" : s < step ? "bg-[rgba(127,215,226,0.2)] text-[#7fd7e2]" : "bg-white/10 text-[#6f858c]"
+                s === step ? "bg-[#7fd7e2] text-[#0c131e]" : s < step ? "bg-[rgba(127,215,226,0.2)] text-[#7fd7e2]" : "bg-white/10 text-[#6f858c]"
               }`}>{s}</div>
               {s < 3 && <div className={`h-0.5 w-8 rounded-full transition-colors ${s < step ? "bg-[rgba(127,215,226,0.4)]" : "bg-white/10"}`} />}
             </div>
@@ -601,11 +600,11 @@ function CyberIntake() {
         </div>
 
         <FadeIn>
-          <div className="rounded-2xl border border-white/10 bg-[#13242b] p-8">
+          <div className="rounded-2xl border border-white/10 bg-[#141d2c] p-8">
             {step === 1 && (
               <div className="space-y-6">
                 <div>
-                  <label className="mb-3 block text-sm font-medium text-[#e8eef0]">How many people work at your company?</label>
+                  <label className="mb-3 block text-sm font-medium text-[#e9edf4]">How many people work at your company?</label>
                   <CardSelect
                     options={[{ value: "1-5", label: "1\u20135" }, { value: "6-20", label: "6\u201320" }, { value: "21-50", label: "21\u201350" }, { value: "50+", label: "50+" }]}
                     value={form.companySize}
@@ -613,7 +612,7 @@ function CyberIntake() {
                   />
                 </div>
                 <div>
-                  <label className="mb-3 block text-sm font-medium text-[#e8eef0]">What industry are you in?</label>
+                  <label className="mb-3 block text-sm font-medium text-[#e9edf4]">What industry are you in?</label>
                   <CardSelect
                     options={[
                       { value: "Medical/Dental", label: "Medical / Dental" },
@@ -628,7 +627,7 @@ function CyberIntake() {
                 </div>
                 <div className="flex justify-end">
                   <button type="button" disabled={!canAdvance1()} onClick={() => setStep(2)}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce] disabled:cursor-not-allowed disabled:opacity-40">
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce] disabled:cursor-not-allowed disabled:opacity-40">
                     Next <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
@@ -638,7 +637,7 @@ function CyberIntake() {
             {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <label className="mb-3 block text-sm font-medium text-[#e8eef0]">Do your employees receive cybersecurity training?</label>
+                  <label className="mb-3 block text-sm font-medium text-[#e9edf4]">Do your employees receive cybersecurity training?</label>
                   <CardSelect
                     options={[
                       { value: "YesRegularly", label: "Yes, regularly" },
@@ -651,8 +650,8 @@ function CyberIntake() {
                   />
                 </div>
                 <div>
-                  <label className="mb-3 block text-sm font-medium text-[#e8eef0]">Do you have multi-factor authentication (MFA) enabled?</label>
-                  <p className="mb-3 text-xs text-[#8fa3aa]">A second verification step when logging in — like a code texted to your phone.</p>
+                  <label className="mb-3 block text-sm font-medium text-[#e9edf4]">Do you have multi-factor authentication (MFA) enabled?</label>
+                  <p className="mb-3 text-xs text-[#8fa0b3]">A second verification step when logging in — like a code texted to your phone.</p>
                   <CardSelect
                     options={[
                       { value: "YesEverywhere", label: "Yes, everywhere" },
@@ -665,7 +664,7 @@ function CyberIntake() {
                   />
                 </div>
                 <div>
-                  <label className="mb-3 block text-sm font-medium text-[#e8eef0]">Has your business ever had a security incident?</label>
+                  <label className="mb-3 block text-sm font-medium text-[#e9edf4]">Has your business ever had a security incident?</label>
                   <CardSelect
                     options={[
                       { value: "NoNever", label: "No, never" },
@@ -678,9 +677,9 @@ function CyberIntake() {
                   />
                 </div>
                 <div className="flex justify-between">
-                  <button type="button" onClick={() => setStep(1)} className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e8eef0] transition-all hover:border-white/40 hover:bg-white/5">&larr; Back</button>
+                  <button type="button" onClick={() => setStep(1)} className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e9edf4] transition-all hover:border-white/40 hover:bg-white/5">&larr; Back</button>
                   <button type="button" disabled={!canAdvance2()} onClick={() => setStep(3)}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce] disabled:cursor-not-allowed disabled:opacity-40">
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce] disabled:cursor-not-allowed disabled:opacity-40">
                     Next <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
@@ -690,30 +689,30 @@ function CyberIntake() {
             {step === 3 && (
               <div className="space-y-5">
                 <div>
-                  <label htmlFor="cyber-name" className="mb-1.5 block text-sm font-medium text-[#e8eef0]">Your name <span className="text-red-400">*</span></label>
+                  <label htmlFor="cyber-name" className="mb-1.5 block text-sm font-medium text-[#e9edf4]">Your name <span className="text-red-400">*</span></label>
                   <input id="cyber-name" type="text" required value={form.name} onChange={(e) => updateField("name", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-[#13242b] px-4 py-3 text-sm text-[#e8eef0] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Your name" />
+                    className="w-full rounded-lg border border-white/10 bg-[#141d2c] px-4 py-3 text-sm text-[#e9edf4] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Your name" />
                 </div>
                 <div>
-                  <label htmlFor="cyber-biz" className="mb-1.5 block text-sm font-medium text-[#e8eef0]">Business name <span className="text-red-400">*</span></label>
+                  <label htmlFor="cyber-biz" className="mb-1.5 block text-sm font-medium text-[#e9edf4]">Business name <span className="text-red-400">*</span></label>
                   <input id="cyber-biz" type="text" required value={form.businessName} onChange={(e) => updateField("businessName", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-[#13242b] px-4 py-3 text-sm text-[#e8eef0] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Business name" />
+                    className="w-full rounded-lg border border-white/10 bg-[#141d2c] px-4 py-3 text-sm text-[#e9edf4] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Business name" />
                 </div>
                 <div>
-                  <label htmlFor="cyber-email" className="mb-1.5 block text-sm font-medium text-[#e8eef0]">Email address <span className="text-red-400">*</span></label>
+                  <label htmlFor="cyber-email" className="mb-1.5 block text-sm font-medium text-[#e9edf4]">Email address <span className="text-red-400">*</span></label>
                   <input id="cyber-email" type="email" required value={form.email} onChange={(e) => updateField("email", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-[#13242b] px-4 py-3 text-sm text-[#e8eef0] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Email address" />
+                    className="w-full rounded-lg border border-white/10 bg-[#141d2c] px-4 py-3 text-sm text-[#e9edf4] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Email address" />
                 </div>
                 <div>
-                  <label htmlFor="cyber-phone" className="mb-1.5 block text-sm font-medium text-[#e8eef0]">Phone <span className="text-xs text-[#6f858c]">(optional — only if you&apos;d like a follow-up call)</span></label>
+                  <label htmlFor="cyber-phone" className="mb-1.5 block text-sm font-medium text-[#e9edf4]">Phone <span className="text-xs text-[#6f858c]">(optional — only if you&apos;d like a follow-up call)</span></label>
                   <input id="cyber-phone" type="tel" value={form.phone} onChange={(e) => updateField("phone", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-[#13242b] px-4 py-3 text-sm text-[#e8eef0] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Phone number (optional)" />
+                    className="w-full rounded-lg border border-white/10 bg-[#141d2c] px-4 py-3 text-sm text-[#e9edf4] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Phone number (optional)" />
                 </div>
                 <label className="flex cursor-pointer items-start gap-3">
                   <input type="checkbox" checked={form.newsletter} onChange={(e) => updateField("newsletter", e.target.checked)}
-                    className="mt-0.5 h-4 w-4 rounded border-white/20 bg-[#13242b] accent-[#7fd7e2]" />
+                    className="mt-0.5 h-4 w-4 rounded border-white/20 bg-[#141d2c] accent-[#7fd7e2]" />
                   <div>
-                    <span className="text-sm text-[#8fa3aa]">Subscribe me to SMB Cyber Shield Weekly — free security briefings for small businesses, every Tuesday.</span>
+                    <span className="text-sm text-[#8fa0b3]">Subscribe me to SMB Cyber Shield Weekly — free security briefings for small businesses, every Tuesday.</span>
                     <p className="mt-0.5 text-xs text-[#6f858c]">No spam. Unsubscribe anytime.</p>
                   </div>
                 </label>
@@ -723,9 +722,9 @@ function CyberIntake() {
                 )}
 
                 <div className="flex justify-between pt-2">
-                  <button type="button" onClick={() => setStep(2)} className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e8eef0] transition-all hover:border-white/40 hover:bg-white/5">&larr; Back</button>
+                  <button type="button" onClick={() => setStep(2)} className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e9edf4] transition-all hover:border-white/40 hover:bg-white/5">&larr; Back</button>
                   <button type="button" disabled={submitting} onClick={handleSubmit}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce] disabled:cursor-not-allowed disabled:opacity-60">
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce] disabled:cursor-not-allowed disabled:opacity-60">
                     {submitting ? (
                       <><svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg> Calculating...</>
                     ) : (
@@ -758,26 +757,26 @@ function CyberFAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section id="cyber-faq" className="bg-[#0c171c] px-4 py-20 sm:px-6">
+    <section id="cyber-faq" className="bg-[#0a101a] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">Common Questions</h2>
+            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">Common Questions</h2>
           </div>
         </FadeIn>
         <div className="space-y-2.5">
           {CYBER_FAQS.map((faq, i) => (
             <FadeIn key={i} delay={i * 60}>
-              <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#13242b] transition-all hover:border-white/20">
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#141d2c] transition-all hover:border-white/20">
                 <button className="flex w-full items-center justify-between px-6 py-5 text-left" onClick={() => setOpenIdx(openIdx === i ? null : i)} aria-expanded={openIdx === i} aria-controls={`cyber-faq-panel-${i}`}>
-                  <span className="pr-4 text-sm font-medium text-[#e8eef0] sm:text-base">{faq.q}</span>
+                  <span className="pr-4 text-sm font-medium text-[#e9edf4] sm:text-base">{faq.q}</span>
                   <span className={`flex h-5 w-5 flex-shrink-0 items-center justify-center text-[#7fd7e2] transition-transform duration-200 ${openIdx === i ? "rotate-45" : ""}`}>
                     <svg fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg>
                   </span>
                 </button>
                 {openIdx === i && (
                   <div id={`cyber-faq-panel-${i}`} className="px-6 pb-5">
-                    <p className="text-sm leading-relaxed text-[#8fa3aa]">{faq.a}</p>
+                    <p className="text-sm leading-relaxed text-[#8fa0b3]">{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -796,9 +795,9 @@ function FooterCTA() {
     <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0b151a" }}>
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
-          <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">Ready to Know Where You Stand?</h2>
-          <p className="mb-8 text-[#8fa3aa]">The free pre-assessment takes 5 minutes. The report tells you exactly where your human layer stands. No obligation.</p>
-          <a href="#cyber-intake" className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]">
+          <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">Ready to Know Where You Stand?</h2>
+          <p className="mb-8 text-[#8fa0b3]">The free pre-assessment takes 5 minutes. The report tells you exactly where your human layer stands. No obligation.</p>
+          <a href="#cyber-intake" className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]">
             Get my free assessment <ArrowRight className="h-4 w-4" />
           </a>
         </FadeIn>
@@ -811,7 +810,7 @@ function FooterCTA() {
 
 export default function CybersecurityPage() {
   return (
-    <div className="min-h-screen bg-[#0e1b21]">
+    <div className="min-h-screen bg-[#0c131e]">
       <SiteNav />
       <CyberHero />
       <SectionDivider />

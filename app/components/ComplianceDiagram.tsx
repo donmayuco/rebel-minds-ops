@@ -35,15 +35,15 @@ export default function ComplianceDiagram() {
     visible ? `wire ${delay}` : undefined;
 
   return (
-    <div className="border-t" style={{ borderColor: "rgba(232,238,240,0.10)" }}>
+    <div className="border-t" style={{ borderColor: "rgba(233,237,244,0.10)" }}>
       <div className="mx-auto max-w-6xl px-4 pt-16 sm:px-6">
         <p className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
           The Compliance Diagram
         </p>
-        <h2 className="serif mt-3 text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+        <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
           Airtight has a shape. We draw it before we build it.
         </h2>
-        <p className="mt-3 max-w-[58ch] text-[0.95rem] leading-relaxed text-[#8fa3aa]">
+        <p className="mt-3 max-w-[58ch] text-[0.95rem] leading-relaxed text-[#8fa0b3]">
           Same schematic language, different argument: the dashed line is the BAA-covered
           boundary. Watch the patient&rsquo;s message get encrypted at the door; nothing
           carrying PHI ever crosses back out.
@@ -77,7 +77,7 @@ export default function ComplianceDiagram() {
           </g>
 
           {/* wire labels */}
-          <g fill="#8fa3aa" fontSize="9.5" letterSpacing="0.08em">
+          <g fill="#8fa0b3" fontSize="9.5" letterSpacing="0.08em">
             <text x="245" y="204" textAnchor="middle">TLS IN TRANSIT</text>
             <text x="515" y="204" textAnchor="middle">ENCRYPTED</text>
             <text x="782" y="140" textAnchor="middle">AI SUMMARY · BAA</text>
@@ -87,7 +87,7 @@ export default function ComplianceDiagram() {
           {/* lock at the boundary crossing */}
           <g className="nodeglow" opacity="0">
             {visible && <animate id="hlk" attributeName="opacity" begin="hk1.begin+0.35s" dur="0.8s" values="0;1;0" keyTimes="0;0.3;1" />}
-            <rect x="251" y="212" width="14" height="11" rx="2" fill="#0e1b21" stroke="#7fd7e2" strokeWidth="1.4" />
+            <rect x="251" y="212" width="14" height="11" rx="2" fill="#0c131e" stroke="#7fd7e2" strokeWidth="1.4" />
             <path d="M 254 212 v-3 a4 4 0 0 1 8 0 v3" fill="none" stroke="#7fd7e2" strokeWidth="1.4" />
           </g>
 
@@ -96,65 +96,65 @@ export default function ComplianceDiagram() {
             <rect className="nodeglow" x="40" y="190" width="150" height="54" rx="6" fill="none" stroke="#7fd7e2" strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
               {visible && <animate attributeName="opacity" begin="hk1.begin" dur="0.8s" values="0;0.75;0" keyTimes="0;0.3;1" />}
             </rect>
-            <rect x="40" y="190" width="150" height="54" rx="6" fill="#13242b" stroke="rgba(232,238,240,0.18)" />
-            <circle cx="60" cy="210" r="3.5" fill="#8fa3aa" />
-            <text x="74" y="215" fill="#e8eef0" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Patient</text>
-            <text x="60" y="233" fill="#8fa3aa" fontSize="9">TEXTS THE PRACTICE</text>
+            <rect x="40" y="190" width="150" height="54" rx="6" fill="#141d2c" stroke="rgba(233,237,244,0.18)" />
+            <circle cx="60" cy="210" r="3.5" fill="#8fa0b3" />
+            <text x="74" y="215" fill="#e9edf4" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Patient</text>
+            <text x="60" y="233" fill="#8fa0b3" fontSize="9">TEXTS THE PRACTICE</text>
           </g>
           {/* Twilio */}
           <g>
             <rect className="nodeglow" x="300" y="190" width="170" height="54" rx="6" fill="none" stroke="#7fd7e2" strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
               {visible && <animate attributeName="opacity" begin="hk1.end" dur="0.8s" values="0;0.8;0" keyTimes="0;0.3;1" />}
             </rect>
-            <rect x="300" y="190" width="170" height="54" rx="6" fill="#13242b" stroke="rgba(232,238,240,0.18)">
-              {visible && <animate attributeName="stroke" begin="hk1.end" dur="0.8s" values="rgba(232,238,240,0.18);#7fd7e2;rgba(232,238,240,0.18)" keyTimes="0;0.3;1" />}
+            <rect x="300" y="190" width="170" height="54" rx="6" fill="#141d2c" stroke="rgba(233,237,244,0.18)">
+              {visible && <animate attributeName="stroke" begin="hk1.end" dur="0.8s" values="rgba(233,237,244,0.18);#7fd7e2;rgba(233,237,244,0.18)" keyTimes="0;0.3;1" />}
             </rect>
             <circle cx="320" cy="210" r="3.5" fill="#F22F46" />
-            <text x="334" y="215" fill="#e8eef0" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Twilio</text>
-            <text x="320" y="233" fill="#8fa3aa" fontSize="9">HIPAA-ELIGIBLE MESSAGING · BAA</text>
+            <text x="334" y="215" fill="#e9edf4" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Twilio</text>
+            <text x="320" y="233" fill="#8fa0b3" fontSize="9">HIPAA-ELIGIBLE MESSAGING · BAA</text>
           </g>
           {/* Aptible */}
           <g>
             <rect className="nodeglow" x="560" y="190" width="170" height="54" rx="6" fill="none" stroke="#7fd7e2" strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
               {visible && <animate attributeName="opacity" begin="hk2.end" dur="0.8s" values="0;0.8;0" keyTimes="0;0.3;1" />}
             </rect>
-            <rect x="560" y="190" width="170" height="54" rx="6" fill="#13242b" stroke="rgba(127,215,226,0.45)">
+            <rect x="560" y="190" width="170" height="54" rx="6" fill="#141d2c" stroke="rgba(127,215,226,0.45)">
               {visible && <animate attributeName="stroke" begin="hk2.end" dur="0.8s" values="rgba(127,215,226,0.45);#7fd7e2;rgba(127,215,226,0.45)" keyTimes="0;0.3;1" />}
             </rect>
             <circle cx="580" cy="210" r="3.5" fill="#7fd7e2" />
-            <text x="594" y="215" fill="#e8eef0" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Aptible</text>
-            <text x="580" y="233" fill="#8fa3aa" fontSize="9">HOSTING · AES-256 AT REST · AUDIT LOGS</text>
+            <text x="594" y="215" fill="#e9edf4" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Aptible</text>
+            <text x="580" y="233" fill="#8fa0b3" fontSize="9">HOSTING · AES-256 AT REST · AUDIT LOGS</text>
           </g>
           {/* Amazon Bedrock */}
           <g>
             <rect className="nodeglow" x="820" y="80" width="180" height="54" rx="6" fill="none" stroke="#7fd7e2" strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
               {visible && <animate attributeName="opacity" begin="hk3.end" dur="0.8s" values="0;0.8;0" keyTimes="0;0.3;1" />}
             </rect>
-            <rect x="820" y="80" width="180" height="54" rx="6" fill="#13242b" stroke="rgba(232,238,240,0.18)">
-              {visible && <animate attributeName="stroke" begin="hk3.end" dur="0.8s" values="rgba(232,238,240,0.18);#7fd7e2;rgba(232,238,240,0.18)" keyTimes="0;0.3;1" />}
+            <rect x="820" y="80" width="180" height="54" rx="6" fill="#141d2c" stroke="rgba(233,237,244,0.18)">
+              {visible && <animate attributeName="stroke" begin="hk3.end" dur="0.8s" values="rgba(233,237,244,0.18);#7fd7e2;rgba(233,237,244,0.18)" keyTimes="0;0.3;1" />}
             </rect>
             <circle cx="840" cy="100" r="3.5" fill="#FF9900" />
-            <text x="854" y="105" fill="#e8eef0" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Amazon Bedrock</text>
-            <text x="840" y="123" fill="#8fa3aa" fontSize="9">HIPAA-ELIGIBLE AI · BAA</text>
+            <text x="854" y="105" fill="#e9edf4" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Amazon Bedrock</text>
+            <text x="840" y="123" fill="#8fa0b3" fontSize="9">HIPAA-ELIGIBLE AI · BAA</text>
           </g>
           {/* Front Desk View */}
           <g>
             <rect className="nodeglow" x="820" y="280" width="180" height="54" rx="6" fill="none" stroke="#7fd7e2" strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
               {visible && <animate attributeName="opacity" begin="hk4.end" dur="1s" values="0;0.9;0" keyTimes="0;0.3;1" />}
             </rect>
-            <rect x="820" y="280" width="180" height="54" rx="6" fill="#13242b" stroke="rgba(232,238,240,0.18)">
-              {visible && <animate attributeName="stroke" begin="hk4.end" dur="1s" values="rgba(232,238,240,0.18);#7fd7e2;rgba(232,238,240,0.18)" keyTimes="0;0.3;1" />}
+            <rect x="820" y="280" width="180" height="54" rx="6" fill="#141d2c" stroke="rgba(233,237,244,0.18)">
+              {visible && <animate attributeName="stroke" begin="hk4.end" dur="1s" values="rgba(233,237,244,0.18);#7fd7e2;rgba(233,237,244,0.18)" keyTimes="0;0.3;1" />}
             </rect>
             <circle cx="840" cy="300" r="3.5" fill="#0F9D58" />
-            <text x="854" y="305" fill="#e8eef0" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Front Desk View</text>
-            <text x="840" y="323" fill="#8fa3aa" fontSize="9">INTAKE DONE BEFORE THE FIRST RING</text>
+            <text x="854" y="305" fill="#e9edf4" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Front Desk View</text>
+            <text x="840" y="323" fill="#8fa0b3" fontSize="9">INTAKE DONE BEFORE THE FIRST RING</text>
           </g>
 
           {/* closing annotation */}
           <g opacity="0.5">
             {visible && <animate id="hout" attributeName="opacity" begin="hk4.end+0.15s" dur="1.8s" values="0.5;1;1;0.7" keyTimes="0;0.15;0.8;1" />}
             <text x="560" y="376" fill="#7fd7e2" fontSize="11" letterSpacing="0.1em">PHI NEVER CROSSED BACK OUT</text>
-            <text x="560" y="392" fill="#8fa3aa" fontSize="9" letterSpacing="0.08em">EVERY VENDOR INSIDE THE LINE SIGNS A BAA</text>
+            <text x="560" y="392" fill="#8fa0b3" fontSize="9" letterSpacing="0.08em">EVERY VENDOR INSIDE THE LINE SIGNS A BAA</text>
           </g>
 
           {/* packets */}
@@ -186,10 +186,10 @@ export default function ComplianceDiagram() {
           </defs>
         </svg>
         <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-2.5 px-4 pt-1.5 sm:px-6">
-          <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa3aa]">
+          <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
             Patient intake · reference architecture for HIPAA-aware practices
           </span>
-          <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa3aa]">
+          <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
             Drawn for your practice before anything is built
           </span>
         </div>

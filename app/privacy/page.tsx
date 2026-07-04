@@ -12,33 +12,33 @@ export const metadata: Metadata = {
 
 function Section({ label, title, children }: { label: string; title: string; children: React.ReactNode }) {
   return (
-    <section className="border-t py-10" style={{ borderColor: "rgba(232,238,240,0.10)" }}>
-      <p className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa3aa]">{label}</p>
-      <h2 className="serif mt-3 text-2xl font-medium text-[#e8eef0]">{title}</h2>
-      <div className="mt-4 space-y-4 text-[0.95rem] leading-relaxed text-[#8fa3aa]">{children}</div>
+    <section className="border-t py-10" style={{ borderColor: "rgba(233,237,244,0.10)" }}>
+      <p className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">{label}</p>
+      <h2 className="serif mt-3 text-2xl font-medium text-[#e9edf4]">{title}</h2>
+      <div className="mt-4 space-y-4 text-[0.95rem] leading-relaxed text-[#8fa0b3]">{children}</div>
     </section>
   );
 }
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#0e1b21]">
+    <div className="min-h-screen bg-[#0c131e]">
       <SiteNav />
       <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
         <p className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
           Rebel Minds OPS
         </p>
-        <h1 className="serif mt-4 text-4xl font-medium leading-[1.08] tracking-tight text-[#e8eef0]">
+        <h1 className="serif mt-4 text-4xl font-medium leading-[1.08] tracking-tight text-[#e9edf4]">
           Privacy Policy
         </h1>
-        <p className="mt-5 text-[1.02rem] leading-relaxed text-[#8fa3aa]">
+        <p className="mt-5 text-[1.02rem] leading-relaxed text-[#8fa0b3]">
           Plain English, no fine-print games. This page explains what we collect when
           you reach out, how we use it, and how you get it deleted. We deliver our
           systems remotely to businesses across the United States, and we handle your
           information the same careful way whether you are down the street or across
           the country.
         </p>
-        <p className="mt-3 text-sm text-[#8fa3aa]">Last updated: July 2026.</p>
+        <p className="mt-3 text-sm text-[#8fa0b3]">Last updated: July 2026.</p>
 
         <Section label="What we collect" title="Only what you hand us">
           <p>
