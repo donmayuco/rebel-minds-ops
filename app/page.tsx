@@ -553,8 +553,7 @@ function Nav() {
                 <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2" style={{ minWidth: 220 }}>
                   <div className="rounded-xl border border-white/[0.08] bg-[#0B1220] p-1.5 shadow-xl backdrop-blur-md">
                     <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Cybersecurity
-                      <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                      Security Workshops
                     </a>
                     <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Healthcare
@@ -625,8 +624,7 @@ function Nav() {
             {mobileServicesOpen && (
               <div className="flex flex-col gap-0.5 pl-4">
                 <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Cybersecurity
-                  <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                  Security Workshops
                 </a>
                 <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Healthcare
@@ -919,8 +917,8 @@ function WhatWeBuild() {
       accent: "#A855F7"
     },
     {
-      title: "Cybersecurity Essentials",
-      desc: "2FA rollout, password manager setup, email security hardening, and team training. The baseline protection every business needs but most skip.",
+      title: "Human Layer Security Workshops",
+      desc: "Security awareness training built on behavior science: phishing recognition, password and MFA habits, incident reporting. Technical hardening like 2FA rollout and email security available on request.",
       icon: KeyRound,
       span: "lg:col-span-1",
       accent: "#EF4444"
@@ -1737,66 +1735,44 @@ function WhyRebelMindsOps() {
   );
 }
 
-// ─── Cybersecurity Teaser ─────────────────────────────────────────────────────
+// ─── Security Workshops Teaser ────────────────────────────────────────────────
 function CyberTeaser() {
-  const stats = [
-    { value: "43%", label: "of cyberattacks target small businesses" },
-    { value: "$200K", label: "average cost of a breach for an SMB" },
-    { value: "60%", label: "of breached businesses close within 6 months" },
-  ];
-
   return (
     <section id="cybersecurity" className="relative px-4 py-20 sm:px-6" style={{ backgroundColor: "#060D18" }}>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(125,227,230,0.015)] to-transparent" />
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-3xl text-center">
         <FadeIn>
-          <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
-              New Service
-            </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              We Now Protect What We Help You Build
-            </h2>
-            <p className="mx-auto max-w-2xl text-slate-400">
-              The systems we build for your business store sensitive data, process
-              payments, and connect your team. We now offer managed cybersecurity
-              services to protect all of it — designed for small businesses that
-              can&apos;t afford an in-house security team.
-            </p>
-          </div>
-        </FadeIn>
-
-        <div className="mb-4 grid gap-6 sm:grid-cols-3">
-          {stats.map((stat, i) => (
-            <FadeIn key={stat.value} delay={i * 80}>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center backdrop-blur-sm">
-                <div className="mb-2 text-3xl font-bold text-[#7DE3E6]">{stat.value}</div>
-                <p className="text-sm text-slate-400">{stat.label}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-
-        <FadeIn delay={250}>
-          <p className="mx-auto mb-12 max-w-2xl text-center text-xs text-slate-400">
-            Commonly cited industry estimates (Verizon DBIR, Hiscox Cyber Readiness
-            Report). The free assessment shows your numbers — not the internet&apos;s.
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={300}>
-          <div className="flex flex-col items-center gap-3 text-center">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            Security Workshops
+          </span>
+          <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+            Most Breaches Start With a Person. So Does Prevention.
+          </h2>
+          <p className="mx-auto mb-4 max-w-2xl text-slate-400">
+            The systems we build store sensitive data and connect your whole team, and the biggest
+            risk to any of it is a rushed click on a convincing email. Our security awareness
+            workshops train the human layer using{" "}
             <a
-              href="/cybersecurity"
-              className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
+              href="https://rebelminds.ai/framework"
+              target="_blank"
+              rel="noopener"
+              className="font-medium text-[#7DE3E6] underline-offset-2 transition-colors hover:text-white hover:underline"
             >
-              See our cybersecurity plans
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <p className="text-xs text-slate-500">
-              Free threat assessment included. No obligation.
-            </p>
-          </div>
+              The Human Layer Framework
+            </a>{" "}
+            and behavior science, so your team knows what to do when a real phishing attempt lands.
+            Delivered remotely or on-site, in English, Spanish, or both.
+          </p>
+          <p className="mx-auto mb-8 max-w-2xl text-sm text-slate-500">
+            Technical security assessments are also available on request, scoped to your operation.
+          </p>
+          <a
+            href="/cybersecurity"
+            className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
+          >
+            Explore the security workshops
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </FadeIn>
       </div>
     </section>
@@ -2182,7 +2158,7 @@ function Footer() {
               <a href="/" className="transition-colors hover:text-white">Home</a>
               <a href="/our-science" className="transition-colors hover:text-white">Our Science</a>
               <a href="/healthcare" className="transition-colors hover:text-white">Healthcare</a>
-              <a href="/cybersecurity" className="transition-colors hover:text-white">Cybersecurity</a>
+              <a href="/cybersecurity" className="transition-colors hover:text-white">Security Workshops</a>
             </div>
             <a
               href="#book"
