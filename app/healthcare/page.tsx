@@ -453,9 +453,9 @@ function Background() {
       desc:
         "Published a 219-page population health assessment for Texas HHSC's Prevention Resource Center 11, covering substance use, mental health, and demographic data across 19 South Texas counties.\n\nCompliance with the strictest tier of US health data wasn't theoretical. It was the job.",
       citation: {
-        text: "2023 Regional Needs Assessment available at",
-        link: "https://prc11.org/data",
-        linkText: "prc11.org/data",
+        text: "2023 Regional Needs Assessment:",
+        link: "https://prc11.org/wp-content/uploads/2024/02/BHSST_RNA-2023.pdf",
+        linkText: "read the full 219-page report (PDF)",
       },
     },
     {
