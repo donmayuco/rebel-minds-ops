@@ -29,7 +29,7 @@ import IPNotice from "@/app/components/IPNotice";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const TYPEWRITER_WORDS = [
-  "Growing RGV Businesses",
+  "Growing Businesses",
   "Business Data & Cloud Systems",
   "Healthcare & Clinics (HIPAA Aware)",
   "IT Infrastructure",
@@ -676,7 +676,7 @@ function Hero() {
           >
             <FadeIn>
               <div className="mb-6 flex flex-wrap justify-center gap-2 lg:justify-start">
-                {["Operations First · South Texas", "🇺🇸🇲🇽 100% Bilingüe · English & Spanish", "End-to-end implementation"].map((pill) => (
+                {["Operations First", "Systems in English, Spanish, or both", "End-to-end implementation"].map((pill) => (
                   <span
                     key={pill}
                     className="rounded-full border border-[rgba(125,227,230,0.25)] bg-[rgba(125,227,230,0.06)] px-3 py-1 text-xs font-medium text-[#7DE3E6]"
@@ -729,7 +729,7 @@ function Hero() {
                 We Build the Systems — and Manage the IT — Your Business Depends On.
               </p>
               <p className="mb-10 text-sm font-medium text-slate-400">
-                Local, structured, and hands-on. Not hype. Not templates. Just
+                Structured, hands-on, and delivered remotely. Not hype. Not templates. Just
                 systems that work.
               </p>
             </FadeIn>
@@ -823,12 +823,13 @@ function WhoItsFor() {
               Who It&apos;s For
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              Built for Operators in the Rio Grande Valley
+              Built for Operators, Wherever You Operate
             </h2>
             <p className="mx-auto max-w-xl text-slate-400">
               We partner with businesses that have outgrown their spreadsheets and
               paper forms. If your team is spending hours on data entry, it&apos;s
-              time for a system.
+              time for a system. Every system we build is designed, delivered, and
+              supported remotely, for operators anywhere in the U.S.
             </p>
           </div>
         </FadeIn>
@@ -1412,19 +1413,19 @@ function JPCCaseStudy() {
 function SpanishSection() {
   const cards = [
     {
-      icon: MessageCircle,
-      title: "La consulta es en espa\u00F1ol",
-      desc: "Explicamos cada sistema en tu idioma. Sin tecnicismos, sin malentendidos, sin necesidad de traductores.",
-    },
-    {
       icon: Users,
       title: "Dise\u00F1ado para tu equipo, no para Silicon Valley",
       desc: "Sabemos que tus crews hablan espa\u00F1ol. Construimos sistemas que pueden usar desde el primer d\u00EDa — sin capacitaci\u00F3n complicada.",
     },
     {
+      icon: MessageCircle,
+      title: "La consulta es en espa\u00F1ol",
+      desc: "Explicamos cada sistema en tu idioma. Sin tecnicismos, sin malentendidos, sin necesidad de traductores.",
+    },
+    {
       icon: Globe,
-      title: "Bicultural. Biling\u00FCe. Del Valle.",
-      desc: "M\u00E1s de 30 a\u00F1os navegando la cultura \u00FAnica del RGV — donde el negocio, el idioma, y las relaciones funcionan diferente. Lo entendemos porque lo vivimos.",
+      title: "Forjado en un mercado exigente",
+      desc: "M\u00E1s de 25 a\u00F1os operando en el sur de Texas, donde las relaciones, el idioma y la confianza se ganan a pulso. Esa disciplina viaja con nosotros a cada cliente, en cualquier mercado.",
     },
   ];
 
@@ -1495,13 +1496,13 @@ function SpanishSection() {
         <FadeIn>
           <div className="mb-12 text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold text-[#7DE3E6]">
-              &#127474;&#127485; Hablamos Tu Idioma
+              Sistemas en Espa&ntilde;ol
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              &iquest;Tu negocio crece m&aacute;s r&aacute;pido de lo que tus sistemas aguantan?
+              &iquest;Tu equipo trabaja en espa&ntilde;ol? Tus sistemas tambi&eacute;n pueden.
             </h2>
             <p className="mx-auto max-w-2xl text-slate-400">
-              Trabajamos completamente en espa&ntilde;ol — desde la primera llamada hasta el soporte. No necesitas un int&eacute;rprete para modernizar tu negocio.
+              Los sistemas que construimos funcionan en espa&ntilde;ol y en ingl&eacute;s desde el primer d&iacute;a. La consulta, la capacitaci&oacute;n y el soporte tambi&eacute;n, si as&iacute; lo prefieres. No necesitas un int&eacute;rprete para modernizar tu negocio.
             </p>
           </div>
         </FadeIn>
@@ -1536,7 +1537,7 @@ function SpanishSection() {
         <FadeIn delay={300}>
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
             <p className="mb-6 text-center text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
-              &iquest;Listo para hablar? Cu&eacute;ntanos de tu negocio.
+              Solicita tu Ops Scan gratis. Cu&eacute;ntanos de tu negocio.
             </p>
             {success ? (
               <div className="flex flex-col items-center gap-4 py-8 text-center">
@@ -1634,7 +1635,7 @@ function SpanishSection() {
                       name="phone"
                       type="tel"
                       required
-                      placeholder="(956) 000-0000"
+                      placeholder="(555) 000-0000"
                       value={form.phone}
                       onChange={handleChange}
                       className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
@@ -1668,8 +1669,11 @@ function SpanishSection() {
                   disabled={submitting}
                   className="w-full rounded-xl bg-gradient-to-r from-[#7DE3E6] to-[#5BC8CC] px-6 py-3.5 text-sm font-semibold text-[#0B1220] transition-all hover:shadow-[0_0_24px_rgba(125,227,230,0.3)] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {submitting ? "Enviando\u2026" : "Solicitar una llamada"}
+                  {submitting ? "Enviando\u2026" : "Solicitar mi Ops Scan gratis"}
                 </button>
+                <p className="mt-3 text-center text-xs text-slate-400">
+                  El Ops Scan es una revisi&oacute;n gratuita de 15 minutos de tu flujo de trabajo. Sin compromiso.
+                </p>
               </form>
             )}
           </div>
@@ -1682,7 +1686,7 @@ function SpanishSection() {
 // ─── Why Rebel Minds Ops ──────────────────────────────────────────────────────
 function WhyRebelMindsOps() {
   const points = [
-    { title: "RGV Roots", desc: "Bicultural. Bilingual. Over 25 years navigating the unique business culture of the Rio Grande Valley — where relationships, language, and trust work differently. We don\u2019t just know this market. We are this market.", icon: MapPin },
+    { title: "Forged in a Hard Market", desc: "Bicultural. Bilingual. Over 25 years operating in South Texas, where relationships, language, and trust have to be earned the hard way. We bring that discipline to every client, in every market we serve.", icon: MapPin },
     { title: "Industrial & Org. Psychology Lens", desc: "Cognitive overload kills adoption. We design every system around the humans who have to use it daily — because a tool your team resists is just expensive shelf furniture.", icon: Brain },
     { title: "Business Ownership", desc: "We're not just coders; we are operators who have built and run businesses.", icon: HardHat },
     { title: "Modern Architecture", desc: "We utilize API-first toolchains and serverless functions to keep overhead low.", icon: Zap },
@@ -1756,8 +1760,8 @@ function CyberTeaser() {
             <p className="mx-auto max-w-2xl text-slate-400">
               The systems we build for your business store sensitive data, process
               payments, and connect your team. We now offer managed cybersecurity
-              services to protect all of it — designed specifically for South Texas
-              small businesses that can&apos;t afford an in-house security team.
+              services to protect all of it — designed for small businesses that
+              can&apos;t afford an in-house security team.
             </p>
           </div>
         </FadeIn>
@@ -1883,7 +1887,7 @@ function Connect() {
               Start Here
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              Connect with Us
+              Get Your Free Ops Scan
             </h2>
             <p className="mx-auto max-w-xl text-slate-400">
               Tell us about your business and we&apos;ll reach out to map your
@@ -2010,7 +2014,7 @@ function Connect() {
                       name="phone"
                       type="tel"
                       required
-                      placeholder="(956) 000-0000"
+                      placeholder="(555) 000-0000"
                       value={form.phone}
                       onChange={handleChange}
                       className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-[rgba(125,227,230,0.4)] focus:ring-1 focus:ring-[rgba(125,227,230,0.3)]"
@@ -2045,10 +2049,10 @@ function Connect() {
                   disabled={submitting}
                   className="w-full rounded-xl bg-gradient-to-r from-[#7DE3E6] to-[#5BC8CC] px-6 py-3.5 text-sm font-semibold text-[#0B1220] transition-all hover:shadow-[0_0_24px_rgba(125,227,230,0.3)] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {submitting ? "Sending…" : "Request a Call"}
+                  {submitting ? "Sending…" : "Get My Free Ops Scan"}
                 </button>
                 <p className="mt-3 text-center text-xs text-slate-400">
-  Free 15-minute workflow review. No obligation.
+  The Ops Scan is a free 15-minute workflow review. No obligation.
 </p>
               </form>
             )}
