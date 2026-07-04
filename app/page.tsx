@@ -494,7 +494,7 @@ function CaseStudies() {
           quote="&ldquo;Every deal in one place. Every closing under control.&rdquo;"
           logo="/Abolengo_logo.jpg"
           logoAlt="Abolengo Properties"
-          who="Leslie De León"
+          who="Leslie De Leon"
           role="Owner, Abolengo Properties"
         />
 
