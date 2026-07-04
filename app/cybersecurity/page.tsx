@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   Shield,
@@ -14,8 +14,6 @@ import {
   MessageSquareText,
   KeyRound,
   Brain,
-  Check,
-  Minus,
   HardHat,
   Truck,
   Car,
@@ -117,8 +115,7 @@ function Nav() {
                 <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2" style={{ minWidth: 220 }}>
                   <div className="rounded-xl border border-white/[0.08] bg-[#0B1220] p-1.5 shadow-xl backdrop-blur-md">
                     <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Cybersecurity
-                      <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                      Security Workshops
                     </a>
                     <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                       Healthcare
@@ -186,8 +183,7 @@ function Nav() {
             {mobileServicesOpen && (
               <div className="flex flex-col gap-0.5 pl-4">
                 <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Cybersecurity
-                  <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
+                  Security Workshops
                 </a>
                 <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
                   Healthcare
@@ -230,20 +226,22 @@ function CyberHero() {
         <FadeIn>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-4 py-2">
             <Shield className="h-4 w-4 text-[#7DE3E6]" />
-            <span className="text-xs font-semibold text-[#7DE3E6]">Managed Cybersecurity</span>
+            <span className="text-xs font-semibold text-[#7DE3E6]">Human Layer Security</span>
           </div>
         </FadeIn>
 
         <FadeIn delay={100}>
           <h1 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-            Cybersecurity for South Texas Small Businesses
+            Security Workshops That Train the Human Layer
           </h1>
         </FadeIn>
 
         <FadeIn delay={200}>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-slate-400">
-            AI-powered threat monitoring, phishing protection, and behavior-based security
-            training — managed for you, starting at $299/month.
+            Most breaches start with a person, not a firewall. We run security awareness
+            workshops built on The Human Layer Framework and behavior science from Industrial
+            and Organizational Psychology. Technical security assessments are available on
+            request, scoped to your operation.
           </p>
         </FadeIn>
 
@@ -252,23 +250,23 @@ function CyberHero() {
             <a
               href="#cyber-intake"
               className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
-              onClick={() => trackEvent("CTA_Click", { location: "cyber_hero_primary", cta: "Free Security Assessment" })}
+              onClick={() => trackEvent("CTA_Click", { location: "cyber_hero_primary", cta: "Human Layer Pre-Assessment" })}
             >
-              Get my free security assessment
+              See where your human layer stands
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
-              href="#cyber-plans"
+              href="#workshops"
               className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5"
             >
-              See our plans
+              See the workshops
             </a>
           </div>
         </FadeIn>
 
         <FadeIn delay={400}>
           <p className="mt-6 text-xs text-slate-400">
-            No contracts. No jargon. Cancel anytime.
+            Delivered remotely or on-site, anywhere in the US. In English, Spanish, or both.
           </p>
         </FadeIn>
       </div>
@@ -591,15 +589,15 @@ function CyberWhy() {
         <FadeIn>
           <div className="mb-12 text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
-              Why It Matters
+              Why the Human Layer
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              Small Businesses Are the #1 Target
+              The Person at the Keyboard Is the Entry Point
             </h2>
             <p className="mx-auto max-w-2xl text-slate-400">
-              Hackers don&apos;t only go after banks and hospitals. 43% of all cyberattacks
-              target small businesses — precisely because most have no security in place.
-              One phishing email to one employee can shut down years of work in hours.
+              Year after year, industry breach reports find that the majority of breaches
+              involve a human element: a click, a reused password, a rushed reply. Training
+              the person is the highest-leverage security move most small businesses never make.
             </p>
           </div>
         </FadeIn>
@@ -620,219 +618,94 @@ function CyberWhy() {
             </FadeIn>
           ))}
         </div>
+        <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-slate-500">
+          Commonly cited industry estimates (Verizon DBIR, Hiscox Cyber Readiness Report). The free
+          assessment shows your numbers, not the internet&apos;s.
+        </p>
       </div>
     </section>
   );
 }
 
-// ─── 4.3 Pricing Comparison Table ────────────────────────────────────────────
+// ─── 4.3 Human Layer Workshops ───────────────────────────────────────────────
 
-type CellValue = "check" | "dash" | string;
-
-function CellContent({ value }: { value: CellValue }) {
-  if (value === "check") return <Check className="mx-auto h-5 w-5 text-green-400" />;
-  if (value === "dash") return <Minus className="mx-auto h-4 w-4 text-slate-600" />;
-  return <span className="text-amber-300">{value}</span>;
-}
-
-function CyberPlans() {
-  type FeatureRow = { feature: string; starter: CellValue; growth: CellValue; shield: CellValue };
-  type FeatureGroup = { group: string; badge?: string; highlight?: boolean; rows: FeatureRow[] };
-
-  const groups: FeatureGroup[] = [
-    {
-      group: "Monitoring & detection",
-      rows: [
-        { feature: "AI threat monitoring", starter: "Business hours", growth: "24/7", shield: "24/7" },
-        { feature: "Managed detection & response (MDR)", starter: "dash", growth: "check", shield: "check" },
-        { feature: "Dark web credential monitoring", starter: "check", growth: "check", shield: "check" },
-        { feature: "External vulnerability scanning", starter: "Monthly", growth: "Weekly", shield: "Continuous" },
-      ],
-    },
-    {
-      group: "Email & identity",
-      rows: [
-        { feature: "Email security + phishing filter", starter: "check", growth: "check", shield: "check" },
-        { feature: "Domain spoofing protection (DMARC)", starter: "check", growth: "check", shield: "check" },
-        { feature: "Identity threat detection (ITDR)", starter: "dash", growth: "check", shield: "check" },
-        { feature: "Microsoft 365 / Google Workspace", starter: "dash", growth: "check", shield: "check" },
-      ],
-    },
-    {
-      group: "Endpoint & device protection",
-      rows: [
-        { feature: "Endpoint protection (antivirus)", starter: "check", growth: "check", shield: "check" },
-        { feature: "SentinelOne EDR", starter: "dash", growth: "check", shield: "check" },
-        { feature: "Annual penetration test", starter: "dash", growth: "dash", shield: "check" },
-      ],
-    },
-    {
-      group: "Human risk & training",
-      badge: "I-O Psychology",
-      highlight: true,
-      rows: [
-        { feature: "Monthly phishing simulation", starter: "check", growth: "check", shield: "check" },
-        { feature: "Automated micro-learning (weekly)", starter: "Self-guided", growth: "Managed", shield: "Managed" },
-        { feature: "Live virtual training sessions", starter: "dash", growth: "Monthly, 1hr", shield: "Bi-weekly, 1hr" },
-        { feature: "On-site training (your location)", starter: "dash", growth: "dash", shield: "Quarterly, half-day" },
-        { feature: "Leadership / executive briefing", starter: "dash", growth: "dash", shield: "Quarterly" },
-        { feature: "Security culture assessment", starter: "dash", growth: "dash", shield: "Annual" },
-        { feature: "Employee security champion program", starter: "dash", growth: "dash", shield: "check" },
-        { feature: "Training completion & behavior tracking", starter: "Basic", growth: "Full dashboard", shield: "Full dashboard" },
-      ],
-    },
-    {
-      group: "Compliance & reporting",
-      rows: [
-        { feature: "Monthly automated security report", starter: "check", growth: "check", shield: "check" },
-        { feature: "HIPAA / PCI compliance readiness", starter: "dash", growth: "check", shield: "check" },
-        { feature: "Cyber insurance readiness report", starter: "dash", growth: "dash", shield: "check" },
-        { feature: "Security policy creation", starter: "dash", growth: "dash", shield: "check" },
-      ],
-    },
-    {
-      group: "Support & advisory",
-      rows: [
-        { feature: "Incident response SLA", starter: "Next biz day", growth: "Same day", shield: "2-hour SLA" },
-        { feature: "Quarterly security review call", starter: "dash", growth: "check", shield: "check" },
-        { feature: "Virtual CISO — 4 hrs/month", starter: "dash", growth: "dash", shield: "check" },
-      ],
-    },
-  ];
-
-  const bestFor = [
-    { tier: "Starter", desc: "Low compliance risk. Team needs solid baseline protection and will learn security habits on their own schedule." },
-    { tier: "Growth", desc: "Handles sensitive data (health, legal, financial). Needs real endpoint coverage, live training, and compliance reporting." },
-    { tier: "Shield", desc: "Regulated industry, multiple locations, or needs documented security posture for insurance or contracts." },
+function CyberWorkshops() {
+  const covered = [
+    "Phishing and social engineering recognition, with scenarios from your industry",
+    "Password, MFA, and access habits that hold up under a busy week",
+    "What to do in the first hour when something looks wrong",
+    "Spaced follow-ups so the training changes behavior, not just awareness",
   ];
 
   return (
-    <section id="cyber-plans" className="px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-6xl">
+    <section id="workshops" className="px-4 py-20 sm:px-6">
+      <div className="mx-auto max-w-4xl">
         <FadeIn>
-          <div className="mb-8 text-center">
+          <div className="mb-10 text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
-              Plans
+              The Offer
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              Compare Protection Levels
+              Human Layer Security Workshops
             </h2>
-            <p className="mx-auto max-w-2xl text-sm text-slate-400">
-              Price reflects your protection level and training depth — not just headcount.
-              A 5-person law firm often needs more than a 30-person restaurant.
+            <p className="mx-auto max-w-2xl text-slate-400">
+              Live security awareness training for your team, built on{" "}
+              <a
+                href="https://rebelminds.ai/framework"
+                target="_blank"
+                rel="noopener"
+                className="font-medium text-[#7DE3E6] underline-offset-2 transition-colors hover:text-white hover:underline"
+              >
+                The Human Layer Framework
+              </a>
+              , our founder&apos;s framework for the human side of secure, AI-supported operations.
+              Designed with behavior change science. Delivered remotely or on-site, in English,
+              Spanish, or both.
             </p>
           </div>
         </FadeIn>
 
         <FadeIn delay={100}>
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[700px] border-collapse">
-              {/* Header */}
-              <thead>
-                <tr>
-                  <th className="w-[220px] bg-[rgba(14,26,43,0.6)] p-4 text-left text-xs font-medium uppercase tracking-wider text-slate-500" />
-                  <th className="bg-white/[0.02] p-4 text-center">
-                    <div className="text-sm font-semibold text-white">Starter</div>
-                    <div className="text-2xl font-bold text-white">$299<span className="text-xs font-normal text-slate-400">/mo</span></div>
-                    <div className="mt-1 text-xs text-slate-500">Essentials + automated training</div>
-                  </th>
-                  <th className="border-x-2 border-[rgba(83,74,183,0.5)] bg-[rgba(83,74,183,0.06)] p-4 text-center">
-                    <div className="mb-1">
-                      <span className="rounded-full bg-[rgba(83,74,183,0.2)] px-2 py-0.5 text-[10px] font-semibold text-[#534AB7]">Most popular</span>
-                    </div>
-                    <div className="text-sm font-semibold text-white">Growth</div>
-                    <div className="text-2xl font-bold text-[#534AB7]">$699<span className="text-xs font-normal text-slate-400">/mo</span></div>
-                    <div className="mt-1 text-xs text-slate-500">Full coverage + live virtual training</div>
-                  </th>
-                  <th className="bg-white/[0.02] p-4 text-center">
-                    <div className="text-sm font-semibold text-white">Shield</div>
-                    <div className="text-2xl font-bold text-white">$1,499<span className="text-xs font-normal text-slate-400">/mo</span></div>
-                    <div className="mt-1 text-xs text-slate-500">Enterprise + on-site training</div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {groups.map((g) => (
-                  <Fragment key={g.group}>
-                    {/* Group header */}
-                    <tr>
-                      <td colSpan={4} className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider ${g.highlight ? "bg-[rgba(83,74,183,0.08)] text-[#534AB7]" : "bg-[rgba(14,26,43,0.8)] text-slate-400"}`}>
-                        <span className="flex items-center gap-2">
-                          {g.group}
-                          {g.badge && (
-                            <span className="rounded-full bg-[rgba(83,74,183,0.2)] px-2 py-0.5 text-[10px] font-semibold normal-case text-[#534AB7]">
-                              {g.badge}
-                            </span>
-                          )}
-                        </span>
-                      </td>
-                    </tr>
-                    {/* Feature rows */}
-                    {g.rows.map((row) => (
-                      <tr key={row.feature} className={`border-t border-white/[0.04] ${g.highlight ? "bg-[rgba(83,74,183,0.02)]" : ""}`}>
-                        <td className="bg-[rgba(14,26,43,0.4)] px-4 py-3 text-sm text-slate-300">{row.feature}</td>
-                        <td className="px-4 py-3 text-center text-sm"><CellContent value={row.starter} /></td>
-                        <td className="border-x-2 border-[rgba(83,74,183,0.5)] bg-[rgba(83,74,183,0.03)] px-4 py-3 text-center text-sm"><CellContent value={row.growth} /></td>
-                        <td className="px-4 py-3 text-center text-sm"><CellContent value={row.shield} /></td>
-                      </tr>
-                    ))}
-                  </Fragment>
-                ))}
-              </tbody>
-            </table>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+            <h3 className="mb-4 text-lg font-semibold text-white">What a workshop covers</h3>
+            <ul className="space-y-3">
+              {covered.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-slate-400">
+                  <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#7DE3E6]" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm text-slate-400">
+              Every workshop is scoped to your team size and risk profile. You get an estimate
+              before you commit to anything.
+            </p>
           </div>
         </FadeIn>
 
-        <p className="mt-3 text-center text-xs text-slate-500">
-          * Email security and identity monitoring features require Microsoft 365 or Google Workspace. Clients on other platforms receive equivalent protection through our security partner network.
-        </p>
-
-        {/* Best for notes */}
         <FadeIn delay={200}>
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            {bestFor.map((b) => (
-              <div key={b.tier} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-                <div className="mb-2 text-sm font-semibold text-white">{b.tier} is best if:</div>
-                <p className="text-xs text-slate-400">{b.desc}</p>
-              </div>
-            ))}
+          <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+            <h3 className="mb-2 text-lg font-semibold text-white">
+              Technical security assessments, on request
+            </h3>
+            <p className="text-sm text-slate-400">
+              Need more than training? We also take on technical security work: email security
+              review, exposed credential checks, MFA and access review, and vendor stack review.
+              Every engagement is scoped to your operation and quoted as an estimate. We do not
+              sell one-size security subscriptions.
+            </p>
           </div>
         </FadeIn>
 
-        {/* CTA buttons */}
         <FadeIn delay={300}>
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            <a href="#cyber-intake" className="block rounded-lg border border-white/20 py-3 text-center text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5">
-              Get Starter
-            </a>
-            <a href="#cyber-intake" className="glow-teal block rounded-lg bg-[#534AB7] py-3 text-center text-sm font-semibold text-white transition-all hover:scale-[1.02] hover:bg-[#6358c5]" style={{ boxShadow: "0 0 28px rgba(83,74,183,0.35)" }}>
-              Get Growth
-            </a>
-            <a href="#cyber-intake" className="block rounded-lg border border-white/20 py-3 text-center text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5">
-              Get Shield
-            </a>
-          </div>
-        </FadeIn>
-
-        {/* Free add-on */}
-        <FadeIn delay={400}>
-          <div className="mt-10 rounded-2xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.04)] p-8 text-center">
-            <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">Free Add-on</div>
-            <h3 className="mb-2 text-xl font-bold text-white">Security Risk Assessment</h3>
-            <p className="mb-1 text-sm text-slate-400">
-              <span className="text-slate-500 line-through">Value: $497</span>{" "}
-              <span className="font-semibold text-[#7DE3E6]">Your price: $0</span>
-            </p>
-            <p className="mx-auto mb-6 max-w-xl text-sm text-slate-400">
-              We scan your public-facing assets, check your domain for misconfigurations,
-              and run your emails against breach databases. Real report, no obligation.
-            </p>
+          <div className="mt-10 text-center">
             <a
               href="#cyber-intake"
               className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
             >
-              Claim my free assessment <ArrowRight className="h-4 w-4" />
+              See where your human layer stands <ArrowRight className="h-4 w-4" />
             </a>
+            <p className="mt-3 text-xs text-slate-500">Free 5-minute pre-assessment. No obligation.</p>
           </div>
         </FadeIn>
       </div>
@@ -864,7 +737,7 @@ function RGVIndustries() {
               We Know Your Industry Because We Work In It
             </h2>
             <p className="mx-auto max-w-2xl text-slate-400">
-              These aren&apos;t abstract SMB categories to us. They&apos;re our neighbors. We know what you handle daily, what data you carry, and what a breach would cost your operation.
+              We build and run operational systems in these industries every day. We know what you handle, what data you carry, and what a breach would cost your operation.
             </p>
           </div>
         </FadeIn>
@@ -889,11 +762,11 @@ function RGVIndustries() {
 
 function CyberHow() {
   const steps = [
-    { num: "01", title: "You complete the intake form below (5 minutes)", desc: "We learn about your business size, industry, and current setup." },
-    { num: "02", title: "We run your free security assessment", desc: "We scan your public assets and check for exposed credentials. You get a real report — not a sales deck." },
-    { num: "03", title: "We recommend the right plan", desc: "Based on your actual risk profile — not a sales script." },
-    { num: "04", title: "We deploy your protection in 48 hours", desc: "We deploy your monitoring, email security, and training automatically using enterprise-grade security platforms — no action required from your team." },
-    { num: "05", title: "You get a plain-English report every month", desc: "What was blocked, what was caught, what your team\u2019s training scores look like. Automated. No jargon." },
+    { num: "01", title: "Take the 5-minute pre-assessment below", desc: "Five questions on training, MFA, and incident readiness. No scanning, no software, no obligation." },
+    { num: "02", title: "You get your human layer snapshot", desc: "A plain-English risk summary showing where your team stands today and what to fix first." },
+    { num: "03", title: "We scope your workshop", desc: "Sized to your team, built around scenarios from your industry, in English, Spanish, or both. You get an estimate before committing." },
+    { num: "04", title: "We deliver the training", desc: "Live sessions, remote or at your location, designed with behavior change science so it sticks past the session." },
+    { num: "05", title: "You keep the playbook", desc: "Workshop materials, follow-up guidance, and a clear picture of what to reinforce. No subscriptions required." },
   ];
 
   return (
@@ -905,7 +778,7 @@ function CyberHow() {
               How It Works
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              Up and Running in 48 Hours
+              From Pre-Assessment to Workshop
             </h2>
           </div>
         </FadeIn>
@@ -936,29 +809,24 @@ function CyberTrust() {
   const points = [
     {
       icon: MapPin,
-      title: "RGV — 25 Years and Counting",
-      desc: "Deep roots in South Texas — we know this market, these businesses, and these communities because we\u2019ve lived and worked here for decades. Family-owned medical offices, trades companies, law firms, logistics operators. We\u2019re not a faceless SaaS platform. We\u2019re your neighbors.",
+      title: "Forged in a Hard Market",
+      desc: "Rebel Minds OPS was built in South Texas, where trust has to be earned operation by operation. That discipline travels. We bring the same standard to clients in any US market, delivered remotely or on-site.",
     },
     {
       icon: Wrench,
       title: "Systems First",
-      desc: "We already build the operational infrastructure that runs your business. Protecting it is the natural next step. Our security service uses the same API-first, automation-heavy approach as everything else we build.",
+      desc: "We already build the operational infrastructure that runs your business. Protecting it is the natural next step. Our security work uses the same API-first, automation-heavy approach as everything else we build.",
     },
     {
       icon: Brain,
       title: "Behavior Science Behind the Training",
-      desc: "Our founder\u2019s I-O Psychology background means your security training is designed using real behavior change science — spaced repetition, threat appraisal theory, psychological safety — not compliance checkbox slides.",
+      desc: "Our founder holds an M.A. in Industrial and Organizational Psychology and designs every workshop with The Human Layer Framework and real behavior change science: spaced repetition, threat appraisal theory, psychological safety. Not compliance checkbox slides.",
       link: { label: "Learn about our science \u2192", href: "/our-science" },
     },
     {
       icon: KeyRound,
       title: "You Own It",
-      desc: "No vendor lock-in. Monthly plans, cancel anytime. If you leave, we hand you full documentation of every protection we put in place. You are not renting security — you are building it.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Up to $1M Breach Response Coverage",
-      desc: "Growth and Shield plan clients receive up to $1 million in breach response expense coverage through our security partner warranty — so you\u2019re protected even if something gets through. This is enterprise-level protection at small business pricing.",
+      desc: "No vendor lock-in and no subscriptions required. Workshop materials are yours to keep. If we do technical work for you, we hand you full documentation of every protection we put in place.",
     },
   ];
 
@@ -971,7 +839,7 @@ function CyberTrust() {
               Why Trust Us
             </span>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              The Same Team That Automates Your Operations Now Protects Them
+              The Same Team That Automates Your Operations Trains Your People
             </h2>
           </div>
         </FadeIn>
@@ -1133,8 +1001,8 @@ function CyberIntake() {
               <p className="mb-6 text-xs text-slate-500">
                 You&apos;re also subscribed to SMB Cyber Shield Weekly — free threat briefings every Tuesday. No spam, ever.
               </p>
-              <a href="#cyber-plans" className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]">
-                See our cybersecurity plans <ArrowRight className="h-4 w-4" />
+              <a href="#workshops" className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]">
+                See the workshops <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </FadeIn>
@@ -1154,13 +1022,13 @@ function CyberIntake() {
         <FadeIn>
           <div className="mb-8 text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
-              Free Assessment
+              Workshop Pre-Assessment
             </span>
             <h2 className="mb-2 text-3xl font-bold text-white sm:text-4xl">
-              {step === 3 ? "Where should we send your results?" : "How protected is your business?"}
+              {step === 3 ? "Where should we send your results?" : "See where your human layer stands"}
             </h2>
             {step !== 3 && (
-              <p className="text-slate-400">5 quick questions. We&apos;ll show you where your biggest risks are.</p>
+              <p className="text-slate-400">5 quick questions on training, MFA, and incident readiness. You get a real snapshot of where your team stands today.</p>
             )}
           </div>
         </FadeIn>
@@ -1291,7 +1159,7 @@ function CyberIntake() {
                   <input type="checkbox" checked={form.newsletter} onChange={(e) => updateField("newsletter", e.target.checked)}
                     className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/[0.04] accent-[#7DE3E6]" />
                   <div>
-                    <span className="text-sm text-slate-300">Subscribe me to SMB Cyber Shield Weekly — free cybersecurity threat briefings for South Texas businesses, every Tuesday.</span>
+                    <span className="text-sm text-slate-300">Subscribe me to SMB Cyber Shield Weekly — free security briefings for small businesses, every Tuesday.</span>
                     <p className="mt-0.5 text-xs text-slate-500">No spam. Unsubscribe anytime.</p>
                   </div>
                 </label>
@@ -1323,13 +1191,13 @@ function CyberIntake() {
 // ─── 4.7 FAQ ─────────────────────────────────────────────────────────────────
 
 const CYBER_FAQS = [
-  { q: "Do I need to install anything on my computers?", a: "Minimal setup required. For Growth and Shield plans, we deploy lightweight endpoint agents \u2014 5 minutes per computer, invisible during normal use. The Starter plan requires no device installation at all." },
-  { q: "What if I already have antivirus?", a: "Antivirus catches about 30% of modern threats. The other 70% \u2014 phishing, credential theft, dark web exposure, social engineering \u2014 antivirus never sees. We cover the full threat landscape." },
-  { q: "Is this a long-term contract?", a: "No contracts. Monthly billing, cancel anytime. We\u2019re confident you\u2019ll stay because the service works \u2014 not because we\u2019ve locked you in." },
-  { q: "What industries do you focus on?", a: "Medical and dental offices (HIPAA), law firms and accounting practices, construction companies, logistics operations, and professional services firms across the Rio Grande Valley." },
-  { q: "How quickly can you respond if something happens?", a: "Starter: next business day. Growth: same day. Shield: 2-hour response SLA. Automated monitoring and alerts run 24/7 for all plans." },
-  { q: "What is the free security assessment?", a: "We scan your public-facing assets, check your domain for email spoofing vulnerabilities, and run your email addresses against known breach databases. You get a real report showing what we found. No obligation to buy anything." },
-  { q: "How is your training different from what other MSPs offer?", a: "Most security training is compliance-driven \u2014 click through slides, check the box. Our founder holds a graduate degree in Industrial-Organizational Psychology and designs training programs using actual behavior change science: spaced repetition, psychological safety, threat appraisal theory, and industry-specific scenarios. The goal isn\u2019t passing a quiz. It\u2019s changing what your employees do when a real phishing email lands in their inbox." },
+  { q: "Do I need to install anything on my computers?", a: "Nothing. Workshops run live over video or in person, with no software required. If you request a technical assessment, we scope any tooling with you case by case before anything touches your machines." },
+  { q: "What if I already have antivirus?", a: "Keep it. Antivirus watches software, not people. Phishing, credential theft, and social engineering go through the person at the keyboard, and that is exactly what the workshops train." },
+  { q: "Is this a long-term contract?", a: "No. Workshops are one-time engagements, scoped and quoted up front. If you want recurring refreshers or technical work afterward, we scope that the same way: an estimate first, no subscriptions required." },
+  { q: "What industries do you focus on?", a: "Medical and dental offices (HIPAA), law firms and accounting practices, construction companies, logistics operations, and professional services firms. Workshops are delivered remotely or on-site, anywhere in the United States." },
+  { q: "How are workshops delivered?", a: "Live, over video or at your location, in English, Spanish, or both. Sessions are scoped to your team size and industry, and you keep all materials afterward." },
+  { q: "What is the free security assessment?", a: "You answer five quick questions about training, MFA, and incident history. We review your answers and send a plain-English risk summary showing where your human layer stands. No obligation to buy anything." },
+  { q: "How is your training different from what other MSPs offer?", a: "Most security training is compliance-driven \u2014 click through slides, check the box. Our founder holds a graduate degree in Industrial-Organizational Psychology and designs training programs using The Human Layer Framework and actual behavior change science: spaced repetition, psychological safety, threat appraisal theory, and industry-specific scenarios. The goal isn\u2019t passing a quiz. It\u2019s changing what your employees do when a real phishing email lands in their inbox." },
 ];
 
 function CyberFAQ() {
@@ -1375,7 +1243,7 @@ function FooterCTA() {
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
           <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">Ready to Know Where You Stand?</h2>
-          <p className="mb-8 text-slate-400">The free assessment takes 5 minutes. The report tells you exactly what&apos;s exposed. No obligation.</p>
+          <p className="mb-8 text-slate-400">The free pre-assessment takes 5 minutes. The report tells you exactly where your human layer stands. No obligation.</p>
           <a href="#cyber-intake" className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]">
             Get my free assessment <ArrowRight className="h-4 w-4" />
           </a>
@@ -1404,7 +1272,7 @@ function Footer() {
             <div className="mb-2 flex gap-5">
               <a href="/" className="transition-colors hover:text-white">Home</a>
               <a href="/our-science" className="transition-colors hover:text-white">Our Science</a>
-              <a href="/cybersecurity" className="transition-colors hover:text-white">Cybersecurity</a>
+              <a href="/cybersecurity" className="transition-colors hover:text-white">Security Workshops</a>
             </div>
             <a href="#cyber-intake" className="font-semibold text-[#7DE3E6] transition-colors hover:text-white">Free Security Assessment</a>
           </nav>
@@ -1432,7 +1300,7 @@ export default function CybersecurityPage() {
         <SectionDivider />
         <RGVIndustries />
         <SectionDivider />
-        <CyberPlans />
+        <CyberWorkshops />
         <SectionDivider />
         <CyberHow />
         <SectionDivider />

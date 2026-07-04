@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cybersecurity for Small Businesses | Rebel Minds OPS",
+  title: "Human Layer Security Workshops | Rebel Minds OPS",
   description:
-    "Managed cybersecurity for small businesses anywhere in the United States. AI threat monitoring, behavior-based security training, phishing protection, and dark web surveillance. Plans from $299/month. Delivered remotely, nationwide.",
+    "Security awareness workshops that train the human layer, built on The Human Layer Framework and behavior science from Industrial and Organizational Psychology. Delivered remotely or on-site, anywhere in the US, in English, Spanish, or both. Technical security assessments available on request.",
 };
 
 export default function CybersecurityLayout({
