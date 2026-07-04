@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -11,7 +10,6 @@ import {
   FileWarning,
   MapPin,
   Wrench,
-  MessageSquareText,
   KeyRound,
   Brain,
   HardHat,
@@ -22,6 +20,8 @@ import {
   Briefcase,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import SiteNav from "@/app/components/SiteNav";
+import SiteFooter from "@/app/components/SiteFooter";
 
 // ─── Shared Components ───────────────────────────────────────────────────────
 
@@ -59,160 +59,7 @@ function FadeIn({
 
 function SectionDivider() {
   return (
-    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(125,227,230,0.15)] to-transparent" />
-  );
-}
-
-// ─── Nav ──────────────────────────────────────────────────────────────────────
-
-function Nav() {
-  const [open, setOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-
-  return (
-    <nav className="sticky top-0 z-50 border-b border-white/[0.08] bg-[rgba(11,18,32,0.9)] backdrop-blur-md">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex h-24 items-center justify-between">
-          <a href="/" className="flex items-center gap-2.5">
-            <Image
-              src="/rebelminds-icon.png"
-              alt="Rebel Minds Ops"
-              width={80}
-              height={80}
-              priority
-              className="rounded-md"
-            />
-            <div className="leading-tight">
-              <div className="text-[15px] font-semibold tracking-tight text-white">
-                Rebel Minds OPS
-              </div>
-              <div className="text-[11px] font-medium tracking-wide text-slate-400">
-                Operational Systems & Automation
-              </div>
-            </div>
-          </a>
-
-          <div className="hidden items-center gap-6 md:flex">
-            <a href="/our-science" className="text-sm text-slate-400 transition-colors hover:text-white">Our Science</a>
-            <a href="/healthcare" className="text-sm text-slate-400 transition-colors hover:text-white">Healthcare</a>
-            <a href="/#what-we-build" className="text-sm text-slate-400 transition-colors hover:text-white">What We Build</a>
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
-            >
-              <button
-                onClick={() => setServicesOpen(!servicesOpen)}
-                className="inline-flex items-center gap-1 text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                Services
-                <svg className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {servicesOpen && (
-                <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2" style={{ minWidth: 220 }}>
-                  <div className="rounded-xl border border-white/[0.08] bg-[#0B1220] p-1.5 shadow-xl backdrop-blur-md">
-                    <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Security Workshops
-                    </a>
-                    <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Healthcare
-                      <span className="rounded-full bg-[rgba(244,114,182,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
-                    </a>
-                    <a href="/cybersecurity#cyber-intake" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Free Security Assessment
-                    </a>
-                    <a href="/healthcare#hipaa-audit" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Free HIPAA Stack Audit
-                    </a>
-                    <a href="/our-science" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Our Science
-                    </a>
-                  </div>
-                </div>
-              )}
-            </div>
-            <a
-              href="#cyber-intake"
-              className="glow-teal rounded-lg bg-[#7DE3E6] px-4 py-2 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
-            >
-              Get a Free Ops Scan
-            </a>
-          </div>
-
-          <button
-            className="rounded-lg p-3 text-slate-400 transition-colors hover:text-white md:hidden"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle navigation"
-            aria-expanded={open}
-          >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {open ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {open && (
-        <div className="border-t border-white/[0.08] bg-[#0E1A2B] px-4 py-4 md:hidden">
-          <div className="flex flex-col gap-1">
-            <a href="/our-science" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-              Our Science
-            </a>
-            <a href="/healthcare" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-              Healthcare
-            </a>
-            <a href="/#what-we-build" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-              What We Build
-            </a>
-            <button
-              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-              className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
-            >
-              Services
-              <svg className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {mobileServicesOpen && (
-              <div className="flex flex-col gap-0.5 pl-4">
-                <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Security Workshops
-                </a>
-                <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Healthcare
-                  <span className="rounded-full bg-[rgba(244,114,182,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
-                </a>
-                <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Free Security Assessment
-                </a>
-                <a href="/healthcare#hipaa-audit" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Free HIPAA Stack Audit
-                </a>
-                <a href="/our-science" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Our Science
-                </a>
-              </div>
-            )}
-            <div className="pt-2">
-              <a
-                href="#cyber-intake"
-                className="block rounded-lg bg-[#7DE3E6] px-4 py-2.5 text-center text-sm font-semibold text-[#0B1220]"
-                onClick={() => setOpen(false)}
-              >
-                Get a Free Ops Scan
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-    </nav>
+    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(127,215,226,0.15)] to-transparent" />
   );
 }
 
@@ -221,23 +68,23 @@ function Nav() {
 function CyberHero() {
   return (
     <section className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(125,227,230,0.03)] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(127,215,226,0.03)] to-transparent" />
       <div className="relative mx-auto max-w-4xl text-center">
         <FadeIn>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-4 py-2">
-            <Shield className="h-4 w-4 text-[#7DE3E6]" />
-            <span className="text-xs font-semibold text-[#7DE3E6]">Human Layer Security</span>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-4 py-2">
+            <Shield className="h-4 w-4 text-[#7fd7e2]" />
+            <span className="text-xs font-semibold text-[#7fd7e2]">Human Layer Security</span>
           </div>
         </FadeIn>
 
         <FadeIn delay={100}>
-          <h1 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mb-6 text-4xl font-bold leading-tight text-[#e8eef0] sm:text-5xl lg:text-6xl">
             Security Workshops That Train the Human Layer
           </h1>
         </FadeIn>
 
         <FadeIn delay={200}>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-slate-400">
+          <p className="mx-auto mb-8 max-w-2xl text-lg text-[#8fa3aa]">
             Most breaches start with a person, not a firewall. We run security awareness
             workshops built on The Human Layer Framework and behavior science from Industrial
             and Organizational Psychology. Technical security assessments are available on
@@ -249,7 +96,7 @@ function CyberHero() {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href="#cyber-intake"
-              className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
               onClick={() => trackEvent("CTA_Click", { location: "cyber_hero_primary", cta: "Human Layer Pre-Assessment" })}
             >
               See where your human layer stands
@@ -257,7 +104,7 @@ function CyberHero() {
             </a>
             <a
               href="#workshops"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e8eef0] transition-all hover:border-white/40 hover:bg-white/5"
             >
               See the workshops
             </a>
@@ -265,298 +112,10 @@ function CyberHero() {
         </FadeIn>
 
         <FadeIn delay={400}>
-          <p className="mt-6 text-xs text-slate-400">
+          <p className="mt-6 text-xs text-[#8fa3aa]">
             Delivered remotely or on-site, anywhere in the US. In English, Spanish, or both.
           </p>
         </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-// ─── Animated Threat Flow ─────────────────────────────────────────────────────
-
-const THREAT_SOURCES = ["Email", "Dark Web", "Credentials", "Endpoints", "Web Browsing"];
-const RESOLVE_LABELS = ["Blocked", "Secured", "Resolved"];
-const PILL_LABELS = ["Email security", "Dark web monitor", "Endpoint EDR", "Phishing training", "Threat response"];
-
-interface Particle {
-  x: number;
-  y: number;
-  sourceIdx: number;
-  progress: number;
-  speed: number;
-  resolved: boolean;
-  resolveLabel: string;
-  opacity: number;
-  size: number;
-}
-
-function ThreatFlow() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<Particle[]>([]);
-  const animRef = useRef<number>(0);
-  const dimRef = useRef({ w: 0, h: 0 });
-  const logoImg = useRef<HTMLImageElement | null>(null);
-  const pulseRef = useRef(0);
-
-  useEffect(() => {
-    const img = new window.Image();
-    img.src = "/rebelminds-icon.png";
-    img.onload = () => { logoImg.current = img; };
-  }, []);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    function resize() {
-      if (!canvas || !ctx) return;
-      const rect = canvas.parentElement!.getBoundingClientRect();
-      const dpr = window.devicePixelRatio || 1;
-      const w = rect.width;
-      const h = Math.min(420, Math.max(280, w * 0.38));
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      canvas.style.width = `${w}px`;
-      canvas.style.height = `${h}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      dimRef.current = { w, h };
-    }
-
-    resize();
-    window.addEventListener("resize", resize);
-
-    function spawnParticle() {
-      const { h } = dimRef.current;
-      const sourceIdx = Math.floor(Math.random() * THREAT_SOURCES.length);
-      const slotH = h / THREAT_SOURCES.length;
-      const y = slotH * sourceIdx + slotH * 0.5 + (Math.random() - 0.5) * slotH * 0.3;
-      particlesRef.current.push({
-        x: 0,
-        y,
-        sourceIdx,
-        progress: 0,
-        speed: 0.003 + Math.random() * 0.003,
-        resolved: false,
-        resolveLabel: RESOLVE_LABELS[Math.floor(Math.random() * RESOLVE_LABELS.length)],
-        opacity: 1,
-        size: 3 + Math.random() * 2,
-      });
-    }
-
-    let spawnAccum = 0;
-
-    function draw(time: number) {
-      if (!ctx) return;
-      const { w, h } = dimRef.current;
-      if (w === 0) { animRef.current = requestAnimationFrame(draw); return; }
-
-      ctx.clearRect(0, 0, w, h);
-
-      // Background
-      ctx.fillStyle = "#0a0d14";
-      ctx.fillRect(0, 0, w, h);
-
-      const detectX = w * 0.18;
-      const shieldX = w * 0.5;
-      const resolveX = w * 0.82;
-      const shieldR = Math.min(36, w * 0.055);
-
-      // Zone labels
-      ctx.textAlign = "center";
-      ctx.font = `600 ${Math.max(10, w * 0.012)}px system-ui, sans-serif`;
-      const labelY = 22;
-      ctx.fillStyle = "rgba(239,68,68,0.6)";
-      ctx.fillText("DETECT", detectX, labelY);
-      ctx.fillStyle = "rgba(125,227,230,0.6)";
-      ctx.fillText("PROTECT", shieldX, labelY);
-      ctx.fillStyle = "rgba(74,222,128,0.6)";
-      ctx.fillText("RESOLVE", resolveX, labelY);
-
-      // Source labels (left)
-      const slotH = h / THREAT_SOURCES.length;
-      ctx.textAlign = "right";
-      ctx.font = `500 ${Math.max(9, w * 0.011)}px system-ui, sans-serif`;
-      ctx.fillStyle = "rgba(239,68,68,0.45)";
-      for (let i = 0; i < THREAT_SOURCES.length; i++) {
-        const sy = slotH * i + slotH * 0.5;
-        ctx.fillText(THREAT_SOURCES[i], detectX - 16, sy + 3);
-        // dot
-        ctx.beginPath();
-        ctx.arc(detectX - 8, sy, 3, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(239,68,68,0.35)";
-        ctx.fill();
-        ctx.fillStyle = "rgba(239,68,68,0.45)";
-      }
-
-      // Funnel guide lines (subtle)
-      ctx.strokeStyle = "rgba(125,227,230,0.04)";
-      ctx.lineWidth = 1;
-      for (let i = 0; i < THREAT_SOURCES.length; i++) {
-        const sy = slotH * i + slotH * 0.5;
-        ctx.beginPath();
-        ctx.moveTo(detectX, sy);
-        ctx.quadraticCurveTo(shieldX * 0.75, sy, shieldX - shieldR - 10, h * 0.5);
-        ctx.stroke();
-      }
-      // Right funnel
-      ctx.strokeStyle = "rgba(74,222,128,0.04)";
-      for (let i = 0; i < 3; i++) {
-        const ey = h * 0.3 + i * h * 0.2;
-        ctx.beginPath();
-        ctx.moveTo(shieldX + shieldR + 10, h * 0.5);
-        ctx.quadraticCurveTo(resolveX * 0.9, ey, resolveX, ey);
-        ctx.stroke();
-      }
-
-      // Pulse
-      pulseRef.current = (Math.sin(time * 0.003) + 1) * 0.5;
-      const pulse = pulseRef.current;
-
-      // Shield glow
-      const glowR = shieldR + 12 + pulse * 8;
-      const grd = ctx.createRadialGradient(shieldX, h * 0.5, shieldR * 0.5, shieldX, h * 0.5, glowR);
-      grd.addColorStop(0, "rgba(125,227,230,0.12)");
-      grd.addColorStop(1, "rgba(125,227,230,0)");
-      ctx.fillStyle = grd;
-      ctx.beginPath();
-      ctx.arc(shieldX, h * 0.5, glowR, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Shield circle
-      ctx.beginPath();
-      ctx.arc(shieldX, h * 0.5, shieldR, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(125,227,230,${0.08 + pulse * 0.06})`;
-      ctx.fill();
-      ctx.strokeStyle = `rgba(125,227,230,${0.35 + pulse * 0.25})`;
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Logo in shield
-      if (logoImg.current) {
-        const logoS = shieldR * 1.2;
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(shieldX, h * 0.5, shieldR - 2, 0, Math.PI * 2);
-        ctx.clip();
-        ctx.drawImage(logoImg.current, shieldX - logoS * 0.5, h * 0.5 - logoS * 0.5, logoS, logoS);
-        ctx.restore();
-      }
-
-      // Spawn
-      spawnAccum += 1;
-      if (spawnAccum >= 8) { spawnParticle(); spawnAccum = 0; }
-
-      // Update & draw particles
-      const alive: Particle[] = [];
-      for (const p of particlesRef.current) {
-        p.progress += p.speed;
-
-        if (p.progress < 0.5) {
-          // Traveling toward shield
-          const t = p.progress / 0.5;
-          const startY = p.y;
-          const sy = slotH * p.sourceIdx + slotH * 0.5;
-          const cx = detectX + (shieldX - detectX) * 0.5;
-          const cy = sy;
-          const ex = shieldX - shieldR - 4;
-          const ey = h * 0.5;
-          // quadratic bezier
-          const u = t;
-          p.x = (1 - u) * (1 - u) * detectX + 2 * (1 - u) * u * cx + u * u * ex;
-          p.y = (1 - u) * (1 - u) * sy + 2 * (1 - u) * u * cy + u * u * ey;
-
-          // Red particle
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(239,68,68,${0.7 * p.opacity})`;
-          ctx.fill();
-
-          // Trail
-          ctx.beginPath();
-          ctx.arc(p.x - 4, p.y, p.size * 0.6, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(239,68,68,${0.2 * p.opacity})`;
-          ctx.fill();
-
-        } else if (p.progress < 0.55) {
-          // Absorb at shield — brief flash
-          const flashT = (p.progress - 0.5) / 0.05;
-          const flashR = shieldR + flashT * 6;
-          ctx.beginPath();
-          ctx.arc(shieldX, h * 0.5, flashR, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(125,227,230,${0.08 * (1 - flashT)})`;
-          ctx.fill();
-          p.resolved = true;
-        } else {
-          // Traveling toward resolve
-          const t = (p.progress - 0.55) / 0.45;
-          const resolveSlot = p.sourceIdx % 3;
-          const ey = h * 0.3 + resolveSlot * h * 0.2;
-          const sx = shieldX + shieldR + 4;
-          const sy2 = h * 0.5;
-          const cx2 = sx + (resolveX - sx) * 0.5;
-          const cy2 = ey;
-          const u = Math.min(t, 1);
-          p.x = (1 - u) * (1 - u) * sx + 2 * (1 - u) * u * cx2 + u * u * resolveX;
-          p.y = (1 - u) * (1 - u) * sy2 + 2 * (1 - u) * u * cy2 + u * u * ey;
-
-          if (t > 0.8) p.opacity = Math.max(0, 1 - (t - 0.8) / 0.2);
-
-          // Green particle
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(74,222,128,${0.7 * p.opacity})`;
-          ctx.fill();
-
-          // Resolve label near end
-          if (t > 0.7 && p.opacity > 0.1) {
-            ctx.font = `600 ${Math.max(8, w * 0.009)}px system-ui, sans-serif`;
-            ctx.textAlign = "left";
-            ctx.fillStyle = `rgba(74,222,128,${0.5 * p.opacity})`;
-            ctx.fillText(p.resolveLabel, p.x + 8, p.y + 3);
-          }
-        }
-
-        if (p.progress < 1.05 && p.opacity > 0) alive.push(p);
-      }
-      particlesRef.current = alive;
-
-      animRef.current = requestAnimationFrame(draw);
-    }
-
-    animRef.current = requestAnimationFrame(draw);
-
-    return () => {
-      cancelAnimationFrame(animRef.current);
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
-  return (
-    <section className="px-4 py-12 sm:px-6 sm:py-16" style={{ backgroundColor: "#0a0d14" }}>
-      <div className="mx-auto max-w-6xl">
-        <div className="overflow-hidden rounded-2xl border border-white/[0.06]">
-          <canvas ref={canvasRef} className="block w-full" />
-        </div>
-
-        {/* Live pills */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-          {PILL_LABELS.map((label) => (
-            <span
-              key={label}
-              className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/[0.06] px-3.5 py-1.5 text-xs font-medium text-green-400"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-50" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
-              </span>
-              {label}
-            </span>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -584,17 +143,17 @@ function CyberWhy() {
   ];
 
   return (
-    <section id="cyber-why" className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
+    <section id="cyber-why" className="bg-[#0c171c] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Why the Human Layer
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
               The Person at the Keyboard Is the Entry Point
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-400">
+            <p className="mx-auto max-w-2xl text-[#8fa3aa]">
               Year after year, industry breach reports find that the majority of breaches
               involve a human element: a click, a reused password, a rushed reply. Training
               the person is the highest-leverage security move most small businesses never make.
@@ -605,20 +164,20 @@ function CyberWhy() {
         <div className="grid gap-6 sm:grid-cols-3">
           {problems.map((p, i) => (
             <FadeIn key={p.title} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.05] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(125,227,230,0.9), transparent)" }} />
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#13242b] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(127,215,226,0.9), transparent)" }} />
                 <div className="relative mb-4">
-                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)]">
-                    <p.icon className="h-5 w-5 text-[#7DE3E6]" aria-hidden="true" />
+                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)]">
+                    <p.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
                   </div>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">{p.title}</h3>
-                <p className="text-sm text-slate-400">{p.desc}</p>
+                <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{p.title}</h3>
+                <p className="text-sm text-[#8fa3aa]">{p.desc}</p>
               </div>
             </FadeIn>
           ))}
         </div>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-slate-500">
+        <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-[#6f858c]">
           Commonly cited industry estimates (Verizon DBIR, Hiscox Cyber Readiness Report). The free
           assessment shows your numbers, not the internet&apos;s.
         </p>
@@ -642,19 +201,19 @@ function CyberWorkshops() {
       <div className="mx-auto max-w-4xl">
         <FadeIn>
           <div className="mb-10 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               The Offer
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
               Human Layer Security Workshops
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-400">
+            <p className="mx-auto max-w-2xl text-[#8fa3aa]">
               Live security awareness training for your team, built on{" "}
               <a
                 href="https://rebelminds.ai/framework"
                 target="_blank"
                 rel="noopener"
-                className="font-medium text-[#7DE3E6] underline-offset-2 transition-colors hover:text-white hover:underline"
+                className="font-medium text-[#7fd7e2] underline-offset-2 transition-colors hover:text-[#e8eef0] hover:underline"
               >
                 The Human Layer Framework
               </a>
@@ -666,17 +225,17 @@ function CyberWorkshops() {
         </FadeIn>
 
         <FadeIn delay={100}>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
-            <h3 className="mb-4 text-lg font-semibold text-white">What a workshop covers</h3>
+          <div className="rounded-2xl border border-white/10 bg-[#13242b] p-8">
+            <h3 className="mb-4 text-lg font-semibold text-[#e8eef0]">What a workshop covers</h3>
             <ul className="space-y-3">
               {covered.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-slate-400">
-                  <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#7DE3E6]" aria-hidden="true" />
+                <li key={item} className="flex items-start gap-3 text-sm text-[#8fa3aa]">
+                  <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#7fd7e2]" aria-hidden="true" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-slate-400">
+            <p className="mt-6 text-sm text-[#8fa3aa]">
               Every workshop is scoped to your team size and risk profile. You get an estimate
               before you commit to anything.
             </p>
@@ -684,11 +243,11 @@ function CyberWorkshops() {
         </FadeIn>
 
         <FadeIn delay={200}>
-          <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
-            <h3 className="mb-2 text-lg font-semibold text-white">
+          <div className="mt-6 rounded-2xl border border-white/10 bg-[#13242b] p-8">
+            <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">
               Technical security assessments, on request
             </h3>
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-[#8fa3aa]">
               Need more than training? We also take on technical security work: email security
               review, exposed credential checks, MFA and access review, and vendor stack review.
               Every engagement is scoped to your operation and quoted as an estimate. We do not
@@ -701,11 +260,11 @@ function CyberWorkshops() {
           <div className="mt-10 text-center">
             <a
               href="#cyber-intake"
-              className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
             >
               See where your human layer stands <ArrowRight className="h-4 w-4" />
             </a>
-            <p className="mt-3 text-xs text-slate-500">Free 5-minute pre-assessment. No obligation.</p>
+            <p className="mt-3 text-xs text-[#6f858c]">Free 5-minute pre-assessment. No obligation.</p>
           </div>
         </FadeIn>
       </div>
@@ -713,14 +272,14 @@ function CyberWorkshops() {
   );
 }
 
-// ─── 4.3b RGV Industries ─────────────────────────────────────────────────────
+// ─── 4.3b Industries ─────────────────────────────────────────────────────────
 
-function RGVIndustries() {
+function Industries() {
   const industries = [
     { icon: HardHat, title: "Construction & Trades", desc: "Crew payroll, subcontractor data, project financials" },
     { icon: Truck, title: "Logistics & Fleets", desc: "Driver records, route data, carrier agreements" },
     { icon: Car, title: "Auto Dealerships", desc: "Customer financing data, DMS access, F&I records" },
-    { icon: Stethoscope, title: "Medical & Dental", desc: "Patient records, HIPAA compliance, billing systems" },
+    { icon: Stethoscope, title: "Medical & Dental", desc: "Patient records, HIPAA-aware workflows, billing systems" },
     { icon: Scale, title: "Legal & Accounting", desc: "Client files, trust accounts, privileged communications" },
     { icon: Briefcase, title: "Professional Services", desc: "Contracts, invoicing, client relationship data" },
   ];
@@ -730,13 +289,13 @@ function RGVIndustries() {
       <div className="mx-auto max-w-5xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Who We Protect
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
               We Know Your Industry Because We Work In It
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-400">
+            <p className="mx-auto max-w-2xl text-[#8fa3aa]">
               We build and run operational systems in these industries every day. We know what you handle, what data you carry, and what a breach would cost your operation.
             </p>
           </div>
@@ -745,10 +304,10 @@ function RGVIndustries() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((ind, i) => (
             <FadeIn key={ind.title} delay={i * 80}>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-[rgba(125,227,230,0.3)] hover:bg-[rgba(125,227,230,0.04)]">
-                <ind.icon className="mb-3 h-6 w-6 text-[#7DE3E6]" />
-                <h3 className="mb-1 text-sm font-semibold text-white">{ind.title}</h3>
-                <p className="text-xs text-slate-400">{ind.desc}</p>
+              <div className="rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-colors hover:border-[rgba(127,215,226,0.3)] hover:bg-[rgba(127,215,226,0.04)]">
+                <ind.icon className="mb-3 h-6 w-6 text-[#7fd7e2]" />
+                <h3 className="mb-1 text-sm font-semibold text-[#e8eef0]">{ind.title}</h3>
+                <p className="text-xs text-[#8fa3aa]">{ind.desc}</p>
               </div>
             </FadeIn>
           ))}
@@ -770,14 +329,14 @@ function CyberHow() {
   ];
 
   return (
-    <section id="cyber-how" className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
+    <section id="cyber-how" className="bg-[#0c171c] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-4xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               How It Works
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
               From Pre-Assessment to Workshop
             </h2>
           </div>
@@ -786,13 +345,13 @@ function CyberHow() {
         <div className="space-y-6">
           {steps.map((s, i) => (
             <FadeIn key={s.num} delay={i * 80}>
-              <div className="flex gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.05]">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)] text-sm font-bold text-[#7DE3E6]">
+              <div className="flex gap-5 rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#13242b]">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)] text-sm font-bold text-[#7fd7e2]">
                   {s.num}
                 </div>
                 <div>
-                  <h3 className="mb-1 font-semibold text-white">{s.title}</h3>
-                  <p className="text-sm text-slate-400">{s.desc}</p>
+                  <h3 className="mb-1 font-semibold text-[#e8eef0]">{s.title}</h3>
+                  <p className="text-sm text-[#8fa3aa]">{s.desc}</p>
                 </div>
               </div>
             </FadeIn>
@@ -835,10 +394,10 @@ function CyberTrust() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Why Trust Us
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
               The Same Team That Automates Your Operations Trains Your People
             </h2>
           </div>
@@ -847,17 +406,17 @@ function CyberTrust() {
         <div className="grid auto-rows-fr gap-6 sm:grid-cols-2">
           {points.map((pt, i) => (
             <FadeIn key={pt.title} delay={i * 70}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.05] hover:shadow-[0_8px_32px_rgba(125,227,230,0.07)]">
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(125,227,230,0.9), transparent)" }} />
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#13242b] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(127,215,226,0.9), transparent)" }} />
                 <div className="relative mb-4">
-                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)]">
-                    <pt.icon className="h-5 w-5 text-[#7DE3E6]" aria-hidden="true" />
+                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)]">
+                    <pt.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
                   </div>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">{pt.title}</h3>
-                <p className="text-sm text-slate-400">{pt.desc}</p>
+                <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{pt.title}</h3>
+                <p className="text-sm text-[#8fa3aa]">{pt.desc}</p>
                 {pt.link && (
-                  <a href={pt.link.href} className="mt-3 inline-block text-sm font-medium text-[#7DE3E6] transition-colors hover:text-white">
+                  <a href={pt.link.href} className="mt-3 inline-block text-sm font-medium text-[#7fd7e2] transition-colors hover:text-[#e8eef0]">
                     {pt.link.label}
                   </a>
                 )}
@@ -903,8 +462,8 @@ function CardSelect({
           onClick={() => onChange(opt.value)}
           className={`rounded-xl border px-4 py-3 text-sm font-medium transition-all ${
             value === opt.value
-              ? "border-[#7DE3E6] bg-[rgba(125,227,230,0.1)] text-[#7DE3E6]"
-              : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:bg-white/[0.06]"
+              ? "border-[#7fd7e2] bg-[rgba(127,215,226,0.1)] text-[#7fd7e2]"
+              : "border-white/10 bg-[#13242b] text-[#8fa3aa] hover:border-white/20 hover:bg-white/[0.06]"
           }`}
         >
           {opt.label}
@@ -970,14 +529,14 @@ function CyberIntake() {
       <section id="cyber-intake" className="px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-2xl">
           <FadeIn>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 text-center backdrop-blur-sm">
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[rgba(125,227,230,0.3)] bg-[rgba(125,227,230,0.1)]">
-                <ShieldCheck className="h-8 w-8 text-[#7DE3E6]" />
+            <div className="rounded-2xl border border-white/10 bg-[#13242b] p-8 text-center">
+              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[rgba(127,215,226,0.3)] bg-[rgba(127,215,226,0.1)]">
+                <ShieldCheck className="h-8 w-8 text-[#7fd7e2]" />
               </div>
-              <h2 className="mb-3 text-2xl font-bold text-white">Your security score is on its way.</h2>
-              <p className="mb-6 text-slate-400">
+              <h2 className="mb-3 text-2xl font-bold text-[#e8eef0]">Your security score is on its way.</h2>
+              <p className="mb-6 text-[#8fa3aa]">
                 We&apos;ll send your personalized risk summary to{" "}
-                <span className="font-medium text-white">{form.email}</span> within 24 business hours.
+                <span className="font-medium text-[#e8eef0]">{form.email}</span> within 24 business hours.
               </p>
               <div className={`mx-auto mb-6 max-w-lg rounded-xl border p-4 text-left text-sm ${
                 result.riskLevel === "High" ? "border-red-500/30 bg-red-500/10 text-red-300"
@@ -998,10 +557,10 @@ function CyberIntake() {
                   <p>You&apos;re ahead of most small businesses. Your report will confirm your current protections and flag any remaining gaps.</p>
                 )}
               </div>
-              <p className="mb-6 text-xs text-slate-500">
+              <p className="mb-6 text-xs text-[#6f858c]">
                 You&apos;re also subscribed to SMB Cyber Shield Weekly — free threat briefings every Tuesday. No spam, ever.
               </p>
-              <a href="#workshops" className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]">
+              <a href="#workshops" className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]">
                 See the workshops <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -1012,23 +571,18 @@ function CyberIntake() {
   }
 
   return (
-    <section id="cyber-intake" className="relative px-4 py-20 sm:px-6">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-        <div className="absolute -left-24 top-8 h-96 w-96 rounded-full bg-[#7B2FBE] opacity-[0.12] blur-[110px]" />
-        <div className="absolute -right-24 bottom-8 h-96 w-96 rounded-full bg-[#7DE3E6] opacity-[0.08] blur-[110px]" />
-      </div>
-
-      <div className="relative mx-auto max-w-2xl">
+    <section id="cyber-intake" className="px-4 py-20 sm:px-6">
+      <div className="mx-auto max-w-2xl">
         <FadeIn>
           <div className="mb-8 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Workshop Pre-Assessment
             </span>
-            <h2 className="mb-2 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mb-2 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
               {step === 3 ? "Where should we send your results?" : "See where your human layer stands"}
             </h2>
             {step !== 3 && (
-              <p className="text-slate-400">5 quick questions on training, MFA, and incident readiness. You get a real snapshot of where your team stands today.</p>
+              <p className="text-[#8fa3aa]">5 quick questions on training, MFA, and incident readiness. You get a real snapshot of where your team stands today.</p>
             )}
           </div>
         </FadeIn>
@@ -1038,20 +592,20 @@ function CyberIntake() {
           {[1, 2, 3].map((s) => (
             <div key={s} className="flex items-center gap-2">
               <div className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold transition-colors ${
-                s === step ? "bg-[#7DE3E6] text-[#0B1220]" : s < step ? "bg-[rgba(125,227,230,0.2)] text-[#7DE3E6]" : "bg-white/10 text-slate-500"
+                s === step ? "bg-[#7fd7e2] text-[#0e1b21]" : s < step ? "bg-[rgba(127,215,226,0.2)] text-[#7fd7e2]" : "bg-white/10 text-[#6f858c]"
               }`}>{s}</div>
-              {s < 3 && <div className={`h-0.5 w-8 rounded-full transition-colors ${s < step ? "bg-[rgba(125,227,230,0.4)]" : "bg-white/10"}`} />}
+              {s < 3 && <div className={`h-0.5 w-8 rounded-full transition-colors ${s < step ? "bg-[rgba(127,215,226,0.4)]" : "bg-white/10"}`} />}
             </div>
           ))}
-          <span className="ml-2 text-xs text-slate-500">Step {step} of 3</span>
+          <span className="ml-2 text-xs text-[#6f858c]">Step {step} of 3</span>
         </div>
 
         <FadeIn>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
+          <div className="rounded-2xl border border-white/10 bg-[#13242b] p-8">
             {step === 1 && (
               <div className="space-y-6">
                 <div>
-                  <label className="mb-3 block text-sm font-medium text-white">How many people work at your company?</label>
+                  <label className="mb-3 block text-sm font-medium text-[#e8eef0]">How many people work at your company?</label>
                   <CardSelect
                     options={[{ value: "1-5", label: "1\u20135" }, { value: "6-20", label: "6\u201320" }, { value: "21-50", label: "21\u201350" }, { value: "50+", label: "50+" }]}
                     value={form.companySize}
@@ -1059,7 +613,7 @@ function CyberIntake() {
                   />
                 </div>
                 <div>
-                  <label className="mb-3 block text-sm font-medium text-white">What industry are you in?</label>
+                  <label className="mb-3 block text-sm font-medium text-[#e8eef0]">What industry are you in?</label>
                   <CardSelect
                     options={[
                       { value: "Medical/Dental", label: "Medical / Dental" },
@@ -1074,7 +628,7 @@ function CyberIntake() {
                 </div>
                 <div className="flex justify-end">
                   <button type="button" disabled={!canAdvance1()} onClick={() => setStep(2)}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC] disabled:cursor-not-allowed disabled:opacity-40">
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce] disabled:cursor-not-allowed disabled:opacity-40">
                     Next <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
@@ -1084,7 +638,7 @@ function CyberIntake() {
             {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <label className="mb-3 block text-sm font-medium text-white">Do your employees receive cybersecurity training?</label>
+                  <label className="mb-3 block text-sm font-medium text-[#e8eef0]">Do your employees receive cybersecurity training?</label>
                   <CardSelect
                     options={[
                       { value: "YesRegularly", label: "Yes, regularly" },
@@ -1097,8 +651,8 @@ function CyberIntake() {
                   />
                 </div>
                 <div>
-                  <label className="mb-3 block text-sm font-medium text-white">Do you have multi-factor authentication (MFA) enabled?</label>
-                  <p className="mb-3 text-xs text-slate-400">A second verification step when logging in — like a code texted to your phone.</p>
+                  <label className="mb-3 block text-sm font-medium text-[#e8eef0]">Do you have multi-factor authentication (MFA) enabled?</label>
+                  <p className="mb-3 text-xs text-[#8fa3aa]">A second verification step when logging in — like a code texted to your phone.</p>
                   <CardSelect
                     options={[
                       { value: "YesEverywhere", label: "Yes, everywhere" },
@@ -1111,7 +665,7 @@ function CyberIntake() {
                   />
                 </div>
                 <div>
-                  <label className="mb-3 block text-sm font-medium text-white">Has your business ever had a security incident?</label>
+                  <label className="mb-3 block text-sm font-medium text-[#e8eef0]">Has your business ever had a security incident?</label>
                   <CardSelect
                     options={[
                       { value: "NoNever", label: "No, never" },
@@ -1124,9 +678,9 @@ function CyberIntake() {
                   />
                 </div>
                 <div className="flex justify-between">
-                  <button type="button" onClick={() => setStep(1)} className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5">&larr; Back</button>
+                  <button type="button" onClick={() => setStep(1)} className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e8eef0] transition-all hover:border-white/40 hover:bg-white/5">&larr; Back</button>
                   <button type="button" disabled={!canAdvance2()} onClick={() => setStep(3)}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC] disabled:cursor-not-allowed disabled:opacity-40">
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce] disabled:cursor-not-allowed disabled:opacity-40">
                     Next <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
@@ -1136,31 +690,31 @@ function CyberIntake() {
             {step === 3 && (
               <div className="space-y-5">
                 <div>
-                  <label htmlFor="cyber-name" className="mb-1.5 block text-sm font-medium text-white">Your name <span className="text-red-400">*</span></label>
+                  <label htmlFor="cyber-name" className="mb-1.5 block text-sm font-medium text-[#e8eef0]">Your name <span className="text-red-400">*</span></label>
                   <input id="cyber-name" type="text" required value={form.name} onChange={(e) => updateField("name", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[rgba(125,227,230,0.5)]" placeholder="Your name" />
+                    className="w-full rounded-lg border border-white/10 bg-[#13242b] px-4 py-3 text-sm text-[#e8eef0] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Your name" />
                 </div>
                 <div>
-                  <label htmlFor="cyber-biz" className="mb-1.5 block text-sm font-medium text-white">Business name <span className="text-red-400">*</span></label>
+                  <label htmlFor="cyber-biz" className="mb-1.5 block text-sm font-medium text-[#e8eef0]">Business name <span className="text-red-400">*</span></label>
                   <input id="cyber-biz" type="text" required value={form.businessName} onChange={(e) => updateField("businessName", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[rgba(125,227,230,0.5)]" placeholder="Business name" />
+                    className="w-full rounded-lg border border-white/10 bg-[#13242b] px-4 py-3 text-sm text-[#e8eef0] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Business name" />
                 </div>
                 <div>
-                  <label htmlFor="cyber-email" className="mb-1.5 block text-sm font-medium text-white">Email address <span className="text-red-400">*</span></label>
+                  <label htmlFor="cyber-email" className="mb-1.5 block text-sm font-medium text-[#e8eef0]">Email address <span className="text-red-400">*</span></label>
                   <input id="cyber-email" type="email" required value={form.email} onChange={(e) => updateField("email", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[rgba(125,227,230,0.5)]" placeholder="Email address" />
+                    className="w-full rounded-lg border border-white/10 bg-[#13242b] px-4 py-3 text-sm text-[#e8eef0] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Email address" />
                 </div>
                 <div>
-                  <label htmlFor="cyber-phone" className="mb-1.5 block text-sm font-medium text-white">Phone <span className="text-xs text-slate-500">(optional — only if you&apos;d like a follow-up call)</span></label>
+                  <label htmlFor="cyber-phone" className="mb-1.5 block text-sm font-medium text-[#e8eef0]">Phone <span className="text-xs text-[#6f858c]">(optional — only if you&apos;d like a follow-up call)</span></label>
                   <input id="cyber-phone" type="tel" value={form.phone} onChange={(e) => updateField("phone", e.target.value)}
-                    className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-[rgba(125,227,230,0.5)]" placeholder="Phone number (optional)" />
+                    className="w-full rounded-lg border border-white/10 bg-[#13242b] px-4 py-3 text-sm text-[#e8eef0] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Phone number (optional)" />
                 </div>
                 <label className="flex cursor-pointer items-start gap-3">
                   <input type="checkbox" checked={form.newsletter} onChange={(e) => updateField("newsletter", e.target.checked)}
-                    className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/[0.04] accent-[#7DE3E6]" />
+                    className="mt-0.5 h-4 w-4 rounded border-white/20 bg-[#13242b] accent-[#7fd7e2]" />
                   <div>
-                    <span className="text-sm text-slate-300">Subscribe me to SMB Cyber Shield Weekly — free security briefings for small businesses, every Tuesday.</span>
-                    <p className="mt-0.5 text-xs text-slate-500">No spam. Unsubscribe anytime.</p>
+                    <span className="text-sm text-[#8fa3aa]">Subscribe me to SMB Cyber Shield Weekly — free security briefings for small businesses, every Tuesday.</span>
+                    <p className="mt-0.5 text-xs text-[#6f858c]">No spam. Unsubscribe anytime.</p>
                   </div>
                 </label>
 
@@ -1169,9 +723,9 @@ function CyberIntake() {
                 )}
 
                 <div className="flex justify-between pt-2">
-                  <button type="button" onClick={() => setStep(2)} className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5">&larr; Back</button>
+                  <button type="button" onClick={() => setStep(2)} className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e8eef0] transition-all hover:border-white/40 hover:bg-white/5">&larr; Back</button>
                   <button type="button" disabled={submitting} onClick={handleSubmit}
-                    className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC] disabled:cursor-not-allowed disabled:opacity-60">
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce] disabled:cursor-not-allowed disabled:opacity-60">
                     {submitting ? (
                       <><svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg> Calculating...</>
                     ) : (
@@ -1204,26 +758,26 @@ function CyberFAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section id="cyber-faq" className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
+    <section id="cyber-faq" className="bg-[#0c171c] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">Common Questions</h2>
+            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">Common Questions</h2>
           </div>
         </FadeIn>
         <div className="space-y-2.5">
           {CYBER_FAQS.map((faq, i) => (
             <FadeIn key={i} delay={i * 60}>
-              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm transition-all hover:border-white/20">
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#13242b] transition-all hover:border-white/20">
                 <button className="flex w-full items-center justify-between px-6 py-5 text-left" onClick={() => setOpenIdx(openIdx === i ? null : i)} aria-expanded={openIdx === i} aria-controls={`cyber-faq-panel-${i}`}>
-                  <span className="pr-4 text-sm font-medium text-white sm:text-base">{faq.q}</span>
-                  <span className={`flex h-5 w-5 flex-shrink-0 items-center justify-center text-[#7DE3E6] transition-transform duration-200 ${openIdx === i ? "rotate-45" : ""}`}>
+                  <span className="pr-4 text-sm font-medium text-[#e8eef0] sm:text-base">{faq.q}</span>
+                  <span className={`flex h-5 w-5 flex-shrink-0 items-center justify-center text-[#7fd7e2] transition-transform duration-200 ${openIdx === i ? "rotate-45" : ""}`}>
                     <svg fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg>
                   </span>
                 </button>
                 {openIdx === i && (
                   <div id={`cyber-faq-panel-${i}`} className="px-6 pb-5">
-                    <p className="text-sm leading-relaxed text-slate-300">{faq.a}</p>
+                    <p className="text-sm leading-relaxed text-[#8fa3aa]">{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -1239,12 +793,12 @@ function CyberFAQ() {
 
 function FooterCTA() {
   return (
-    <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#060D18" }}>
+    <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0b151a" }}>
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
-          <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">Ready to Know Where You Stand?</h2>
-          <p className="mb-8 text-slate-400">The free pre-assessment takes 5 minutes. The report tells you exactly where your human layer stands. No obligation.</p>
-          <a href="#cyber-intake" className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]">
+          <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">Ready to Know Where You Stand?</h2>
+          <p className="mb-8 text-[#8fa3aa]">The free pre-assessment takes 5 minutes. The report tells you exactly where your human layer stands. No obligation.</p>
+          <a href="#cyber-intake" className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]">
             Get my free assessment <ArrowRight className="h-4 w-4" />
           </a>
         </FadeIn>
@@ -1253,66 +807,30 @@ function FooterCTA() {
   );
 }
 
-// ─── Footer ──────────────────────────────────────────────────────────────────
-
-function Footer() {
-  return (
-    <footer className="border-t border-white/[0.08] px-4 py-10 sm:px-6">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col items-center justify-between gap-6 text-center sm:flex-row sm:items-start sm:text-left">
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center justify-center gap-2.5 sm:justify-start">
-              <Image src="/rebelminds-icon.png" alt="Rebel Minds Ops" width={28} height={28} className="h-7 w-7 object-contain" />
-              <span className="text-sm font-bold tracking-wide text-white">Rebel Minds OPS</span>
-            </div>
-            <span className="text-sm text-slate-400">&copy; {new Date().getFullYear()} Rebel Minds OPS LLC. All rights reserved.</span>
-            <span className="text-xs text-slate-500">Founded by Mario Arredondo, M.A. — the science behind the systems lives at <a href="https://rebelminds.ai" target="_blank" rel="noopener" className="text-slate-400 underline-offset-2 transition-colors hover:text-white hover:underline">rebelminds.ai</a>.</span>
-          </div>
-          <nav className="flex flex-col flex-wrap items-center justify-center gap-3 text-sm text-slate-400 sm:items-end">
-            <div className="mb-2 flex gap-5">
-              <a href="/" className="transition-colors hover:text-white">Home</a>
-              <a href="/our-science" className="transition-colors hover:text-white">Our Science</a>
-              <a href="/cybersecurity" className="transition-colors hover:text-white">Security Workshops</a>
-            </div>
-            <a href="#cyber-intake" className="font-semibold text-[#7DE3E6] transition-colors hover:text-white">Free Security Assessment</a>
-          </nav>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 // ─── Page Root ───────────────────────────────────────────────────────────────
 
 export default function CybersecurityPage() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#0B1220]">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-grid" />
-      <div className="pointer-events-none fixed left-1/2 top-0 z-0 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-[rgba(125,227,230,0.04)] blur-[180px]" />
-      <div className="pointer-events-none fixed bottom-0 right-0 z-0 h-[500px] w-[600px] rounded-full bg-[rgba(125,227,230,0.025)] blur-[140px]" />
-      <div className="pointer-events-none fixed inset-0 z-[1] opacity-[0.032]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: "200px 200px" }} />
-      <div className="relative z-10">
-        <Nav />
-        <CyberHero />
-        <ThreatFlow />
-        <SectionDivider />
-        <CyberWhy />
-        <SectionDivider />
-        <RGVIndustries />
-        <SectionDivider />
-        <CyberWorkshops />
-        <SectionDivider />
-        <CyberHow />
-        <SectionDivider />
-        <CyberTrust />
-        <SectionDivider />
-        <CyberIntake />
-        <SectionDivider />
-        <CyberFAQ />
-        <SectionDivider />
-        <FooterCTA />
-        <Footer />
-      </div>
+    <div className="min-h-screen bg-[#0e1b21]">
+      <SiteNav />
+      <CyberHero />
+      <SectionDivider />
+      <CyberWhy />
+      <SectionDivider />
+      <Industries />
+      <SectionDivider />
+      <CyberWorkshops />
+      <SectionDivider />
+      <CyberHow />
+      <SectionDivider />
+      <CyberTrust />
+      <SectionDivider />
+      <CyberIntake />
+      <SectionDivider />
+      <CyberFAQ />
+      <SectionDivider />
+      <FooterCTA />
+      <SiteFooter />
     </div>
   );
 }

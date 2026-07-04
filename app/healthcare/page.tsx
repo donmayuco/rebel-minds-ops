@@ -1,7 +1,9 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, X } from "lucide-react";
+import SiteNav from "@/app/components/SiteNav";
+import SiteFooter from "@/app/components/SiteFooter";
+import ComplianceDiagram from "@/app/components/ComplianceDiagram";
 
 // ─── Shared Components ───────────────────────────────────────────────────────
 
@@ -39,162 +41,7 @@ function FadeIn({
 
 function SectionDivider() {
   return (
-    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(125,227,230,0.15)] to-transparent" />
-  );
-}
-
-// ─── Nav ──────────────────────────────────────────────────────────────────────
-
-function Nav() {
-  const [open, setOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-
-  return (
-    <nav className="sticky top-0 z-50 border-b border-white/[0.08] bg-[rgba(11,18,32,0.9)] backdrop-blur-md">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex h-24 items-center justify-between">
-          <a href="/" className="flex items-center gap-2.5">
-            <Image
-              src="/rebelminds-icon.png"
-              alt="Rebel Minds Ops"
-              width={80}
-              height={80}
-              priority
-              className="rounded-md"
-            />
-            <div className="leading-tight">
-              <div className="text-[15px] font-semibold tracking-tight text-white">
-                Rebel Minds OPS
-              </div>
-              <div className="text-[11px] font-medium tracking-wide text-slate-400">
-                Operational Systems & Automation
-              </div>
-            </div>
-          </a>
-
-          <div className="hidden items-center gap-6 md:flex">
-            <a href="/our-science" className="text-sm text-slate-400 transition-colors hover:text-white">Our Science</a>
-            <a href="/healthcare" className="text-sm text-white transition-colors hover:text-white">Healthcare</a>
-            <a href="/#what-we-build" className="text-sm text-slate-400 transition-colors hover:text-white">What We Build</a>
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
-            >
-              <button
-                onClick={() => setServicesOpen(!servicesOpen)}
-                className="inline-flex items-center gap-1 text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                Services
-                <svg className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {servicesOpen && (
-                <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2" style={{ minWidth: 220 }}>
-                  <div className="rounded-xl border border-white/[0.08] bg-[#0B1220] p-1.5 shadow-xl backdrop-blur-md">
-                    <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Cybersecurity
-                      <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
-                    </a>
-                    <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Healthcare
-                      <span className="rounded-full bg-[rgba(244,114,182,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
-                    </a>
-                    <a href="/cybersecurity#cyber-intake" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Free Security Assessment
-                    </a>
-                    <a href="/healthcare#hipaa-audit" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Free HIPAA Stack Audit
-                    </a>
-                    <a href="/our-science" className="block rounded-lg px-3.5 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
-                      Our Science
-                    </a>
-                  </div>
-                </div>
-              )}
-            </div>
-            <a
-              href="/#book"
-              className="glow-teal rounded-lg bg-[#7DE3E6] px-4 py-2 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
-            >
-              Get a Free Ops Scan
-            </a>
-          </div>
-
-          <button
-            className="rounded-lg p-3 text-slate-400 transition-colors hover:text-white md:hidden"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle navigation"
-            aria-expanded={open}
-          >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {open ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {open && (
-        <div className="border-t border-white/[0.08] bg-[#0E1A2B] px-4 py-4 md:hidden">
-          <div className="flex flex-col gap-1">
-            <a href="/our-science" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-              Our Science
-            </a>
-            <a href="/healthcare" className="rounded-lg px-3 py-2.5 text-sm text-white transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-              Healthcare
-            </a>
-            <a href="/#what-we-build" className="rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-              What We Build
-            </a>
-            <button
-              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-              className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
-            >
-              Services
-              <svg className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {mobileServicesOpen && (
-              <div className="flex flex-col gap-0.5 pl-4">
-                <a href="/cybersecurity" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Cybersecurity
-                  <span className="rounded-full bg-[rgba(125,227,230,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#7DE3E6]">New</span>
-                </a>
-                <a href="/healthcare" className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Healthcare
-                  <span className="rounded-full bg-[rgba(244,114,182,0.15)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-[#F472B6]">New</span>
-                </a>
-                <a href="/cybersecurity#cyber-intake" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Free Security Assessment
-                </a>
-                <a href="/healthcare#hipaa-audit" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Free HIPAA Stack Audit
-                </a>
-                <a href="/our-science" className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>
-                  Our Science
-                </a>
-              </div>
-            )}
-            <div className="pt-2">
-              <a
-                href="/#book"
-                className="block rounded-lg bg-[#7DE3E6] px-4 py-2.5 text-center text-sm font-semibold text-[#0B1220]"
-                onClick={() => setOpen(false)}
-              >
-                Get a Free Ops Scan
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-    </nav>
+    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(127,215,226,0.15)] to-transparent" />
   );
 }
 
@@ -204,29 +51,29 @@ function Hero() {
   return (
     <section
       className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6"
-      style={{ backgroundColor: "#0d1117" }}
+      style={{ backgroundColor: "#0c171c" }}
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(244,114,182,0.03)] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(127,215,226,0.03)] to-transparent" />
       <div className="relative mx-auto max-w-4xl text-center">
         <FadeIn>
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(244,114,182,0.25)] bg-[rgba(244,114,182,0.07)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.25)] bg-[rgba(127,215,226,0.07)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
             Healthcare &middot; HIPAA-Aware
           </span>
         </FadeIn>
 
         <FadeIn delay={100}>
-          <h1 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mb-6 text-4xl font-bold leading-tight text-[#e8eef0] sm:text-5xl lg:text-6xl">
             Built where biology meets behavior — and where regulated data has always been our standard.
           </h1>
         </FadeIn>
 
         <FadeIn delay={200}>
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-slate-400">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-[#8fa3aa]">
             Healthcare automation designed by someone formally trained in clinical
             sciences, I-O Psychology, and the strictest tier of healthcare data
             protection. Highest academic honors. Peer-reviewed research. Published a
             219-page Texas state-funded health assessment under HHSC oversight.
-            Bilingual by default. Built in the RGV.
+            Bilingual by default. Delivered remotely, nationwide.
           </p>
         </FadeIn>
 
@@ -234,14 +81,14 @@ function Hero() {
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href="/#book"
-              className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
             >
               Schedule a 30-min Discovery Call
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#hipaa-audit"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e8eef0] transition-all hover:border-white/40 hover:bg-white/5"
             >
               Get a Free HIPAA Stack Audit
             </a>
@@ -257,32 +104,32 @@ function Hero() {
 function PainLandscape() {
   const cards = [
     {
-      accent: "#F472B6",
+      accent: "#7fd7e2",
       title: "Your front desk is drowning in paperwork.",
       body: "Manual intake forms. Insurance verification on hold. Treatment plans that get presented and never followed up. The math: every untracked treatment plan that walks out the door is revenue you'll never see.",
     },
     {
-      accent: "#F59E0B",
+      accent: "#7fd7e2",
       title: "After-hours emergencies are walking to competitors.",
       body: "A patient calls at 8pm with a cracked tooth. Voicemail. Three minutes later they're Googling the next office. By 9pm they're someone else's patient. Every emergency you miss is $300–$2,000+ of revenue lost — and a referral relationship that didn't form.",
     },
     {
-      accent: "#7DE3E6",
+      accent: "#7fd7e2",
       title: "Your reputation is left to chance.",
       body: "Happy patients quietly leave. Frustrated patients post publicly. No system catches the difference. Practices with structured review systems consistently outpace competitors with similar care quality — because online perception drives new patient choice.",
     },
   ];
 
   return (
-    <section className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
+    <section className="bg-[#0c171c] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(244,114,182,0.2)] bg-[rgba(244,114,182,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               The Reality
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              The reality at most RGV practices.
+            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
+              The reality at most growing practices.
             </h2>
           </div>
         </FadeIn>
@@ -291,11 +138,11 @@ function PainLandscape() {
           {cards.map((c, i) => (
             <FadeIn key={c.title} delay={i * 80}>
               <div
-                className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+                className="h-full rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:border-white/20 hover:bg-[#13242b]"
                 style={{ borderLeftWidth: 3, borderLeftColor: c.accent }}
               >
-                <h3 className="mb-2 text-lg font-semibold text-white">{c.title}</h3>
-                <p className="text-sm text-slate-400">{c.body}</p>
+                <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{c.title}</h3>
+                <p className="text-sm text-[#8fa3aa]">{c.body}</p>
               </div>
             </FadeIn>
           ))}
@@ -354,13 +201,13 @@ function HipaaDifferentiator() {
       <div className="mx-auto max-w-5xl">
         <FadeIn>
           <div className="mb-10 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               The Trust Gate
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
               HIPAA isn&apos;t a checkbox. It&apos;s how we architect.
             </h2>
-            <div className="mx-auto max-w-3xl space-y-4 text-left text-slate-400 sm:text-center">
+            <div className="mx-auto max-w-3xl space-y-4 text-left text-[#8fa3aa] sm:text-center">
               <p>
                 Most &ldquo;AI for healthcare&rdquo; pitches use vendors that legally
                 cannot touch patient data. Generic ChatGPT integrations. WhatsApp
@@ -420,7 +267,7 @@ function HipaaDifferentiator() {
         </FadeIn>
 
         <FadeIn delay={200}>
-          <p className="mt-8 text-center text-sm italic text-slate-500">
+          <p className="mt-8 text-center text-sm italic text-[#6f858c]">
             Generic AI consultants can&apos;t write this table. They don&apos;t know
             what they don&apos;t know.
           </p>
@@ -434,18 +281,18 @@ function HipaaDifferentiator() {
 
 function WhyHipaaStandard() {
   return (
-    <section className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
+    <section className="bg-[#0c171c] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
             Operational Reality
           </span>
-          <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
+          <h2 className="mb-6 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
             We didn&apos;t add HIPAA to our pitch deck. It&apos;s been our operational reality for years.
           </h2>
         </FadeIn>
         <FadeIn delay={100}>
-          <p className="text-lg leading-relaxed text-slate-300">
+          <p className="text-lg leading-relaxed text-[#8fa3aa]">
             Most &ldquo;HIPAA-aware&rdquo; AI consultants learned compliance from a
             vendor&apos;s marketing page. We learned it three ways: as an academic
             discipline (pre-medical biology coursework, Addiction & Rehabilitation
@@ -466,22 +313,22 @@ function WhyHipaaStandard() {
 function Services() {
   const featured = [
     {
-      accent: "#F472B6",
+      accent: "#7fd7e2",
       title: "Reputation routing & review acquisition",
       body: "Post-visit messaging that detects sentiment automatically. Happy patients get routed to your Google Business Profile. Frustrated patients get routed to private feedback — so they vent to you, not online. Bilingual from day one.",
       roi: "Protects existing rating. Compounds over time. Already running for our first dental client.",
     },
     {
-      accent: "#F59E0B",
+      accent: "#7fd7e2",
       title: "After-hours AI receptionist & voicemail triage",
       body: "Patient calls at 8pm with a cracked tooth. AI triages urgency, sends emergency alert to the on-call clinician's phone, books non-urgent for next morning. Bilingual. HIPAA-aware end to end.",
       roi: "Captures an estimated $300–$2,000+ per emergency case currently going to competitors.",
     },
     {
-      accent: "#7DE3E6",
+      accent: "#7fd7e2",
       title: "Treatment plan follow-up & patient reactivation",
       body: "30–50% of presented treatment plans never get scheduled. We systematically follow up — bilingual SMS, calibrated cadence, sentiment-aware copy — so revenue doesn't walk out the door.",
-      roi: "Even a 5–10% lift in case acceptance is $20–50K/yr for a typical RGV practice.",
+      roi: "Even a 5 to 10% lift in case acceptance is $20 to 50K a year for a typical practice.",
     },
   ];
 
@@ -499,13 +346,13 @@ function Services() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(244,114,182,0.2)] bg-[rgba(244,114,182,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Healthcare Services
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-              What we build for RGV practices.
+            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
+              What we build for growing practices.
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-400">
+            <p className="mx-auto max-w-2xl text-[#8fa3aa]">
               Three featured services. More available — every system designed for the
               way your front desk actually works.
             </p>
@@ -516,11 +363,11 @@ function Services() {
           {featured.map((card, i) => (
             <FadeIn key={card.title} delay={i * 80}>
               <div
-                className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+                className="flex h-full flex-col rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:border-white/20 hover:bg-[#13242b]"
                 style={{ borderLeftWidth: 3, borderLeftColor: card.accent }}
               >
-                <h3 className="mb-3 text-lg font-semibold text-white">{card.title}</h3>
-                <p className="mb-4 text-sm text-slate-400">{card.body}</p>
+                <h3 className="mb-3 text-lg font-semibold text-[#e8eef0]">{card.title}</h3>
+                <p className="mb-4 text-sm text-[#8fa3aa]">{card.body}</p>
                 <p
                   className="mt-auto rounded-lg border px-3 py-2 text-xs font-medium"
                   style={{
@@ -537,22 +384,22 @@ function Services() {
         </div>
 
         <FadeIn delay={160}>
-          <p className="mt-6 text-center text-xs text-slate-400">
-            Revenue figures are illustrative ranges drawn from RGV practice work and
-            published dental industry benchmarks — your numbers depend on volume and
+          <p className="mt-6 text-center text-xs text-[#8fa3aa]">
+            Revenue figures are illustrative ranges drawn from practice work and
+            published dental industry benchmarks. Your numbers depend on volume and
             case mix.
           </p>
         </FadeIn>
 
         <FadeIn delay={200}>
-          <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
+          <div className="mt-10 rounded-2xl border border-white/10 bg-[#13242b] p-6">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#6f858c]">
               Also available
             </p>
             <ul className="grid gap-2 sm:grid-cols-2">
               {additional.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm text-slate-300">
-                  <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#F472B6]" />
+                <li key={item} className="flex items-start gap-2 text-sm text-[#8fa3aa]">
+                  <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#7fd7e2]" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -569,19 +416,19 @@ function Services() {
 function Background() {
   const blocks = [
     {
-      color: "#F472B6",
+      color: "#7fd7e2",
       label: "Undergraduate — Summa Cum Laude (expected)",
       title: "B.S. Biology, Biological Sciences Concentration — UTRGV",
       desc: "Pre-medical-track curriculum spanning anatomy, physiology, biochemistry, microbiology, and human systems. Graduating with the highest academic distinction. The clinical workflows we automate are workflows we studied the science behind.",
     },
     {
-      color: "#534AB7",
+      color: "#8fa3aa",
       label: "Graduate — Full Scholarship",
       title: "Industrial-Organizational Psychology — SUNY Albany",
       desc: "Doctoral-level training in organizational behavior, change adoption, training transfer, and human factors. Most healthcare automation fails because staff doesn't adopt it — not because the tech is broken. We design for how your team actually works, not how a software vendor imagines they do.",
     },
     {
-      color: "#10B981",
+      color: "#7fd7e2",
       label: "Published Work — Regulated Health Data",
       title: "Healthcare data under Texas HHSC oversight",
       desc:
@@ -593,7 +440,7 @@ function Background() {
       },
     },
     {
-      color: "#7DE3E6",
+      color: "#7fd7e2",
       label: "Peer-Reviewed Publications",
       title: "Cognitive Psychology & I-O Psychology research",
       desc: "Published research in cognitive psychology and Industrial-Organizational Psychology — the sciences of how individuals process information and how teams behave inside organizations. The methodological discipline academic journals demand is the same discipline we bring to healthcare automation: hypothesis-driven design, evidence-based methods, measurable outcomes. Healthcare deserves nothing less.",
@@ -601,14 +448,14 @@ function Background() {
   ];
 
   return (
-    <section className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
+    <section className="bg-[#0c171c] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               The Background
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
               Why our background matters for your practice.
             </h2>
           </div>
@@ -635,18 +482,18 @@ function Background() {
                   >
                     {item.label}
                   </span>
-                  <h3 className="mb-2 text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-400">
+                  <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{item.title}</h3>
+                  <p className="whitespace-pre-line text-sm leading-relaxed text-[#8fa3aa]">
                     {item.desc}
                   </p>
                   {item.citation && (
-                    <p className="mt-2 text-xs italic text-slate-500">
+                    <p className="mt-2 text-xs italic text-[#6f858c]">
                       {item.citation.text}{" "}
                       <a
                         href={item.citation.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#7DE3E6] underline-offset-2 hover:underline"
+                        className="text-[#7fd7e2] underline-offset-2 hover:underline"
                       >
                         {item.citation.linkText}
                       </a>
@@ -660,7 +507,7 @@ function Background() {
         </div>
 
         <FadeIn delay={400}>
-          <p className="mx-auto mt-12 max-w-2xl text-center text-sm italic text-slate-500">
+          <p className="mx-auto mt-12 max-w-2xl text-center text-sm italic text-[#6f858c]">
             Most AI consultants pitching healthcare have none of this. They learn
             HIPAA from blog posts. We learned the underlying science — clinical,
             behavioral, regulatory — over a decade.
@@ -671,38 +518,38 @@ function Background() {
   );
 }
 
-// ─── 7. Bilingual + RGV ──────────────────────────────────────────────────────
+// ─── 7. Remote delivery + bilingual capability ───────────────────────────────
 
-function BilingualRGV() {
+function RemoteDelivery() {
   return (
     <section className="px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-10 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(244,114,182,0.2)] bg-[rgba(244,114,182,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
-              Local By Design
+            <span className="mono mb-4 inline-block text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
+              Delivered remotely, built bilingual
             </span>
-            <h2 className="text-3xl font-bold text-white sm:text-4xl">
-              Built in the RGV. Bilingual by default. Same time zone, same cultural context, same understanding of your patients.
+            <h2 className="serif text-3xl font-medium text-[#e8eef0] sm:text-4xl">
+              Built remotely, delivered to practices anywhere in the U.S. Bilingual by default.
             </h2>
           </div>
         </FadeIn>
 
         <FadeIn delay={100}>
-          <div className="space-y-6 text-base leading-relaxed text-slate-300">
+          <div className="space-y-6 text-base leading-relaxed text-[#8fa3aa]">
             <p>
-              Bilingual isn&apos;t an upgrade — it&apos;s the default. Your
+              Bilingual isn&apos;t an upgrade, it&apos;s the default. Your
               Spanish-speaking patients deserve the same patient experience as your
               English-speaking ones. We design every patient-facing system bilingual
               from day one: language detection automatic, cultural calibration native,
-              no extra cost, no afterthought translation.
+              no extra cost, no afterthought translation. That is a workforce
+              capability we bring to every practice, not a filter on who we serve.
             </p>
             <p>
-              Built in the RGV, for the RGV. Same time zone. In-person discovery.
-              Founder lives 20 minutes from your practice. We understand the economics
-              of an RGV practice because we understand the RGV — not just the
-              language but the rhythms, the cultural context, the family dynamics
-              that show up in every patient interaction.
+              Discovery and rollout run over video, so your team never waits on a site
+              visit. Whether you are down the street or across the country, you get the
+              same strictest-domain rigor and the same responsiveness. Forged in one of
+              the country&apos;s hardest markets, delivered to any U.S. market that needs it.
             </p>
           </div>
         </FadeIn>
@@ -733,14 +580,14 @@ function HowItWorks() {
   ];
 
   return (
-    <section className="bg-[rgba(14,26,43,0.6)] px-4 py-20 sm:px-6">
+    <section className="bg-[#0c171c] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7DE3E6]">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               The Engagement
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
               How working with us actually works.
             </h2>
           </div>
@@ -749,19 +596,19 @@ function HowItWorks() {
         <div className="grid gap-6 sm:grid-cols-3">
           {steps.map((s, i) => (
             <FadeIn key={s.num} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(125,227,230,0.3)] hover:bg-white/[0.05]">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#13242b] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#13242b]">
                 <div
                   className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   style={{
                     background:
-                      "linear-gradient(90deg, transparent, rgba(125,227,230,0.9), transparent)",
+                      "linear-gradient(90deg, transparent, rgba(127,215,226,0.9), transparent)",
                   }}
                 />
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(125,227,230,0.2)] bg-[rgba(125,227,230,0.1)] text-sm font-bold text-[#7DE3E6]">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)] text-sm font-bold text-[#7fd7e2]">
                   {s.num}
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">{s.title}</h3>
-                <p className="text-sm text-slate-400">{s.body}</p>
+                <h3 className="mb-2 text-lg font-semibold text-[#e8eef0]">{s.title}</h3>
+                <p className="text-sm text-[#8fa3aa]">{s.body}</p>
               </div>
             </FadeIn>
           ))}
@@ -778,17 +625,17 @@ function TrustProof() {
     <section className="px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(16,185,129,0.25)] bg-[rgba(16,185,129,0.07)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#10B981]">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.25)] bg-[rgba(127,215,226,0.07)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
             Currently Active
           </span>
-          <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
+          <h2 className="mb-6 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
             Currently in active deployment.
           </h2>
         </FadeIn>
         <FadeIn delay={100}>
-          <p className="text-lg leading-relaxed text-slate-300">
+          <p className="text-lg leading-relaxed text-[#8fa3aa]">
             We&apos;re currently building out our first dedicated healthcare
-            engagement with a leading RGV practice. Case study coming after the
+            engagement with a leading practice. Case study coming after the
             deployment is fully operational. Hint: there&apos;s a partnership with a
             leading AI company that informs our work — we&apos;ll have more to share
             publicly soon.
@@ -808,19 +655,19 @@ function HipaaAudit() {
       className="px-4 py-20 sm:px-6"
       style={{
         background:
-          "linear-gradient(180deg, rgba(244,114,182,0.06) 0%, rgba(11,18,32,0) 100%)",
+          "linear-gradient(180deg, rgba(127,215,226,0.06) 0%, rgba(11,18,32,0) 100%)",
       }}
     >
       <div className="mx-auto max-w-3xl">
         <FadeIn>
-          <div className="rounded-3xl border border-[rgba(244,114,182,0.3)] bg-[rgba(14,26,43,0.8)] p-8 backdrop-blur-sm sm:p-12">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(244,114,182,0.3)] bg-[rgba(244,114,182,0.1)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#F472B6]">
+          <div className="rounded-3xl border border-[rgba(127,215,226,0.3)] bg-[#13242b] p-8 sm:p-12">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.3)] bg-[rgba(127,215,226,0.1)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Free Service · No Commitment
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold text-[#e8eef0] sm:text-4xl">
               Free HIPAA Stack Audit
             </h2>
-            <div className="space-y-4 text-base leading-relaxed text-slate-300">
+            <div className="space-y-4 text-base leading-relaxed text-[#8fa3aa]">
               <p>
                 Most healthcare practices don&apos;t realize how many of the tools
                 they already use put patient data at risk. WhatsApp for staff
@@ -833,7 +680,7 @@ function HipaaAudit() {
                 you a written report. Free. No commitment. Roughly 30–45 min of your
                 time.
               </p>
-              <p className="italic text-slate-400">
+              <p className="italic text-[#8fa3aa]">
                 This isn&apos;t a sales gimmick. It&apos;s a service we can provide
                 quickly because we&apos;ve spent years thinking about exactly this
                 problem in regulated contexts.
@@ -842,7 +689,7 @@ function HipaaAudit() {
             <div className="mt-8">
               <a
                 href="/#book"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#F472B6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#EC4899]"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
               >
                 Request your HIPAA Stack Audit
                 <ArrowRight className="h-4 w-4" />
@@ -859,30 +706,30 @@ function HipaaAudit() {
 
 function FinalCTA() {
   return (
-    <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0d1117" }}>
+    <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0c171c" }}>
       <div className="mx-auto max-w-4xl">
         <FadeIn>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 text-center backdrop-blur-sm sm:p-12">
-            <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl">
+          <div className="rounded-2xl border border-white/10 bg-[#13242b] p-8 text-center sm:p-12">
+            <h2 className="mb-4 text-2xl font-bold text-[#e8eef0] sm:text-3xl">
               Ready to build healthcare automation right?
             </h2>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
                 href="/#book"
-                className="glow-teal inline-flex items-center gap-2 rounded-lg bg-[#7DE3E6] px-6 py-3 text-sm font-semibold text-[#0B1220] transition-all hover:scale-[1.02] hover:bg-[#5BC8CC]"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0e1b21] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
               >
                 Schedule a 30-min Discovery Call
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="#hipaa-audit"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e8eef0] transition-all hover:border-white/40 hover:bg-white/5"
               >
                 Request HIPAA Stack Audit
               </a>
             </div>
-            <p className="mt-8 text-sm italic text-slate-500">
-              RGV-built. HIPAA-aware. Designed for the way your practice actually works.
+            <p className="mt-8 text-sm italic text-[#6f858c]">
+              Delivered remotely. HIPAA-aware. Designed for the way your practice actually works.
             </p>
           </div>
         </FadeIn>
@@ -891,104 +738,35 @@ function FinalCTA() {
   );
 }
 
-// ─── Footer ──────────────────────────────────────────────────────────────────
-
-function Footer() {
-  return (
-    <footer className="border-t border-white/[0.08] px-4 py-10 sm:px-6">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col items-center justify-between gap-6 text-center sm:flex-row sm:items-start sm:text-left">
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center justify-center gap-2.5 sm:justify-start">
-              <Image
-                src="/rebelminds-icon.png"
-                alt="Rebel Minds Ops"
-                width={28}
-                height={28}
-                className="h-7 w-7 object-contain"
-              />
-              <span className="text-sm font-bold tracking-wide text-white">
-                Rebel Minds OPS
-              </span>
-            </div>
-            <span className="text-sm text-slate-400">
-              &copy; {new Date().getFullYear()} Rebel Minds OPS LLC. All rights reserved.
-            </span>
-            <span className="text-xs text-slate-500">
-              Founded by Mario Arredondo, M.A. — the science behind the systems lives at{" "}
-              <a
-                href="https://rebelminds.ai"
-                target="_blank"
-                rel="noopener"
-                className="text-slate-400 underline-offset-2 transition-colors hover:text-white hover:underline"
-              >
-                rebelminds.ai
-              </a>
-              .
-            </span>
-          </div>
-          <nav className="flex flex-col flex-wrap items-center justify-center gap-3 text-sm text-slate-400 sm:items-end">
-            <div className="mb-2 flex flex-wrap justify-center gap-5">
-              <a href="/" className="transition-colors hover:text-white">Home</a>
-              <a href="/our-science" className="transition-colors hover:text-white">Our Science</a>
-              <a href="/healthcare" className="transition-colors hover:text-white">Healthcare</a>
-              <a href="/cybersecurity" className="transition-colors hover:text-white">Cybersecurity</a>
-            </div>
-            <a
-              href="/#book"
-              className="font-semibold text-[#7DE3E6] transition-colors hover:text-white"
-            >
-              Get a Free Ops Scan
-            </a>
-          </nav>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 // ─── Page Root ───────────────────────────────────────────────────────────────
 
 export default function HealthcarePage() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#0B1220]">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-grid" />
-      <div className="pointer-events-none fixed left-1/2 top-0 z-0 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-[rgba(244,114,182,0.04)] blur-[180px]" />
-      <div className="pointer-events-none fixed bottom-0 right-0 z-0 h-[500px] w-[600px] rounded-full bg-[rgba(125,227,230,0.025)] blur-[140px]" />
-
-      <div
-        className="pointer-events-none fixed inset-0 z-[1] opacity-[0.032]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "200px 200px",
-        }}
-      />
-
-      <div className="relative z-10">
-        <Nav />
-        <Hero />
-        <SectionDivider />
-        <PainLandscape />
-        <SectionDivider />
-        <HipaaDifferentiator />
-        <SectionDivider />
-        <WhyHipaaStandard />
-        <SectionDivider />
-        <Services />
-        <SectionDivider />
-        <Background />
-        <SectionDivider />
-        <BilingualRGV />
-        <SectionDivider />
-        <HowItWorks />
-        <SectionDivider />
-        <TrustProof />
-        <SectionDivider />
-        <HipaaAudit />
-        <SectionDivider />
-        <FinalCTA />
-        <Footer />
-      </div>
+    <div className="min-h-screen bg-[#0e1b21]">
+      <SiteNav />
+      <Hero />
+      <SectionDivider />
+      <PainLandscape />
+      <SectionDivider />
+      <HipaaDifferentiator />
+      <SectionDivider />
+      <WhyHipaaStandard />
+      <ComplianceDiagram />
+      <SectionDivider />
+      <Services />
+      <SectionDivider />
+      <Background />
+      <SectionDivider />
+      <RemoteDelivery />
+      <SectionDivider />
+      <HowItWorks />
+      <SectionDivider />
+      <TrustProof />
+      <SectionDivider />
+      <HipaaAudit />
+      <SectionDivider />
+      <FinalCTA />
+      <SiteFooter />
     </div>
   );
 }
