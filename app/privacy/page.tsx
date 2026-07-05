@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 function Section({ label, title, children }: { label: string; title: string; children: React.ReactNode }) {
   return (
     <section className="border-t py-10" style={{ borderColor: "rgba(233,237,244,0.10)" }}>
-      <p className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">{label}</p>
+      <p className="mono text-[0.7rem] uppercase tracking-[0.16em] text-[#8fa0b3]">{label}</p>
       <h2 className="serif mt-3 text-2xl font-medium text-[#e9edf4]">{title}</h2>
       <div className="mt-4 space-y-4 text-[0.95rem] leading-relaxed text-[#8fa0b3]">{children}</div>
     </section>

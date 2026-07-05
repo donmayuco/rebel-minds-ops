@@ -131,7 +131,7 @@ function JPCProof() {
             className="border-b px-4 py-10 sm:px-8 md:border-b-0 md:border-r"
             style={{ borderColor: HAIRLINE }}
           >
-            <p className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
+            <p className="mono text-[0.7rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
               Case study 01 · J. Peña Construction
             </p>
             <p className="serif mt-3.5 text-[2rem] font-medium leading-tight text-[#e9edf4]">
@@ -144,7 +144,7 @@ function JPCProof() {
             </p>
           </div>
           <div className="px-4 py-10 sm:px-8">
-            <p className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
+            <p className="mono text-[0.7rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
               In the owner&rsquo;s words
             </p>
             <p className="serif mt-3.5 text-[1.5rem] font-medium italic leading-snug text-[#e9edf4]">
@@ -160,7 +160,7 @@ function JPCProof() {
           className="border-t px-4 py-6 sm:px-8"
           style={{ borderColor: HAIRLINE }}
         >
-          <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
+          <span className="mono text-[0.7rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
             Named case studies are published with the owner&rsquo;s permission · most
             clients stay unnamed
           </span>
@@ -268,7 +268,7 @@ function WhatWeBuild() {
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg border" style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}>
                 <Workflow className="h-6 w-6 text-[#7fd7e2]" aria-hidden="true" />
               </div>
-              <span className="mono mb-2 inline-block text-[0.62rem] uppercase tracking-[0.16em] text-[#7fd7e2]">
+              <span className="mono mb-2 inline-block text-[0.7rem] uppercase tracking-[0.16em] text-[#7fd7e2]">
                 Most requested
               </span>
               <h3 className="mb-2 serif text-xl font-medium text-[#e9edf4]">Approval Pipelines</h3>
@@ -383,7 +383,7 @@ function CaseStudyBlock({
 
       <FadeIn delay={100}>
         <div className="mb-6 rounded-xl border bg-[#141d2c] p-8" style={{ borderColor: HAIRLINE }}>
-          <p className="mono mb-4 text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
+          <p className="mono mb-4 text-[0.7rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
             The operational cost, before
           </p>
           <div className="space-y-4">
@@ -400,7 +400,7 @@ function CaseStudyBlock({
       <FadeIn delay={200}>
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="rounded-xl border p-8" style={{ borderColor: "rgba(127,215,226,0.2)", backgroundColor: "rgba(127,215,226,0.04)" }}>
-            <p className="mono mb-4 text-[0.66rem] uppercase tracking-[0.16em] text-[#7fd7e2]">
+            <p className="mono mb-4 text-[0.7rem] uppercase tracking-[0.16em] text-[#7fd7e2]">
               After Rebel Minds OPS
             </p>
             <div className="space-y-4">
@@ -428,7 +428,7 @@ function CaseStudyBlock({
                   <p className="mt-0.5 text-xs text-[#8fa0b3]">{role}</p>
                 </div>
               </div>
-              <span className="mono mt-4 inline-block rounded-full border px-3 py-1 text-[0.6rem] uppercase tracking-[0.12em] text-[#7fd7e2]" style={{ borderColor: "rgba(127,215,226,0.3)" }}>
+              <span className="mono mt-4 inline-block rounded-full border px-3 py-1 text-[0.7rem] uppercase tracking-[0.12em] text-[#7fd7e2]" style={{ borderColor: "rgba(127,215,226,0.3)" }}>
                 Active case study partner
               </span>
             </div>
@@ -570,7 +570,7 @@ function CyberTeaser() {
             and behavior science, so your team knows what to do when a real phishing attempt
             lands. Delivered remotely or on-site, anywhere in the U.S.
           </p>
-          <p className="mt-4 max-w-2xl text-sm text-[#6f858c]">
+          <p className="mt-4 max-w-2xl text-sm text-[#7d90a1]">
             Technical security assessments are also available on request, scoped to your
             operation.
           </p>

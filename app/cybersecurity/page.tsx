@@ -71,15 +71,15 @@ function CyberHero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(127,215,226,0.03)] to-transparent" />
       <div className="relative mx-auto max-w-4xl text-center">
         <FadeIn>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-4 py-2">
+          <div className="mono mb-6 inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em]">
             <Shield className="h-4 w-4 text-[#7fd7e2]" />
-            <span className="text-xs font-semibold text-[#7fd7e2]">Human Layer Security</span>
+            <span className="text-[#7fd7e2]">Human Layer Security</span>
           </div>
         </FadeIn>
 
         <FadeIn delay={100}>
-          <h1 className="mb-6 text-4xl font-bold leading-tight text-[#e9edf4] sm:text-5xl lg:text-6xl">
-            Security Workshops That Train the Human Layer
+          <h1 className="mb-6 serif text-4xl font-medium leading-[1.05] text-[#e9edf4] sm:text-5xl lg:text-6xl">
+            Security workshops that train the human layer
           </h1>
         </FadeIn>
 
@@ -147,11 +147,11 @@ function CyberWhy() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               Why the Human Layer
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
-              The Person at the Keyboard Is the Entry Point
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
+              The person at the keyboard is the entry point
             </h2>
             <p className="mx-auto max-w-2xl text-[#8fa0b3]">
               Year after year, industry breach reports find that the majority of breaches
@@ -164,8 +164,7 @@ function CyberWhy() {
         <div className="grid gap-6 sm:grid-cols-3">
           {problems.map((p, i) => (
             <FadeIn key={p.title} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#141d2c] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(127,215,226,0.9), transparent)" }} />
+              <div className="h-full rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-colors hover:border-[rgba(127,215,226,0.3)]">
                 <div className="relative mb-4">
                   <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)]">
                     <p.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
@@ -177,7 +176,7 @@ function CyberWhy() {
             </FadeIn>
           ))}
         </div>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-[#6f858c]">
+        <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-[#7d90a1]">
           Commonly cited industry estimates (Verizon DBIR, Hiscox Cyber Readiness Report). The free
           assessment shows your numbers, not the internet&apos;s.
         </p>
@@ -201,10 +200,10 @@ function CyberWorkshops() {
       <div className="mx-auto max-w-4xl">
         <FadeIn>
           <div className="mb-10 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               The Offer
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               Human Layer Security Workshops
             </h2>
             <p className="mx-auto max-w-2xl text-[#8fa0b3]">
@@ -263,7 +262,7 @@ function CyberWorkshops() {
             >
               See where your human layer stands <ArrowRight className="h-4 w-4" />
             </a>
-            <p className="mt-3 text-xs text-[#6f858c]">Free 5-minute pre-assessment. No obligation.</p>
+            <p className="mt-3 text-xs text-[#7d90a1]">Free 5-minute pre-assessment. No obligation.</p>
           </div>
         </FadeIn>
       </div>
@@ -291,7 +290,7 @@ function Industries() {
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Who We Protect
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               We Know What a Breach Would Cost You
             </h2>
             <p className="mx-auto max-w-2xl text-[#8fa0b3]">
@@ -334,10 +333,10 @@ function CyberHow() {
       <div className="mx-auto max-w-4xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               How It Works
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               From Pre-Assessment to Workshop
             </h2>
           </div>
@@ -395,10 +394,10 @@ function CyberTrust() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               Why Trust Us
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               The Same Team That Automates Your Operations Trains Your People
             </h2>
           </div>
@@ -407,8 +406,7 @@ function CyberTrust() {
         <div className="grid auto-rows-fr gap-6 sm:grid-cols-2">
           {points.map((pt, i) => (
             <FadeIn key={pt.title} delay={i * 70}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#141d2c] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(127,215,226,0.9), transparent)" }} />
+              <div className="h-full rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-colors hover:border-[rgba(127,215,226,0.3)]">
                 <div className="relative mb-4">
                   <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)]">
                     <pt.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
@@ -489,7 +487,7 @@ function CyberIntake() {
     businessName: "",
     email: "",
     phone: "",
-    newsletter: true,
+    newsletter: false,
   });
 
   function updateField<K extends keyof FormData>(key: K, val: FormData[K]) {
@@ -558,9 +556,11 @@ function CyberIntake() {
                   <p>You&apos;re ahead of most small businesses. Your report will confirm your current protections and flag any remaining gaps.</p>
                 )}
               </div>
-              <p className="mb-6 text-xs text-[#6f858c]">
-                You&apos;re also subscribed to SMB Cyber Shield Weekly — free threat briefings every Tuesday. No spam, ever.
-              </p>
+              {form.newsletter && (
+                <p className="mb-6 text-xs text-[#7d90a1]">
+                  You&apos;re also subscribed to SMB Cyber Shield Weekly: free threat briefings every Tuesday. No spam, ever.
+                </p>
+              )}
               <a href="#workshops" className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]">
                 See the workshops <ArrowRight className="h-4 w-4" />
               </a>
@@ -576,10 +576,10 @@ function CyberIntake() {
       <div className="mx-auto max-w-2xl">
         <FadeIn>
           <div className="mb-8 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               Workshop Pre-Assessment
             </span>
-            <h2 className="mb-2 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-2 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               {step === 3 ? "Where should we send your results?" : "See where your human layer stands"}
             </h2>
             {step !== 3 && (
@@ -593,12 +593,12 @@ function CyberIntake() {
           {[1, 2, 3].map((s) => (
             <div key={s} className="flex items-center gap-2">
               <div className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold transition-colors ${
-                s === step ? "bg-[#7fd7e2] text-[#0c131e]" : s < step ? "bg-[rgba(127,215,226,0.2)] text-[#7fd7e2]" : "bg-white/10 text-[#6f858c]"
+                s === step ? "bg-[#7fd7e2] text-[#0c131e]" : s < step ? "bg-[rgba(127,215,226,0.2)] text-[#7fd7e2]" : "bg-white/10 text-[#7d90a1]"
               }`}>{s}</div>
               {s < 3 && <div className={`h-0.5 w-8 rounded-full transition-colors ${s < step ? "bg-[rgba(127,215,226,0.4)]" : "bg-white/10"}`} />}
             </div>
           ))}
-          <span className="ml-2 text-xs text-[#6f858c]">Step {step} of 3</span>
+          <span className="ml-2 text-xs text-[#7d90a1]">Step {step} of 3</span>
         </div>
 
         <FadeIn>
@@ -706,7 +706,7 @@ function CyberIntake() {
                     className="w-full rounded-lg border border-white/10 bg-[#141d2c] px-4 py-3 text-sm text-[#e9edf4] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Email address" />
                 </div>
                 <div>
-                  <label htmlFor="cyber-phone" className="mb-1.5 block text-sm font-medium text-[#e9edf4]">Phone <span className="text-xs text-[#6f858c]">(optional — only if you&apos;d like a follow-up call)</span></label>
+                  <label htmlFor="cyber-phone" className="mb-1.5 block text-sm font-medium text-[#e9edf4]">Phone <span className="text-xs text-[#7d90a1]">(optional — only if you&apos;d like a follow-up call)</span></label>
                   <input id="cyber-phone" type="tel" value={form.phone} onChange={(e) => updateField("phone", e.target.value)}
                     className="w-full rounded-lg border border-white/10 bg-[#141d2c] px-4 py-3 text-sm text-[#e9edf4] placeholder-slate-500 outline-none transition-colors focus:border-[rgba(127,215,226,0.5)]" placeholder="Phone number (optional)" />
                 </div>
@@ -715,7 +715,7 @@ function CyberIntake() {
                     className="mt-0.5 h-4 w-4 rounded border-white/20 bg-[#141d2c] accent-[#7fd7e2]" />
                   <div>
                     <span className="text-sm text-[#8fa0b3]">Subscribe me to SMB Cyber Shield Weekly — free security briefings for small businesses, every Tuesday.</span>
-                    <p className="mt-0.5 text-xs text-[#6f858c]">No spam. Unsubscribe anytime.</p>
+                    <p className="mt-0.5 text-xs text-[#7d90a1]">No spam. Unsubscribe anytime.</p>
                   </div>
                 </label>
 
@@ -763,7 +763,7 @@ function CyberFAQ() {
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">Common Questions</h2>
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">Common questions</h2>
           </div>
         </FadeIn>
         <div className="space-y-2.5">
@@ -797,7 +797,7 @@ function FooterCTA() {
     <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0b151a" }}>
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
-          <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">Ready to Know Where You Stand?</h2>
+          <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">Ready to know where you stand?</h2>
           <p className="mb-8 text-[#8fa0b3]">The free pre-assessment takes 5 minutes. The report tells you exactly where your human layer stands. No obligation.</p>
           <a href="#cyber-intake" className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]">
             Get my free assessment <ArrowRight className="h-4 w-4" />

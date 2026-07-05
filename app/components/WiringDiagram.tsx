@@ -56,11 +56,11 @@ export default function WiringDiagram({ hero = false }: { hero?: boolean }) {
 
       <div
         ref={ref}
-        className={`relative pt-4 ${visible ? "" : "diagram-idle"}`}
+        className={`relative overflow-x-auto pt-4 ${visible ? "" : "diagram-idle"}`}
       >
         <svg
           viewBox="0 0 1120 410"
-          style={{ width: "100%", display: "block" }}
+          style={{ width: "100%", minWidth: "760px", display: "block" }}
           fontFamily="var(--font-plex-mono), monospace"
           role="img"
           aria-label="ExpenseOps schematic: a receipt travels from WhatsApp through n8n to OpenAI, Airtable and QuickBooks, then to Google Sheets, recovering 8 to 10 hours a week."
@@ -235,13 +235,13 @@ export default function WiringDiagram({ hero = false }: { hero?: boolean }) {
           </defs>
         </svg>
         <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-2.5 px-4 pt-1.5 sm:px-6">
-          <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
+          <span className="mono text-[0.7rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
             {hero
               ? "Live system · as wired for J. Peña Construction"
               : "ExpenseOps™ · as wired for J. Peña Construction"}
           </span>
           <span
-            className={`mono text-[0.66rem] uppercase tracking-[0.16em] ${hero ? "text-[#7fd7e2]" : "text-[#8fa0b3]"}`}
+            className={`mono text-[0.7rem] uppercase tracking-[0.16em] ${hero ? "text-[#7fd7e2]" : "text-[#8fa0b3]"}`}
           >
             {hero
               ? "We don’t sell a stack. We wire yours."

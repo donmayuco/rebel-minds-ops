@@ -55,7 +55,7 @@ function SectionDivider() {
 
 function ScienceHero() {
   const credentials = [
-    "Two Summa Cum Laude degrees · UTRGV",
+    "Summa Cum Laude, B.S. Psychology · UTRGV",
     "Graduate I-O Psychology, SUNY Albany (full scholarship)",
     "Bicultural \u00B7 Bilingual \u00B7 25+ Years Operating Real Businesses",
   ];
@@ -65,7 +65,7 @@ function ScienceHero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(127,215,226,0.02)] to-transparent" />
       <div className="relative mx-auto max-w-4xl text-center">
         <FadeIn>
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+          <span className="mb-6 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
             Our Science
           </span>
         </FadeIn>
@@ -120,7 +120,7 @@ function Discipline() {
     {
       num: "03",
       title: "Human factors & risk",
-      desc: "91% of breaches start with human error. We understand the psychological vulnerabilities — authority bias, urgency response, social engineering — that attackers exploit.",
+      desc: "The large majority of breaches involve a human element. We understand the psychological vulnerabilities — authority bias, urgency response, social engineering — that attackers exploit.",
     },
   ];
 
@@ -129,7 +129,7 @@ function Discipline() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               The Discipline
             </span>
             <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
@@ -148,8 +148,7 @@ function Discipline() {
         <div className="grid gap-6 sm:grid-cols-3">
           {concepts.map((c, i) => (
             <FadeIn key={c.num} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,215,226,0.3)] hover:bg-[#141d2c] hover:shadow-[0_8px_32px_rgba(127,215,226,0.07)]">
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, transparent, rgba(127,215,226,0.9), transparent)" }} />
+              <div className="h-full rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-colors hover:border-[rgba(127,215,226,0.3)]">
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.1)] text-sm font-bold text-[#7fd7e2]">
                   {c.num}
                 </div>
@@ -191,7 +190,7 @@ function WhyTrainingFails() {
       <div className="mx-auto max-w-5xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               The Problem We Solve
             </span>
             <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
@@ -210,7 +209,7 @@ function WhyTrainingFails() {
             {/* Header */}
             <div className="grid grid-cols-[1fr_auto_1fr] text-center text-xs font-semibold uppercase tracking-wider">
               <div className="bg-red-500/10 px-4 py-3 text-red-300">What most companies do</div>
-              <div className="flex items-center bg-[#141d2c] px-3 text-[#6f858c]">vs</div>
+              <div className="flex items-center bg-[#141d2c] px-3 text-[#7d90a1]">vs</div>
               <div className="bg-green-500/10 px-4 py-3 text-green-300">What we do</div>
             </div>
             {/* Rows */}
@@ -274,7 +273,7 @@ function Applied() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               Applied to Your Business
             </span>
             <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
@@ -334,9 +333,9 @@ function Credentials() {
     },
     {
       color: "#7fd7e2",
-      label: "Undergraduate — Summa Cum Laude (expected)",
+      label: "Undergraduate — In Progress",
       title: "B.S. Biology, Biological Sciences Concentration — UTRGV",
-      desc: "Pre-medical-track curriculum spanning anatomy, physiology, biochemistry, microbiology, and human systems. Graduating with the highest academic distinction — Summa Cum Laude requires the top GPA tier of the graduating class.\n\nThis is more than a credential. It’s the lens we bring to healthcare technology. We understand patient workflows because we studied the science behind them. We know HIPAA isn’t a checkbox because we know what’s encoded in the data it protects.",
+      desc: "Pre-medical-track curriculum spanning anatomy, physiology, biochemistry, microbiology, and human systems, currently in progress in the top GPA tier.\n\nThis is more than a credential. It’s the lens we bring to healthcare technology. We understand patient workflows because we studied the science behind them. We know HIPAA isn’t a checkbox because we know what’s encoded in the data it protects.",
     },
     {
       color: "#7fd7e2",
@@ -363,7 +362,7 @@ function Credentials() {
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               The Background
             </span>
             <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
@@ -413,7 +412,6 @@ function Credentials() {
 
 function StatsCTA() {
   const stats = [
-    { value: "91%", label: "of cyberattacks start with human error — the problem is behavioral, not technical" },
     { value: "70%", label: "of software implementations fail due to change resistance and poor adoption design" },
     { value: "4x", label: "better retention from spaced training vs. single-session compliance" },
     { value: "30-50%", label: "of presented dental treatment plans never get scheduled — revenue currently leaving the practice" },
@@ -422,16 +420,16 @@ function StatsCTA() {
   return (
     <section className="px-4 py-20 sm:px-6" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-6xl">
-        <div className="mb-4 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat, i) => (
-            <FadeIn key={stat.value} delay={i * 80}>
-              <div className="rounded-2xl border border-white/10 bg-[#141d2c] p-6 text-center">
-                <div className="mb-3 text-4xl font-bold text-[#7fd7e2]">{stat.value}</div>
+        <FadeIn>
+          <div className="mb-4 divide-y rounded-xl border border-white/10" style={{ borderColor: "rgba(233,237,244,0.10)" }}>
+            {stats.map((stat) => (
+              <div key={stat.value} className="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-baseline sm:gap-5" style={{ borderColor: "rgba(233,237,244,0.10)" }}>
+                <span className="serif w-24 flex-shrink-0 text-2xl font-medium text-[#7fd7e2]">{stat.value}</span>
                 <p className="text-sm text-[#8fa0b3]">{stat.label}</p>
               </div>
-            </FadeIn>
-          ))}
-        </div>
+            ))}
+          </div>
+        </FadeIn>
 
         <FadeIn delay={300}>
           <p className="mx-auto mb-16 max-w-2xl text-center text-xs text-[#8fa0b3]">
@@ -443,10 +441,8 @@ function StatsCTA() {
 
         <div className="mx-auto mb-12 max-w-3xl">
           <div className="mt-6 flex items-start gap-3 rounded-xl border border-white/[0.06] bg-[#141d2c] px-5 py-4">
-            <span className="mt-0.5 flex-shrink-0 text-[#7fd7e2]">
-              🔒
-            </span>
-            <div className="space-y-3 text-xs leading-relaxed text-[#6f858c] italic">
+            <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#7fd7e2]" aria-hidden="true" />
+            <div className="space-y-3 text-xs leading-relaxed text-[#7d90a1] italic">
               <p>
                 We intentionally don&apos;t publish implementation details. The
                 methodology behind our systems is the result of significant original
@@ -486,7 +482,7 @@ function StatsCTA() {
                 href="/cybersecurity"
                 className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e9edf4] transition-all hover:border-white/40 hover:bg-white/5"
               >
-                See our cybersecurity plans
+                See our security workshops
               </a>
             </div>
           </div>
@@ -496,11 +492,77 @@ function StatsCTA() {
   );
 }
 
+// ─── Structured data ──────────────────────────────────────────────────────────
+
+const scienceJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.rebelmindsops.com/our-science#webpage",
+      url: "https://www.rebelmindsops.com/our-science",
+      name: "Our Science — the I-O Psychology behind Rebel Minds OPS",
+      description:
+        "The Industrial-Organizational Psychology, behavior-change science, and peer-reviewed research behind how Rebel Minds OPS builds systems that teams actually adopt.",
+      isPartOf: { "@id": "https://www.rebelmindsops.com/#organization" },
+      mainEntity: { "@id": "https://www.rebelmindsops.com/#founder" },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.rebelmindsops.com/#founder",
+      name: "Mario L. Arredondo",
+      url: "https://rebelminds.ai",
+      jobTitle: "AI Adoption Strategist & Systems Builder",
+      description:
+        "M.A., Industrial & Organizational Psychology. Builds the AI automation systems and researches the human layer of AI adoption.",
+      worksFor: { "@id": "https://www.rebelmindsops.com/#organization" },
+      alumniOf: [
+        { "@type": "CollegeOrUniversity", name: "University of Texas Rio Grande Valley" },
+        { "@type": "CollegeOrUniversity", name: "State University of New York at Albany" },
+      ],
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "degree",
+          name: "M.A., Industrial & Organizational Psychology — State University of New York",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "degree",
+          name: "B.S. Psychology, Summa Cum Laude — University of Texas Rio Grande Valley",
+        },
+      ],
+      knowsAbout: [
+        "Industrial-Organizational Psychology",
+        "AI adoption and human-automation interaction",
+        "Behavior change science and training design",
+        "Security awareness training",
+        "HIPAA-aware healthcare automation",
+      ],
+      sameAs: [
+        "https://orcid.org/0000-0002-2340-9250",
+        "https://scholar.google.com/citations?user=zgzsfsAAAAAJ",
+        "https://www.linkedin.com/in/mario-arredondo-romo/",
+        "https://www.youtube.com/@rebelmindsai",
+        "https://www.youtube.com/@mentesrebeldesia",
+        "https://rebelminds.ai",
+        "https://doi.org/10.54014/DKAX-FS1S",
+        "https://doi.org/10.1080/17470218.2016.1222446",
+        "https://doi.org/10.1080/17470218.2016.1256416",
+      ],
+    },
+  ],
+};
+
 // ─── Page Root ───────────────────────────────────────────────────────────────
 
 export default function OurSciencePage() {
   return (
     <div className="min-h-screen bg-[#0c131e]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(scienceJsonLd) }}
+      />
       <SiteNav />
       <ScienceHero />
       <SectionDivider />

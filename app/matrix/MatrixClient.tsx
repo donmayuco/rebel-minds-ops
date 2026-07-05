@@ -205,7 +205,7 @@ export default function MatrixClient() {
                         </a>
                       ))}
                     </div>
-                    <p className="text-xs text-[#6f858c]">{t.successSub}</p>
+                    <p className="text-xs text-[#7d90a1]">{t.successSub}</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} noValidate className="space-y-5">
@@ -260,7 +260,7 @@ export default function MatrixClient() {
                       <ArrowDownToLine className="h-4 w-4" />
                       {submitting ? t.submitting : t.cta}
                     </button>
-                    <p className="text-xs leading-relaxed text-[#6f858c]">{t.fineprint}</p>
+                    <p className="text-xs leading-relaxed text-[#7d90a1]">{t.fineprint}</p>
                   </form>
                 )}
               </div>
@@ -281,10 +281,10 @@ export default function MatrixClient() {
                 style={{ borderColor: "rgba(233,237,244,0.14)" }}
                 priority
               />
-              <p className="mono mt-3 text-center text-[0.66rem] uppercase tracking-[0.16em] text-[#6f858c]">
+              <p className="mono mt-3 text-center text-[0.7rem] uppercase tracking-[0.16em] text-[#7d90a1]">
                 {lang === "es" ? "Una página · carta · imprimible" : "One page · letter · printable"}
               </p>
-              <p className="mt-1.5 text-center text-xs text-[#6f858c]">
+              <p className="mt-1.5 text-center text-xs text-[#7d90a1]">
                 {lang === "es" ? "Por" : "By"} Mario Arredondo · M.A., Industrial &amp;
                 Organizational Psychology
               </p>

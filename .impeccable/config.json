@@ -1,0 +1,10 @@
+{
+  "detector": {
+    "ignoreRules": [
+      "ai-color-palette",
+      "overused-font",
+      "repeated-section-kickers"
+    ],
+    "_rationale": "cyan-on-dark (#7fd7e2 on blue-slate) is locked Evening Kin brand equity (Direction C, 2026-07-03); Inter is part of the Newsreader+Inter+Plex Mono kinship system shared with rebelminds.ai; mono uppercase kickers are the deliberate editorial section-label system documented in DESIGN.md."
+  }
+}

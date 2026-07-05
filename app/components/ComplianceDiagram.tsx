@@ -56,10 +56,10 @@ export default function ComplianceDiagram() {
         </p>
       </div>
 
-      <div ref={ref} className={`relative pt-4 ${visible ? "" : "diagram-idle"}`}>
+      <div ref={ref} className={`relative overflow-x-auto pt-4 ${visible ? "" : "diagram-idle"}`}>
         <svg
           viewBox="0 0 1120 430"
-          style={{ width: "100%", display: "block" }}
+          style={{ width: "100%", minWidth: "760px", display: "block" }}
           fontFamily="var(--font-plex-mono), monospace"
           role="img"
           aria-label="HIPAA compliance schematic: a patient message travels through Twilio, Aptible and an AI summary layer to the front desk view, all inside a BAA-covered boundary, so PHI never crosses back out."
@@ -194,15 +194,15 @@ export default function ComplianceDiagram() {
           </defs>
         </svg>
         <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-2.5 px-4 pt-1.5 sm:px-6">
-          <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
+          <span className="mono text-[0.7rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
             Patient intake · reference architecture for HIPAA-aware practices
           </span>
-          <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
+          <span className="mono text-[0.7rem] uppercase tracking-[0.16em] text-[#8fa0b3]">
             Drawn for your practice before anything is built
           </span>
         </div>
         <div className="mx-auto max-w-6xl px-4 pt-4 sm:px-6">
-          <p className="max-w-[62ch] text-xs leading-relaxed text-[#6f858c]">
+          <p className="max-w-[62ch] text-xs leading-relaxed text-[#7d90a1]">
             Illustrative example. The vendors named above (Twilio, Aptible, Amazon Bedrock)
             are one reference architecture to show the shape of a compliant build. Your
             actual stack is scoped to your practice. If your business runs on something

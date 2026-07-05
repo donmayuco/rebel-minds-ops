@@ -66,23 +66,23 @@ function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(127,215,226,0.03)] to-transparent" />
       <div className="relative mx-auto max-w-4xl text-center">
         <FadeIn>
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.25)] bg-[rgba(127,215,226,0.07)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+          <span className="mb-6 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
             Healthcare &middot; HIPAA-Aware
           </span>
         </FadeIn>
 
         <FadeIn delay={100}>
-          <h1 className="mb-6 text-4xl font-bold leading-tight text-[#e9edf4] sm:text-5xl lg:text-6xl">
-            Built where biology meets behavior — and where regulated data has always been our standard.
+          <h1 className="mb-6 serif text-4xl font-medium leading-[1.05] text-[#e9edf4] sm:text-5xl lg:text-6xl">
+            HIPAA-compliant automation for medical, dental, and behavioral-health practices.
           </h1>
         </FadeIn>
 
         <FadeIn delay={200}>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-[#8fa0b3]">
-            Healthcare automation designed by someone formally trained in clinical
-            sciences, I-O Psychology, and the strictest tier of healthcare data
-            protection. Highest academic honors. Peer-reviewed research. Published a
-            219-page Texas state-funded health assessment under HHSC oversight.
+            Patient intake, reminders, reviews, and secure messaging, built on
+            infrastructure where every vendor that touches PHI signs a Business
+            Associate Agreement. Designed by a founder trained in clinical sciences
+            and I-O Psychology, with peer-reviewed research behind the methods.
             Delivered remotely, nationwide.
           </p>
         </FadeIn>
@@ -90,15 +90,15 @@ function Hero() {
         <FadeIn delay={300}>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="/#book"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
+              href="/?offer=hipaa#book"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-colors hover:bg-[#5cc3ce]"
             >
-              Schedule a 30-min Discovery Call
+              Start with a free fit check
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#hipaa-audit"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e9edf4] transition-all hover:border-white/40 hover:bg-white/5"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e9edf4] transition-colors hover:border-white/40 hover:bg-white/5"
             >
               Get a Free HIPAA Stack Audit
             </a>
@@ -135,10 +135,10 @@ function PainLandscape() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               The Reality
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               The reality at most growing practices.
             </h2>
           </div>
@@ -193,7 +193,7 @@ function HipaaDifferentiator() {
   const badStack = [
     {
       name: "WhatsApp Business",
-      desc: "Meta won't sign a BAA. Period.",
+      desc: "Meta won't sign a BAA. Period. It's why our field-ops systems for contractors and our healthcare systems are deliberately different builds.",
     },
     {
       name: "Vanilla ChatGPT / Claude APIs",
@@ -214,10 +214,10 @@ function HipaaDifferentiator() {
       <div className="mx-auto max-w-5xl">
         <FadeIn>
           <div className="mb-10 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               The Trust Gate
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-6 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               HIPAA isn&apos;t a checkbox. It&apos;s how we architect.
             </h2>
             <div className="mx-auto max-w-3xl space-y-4 text-left text-[#8fa0b3] sm:text-center">
@@ -280,7 +280,7 @@ function HipaaDifferentiator() {
         </FadeIn>
 
         <FadeIn delay={200}>
-          <p className="mt-8 text-center text-sm italic text-[#6f858c]">
+          <p className="mt-8 text-center text-sm italic text-[#7d90a1]">
             Generic AI consultants can&apos;t write this table. They don&apos;t know
             what they don&apos;t know.
           </p>
@@ -297,24 +297,29 @@ function WhyHipaaStandard() {
     <section className="bg-[#0a101a] px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+          <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
             Operational Reality
           </span>
-          <h2 className="mb-6 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+          <h2 className="mb-6 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
             We didn&apos;t add HIPAA to our pitch deck. It&apos;s been our operational reality for years.
           </h2>
         </FadeIn>
         <FadeIn delay={100}>
-          <p className="text-lg leading-relaxed text-[#8fa0b3]">
-            Most &ldquo;HIPAA-aware&rdquo; AI consultants learned compliance from a
-            vendor&apos;s marketing page. We learned it three ways: as an academic
-            discipline (pre-medical biology coursework, Addiction & Rehabilitation
-            Studies — a field operating under federal protections stricter than HIPAA
-            itself), as an operational responsibility (publishing population health
-            data under direct Texas HHSC oversight), and as architectural design
-            (every system we build today, with BAA-signed infrastructure as the only
-            option). Three layers, one standard.
-          </p>
+          <div className="space-y-4 text-left text-lg leading-relaxed text-[#8fa0b3]">
+            <p>
+              Most &ldquo;HIPAA-aware&rdquo; AI consultants learned compliance from a
+              vendor&apos;s marketing page. We learned it three ways.
+            </p>
+            <p>
+              As an academic discipline: pre-medical biology coursework and Addiction
+              &amp; Rehabilitation Studies, a field operating under federal protections
+              stricter than HIPAA itself. As an operational responsibility: publishing
+              population health data under direct Texas HHSC oversight. And as
+              architectural design: every system we build today, with BAA-signed
+              infrastructure as the only option.
+            </p>
+            <p>Three layers, one standard.</p>
+          </div>
         </FadeIn>
       </div>
     </section>
@@ -362,10 +367,10 @@ function Services() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               Healthcare Services
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               What we build for growing practices.
             </h2>
             <p className="mx-auto max-w-2xl text-[#8fa0b3]">
@@ -412,7 +417,7 @@ function Services() {
 
         <FadeIn delay={200}>
           <div className="mt-10 rounded-2xl border border-white/10 bg-[#141d2c] p-6">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#6f858c]">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#7d90a1]">
               Also available
             </p>
             <ul className="grid gap-2 sm:grid-cols-2">
@@ -471,10 +476,10 @@ function Background() {
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               The Background
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               Why our background matters for your practice.
             </h2>
           </div>
@@ -506,7 +511,7 @@ function Background() {
                     {item.desc}
                   </p>
                   {item.citation && (
-                    <p className="mt-2 text-xs italic text-[#6f858c]">
+                    <p className="mt-2 text-xs italic text-[#7d90a1]">
                       {item.citation.text}{" "}
                       <a
                         href={item.citation.link}
@@ -526,7 +531,7 @@ function Background() {
         </div>
 
         <FadeIn delay={400}>
-          <p className="mx-auto mt-12 max-w-2xl text-center text-sm italic text-[#6f858c]">
+          <p className="mx-auto mt-12 max-w-2xl text-center text-sm italic text-[#7d90a1]">
             Most AI consultants pitching healthcare have none of this. They learn
             HIPAA from blog posts. We learned the underlying science — clinical,
             behavioral, regulatory — over a decade.
@@ -603,10 +608,10 @@ function HowItWorks() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.2)] bg-[rgba(127,215,226,0.06)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               The Engagement
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               How working with us actually works.
             </h2>
           </div>
@@ -644,20 +649,18 @@ function TrustProof() {
     <section className="px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.25)] bg-[rgba(127,215,226,0.07)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+          <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
             Currently Active
           </span>
-          <h2 className="mb-6 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+          <h2 className="mb-6 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
             Currently in active deployment.
           </h2>
         </FadeIn>
         <FadeIn delay={100}>
           <p className="text-lg leading-relaxed text-[#8fa0b3]">
             We&apos;re currently building out our first dedicated healthcare
-            engagement with a leading practice. Case study coming after the
-            deployment is fully operational. Hint: there&apos;s a partnership with a
-            leading AI company that informs our work — we&apos;ll have more to share
-            publicly soon.
+            engagement with a leading practice. The case study publishes once the
+            deployment is fully operational and the practice approves what we share.
           </p>
         </FadeIn>
       </div>
@@ -680,10 +683,10 @@ function HipaaAudit() {
       <div className="mx-auto max-w-3xl">
         <FadeIn>
           <div className="rounded-3xl border border-[rgba(127,215,226,0.3)] bg-[#141d2c] p-8 sm:p-12">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(127,215,226,0.3)] bg-[rgba(127,215,226,0.1)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
+            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               Free Service · No Commitment
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
+            <h2 className="mb-6 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               Free HIPAA Stack Audit
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-[#8fa0b3]">
@@ -707,8 +710,8 @@ function HipaaAudit() {
             </div>
             <div className="mt-8">
               <a
-                href="/#book"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
+                href="/?offer=hipaa#book"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-colors hover:bg-[#5cc3ce]"
               >
                 Request your HIPAA Stack Audit
                 <ArrowRight className="h-4 w-4" />
@@ -721,6 +724,60 @@ function HipaaAudit() {
   );
 }
 
+// ─── Structured data ──────────────────────────────────────────────────────────
+
+const healthcareJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.rebelmindsops.com/healthcare#webpage",
+      url: "https://www.rebelmindsops.com/healthcare",
+      name: "HIPAA-compliant automation for medical, dental, and behavioral-health practices",
+      description:
+        "Patient intake, appointment reminders, review routing, and secure patient messaging built on infrastructure where every vendor that touches PHI signs a Business Associate Agreement.",
+      isPartOf: { "@id": "https://www.rebelmindsops.com/#organization" },
+      author: { "@id": "https://www.rebelmindsops.com/#founder" },
+      mainEntity: { "@id": "https://www.rebelmindsops.com/healthcare#service" },
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.rebelmindsops.com/healthcare#service",
+      name: "HIPAA-Compliant Healthcare Practice Automation",
+      serviceType: "Healthcare automation and patient experience systems",
+      description:
+        "Automation for medical, dental, and behavioral-health practices: patient intake, appointment reminders, review acquisition and routing, after-hours call handling, and secure messaging. Built exclusively on BAA-signed vendors (for example Twilio and AWS); consumer tools that cannot sign a BAA never touch PHI. Includes a free HIPAA Stack Audit that reviews a practice's current tools for compliance risk.",
+      provider: { "@id": "https://www.rebelmindsops.com/#organization" },
+      areaServed: "United States",
+      audience: {
+        "@type": "Audience",
+        audienceType: "Medical, dental, and behavioral-health practices",
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.rebelmindsops.com/#founder",
+      name: "Mario L. Arredondo",
+      url: "https://rebelminds.ai",
+      jobTitle: "AI Adoption Strategist & Systems Builder",
+      description:
+        "M.A., Industrial & Organizational Psychology. Builds the AI automation systems and researches the human layer of AI adoption.",
+      worksFor: { "@id": "https://www.rebelmindsops.com/#organization" },
+      sameAs: [
+        "https://orcid.org/0000-0002-2340-9250",
+        "https://scholar.google.com/citations?user=zgzsfsAAAAAJ",
+        "https://www.linkedin.com/in/mario-arredondo-romo/",
+        "https://www.youtube.com/@rebelmindsai",
+        "https://www.youtube.com/@mentesrebeldesia",
+        "https://rebelminds.ai",
+        "https://doi.org/10.54014/DKAX-FS1S",
+        "https://doi.org/10.1080/17470218.2016.1222446",
+        "https://doi.org/10.1080/17470218.2016.1256416",
+      ],
+    },
+  ],
+};
+
 // ─── 11. Final CTA ───────────────────────────────────────────────────────────
 
 function FinalCTA() {
@@ -729,15 +786,15 @@ function FinalCTA() {
       <div className="mx-auto max-w-4xl">
         <FadeIn>
           <div className="rounded-2xl border border-white/10 bg-[#141d2c] p-8 text-center sm:p-12">
-            <h2 className="mb-4 text-2xl font-bold text-[#e9edf4] sm:text-3xl">
+            <h2 className="mb-4 serif text-2xl font-medium text-[#e9edf4] sm:text-3xl">
               Ready to build healthcare automation right?
             </h2>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
-                href="/#book"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-all hover:scale-[1.02] hover:bg-[#5cc3ce]"
+                href="/?offer=hipaa#book"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-colors hover:bg-[#5cc3ce]"
               >
-                Schedule a 30-min Discovery Call
+                Start with a free fit check
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
@@ -747,7 +804,7 @@ function FinalCTA() {
                 Request HIPAA Stack Audit
               </a>
             </div>
-            <p className="mt-8 text-sm italic text-[#6f858c]">
+            <p className="mt-8 text-sm italic text-[#7d90a1]">
               Delivered remotely. HIPAA-aware. Designed for the way your practice actually works.
             </p>
           </div>
@@ -762,6 +819,10 @@ function FinalCTA() {
 export default function HealthcarePage() {
   return (
     <div className="min-h-screen bg-[#0c131e]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(healthcareJsonLd) }}
+      />
       <SiteNav />
       <Hero />
       <SectionDivider />
