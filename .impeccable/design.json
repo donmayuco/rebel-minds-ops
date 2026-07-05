@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-05T00:00:00-05:00",
+  "title": "Design System: Rebel Minds OPS",
+  "extensions": {
+    "colorMeta": {
+      "night-slate": { "role": "neutral", "displayName": "Night Slate", "canonical": "#0c131e" },
+      "night-slate-deep": { "role": "neutral", "displayName": "Night Slate Deep", "canonical": "#0a101a" },
+      "panel-slate": { "role": "neutral", "displayName": "Panel Slate", "canonical": "#141d2c" },
+      "paper-white": { "role": "neutral", "displayName": "Paper White", "canonical": "#e9edf4" },
+      "harbor-gray": { "role": "neutral", "displayName": "Harbor Gray", "canonical": "#8fa0b3" },
+      "quiet-gray": { "role": "neutral", "displayName": "Quiet Gray (contrast floor)", "canonical": "#7d90a1" },
+      "signal-cyan": { "role": "primary", "displayName": "Signal Cyan", "canonical": "#7fd7e2" },
+      "guardian-violet": { "role": "secondary", "displayName": "Guardian Violet (compliance layer only)", "canonical": "#b49df2" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Homepage hero only; italic em in Signal Cyan is the one flourish." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2s; always .serif, always sentence case, never bold." },
+      "body": { "displayName": "Body", "purpose": "Inter on Harbor Gray; 46-65ch max width." },
+      "label": { "displayName": "Label", "purpose": "Plex Mono uppercase kickers and captions; 0.7rem floor." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "fade-up", "value": "opacity+translateY(24px), 700ms ease, IntersectionObserver-gated", "purpose": "Section reveal on scroll; neutralized under prefers-reduced-motion." },
+      { "name": "wiredraw", "value": "stroke-dashoffset 1.1s cubic-bezier(0.22,1,0.36,1)", "purpose": "Diagram wires drawing in." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary CTA Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled action per view; cyan pill, dark text.",
+      "html": "<button class=\"ds-btn-primary\">Get a Free Ops Scan</button>",
+      "css": ".ds-btn-primary { background: #7fd7e2; color: #0c131e; padding: 14px 28px; border: none; border-radius: 9999px; font-family: Inter, system-ui, sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; } .ds-btn-primary:hover { opacity: 0.9; } .ds-btn-primary:focus-visible { outline: 2px solid rgba(127,215,226,0.5); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action; cyan text on a cyan 30% border.",
+      "html": "<button class=\"ds-btn-ghost\">Discuss an integration</button>",
+      "css": ".ds-btn-ghost { background: transparent; color: #7fd7e2; padding: 12px 24px; border: 1px solid rgba(127,215,226,0.3); border-radius: 9999px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: background 0.2s; } .ds-btn-ghost:hover { background: rgba(127,215,226,0.08); }"
+    },
+    {
+      "name": "Kicker",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Mono uppercase section label; replaces every pill badge.",
+      "html": "<span class=\"ds-kicker\">Who it's for</span>",
+      "css": ".ds-kicker { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7fd7e2; }"
+    },
+    {
+      "name": "Panel Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Flat panel on hairline border; hover shifts border, never elevation.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Approval pipelines</h3><p class=\"ds-card-body\">Multi-step conditional routing for POs, vacations, and large expenses.</p></div>",
+      "css": ".ds-card { background: #141d2c; border: 1px solid rgba(233,237,244,0.10); border-radius: 12px; padding: 24px; transition: border-color 0.2s; } .ds-card:hover { border-color: rgba(127,215,226,0.3); } .ds-card-title { color: #e9edf4; font-family: Inter, system-ui, sans-serif; font-size: 1.02rem; font-weight: 600; margin: 0 0 8px; } .ds-card-body { color: #8fa0b3; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.625; margin: 0; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Form field; darker-than-panel well, focus shifts border to cyan.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"e.g. Acme Construction LLC\" />",
+      "css": ".ds-input { width: 100%; background: #0c131e; color: #e9edf4; border: 1px solid rgba(233,237,244,0.10); border-radius: 8px; padding: 12px 16px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; outline: none; transition: border-color 0.2s; } .ds-input::placeholder { color: #5f6e85; } .ds-input:focus { border-color: rgba(127,215,226,0.5); }"
+    },
+    {
+      "name": "Serif Headline",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "Section h2: Newsreader medium, sentence case, never bold.",
+      "html": "<h2 class=\"ds-headline\">Built for operators, wherever you operate</h2>",
+      "css": ".ds-headline { font-family: Newsreader, Georgia, serif; font-size: 2.25rem; font-weight: 500; line-height: 1.2; color: #e9edf4; margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Evening Kin",
+    "overview": "Editorial dark, not dashboard dark: the confidence of a systems firm that draws its own schematics, set after hours. Serif headlines with real presence, mono labels that behave like margin notes, hairline-divided panels instead of floating cards, and the animated Wiring Diagram doing the proving. Density is calm; nothing glows, nothing floats, nothing counts up.",
+    "keyCharacteristics": [
+      "Serif display carries personality; sans body carries information; mono carries labels",
+      "Hairline grids instead of floating card grids",
+      "Cyan acts, violet protects, no third accent",
+      "Proof artifacts over decoration",
+      "Sentence case everywhere except mono labels"
+    ],
+    "rules": [
+      { "name": "The Two-Light Rule", "body": "Cyan is motion and action; violet is protection. No third accent exists.", "section": "colors" },
+      { "name": "The Contrast Floor Rule", "body": "No text on any dark surface may fall below #7d90a1. Quieter means smaller or absent, not dimmer.", "section": "colors" },
+      { "name": "The Kicker Rule", "body": "Sections are labeled by a mono uppercase kicker above a serif headline. Never a pill, never a badge.", "section": "typography" },
+      { "name": "The Sentence Case Rule", "body": "Headlines and CTAs are sentence case. Title Case is a template tell.", "section": "typography" },
+      { "name": "The No-Glow Rule", "body": "If an element casts colored light, it's wrong. The only blur is the diagram node bloom.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do label sections with mono uppercase kickers above serif sentence-case headlines",
+      "Do use hairline grids with icons inline beside headings",
+      "Do keep every claim defensible; qualitative phrasing over uncited precision",
+      "Do keep bilingual as a capability line, one placement per surface",
+      "Do hold the contrast floor (#7d90a1) and label floor (0.7rem)"
+    ],
+    "donts": [
+      "Don't ship 'dark theme + glowing gradients + we-build-AI-agents sameness' (PRODUCT.md anti-reference)",
+      "Don't use pill badges, icon tiles above headings, identical card grids, or hero-metric stat tiles",
+      "Don't use em dashes in copy",
+      "Don't write Title Case headlines or local-vendor copy ('We're your neighbors' is banned verbatim)",
+      "Don't use font-bold on serif headlines or borders thicker than 1px as colored accents",
+      "Don't add a third accent color"
+    ]
+  }
+}
