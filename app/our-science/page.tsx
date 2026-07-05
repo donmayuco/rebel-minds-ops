@@ -329,8 +329,8 @@ function Credentials() {
     {
       color: "#7fd7e2",
       label: "Applied \u2014 New York State",
-      title: "NY OPWDD Workforce-Retention Engagement \u2014 via the SUNY Albany I-O Lab",
-      desc: "When the New York State Office for People With Developmental Disabilities needed help with clinical workforce retention, the engagement ran through the SUNY Albany I-O Psychology lab Mario managed. Co-led with his PhD advisor, the work applied organizational psychology to direct-care staff turnover inside a state clinical system. Real stakes in a behavioral-health workforce: the same discipline we bring to private practices today.",
+      title: "NY OPWDD Clinical Skills Engagement \u2014 via the SUNY Albany I-O Lab",
+      desc: "When the New York State Office for People With Developmental Disabilities needed to close a patient-treatment skills gap across more than a thousand state healthcare providers, the engagement ran through the SUNY Albany I-O Psychology lab Mario managed. Co-led with his PhD advisor, the work applied organizational psychology to clinical training design at state scale, with staff retention and burnout as its downstream targets. Real stakes in a behavioral-health workforce: the same discipline we bring to private practices today.",
     },
     {
       color: "#7fd7e2",
