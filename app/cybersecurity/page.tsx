@@ -285,32 +285,34 @@ function Industries() {
 
   return (
     <section className="px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-3xl">
         <FadeIn>
-          <div className="mb-12 text-center">
+          <div className="mb-10 text-center">
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-wider text-[#7fd7e2]">
               Who We Protect
             </span>
             <h2 className="mb-4 text-3xl font-bold text-[#e9edf4] sm:text-4xl">
-              We Know Your Industry Because We Work In It
+              We Know What a Breach Would Cost You
             </h2>
             <p className="mx-auto max-w-2xl text-[#8fa0b3]">
-              We build and run operational systems in these industries every day. We know what you handle, what data you carry, and what a breach would cost your operation.
+              We build and run operational systems in these industries every day. Your workshop scenarios come from the data your business actually carries, not a generic slide deck.
             </p>
           </div>
         </FadeIn>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {industries.map((ind, i) => (
-            <FadeIn key={ind.title} delay={i * 80}>
-              <div className="rounded-2xl border border-white/10 bg-[#141d2c] p-6 transition-colors hover:border-[rgba(127,215,226,0.3)] hover:bg-[rgba(127,215,226,0.04)]">
-                <ind.icon className="mb-3 h-6 w-6 text-[#7fd7e2]" />
-                <h3 className="mb-1 text-sm font-semibold text-[#e9edf4]">{ind.title}</h3>
-                <p className="text-xs text-[#8fa0b3]">{ind.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+        <FadeIn delay={100}>
+          <ul className="divide-y divide-white/10 rounded-2xl border border-white/10 bg-[#141d2c]">
+            {industries.map((ind) => (
+              <li key={ind.title} className="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-center sm:gap-4">
+                <span className="flex items-center gap-3 sm:w-52 sm:flex-shrink-0">
+                  <ind.icon className="h-4 w-4 flex-shrink-0 text-[#7fd7e2]" aria-hidden="true" />
+                  <span className="text-sm font-semibold text-[#e9edf4]">{ind.title}</span>
+                </span>
+                <span className="pl-7 text-sm text-[#8fa0b3] sm:pl-0">{ind.desc}</span>
+              </li>
+            ))}
+          </ul>
+        </FadeIn>
       </div>
     </section>
   );
