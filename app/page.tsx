@@ -202,12 +202,12 @@ function WhoItsFor() {
         <div className="grid gap-px overflow-hidden rounded-xl border sm:grid-cols-2 lg:grid-cols-3" style={{ borderColor: HAIRLINE, backgroundColor: HAIRLINE }}>
           {industries.map((ind, i) => (
             <FadeIn key={ind.title} delay={i * 60}>
-              <div className="h-full bg-[#141d2c] p-6">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg border" style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}>
-                  <ind.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
+              <div className="h-full bg-[#141d2c] px-6 py-5">
+                <div className="flex items-center gap-3">
+                  <ind.icon className="h-4.5 w-4.5 flex-shrink-0 text-[#7fd7e2]" aria-hidden="true" />
+                  <h3 className="text-base font-semibold leading-tight text-[#e9edf4]">{ind.title}</h3>
                 </div>
-                <h3 className="mb-2 text-base font-semibold leading-tight text-[#e9edf4]">{ind.title}</h3>
-                <p className="text-sm leading-relaxed text-[#8fa0b3]">{ind.desc}</p>
+                <p className="mt-2 pl-[1.875rem] text-sm leading-relaxed text-[#8fa0b3]">{ind.desc}</p>
               </div>
             </FadeIn>
           ))}
@@ -248,15 +248,15 @@ function WhatWeBuild() {
           </div>
         </FadeIn>
 
-        <div className="grid gap-px overflow-hidden rounded-xl border sm:grid-cols-2 lg:grid-cols-4" style={{ borderColor: HAIRLINE, backgroundColor: HAIRLINE }}>
+        <div className="grid gap-px overflow-hidden rounded-xl border sm:grid-cols-2" style={{ borderColor: HAIRLINE, backgroundColor: HAIRLINE }}>
           {systems.map((sys, i) => (
-            <FadeIn key={sys.title} delay={i * 50}>
-              <div className="h-full bg-[#141d2c] p-6">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border" style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}>
-                  <sys.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
+            <FadeIn key={sys.title} delay={i * 40}>
+              <div className="h-full bg-[#141d2c] px-6 py-5">
+                <div className="flex items-center gap-3">
+                  <sys.icon className="h-4.5 w-4.5 flex-shrink-0 text-[#7fd7e2]" aria-hidden="true" />
+                  <h3 className="text-[1.02rem] font-semibold leading-tight text-[#e9edf4]">{sys.title}</h3>
                 </div>
-                <h3 className="mb-2 text-[1.05rem] font-semibold leading-tight text-[#e9edf4]">{sys.title}</h3>
-                <p className="text-sm leading-relaxed text-[#8fa0b3]">{sys.desc}</p>
+                <p className="mt-2 pl-[1.875rem] text-sm leading-relaxed text-[#8fa0b3]">{sys.desc}</p>
               </div>
             </FadeIn>
           ))}
@@ -450,34 +450,6 @@ function CaseStudies() {
         </FadeIn>
 
         <CaseStudyBlock
-          header="What happens when a growing business finally stops chasing its own paperwork."
-          intro="J. Peña Construction runs 5 to 15 active jobs at a time. Like any serious operation at that scale, every hour of focused time is a business asset. We helped them get more of it back."
-          pains={[
-            "With up to 15 active jobs running simultaneously, job cost documentation was coming in constantly, from crews, suppliers, and sites. Keeping up manually meant Sandra was spending 8 to 10 hours every week on back-office work that should have been running itself.",
-            "Every gap in the documentation trail was a potential deduction lost at tax time. With multiple jobs running at once, even small inconsistencies added up to real money left on the table, year after year.",
-            "Tax season meant handing their accountant months of unstructured records to organize manually. It worked, but it cost time, created stress, and left the back office carrying a burden that belonged in a system.",
-          ]}
-          outcomes={[
-            "Sandra recovered 8 to 10 hours every week, time previously absorbed by manual back-office work across active jobs.",
-            "Financial records arrive organized and accounting-ready, automatically. Their accountant receives clean data. Tax season is no longer a project.",
-            "Pepe focuses on running jobs. Sandra focuses on running the business. The system handles the rest, exactly the way it should work.",
-          ]}
-          quote="&ldquo;I can finally focus on my jobs.&rdquo;"
-          logo="/JPC_logo.png"
-          logoAlt="J. Peña Construction"
-          who="Jose Peña"
-          role="Owner, J. Peña Construction"
-        />
-
-        <FadeIn delay={250}>
-          <div className="my-16 flex items-center gap-4">
-            <div className="h-px flex-1" style={{ backgroundColor: HAIRLINE }} />
-            <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-[#6f858c]">Next client</span>
-            <div className="h-px flex-1" style={{ backgroundColor: HAIRLINE }} />
-          </div>
-        </FadeIn>
-
-        <CaseStudyBlock
           header="What happens when every open transaction finally lives in one place."
           intro="Abolengo Properties is a real estate brokerage running multiple active transactions in parallel, own listings and co-op deals. Each closing has dozens of moving parts. We built Leslie a system so none of them slip."
           pains={[
@@ -514,7 +486,7 @@ function CaseStudies() {
                 href="#book"
                 className="inline-block rounded-full bg-[#7fd7e2] px-7 py-3.5 text-sm font-semibold text-[#0c131e] transition-opacity hover:opacity-90"
               >
-                See if your business qualifies
+                Start with a free fit check
               </a>
             </div>
           </div>
@@ -620,7 +592,102 @@ const inputCls =
   "w-full rounded-lg border bg-[#0c131e] px-4 py-3 text-sm text-[#e9edf4] placeholder-[#5f6e85] outline-none transition focus:border-[rgba(127,215,226,0.5)]";
 const inputStyle = { borderColor: HAIRLINE };
 
-// ─── Connect (EN form — /api/connect contract FROZEN) ─────────────────────────
+// ─── Connect (single bilingual form — /api/connect contract FROZEN) ───────────
+const CONNECT_T = {
+  en: {
+    kicker: "Start here",
+    heading: "Get your Free Ops Scan",
+    hipaaHeading: "Request your HIPAA Stack Audit",
+    sub: "Tell us about your business and we’ll set up a 15-minute fit check. If we’re a match, we analyze how your operation actually works and come back within days with the proposed system, its cost, and the ROI plan beside it.",
+    hipaaSub: "Tell us about your practice and we’ll set up a 15-minute fit check. If we’re a match, we map your patient-data flow, vendor by vendor, and come back within days with the compliant architecture, its cost, and the ROI plan beside it.",
+    modeGroup: "Choose how to reach out",
+    modeFull: "Guided form",
+    modeSimple: "Don’t like forms? Just write to us",
+    bizFull: "Business Name",
+    bizSimple: "Your name or business",
+    bizPhFull: "e.g. Acme Construction LLC",
+    bizPhSimple: "Who are we talking to?",
+    msgLabel: "How can we help?",
+    msgPh: "No structure needed. Tell us what's going on in your operation, in whatever words come naturally. We read every message personally.",
+    typeLabel: "Type of Business",
+    typePh: "Select your industry…",
+    prioLabel: "What would you most like to improve right now?",
+    prioPh: "Select the area causing the most friction...",
+    prioHint: "Not sure where to start? That’s exactly what the call is for.",
+    phoneLabel: "Phone Number",
+    optional: "(optional)",
+    emailLabel: "Email Address",
+    emailPh: "you@company.com",
+    submit: "Get My Free Ops Scan",
+    hipaaSubmit: "Request the HIPAA Stack Audit",
+    sending: "Sending…",
+    foot: "The Ops Scan is a free 15-minute fit check. If we’re a match, you see the proposed system, its cost, and the ROI plan within days. No obligation.",
+    successTitle: "Request received.",
+    successSub: "We’ll call you shortly.",
+    again: "Submit another request",
+    errSimple: "Please add your name, email, and a few words about what you need.",
+    errFull: "Please fill in all fields before submitting.",
+    errGeneric: "Something went wrong. Please try again.",
+    langToggle: "Español",
+  },
+  es: {
+    kicker: "Empieza aquí",
+    heading: "Solicita tu Ops Scan gratis",
+    hipaaHeading: "Solicita tu auditoría de stack HIPAA",
+    sub: "Cuéntanos de tu negocio y agendamos una llamada de 15 minutos para ver si somos el equipo indicado. Si lo somos, analizamos cómo funciona tu operación y en unos días te mostramos el sistema propuesto, su costo y el plan de retorno, todo junto.",
+    hipaaSub: "Cuéntanos de tu consultorio y agendamos una llamada de 15 minutos. Si somos el equipo indicado, mapeamos tu flujo de datos de pacientes, proveedor por proveedor, y en unos días te mostramos la arquitectura, su costo y el plan de retorno.",
+    modeGroup: "Elige cómo contactarnos",
+    modeFull: "Formulario guiado",
+    modeSimple: "¿No te gustan los formularios? Solo escríbenos",
+    bizFull: "Nombre del negocio",
+    bizSimple: "Tu nombre o negocio",
+    bizPhFull: "Ej. Construcciones Peña LLC",
+    bizPhSimple: "¿Con quién hablamos?",
+    msgLabel: "¿Cómo te podemos ayudar?",
+    msgPh: "Sin estructura. Cuéntanos qué está pasando en tu operación, con tus propias palabras. Leemos cada mensaje personalmente.",
+    typeLabel: "Tipo de negocio",
+    typePh: "Selecciona tu industria…",
+    prioLabel: "¿Qué te gustaría mejorar?",
+    prioPh: "Selecciona el área con más fricción...",
+    prioHint: "¿No sabes por dónde empezar? Para eso es exactamente la llamada.",
+    phoneLabel: "Teléfono",
+    optional: "(opcional)",
+    emailLabel: "Correo electrónico",
+    emailPh: "tu@negocio.com",
+    submit: "Solicitar mi Ops Scan gratis",
+    hipaaSubmit: "Solicitar la auditoría HIPAA",
+    sending: "Enviando…",
+    foot: "El Ops Scan es una llamada gratis de 15 minutos para ver si somos el equipo indicado. Si lo somos, en unos días ves el sistema propuesto, su costo y el plan de retorno. Sin compromiso.",
+    successTitle: "Solicitud recibida.",
+    successSub: "Te llamamos pronto.",
+    again: "Enviar otra solicitud",
+    errSimple: "Por favor agrega tu nombre, correo y unas palabras sobre lo que necesitas.",
+    errFull: "Por favor llena todos los campos antes de enviar.",
+    errGeneric: "Algo salió mal. Por favor intenta de nuevo.",
+    langToggle: "English",
+  },
+} as const;
+
+const INDUSTRY_OPTS: [string, string, string][] = [
+  ["construction", "Construction / Trades", "Construcción / Oficios"],
+  ["logistics", "Logistics / Transport", "Logística / Transporte"],
+  ["home-services", "Home Services", "Servicios del Hogar"],
+  ["professional-services", "Professional Services", "Servicios Profesionales"],
+  ["healthcare", "Healthcare / Medical", "Salud / Médico"],
+  ["other", "Other", "Otro"],
+];
+
+const PRIORITY_OPTS: [string, string, string][] = [
+  ["Organize receipts and expenses for better accounting", "Organize receipts and expenses for better accounting", "Organizar recibos y gastos para contabilidad"],
+  ["Improve project visibility and tracking", "Improve project visibility and tracking", "Mejorar la visibilidad y seguimiento de proyectos"],
+  ["Reduce manual data entry and paperwork", "Reduce manual data entry and paperwork", "Reducir captura manual de datos y papeleo"],
+  ["Respond to leads faster and track inquiries", "Respond to leads faster and track inquiries", "Responder a prospectos más rápido"],
+  ["Simplify scheduling and team coordination", "Simplify scheduling and team coordination", "Simplificar horarios y coordinación del equipo"],
+  ["Set up or improve IT infrastructure (WiFi, email, workspace tools)", "Set up or improve IT infrastructure", "Configurar o mejorar infraestructura de TI"],
+  ["Healthcare patient systems (intake, reviews, HIPAA messaging)", "Healthcare patient systems", "Sistemas para pacientes (formularios, reseñas, mensajería HIPAA)"],
+  ["Not sure yet — show me what’s possible", "Not sure yet, show me what’s possible", "No estoy seguro, muéstrame qué es posible"],
+];
+
 function Connect() {
   const emptyForm = {
     business: "",
@@ -633,9 +700,32 @@ function Connect() {
 
   const [form, setForm] = useState(emptyForm);
   const [mode, setMode] = useState<"full" | "simple">("full");
+  const [lang, setLang] = useState<"en" | "es">("en");
+  const [offer, setOffer] = useState<"scan" | "hipaa">("scan");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+
+  const t = CONNECT_T[lang];
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("lang") === "es") setLang("es");
+    if (params.get("offer") === "hipaa") {
+      setOffer("hipaa");
+      setForm((prev) => ({
+        ...prev,
+        type: "healthcare",
+        priorityArea: "Healthcare patient systems (intake, reviews, HIPAA messaging)",
+      }));
+    }
+    const onLang = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail === "es" || detail === "en") setLang(detail);
+    };
+    window.addEventListener("rmops:lang", onLang);
+    return () => window.removeEventListener("rmops:lang", onLang);
+  }, []);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -651,7 +741,7 @@ function Connect() {
     const simple = mode === "simple";
     if (simple) {
       if (!form.business || !form.email || !form.message) {
-        setError("Please add your name, email, and a few words about what you need.");
+        setError(t.errSimple);
         return;
       }
     } else if (
@@ -661,9 +751,20 @@ function Connect() {
       !form.phone ||
       !form.email
     ) {
-      setError("Please fill in all fields before submitting.");
+      setError(t.errFull);
       return;
     }
+
+    const source =
+      offer === "hipaa"
+        ? "Website · HIPAA audit request"
+        : simple
+          ? lang === "es"
+            ? "Website · quick note (ES)"
+            : "Website · quick note"
+          : lang === "es"
+            ? "Spanish Form"
+            : "Website";
 
     setSubmitting(true);
     setError("");
@@ -682,9 +783,9 @@ function Connect() {
                 email: form.email,
                 priorityArea: "",
                 notes: form.message,
-                source: "Website · quick note",
+                source,
               }
-            : form
+            : { ...form, source }
         ),
       });
 
@@ -697,7 +798,7 @@ function Connect() {
       setForm({ ...emptyForm });
     } catch (err) {
       console.error("Submission failed:", err);
-      setError("Something went wrong. Please try again.");
+      setError(t.errGeneric);
     } finally {
       setSubmitting(false);
     }
@@ -708,16 +809,21 @@ function Connect() {
       <div className="mx-auto max-w-2xl">
         <FadeIn>
           <div className="mb-10 text-center">
-            <Kicker>Start here</Kicker>
+            <Kicker>{t.kicker}</Kicker>
             <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
-              Get your Free Ops Scan
+              {offer === "hipaa" ? t.hipaaHeading : t.heading}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[#8fa0b3]">
-              Tell us about your business and we&rsquo;ll set up a 15-minute fit check. If
-              we&rsquo;re a match, we analyze how your operation actually works and come
-              back within days with the proposed system, its cost, and the ROI plan
-              beside it.
+              {offer === "hipaa" ? t.hipaaSub : t.sub}
             </p>
+            <button
+              type="button"
+              onClick={() => setLang(lang === "en" ? "es" : "en")}
+              className="mt-4 rounded-full border px-3.5 py-1.5 text-xs font-semibold text-[#8fa0b3] transition-colors hover:text-[#e9edf4]"
+              style={{ borderColor: "rgba(233,237,244,0.15)" }}
+            >
+              {t.langToggle}
+            </button>
           </div>
         </FadeIn>
 
@@ -728,18 +834,18 @@ function Connect() {
                 <div className="flex h-14 w-14 items-center justify-center rounded-full border" style={{ borderColor: "rgba(127,215,226,0.3)", backgroundColor: "rgba(127,215,226,0.1)" }}>
                   <CheckCircle className="h-7 w-7 text-[#7fd7e2]" />
                 </div>
-                <p className="text-lg font-semibold text-[#e9edf4]">Request received.</p>
-                <p className="text-[#8fa0b3]">We&rsquo;ll call you shortly.</p>
+                <p className="text-lg font-semibold text-[#e9edf4]">{t.successTitle}</p>
+                <p className="text-[#8fa0b3]">{t.successSub}</p>
                 <button
                   onClick={() => setSuccess(false)}
-                  className="mt-2 text-xs text-[#6f858c] underline hover:text-[#8fa0b3]"
+                  className="mt-2 text-xs text-[#8fa0b3] underline hover:text-[#e9edf4]"
                 >
-                  Submit another request
+                  {t.again}
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                <div className="flex flex-wrap gap-2" role="group" aria-label="Choose how to reach out">
+                <div className="flex flex-wrap gap-2" role="group" aria-label={t.modeGroup}>
                   <button
                     type="button"
                     aria-pressed={mode === "full"}
@@ -750,7 +856,7 @@ function Connect() {
                         : "border-[rgba(233,237,244,0.15)] text-[#8fa0b3] hover:text-[#e9edf4]"
                     }`}
                   >
-                    Guided form
+                    {t.modeFull}
                   </button>
                   <button
                     type="button"
@@ -762,13 +868,13 @@ function Connect() {
                         : "border-[rgba(233,237,244,0.15)] text-[#8fa0b3] hover:text-[#e9edf4]"
                     }`}
                   >
-                    Don&rsquo;t like forms? Just write to us
+                    {t.modeSimple}
                   </button>
                 </div>
 
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-business">
-                    {mode === "simple" ? "Your name or business" : "Business Name"}{" "}
+                    {mode === "simple" ? t.bizSimple : t.bizFull}{" "}
                     <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <input
@@ -776,7 +882,7 @@ function Connect() {
                     name="business"
                     type="text"
                     required
-                    placeholder={mode === "simple" ? "Who are we talking to?" : "e.g. Acme Construction LLC"}
+                    placeholder={mode === "simple" ? t.bizPhSimple : t.bizPhFull}
                     value={form.business}
                     onChange={handleChange}
                     className={inputCls}
@@ -787,14 +893,14 @@ function Connect() {
                 {mode === "simple" && (
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-message">
-                      How can we help? <span className="text-[#7fd7e2]">*</span>
+                      {t.msgLabel} <span className="text-[#7fd7e2]">*</span>
                     </label>
                     <textarea
                       id="connect-message"
                       name="message"
                       required
                       rows={5}
-                      placeholder="No structure needed. Tell us what's going on in your operation, in whatever words come naturally. We read every message personally."
+                      placeholder={t.msgPh}
                       value={form.message}
                       onChange={handleChange}
                       className={`${inputCls} resize-y`}
@@ -806,7 +912,7 @@ function Connect() {
                 {mode === "full" && (<>
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-type">
-                    Type of Business <span className="text-[#7fd7e2]">*</span>
+                    {t.typeLabel} <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <select
                     id="connect-type"
@@ -817,19 +923,16 @@ function Connect() {
                     className={inputCls}
                     style={inputStyle}
                   >
-                    <option value="" disabled>Select your industry&hellip;</option>
-                    <option value="construction">Construction / Trades</option>
-                    <option value="logistics">Logistics / Transport</option>
-                    <option value="home-services">Home Services</option>
-                    <option value="professional-services">Professional Services</option>
-                    <option value="healthcare">Healthcare / Medical</option>
-                    <option value="other">Other</option>
+                    <option value="" disabled>{t.typePh}</option>
+                    {INDUSTRY_OPTS.map(([v, en, es]) => (
+                      <option key={v} value={v}>{lang === "es" ? es : en}</option>
+                    ))}
                   </select>
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-[#8fa0b3]">
-                    What would you most like to improve right now? <span className="text-[#7fd7e2]">*</span>
+                    {t.prioLabel} <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <select
                     name="priorityArea"
@@ -839,18 +942,13 @@ function Connect() {
                     className={inputCls}
                     style={inputStyle}
                   >
-                    <option value="" disabled>Select the area causing the most friction...</option>
-                    <option value="Organize receipts and expenses for better accounting">Organize receipts and expenses for better accounting</option>
-                    <option value="Improve project visibility and tracking">Improve project visibility and tracking</option>
-                    <option value="Reduce manual data entry and paperwork">Reduce manual data entry and paperwork</option>
-                    <option value="Respond to leads faster and track inquiries">Respond to leads faster and track inquiries</option>
-                    <option value="Simplify scheduling and team coordination">Simplify scheduling and team coordination</option>
-                    <option value="Set up or improve IT infrastructure (WiFi, email, workspace tools)">Set up or improve IT infrastructure</option>
-                    <option value="Healthcare patient systems (intake, reviews, HIPAA messaging)">Healthcare patient systems</option>
-                    <option value="Not sure yet — show me what’s possible">Not sure yet, show me what&rsquo;s possible</option>
+                    <option value="" disabled>{t.prioPh}</option>
+                    {PRIORITY_OPTS.map(([v, en, es]) => (
+                      <option key={v} value={v}>{lang === "es" ? es : en}</option>
+                    ))}
                   </select>
-                  <p className="text-xs text-[#6f858c]">
-                    Not sure where to start? That&rsquo;s exactly what the call is for.
+                  <p className="text-xs text-[#8fa0b3]">
+                    {t.prioHint}
                   </p>
                 </div>
                 </>)}
@@ -858,9 +956,9 @@ function Connect() {
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-phone">
-                      Phone Number{" "}
+                      {t.phoneLabel}{" "}
                       {mode === "simple" ? (
-                        <span className="text-[#6f858c]">(optional)</span>
+                        <span className="text-[#8fa0b3]">{t.optional}</span>
                       ) : (
                         <span className="text-[#7fd7e2]">*</span>
                       )}
@@ -880,14 +978,14 @@ function Connect() {
 
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-email">
-                      Email Address <span className="text-[#7fd7e2]">*</span>
+                      {t.emailLabel} <span className="text-[#7fd7e2]">*</span>
                     </label>
                     <input
                       id="connect-email"
                       name="email"
                       type="email"
                       required
-                      placeholder="you@company.com"
+                      placeholder={t.emailPh}
                       value={form.email}
                       onChange={handleChange}
                       className={inputCls}
@@ -907,12 +1005,10 @@ function Connect() {
                   disabled={submitting}
                   className="w-full rounded-full bg-[#7fd7e2] px-6 py-3.5 text-sm font-semibold text-[#0c131e] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {submitting ? "Sending…" : "Get My Free Ops Scan"}
+                  {submitting ? t.sending : offer === "hipaa" ? t.hipaaSubmit : t.submit}
                 </button>
                 <p className="mt-3 text-center text-xs text-[#8fa0b3]">
-                  The Ops Scan is a free 15-minute fit check. If we&rsquo;re a match, you
-                  see the proposed system, its cost, and the ROI plan within days. No
-                  obligation.
+                  {t.foot}
                 </p>
               </form>
             )}
@@ -923,110 +1019,49 @@ function Connect() {
   );
 }
 
-// ─── Spanish Section (ES form — /api/connect contract FROZEN) ─────────────────
+// ─── Spanish Section (compact — feeds the single bilingual Connect form) ──────
 function SpanishSection() {
-  const cards = [
-    { icon: Users, title: "Diseñado para tu equipo, no para Silicon Valley", desc: "Sabemos que tus crews hablan español. Construimos sistemas que pueden usar desde el primer día, sin capacitación complicada." },
-    { icon: MessageCircle, title: "La consulta es en español", desc: "Explicamos cada sistema en tu idioma. Sin tecnicismos, sin malentendidos, sin necesidad de traductores." },
-    { icon: Globe, title: "Forjado en un mercado exigente", desc: "Más de 25 años operando en el sur de Texas, donde las relaciones, el idioma y la confianza se ganan a pulso. Esa disciplina viaja con nosotros a cada cliente, en cualquier mercado." },
+  const proofs = [
+    "Sistemas que tu equipo puede usar desde el día uno, en español, en inglés, o en los dos.",
+    "La consulta, la capacitación y el soporte en tu idioma, si así lo prefieres.",
+    "Más de 25 años operando en el sur de Texas. Esa disciplina viaja con nosotros a cualquier mercado.",
   ];
-
-  const emptyForm = {
-    business: "",
-    type: "",
-    phone: "",
-    email: "",
-    priorityArea: "",
-    message: "",
-    source: "Spanish Form",
-  };
-
-  const [form, setForm] = useState(emptyForm);
-  const [mode, setMode] = useState<"full" | "simple">("full");
-  const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
-
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-    setError("");
-  }
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    const simple = mode === "simple";
-    if (simple) {
-      if (!form.business || !form.email || !form.message) {
-        setError("Por favor agrega tu nombre, correo y unas palabras sobre lo que necesitas.");
-        return;
-      }
-    } else if (
-      !form.business ||
-      !form.type ||
-      !form.priorityArea ||
-      !form.phone ||
-      !form.email
-    ) {
-      setError("Por favor completa todos los campos antes de enviar.");
-      return;
-    }
-
-    setSubmitting(true);
-    setError("");
-    setSuccess(false);
-
-    try {
-      const response = await fetch("/api/connect", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(
-          simple
-            ? {
-                business: form.business,
-                type: "",
-                phone: form.phone,
-                email: form.email,
-                priorityArea: "",
-                notes: form.message,
-                source: "Website · quick note (ES)",
-              }
-            : form
-        ),
-      });
-
-      if (!response.ok) {
-        const data = await response.json().catch(() => ({}));
-        throw new Error(data?.details || data?.error || "Request failed");
-      }
-
-      setSuccess(true);
-      setForm({ ...emptyForm });
-    } catch {
-      setError("Algo salió mal. Por favor intenta de nuevo.");
-    } finally {
-      setSubmitting(false);
-    }
-  }
 
   return (
     <section className="px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
-          <div className="mb-12">
+          <div className="mb-10">
             <Kicker>Sistemas en Español</Kicker>
             <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
               ¿Tu equipo trabaja en español? Tus sistemas también pueden.
             </h2>
-            <p className="mt-4 max-w-2xl text-[#8fa0b3]">
-              Los sistemas que construimos funcionan en español y en inglés desde el primer
-              día. La consulta, la capacitación y el soporte también, si así lo prefieres. No
-              necesitas un intérprete para modernizar tu negocio.
-            </p>
-            <p className="mt-3 max-w-2xl text-[#8fa0b3]">
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={100}>
+          <div className="divide-y rounded-xl border" style={{ borderColor: HAIRLINE }}>
+            {proofs.map((p) => (
+              <p key={p} className="px-6 py-4 text-sm leading-relaxed text-[#8fa0b3]" style={{ borderColor: HAIRLINE }}>
+                {p}
+              </p>
+            ))}
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={180}>
+          <div className="mt-8 flex flex-wrap items-center gap-5">
+            <a
+              href="#book"
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("rmops:lang", { detail: "es" }));
+                trackEvent("CTA_Click", { location: "spanish_section", cta: "Ops Scan ES" });
+              }}
+              className="rounded-full bg-[#7fd7e2] px-7 py-3.5 text-sm font-semibold text-[#0c131e] transition-opacity hover:opacity-90"
+            >
+              Solicita tu Ops Scan gratis
+            </a>
+            <p className="text-sm text-[#8fa0b3]">
               ¿Primero quieres auditar por tu cuenta?{" "}
               <a
                 href="/matrix?lang=es"
@@ -1034,221 +1069,7 @@ function SpanishSection() {
               >
                 Descarga gratis La Matrix de Impacto vs. Riesgo
               </a>
-              , la hoja de auditoría de una página.
             </p>
-          </div>
-        </FadeIn>
-
-        <div className="grid gap-px overflow-hidden rounded-xl border sm:grid-cols-3" style={{ borderColor: HAIRLINE, backgroundColor: HAIRLINE }}>
-          {cards.map((card, i) => (
-            <FadeIn key={card.title} delay={i * 60}>
-              <div className="h-full bg-[#141d2c] p-6">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg border" style={{ borderColor: "rgba(127,215,226,0.25)", backgroundColor: "rgba(127,215,226,0.08)" }}>
-                  <card.icon className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
-                </div>
-                <h3 className="mb-2 text-base font-semibold leading-tight text-[#e9edf4]">{card.title}</h3>
-                <p className="text-sm leading-relaxed text-[#8fa0b3]">{card.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-
-        <FadeIn delay={300}>
-          <div className="mx-auto mt-10 max-w-2xl rounded-xl border bg-[#141d2c] p-8" style={{ borderColor: HAIRLINE }}>
-            <p className="mono mb-6 text-center text-[0.66rem] uppercase tracking-[0.16em] text-[#7fd7e2]">
-              Solicita tu Ops Scan gratis. Cuéntanos de tu negocio.
-            </p>
-            {success ? (
-              <div className="flex flex-col items-center gap-4 py-8 text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border" style={{ borderColor: "rgba(127,215,226,0.3)", backgroundColor: "rgba(127,215,226,0.1)" }}>
-                  <CheckCircle className="h-7 w-7 text-[#7fd7e2]" />
-                </div>
-                <p className="text-lg font-semibold text-[#e9edf4]">Solicitud recibida.</p>
-                <p className="text-[#8fa0b3]">Te llamamos pronto.</p>
-                <button
-                  onClick={() => setSuccess(false)}
-                  className="mt-2 text-xs text-[#6f858c] underline hover:text-[#8fa0b3]"
-                >
-                  Enviar otra solicitud
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                <div className="flex flex-wrap gap-2" role="group" aria-label="Elige cómo contactarnos">
-                  <button
-                    type="button"
-                    aria-pressed={mode === "full"}
-                    onClick={() => { setMode("full"); setError(""); }}
-                    className={`rounded-full border px-4 py-2 text-xs font-semibold transition-colors ${
-                      mode === "full"
-                        ? "border-[#7fd7e2] bg-[rgba(127,215,226,0.1)] text-[#7fd7e2]"
-                        : "border-[rgba(233,237,244,0.15)] text-[#8fa0b3] hover:text-[#e9edf4]"
-                    }`}
-                  >
-                    Formulario guiado
-                  </button>
-                  <button
-                    type="button"
-                    aria-pressed={mode === "simple"}
-                    onClick={() => { setMode("simple"); setError(""); }}
-                    className={`rounded-full border px-4 py-2 text-xs font-semibold transition-colors ${
-                      mode === "simple"
-                        ? "border-[#7fd7e2] bg-[rgba(127,215,226,0.1)] text-[#7fd7e2]"
-                        : "border-[rgba(233,237,244,0.15)] text-[#8fa0b3] hover:text-[#e9edf4]"
-                    }`}
-                  >
-                    ¿No te gustan los formularios? Solo escríbenos
-                  </button>
-                </div>
-
-                <div>
-                  <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-business">
-                    {mode === "simple" ? "Tu nombre o negocio" : "Nombre del negocio"}{" "}
-                    <span className="text-[#7fd7e2]">*</span>
-                  </label>
-                  <input
-                    id="es-business"
-                    name="business"
-                    type="text"
-                    required
-                    placeholder={mode === "simple" ? "¿Con quién hablamos?" : "Ej. Construcciones Peña LLC"}
-                    value={form.business}
-                    onChange={handleChange}
-                    className={inputCls}
-                    style={inputStyle}
-                  />
-                </div>
-
-                {mode === "simple" && (
-                  <div>
-                    <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-message">
-                      ¿Cómo te podemos ayudar? <span className="text-[#7fd7e2]">*</span>
-                    </label>
-                    <textarea
-                      id="es-message"
-                      name="message"
-                      required
-                      rows={5}
-                      placeholder="Sin estructura. Cuéntanos qué está pasando en tu operación, con tus propias palabras. Leemos cada mensaje personalmente."
-                      value={form.message}
-                      onChange={handleChange}
-                      className={`${inputCls} resize-y`}
-                      style={inputStyle}
-                    />
-                  </div>
-                )}
-
-                {mode === "full" && (<>
-                <div>
-                  <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-type">
-                    Tipo de negocio <span className="text-[#7fd7e2]">*</span>
-                  </label>
-                  <select
-                    id="es-type"
-                    name="type"
-                    required
-                    value={form.type}
-                    onChange={handleChange}
-                    className={inputCls}
-                    style={inputStyle}
-                  >
-                    <option value="" disabled>Selecciona tu industria&hellip;</option>
-                    <option value="construction">Construcción / Oficios</option>
-                    <option value="logistics">Logística / Transporte</option>
-                    <option value="home-services">Servicios del Hogar</option>
-                    <option value="professional-services">Servicios Profesionales</option>
-                    <option value="healthcare">Salud / Médico</option>
-                    <option value="other">Otro</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-[#8fa0b3]">
-                    ¿Qué te gustaría mejorar? <span className="text-[#7fd7e2]">*</span>
-                  </label>
-                  <select
-                    name="priorityArea"
-                    required
-                    value={form.priorityArea}
-                    onChange={handleChange}
-                    className={inputCls}
-                    style={inputStyle}
-                  >
-                    <option value="" disabled>Selecciona el área con más fricción...</option>
-                    <option value="Organize receipts and expenses for better accounting">Organizar recibos y gastos para contabilidad</option>
-                    <option value="Improve project visibility and tracking">Mejorar la visibilidad y seguimiento de proyectos</option>
-                    <option value="Reduce manual data entry and paperwork">Reducir captura manual de datos y papeleo</option>
-                    <option value="Respond to leads faster and track inquiries">Responder a prospectos más rápido</option>
-                    <option value="Simplify scheduling and team coordination">Simplificar horarios y coordinación del equipo</option>
-                    <option value="Set up or improve IT infrastructure (WiFi, email, workspace tools)">Configurar o mejorar infraestructura de TI</option>
-                    <option value="Healthcare patient systems (intake, reviews, HIPAA messaging)">Sistemas para pacientes (formularios, reseñas, mensajería HIPAA)</option>
-                    <option value="Not sure yet — show me what's possible">No estoy seguro, muéstrame qué es posible</option>
-                  </select>
-                  <p className="text-xs text-[#6f858c]">
-                    ¿No sabes por dónde empezar? Para eso es exactamente la llamada.
-                  </p>
-                </div>
-                </>)}
-
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-phone">
-                      Teléfono{" "}
-                      {mode === "simple" ? (
-                        <span className="text-[#6f858c]">(opcional)</span>
-                      ) : (
-                        <span className="text-[#7fd7e2]">*</span>
-                      )}
-                    </label>
-                    <input
-                      id="es-phone"
-                      name="phone"
-                      type="tel"
-                      required={mode === "full"}
-                      placeholder="(555) 000-0000"
-                      value={form.phone}
-                      onChange={handleChange}
-                      className={inputCls}
-                      style={inputStyle}
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-email">
-                      Correo electrónico <span className="text-[#7fd7e2]">*</span>
-                    </label>
-                    <input
-                      id="es-email"
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="tu@negocio.com"
-                      value={form.email}
-                      onChange={handleChange}
-                      className={inputCls}
-                      style={inputStyle}
-                    />
-                  </div>
-                </div>
-
-                {error && (
-                  <p className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-2.5 text-sm text-red-400">
-                    {error}
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full rounded-full bg-[#7fd7e2] px-6 py-3.5 text-sm font-semibold text-[#0c131e] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  {submitting ? "Enviando…" : "Solicitar mi Ops Scan gratis"}
-                </button>
-                <p className="mt-3 text-center text-xs text-[#8fa0b3]">
-                  El Ops Scan es una revisión gratuita de 15 minutos de tu flujo de trabajo.
-                  Sin compromiso.
-                </p>
-              </form>
-            )}
           </div>
         </FadeIn>
       </div>
@@ -1296,11 +1117,9 @@ function FAQ() {
                     </svg>
                   </span>
                 </button>
-                {openIdx === i && (
-                  <div id={`faq-panel-${i}`} className="px-6 pb-5">
-                    <p className="text-sm leading-relaxed text-[#8fa0b3]">{faq.a}</p>
-                  </div>
-                )}
+                <div id={`faq-panel-${i}`} className="px-6 pb-5" hidden={openIdx !== i}>
+                  <p className="text-sm leading-relaxed text-[#8fa0b3]">{faq.a}</p>
+                </div>
               </div>
             </FadeIn>
           ))}
