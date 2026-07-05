@@ -1022,6 +1022,16 @@ function SpanishSection() {
               día. La consulta, la capacitación y el soporte también, si así lo prefieres. No
               necesitas un intérprete para modernizar tu negocio.
             </p>
+            <p className="mt-3 max-w-2xl text-[#8fa0b3]">
+              ¿Primero quieres auditar por tu cuenta?{" "}
+              <a
+                href="/matrix?lang=es"
+                className="border-b border-[#7fd7e2] pb-0.5 font-medium text-[#7fd7e2] transition-colors hover:text-[#e9edf4]"
+              >
+                Descarga gratis La Matrix de Impacto vs. Riesgo
+              </a>
+              , la hoja de auditoría de una página.
+            </p>
           </div>
         </FadeIn>
 

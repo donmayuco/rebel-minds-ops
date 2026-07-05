@@ -284,6 +284,10 @@ export default function MatrixClient() {
               <p className="mono mt-3 text-center text-[0.66rem] uppercase tracking-[0.16em] text-[#6f858c]">
                 {lang === "es" ? "Una página · carta · imprimible" : "One page · letter · printable"}
               </p>
+              <p className="mt-1.5 text-center text-xs text-[#6f858c]">
+                {lang === "es" ? "Por" : "By"} Mario Arredondo · M.A., Industrial &amp;
+                Organizational Psychology
+              </p>
             </div>
           </div>
         </section>
