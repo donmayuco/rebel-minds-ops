@@ -328,6 +328,12 @@ function Credentials() {
     },
     {
       color: "#7fd7e2",
+      label: "Applied \u2014 New York State",
+      title: "NY OPWDD Workforce-Retention Engagement \u2014 via the SUNY Albany I-O Lab",
+      desc: "When the New York State Office for People With Developmental Disabilities needed help with clinical workforce retention, the engagement ran through the SUNY Albany I-O Psychology lab Mario managed. Co-led with his PhD advisor, the work applied organizational psychology to direct-care staff turnover inside a state clinical system. Real stakes in a behavioral-health workforce: the same discipline we bring to private practices today.",
+    },
+    {
+      color: "#7fd7e2",
       label: "Undergraduate — Summa Cum Laude (expected)",
       title: "B.S. Biology, Biological Sciences Concentration — UTRGV",
       desc: "Pre-medical-track curriculum spanning anatomy, physiology, biochemistry, microbiology, and human systems. Graduating with the highest academic distinction — Summa Cum Laude requires the top GPA tier of the graduating class.\n\nThis is more than a credential. It’s the lens we bring to healthcare technology. We understand patient workflows because we studied the science behind them. We know HIPAA isn’t a checkbox because we know what’s encoded in the data it protects.",
