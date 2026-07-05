@@ -42,8 +42,8 @@ const jsonLd = {
     {
       "@type": "HowTo",
       "@id": `${siteUrl}/matrix#method`,
-      name: "How to audit a business process before automating it with AI",
-      alternateName: "The Impact vs. Risk Matrix (ES: La Matrix de Impacto vs. Riesgo)",
+      name: "The Impact vs. Risk Matrix — how to audit a business process before automating it with AI",
+      alternateName: "La Matrix de Impacto vs. Riesgo",
       description:
         "A four-step diagnostic that decides whether a process should be automated, run as a human-in-the-loop hybrid, or simplified — before any AI tool is bought or built. Rationale: most AI pilots fail because they start from the tool instead of the operation.",
       inLanguage: "en",
