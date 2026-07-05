@@ -108,7 +108,7 @@ function Hero() {
                 Get a Free Ops Scan
               </a>
               <span className="text-sm text-[#8fa0b3]">
-                A 15-minute workflow review. No contracts. No jargon.
+                15 minutes to see if we&rsquo;re a fit. No contracts. No jargon.
               </span>
             </div>
           </FadeIn>
@@ -713,8 +713,10 @@ function Connect() {
               Get your Free Ops Scan
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[#8fa0b3]">
-              Tell us about your business and we&rsquo;ll reach out to map your operational
-              workflow and show you what can be systemized today.
+              Tell us about your business and we&rsquo;ll set up a 15-minute fit check. If
+              we&rsquo;re a match, we analyze how your operation actually works and come
+              back within days with the proposed system, its cost, and the ROI plan
+              beside it.
             </p>
           </div>
         </FadeIn>
@@ -908,7 +910,9 @@ function Connect() {
                   {submitting ? "Sending…" : "Get My Free Ops Scan"}
                 </button>
                 <p className="mt-3 text-center text-xs text-[#8fa0b3]">
-                  The Ops Scan is a free 15-minute workflow review. No obligation.
+                  The Ops Scan is a free 15-minute fit check. If we&rsquo;re a match, you
+                  see the proposed system, its cost, and the ROI plan within days. No
+                  obligation.
                 </p>
               </form>
             )}
@@ -1259,7 +1263,7 @@ const FAQS = [
   { q: "Do my crews or staff need to install new apps?", a: "Usually no. We design around the tools your team already uses daily: WhatsApp, email, mobile cameras. Zero learning curve. That's how we prevent adoption friction." },
   { q: "How fast can we go live with a new system?", a: "IT services like workspace setup or network fixes can be done in days. Automation modules like expense tracking or patient review systems take 2 to 3 weeks. Complex multi-system architectures take a month or more, broken into launch phases." },
   { q: "Do you offer ongoing support or just setup?", a: "Both. We offer one-time project work (network setup, workspace migration, automation builds) and monthly managed support (IT help desk, system monitoring, automation maintenance). Most clients start with a project and then move to a monthly plan." },
-  { q: "What does pricing depend on?", a: "For one-time projects: scope and complexity. For monthly support: number of users and services included. We estimate everything during a free 15-minute Ops Scan. No surprises." },
+  { q: "What does a system cost?", a: "Every operation is different, so we don't publish one-size prices. The process protects you instead. The free 15-minute Ops Scan is a fit check: we see whether your operation is one we can genuinely improve. If it is, we analyze how you actually work, and within a couple of days you see the proposed system, its cost, and the ROI plan beside it, before you commit to anything. A good portion of our systems in production pay for themselves." },
 ];
 
 function FAQ() {
