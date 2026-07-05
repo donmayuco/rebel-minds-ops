@@ -10,7 +10,12 @@ import { useEffect, useRef, useState } from "react";
  * reference architecture drawn to explain the shape of a compliant build, not a fixed
  * stack. Animation is scroll-gated; reduced-motion (globals.css) freezes wires drawn
  * and hides packets/blooms for a complete static diagram.
+ *
+ * Color grammar: cyan is the message in motion (same as the homepage wiring diagram);
+ * violet is the compliance layer. Everything inside the BAA boundary blooms violet.
  */
+const VIOLET = "#b49df2";
+
 export default function ComplianceDiagram() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -45,7 +50,8 @@ export default function ComplianceDiagram() {
         </h2>
         <p className="mt-3 max-w-[58ch] text-[0.95rem] leading-relaxed text-[#8fa0b3]">
           Same schematic language, different argument: the dashed line is the BAA-covered
-          boundary. Watch the patient&rsquo;s message get encrypted at the door; nothing
+          boundary. Watch the patient&rsquo;s message get encrypted at the door; every
+          system that lights up violet is operating under a signed BAA, and nothing
           carrying PHI ever crosses back out.
         </p>
       </div>
@@ -59,8 +65,8 @@ export default function ComplianceDiagram() {
           aria-label="HIPAA compliance schematic: a patient message travels through Twilio, Aptible and an AI summary layer to the front desk view, all inside a BAA-covered boundary, so PHI never crosses back out."
         >
           {/* BAA boundary */}
-          <rect x="258" y="28" width="822" height="372" rx="10" fill="none" stroke="rgba(127,215,226,0.35)" strokeWidth="1.2" strokeDasharray="7 6" />
-          <text x="282" y="54" fill="#7fd7e2" fontSize="10" letterSpacing="0.14em" opacity="0.85">BAA-COVERED BOUNDARY · PHI STAYS INSIDE</text>
+          <rect x="258" y="28" width="822" height="372" rx="10" fill="none" stroke="rgba(180,157,242,0.35)" strokeWidth="1.2" strokeDasharray="7 6" />
+          <text x="282" y="54" fill={VIOLET} fontSize="10" letterSpacing="0.14em" opacity="0.85">BAA-COVERED BOUNDARY · PHI STAYS INSIDE</text>
 
           {/* wires */}
           <g stroke="#7fd7e2" strokeWidth="1.2" fill="none" opacity="0.55">
@@ -87,27 +93,29 @@ export default function ComplianceDiagram() {
           {/* lock at the boundary crossing */}
           <g className="nodeglow" opacity="0">
             {visible && <animate id="hlk" attributeName="opacity" begin="hk1.begin+0.35s" dur="0.8s" values="0;1;0" keyTimes="0;0.3;1" />}
-            <rect x="251" y="212" width="14" height="11" rx="2" fill="#0c131e" stroke="#7fd7e2" strokeWidth="1.4" />
-            <path d="M 254 212 v-3 a4 4 0 0 1 8 0 v3" fill="none" stroke="#7fd7e2" strokeWidth="1.4" />
+            <rect x="251" y="212" width="14" height="11" rx="2" fill="#0c131e" stroke={VIOLET} strokeWidth="1.4" />
+            <path d="M 254 212 v-3 a4 4 0 0 1 8 0 v3" fill="none" stroke={VIOLET} strokeWidth="1.4" />
           </g>
 
-          {/* Patient (outside the line) */}
+          {/* Patient (outside the line — regular cyan, like the homepage diagram) */}
           <g>
             <rect className="nodeglow" x="40" y="190" width="150" height="54" rx="6" fill="none" stroke="#7fd7e2" strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
               {visible && <animate attributeName="opacity" begin="hk1.begin" dur="0.8s" values="0;0.75;0" keyTimes="0;0.3;1" />}
             </rect>
-            <rect x="40" y="190" width="150" height="54" rx="6" fill="#141d2c" stroke="rgba(233,237,244,0.18)" />
+            <rect x="40" y="190" width="150" height="54" rx="6" fill="#141d2c" stroke="rgba(233,237,244,0.18)">
+              {visible && <animate attributeName="stroke" begin="hk1.begin" dur="0.8s" values="rgba(233,237,244,0.18);#7fd7e2;rgba(233,237,244,0.18)" keyTimes="0;0.3;1" />}
+            </rect>
             <circle cx="60" cy="210" r="3.5" fill="#8fa0b3" />
             <text x="74" y="215" fill="#e9edf4" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Patient</text>
             <text x="60" y="233" fill="#8fa0b3" fontSize="9">TEXTS THE PRACTICE</text>
           </g>
           {/* Twilio */}
           <g>
-            <rect className="nodeglow" x="300" y="190" width="170" height="54" rx="6" fill="none" stroke="#7fd7e2" strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
+            <rect className="nodeglow" x="300" y="190" width="170" height="54" rx="6" fill="none" stroke={VIOLET} strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
               {visible && <animate attributeName="opacity" begin="hk1.end" dur="0.8s" values="0;0.8;0" keyTimes="0;0.3;1" />}
             </rect>
             <rect x="300" y="190" width="170" height="54" rx="6" fill="#141d2c" stroke="rgba(233,237,244,0.18)">
-              {visible && <animate attributeName="stroke" begin="hk1.end" dur="0.8s" values="rgba(233,237,244,0.18);#7fd7e2;rgba(233,237,244,0.18)" keyTimes="0;0.3;1" />}
+              {visible && <animate attributeName="stroke" begin="hk1.end" dur="0.8s" values={`rgba(233,237,244,0.18);${VIOLET};rgba(233,237,244,0.18)`} keyTimes="0;0.3;1" />}
             </rect>
             <circle cx="320" cy="210" r="3.5" fill="#F22F46" />
             <text x="334" y="215" fill="#e9edf4" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Twilio</text>
@@ -115,23 +123,23 @@ export default function ComplianceDiagram() {
           </g>
           {/* Aptible */}
           <g>
-            <rect className="nodeglow" x="560" y="190" width="170" height="54" rx="6" fill="none" stroke="#7fd7e2" strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
+            <rect className="nodeglow" x="560" y="190" width="170" height="54" rx="6" fill="none" stroke={VIOLET} strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
               {visible && <animate attributeName="opacity" begin="hk2.end" dur="0.8s" values="0;0.8;0" keyTimes="0;0.3;1" />}
             </rect>
-            <rect x="560" y="190" width="170" height="54" rx="6" fill="#141d2c" stroke="rgba(127,215,226,0.45)">
-              {visible && <animate attributeName="stroke" begin="hk2.end" dur="0.8s" values="rgba(127,215,226,0.45);#7fd7e2;rgba(127,215,226,0.45)" keyTimes="0;0.3;1" />}
+            <rect x="560" y="190" width="170" height="54" rx="6" fill="#141d2c" stroke="rgba(180,157,242,0.45)">
+              {visible && <animate attributeName="stroke" begin="hk2.end" dur="0.8s" values={`rgba(180,157,242,0.45);${VIOLET};rgba(180,157,242,0.45)`} keyTimes="0;0.3;1" />}
             </rect>
-            <circle cx="580" cy="210" r="3.5" fill="#7fd7e2" />
+            <circle cx="580" cy="210" r="3.5" fill={VIOLET} />
             <text x="594" y="215" fill="#e9edf4" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Aptible</text>
             <text x="580" y="233" fill="#8fa0b3" fontSize="9">HOSTING · AES-256 AT REST · AUDIT LOGS</text>
           </g>
           {/* Amazon Bedrock */}
           <g>
-            <rect className="nodeglow" x="820" y="80" width="180" height="54" rx="6" fill="none" stroke="#7fd7e2" strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
+            <rect className="nodeglow" x="820" y="80" width="180" height="54" rx="6" fill="none" stroke={VIOLET} strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
               {visible && <animate attributeName="opacity" begin="hk3.end" dur="0.8s" values="0;0.8;0" keyTimes="0;0.3;1" />}
             </rect>
             <rect x="820" y="80" width="180" height="54" rx="6" fill="#141d2c" stroke="rgba(233,237,244,0.18)">
-              {visible && <animate attributeName="stroke" begin="hk3.end" dur="0.8s" values="rgba(233,237,244,0.18);#7fd7e2;rgba(233,237,244,0.18)" keyTimes="0;0.3;1" />}
+              {visible && <animate attributeName="stroke" begin="hk3.end" dur="0.8s" values={`rgba(233,237,244,0.18);${VIOLET};rgba(233,237,244,0.18)`} keyTimes="0;0.3;1" />}
             </rect>
             <circle cx="840" cy="100" r="3.5" fill="#FF9900" />
             <text x="854" y="105" fill="#e9edf4" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Amazon Bedrock</text>
@@ -139,11 +147,11 @@ export default function ComplianceDiagram() {
           </g>
           {/* Front Desk View */}
           <g>
-            <rect className="nodeglow" x="820" y="280" width="180" height="54" rx="6" fill="none" stroke="#7fd7e2" strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
+            <rect className="nodeglow" x="820" y="280" width="180" height="54" rx="6" fill="none" stroke={VIOLET} strokeWidth="2.5" filter="url(#bloom2)" opacity="0">
               {visible && <animate attributeName="opacity" begin="hk4.end" dur="1s" values="0;0.9;0" keyTimes="0;0.3;1" />}
             </rect>
             <rect x="820" y="280" width="180" height="54" rx="6" fill="#141d2c" stroke="rgba(233,237,244,0.18)">
-              {visible && <animate attributeName="stroke" begin="hk4.end" dur="1s" values="rgba(233,237,244,0.18);#7fd7e2;rgba(233,237,244,0.18)" keyTimes="0;0.3;1" />}
+              {visible && <animate attributeName="stroke" begin="hk4.end" dur="1s" values={`rgba(233,237,244,0.18);${VIOLET};rgba(233,237,244,0.18)`} keyTimes="0;0.3;1" />}
             </rect>
             <circle cx="840" cy="300" r="3.5" fill="#0F9D58" />
             <text x="854" y="305" fill="#e9edf4" fontSize="13.5" fontWeight="600" fontFamily="var(--font-inter), sans-serif">Front Desk View</text>
@@ -153,7 +161,7 @@ export default function ComplianceDiagram() {
           {/* closing annotation */}
           <g opacity="0.5">
             {visible && <animate id="hout" attributeName="opacity" begin="hk4.end+0.15s" dur="1.8s" values="0.5;1;1;0.7" keyTimes="0;0.15;0.8;1" />}
-            <text x="560" y="376" fill="#7fd7e2" fontSize="11" letterSpacing="0.1em">PHI NEVER CROSSED BACK OUT</text>
+            <text x="560" y="376" fill={VIOLET} fontSize="11" letterSpacing="0.1em">PHI NEVER CROSSED BACK OUT</text>
             <text x="560" y="392" fill="#8fa0b3" fontSize="9" letterSpacing="0.08em">EVERY VENDOR INSIDE THE LINE SIGNS A BAA</text>
           </g>
 
