@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.rebelmindsops.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/healthcare", "/cybersecurity", "/our-science", "/privacy"];
+  const routes = ["", "/healthcare", "/cybersecurity", "/our-science", "/matrix", "/privacy"];
 
   const priorityMap: Record<string, number> = {
     "": 1,
