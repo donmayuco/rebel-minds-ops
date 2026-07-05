@@ -628,15 +628,17 @@ function Connect() {
     phone: "",
     email: "",
     priorityArea: "",
+    message: "",
   };
 
   const [form, setForm] = useState(emptyForm);
+  const [mode, setMode] = useState<"full" | "simple">("full");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -646,7 +648,13 @@ function Connect() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (
+    const simple = mode === "simple";
+    if (simple) {
+      if (!form.business || !form.email || !form.message) {
+        setError("Please add your name, email, and a few words about what you need.");
+        return;
+      }
+    } else if (
       !form.business ||
       !form.type ||
       !form.priorityArea ||
@@ -665,7 +673,19 @@ function Connect() {
       const response = await fetch("/api/connect", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(
+          simple
+            ? {
+                business: form.business,
+                type: "",
+                phone: form.phone,
+                email: form.email,
+                priorityArea: "",
+                notes: form.message,
+                source: "Website · quick note",
+              }
+            : form
+        ),
       });
 
       if (!response.ok) {
@@ -717,16 +737,44 @@ function Connect() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                <div className="flex flex-wrap gap-2" role="group" aria-label="Choose how to reach out">
+                  <button
+                    type="button"
+                    aria-pressed={mode === "full"}
+                    onClick={() => { setMode("full"); setError(""); }}
+                    className={`rounded-full border px-4 py-2 text-xs font-semibold transition-colors ${
+                      mode === "full"
+                        ? "border-[#7fd7e2] bg-[rgba(127,215,226,0.1)] text-[#7fd7e2]"
+                        : "border-[rgba(233,237,244,0.15)] text-[#8fa0b3] hover:text-[#e9edf4]"
+                    }`}
+                  >
+                    Guided form
+                  </button>
+                  <button
+                    type="button"
+                    aria-pressed={mode === "simple"}
+                    onClick={() => { setMode("simple"); setError(""); }}
+                    className={`rounded-full border px-4 py-2 text-xs font-semibold transition-colors ${
+                      mode === "simple"
+                        ? "border-[#7fd7e2] bg-[rgba(127,215,226,0.1)] text-[#7fd7e2]"
+                        : "border-[rgba(233,237,244,0.15)] text-[#8fa0b3] hover:text-[#e9edf4]"
+                    }`}
+                  >
+                    Don&rsquo;t like forms? Just write to us
+                  </button>
+                </div>
+
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-business">
-                    Business Name <span className="text-[#7fd7e2]">*</span>
+                    {mode === "simple" ? "Your name or business" : "Business Name"}{" "}
+                    <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <input
                     id="connect-business"
                     name="business"
                     type="text"
                     required
-                    placeholder="e.g. Acme Construction LLC"
+                    placeholder={mode === "simple" ? "Who are we talking to?" : "e.g. Acme Construction LLC"}
                     value={form.business}
                     onChange={handleChange}
                     className={inputCls}
@@ -734,6 +782,26 @@ function Connect() {
                   />
                 </div>
 
+                {mode === "simple" && (
+                  <div>
+                    <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-message">
+                      How can we help? <span className="text-[#7fd7e2]">*</span>
+                    </label>
+                    <textarea
+                      id="connect-message"
+                      name="message"
+                      required
+                      rows={5}
+                      placeholder="No structure needed. Tell us what's going on in your operation, in whatever words come naturally. We read every message personally."
+                      value={form.message}
+                      onChange={handleChange}
+                      className={`${inputCls} resize-y`}
+                      style={inputStyle}
+                    />
+                  </div>
+                )}
+
+                {mode === "full" && (<>
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-type">
                     Type of Business <span className="text-[#7fd7e2]">*</span>
@@ -783,17 +851,23 @@ function Connect() {
                     Not sure where to start? That&rsquo;s exactly what the call is for.
                   </p>
                 </div>
+                </>)}
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="connect-phone">
-                      Phone Number <span className="text-[#7fd7e2]">*</span>
+                      Phone Number{" "}
+                      {mode === "simple" ? (
+                        <span className="text-[#6f858c]">(optional)</span>
+                      ) : (
+                        <span className="text-[#7fd7e2]">*</span>
+                      )}
                     </label>
                     <input
                       id="connect-phone"
                       name="phone"
                       type="tel"
-                      required
+                      required={mode === "full"}
                       placeholder="(555) 000-0000"
                       value={form.phone}
                       onChange={handleChange}
@@ -859,16 +933,18 @@ function SpanishSection() {
     phone: "",
     email: "",
     priorityArea: "",
+    message: "",
     source: "Spanish Form",
   };
 
   const [form, setForm] = useState(emptyForm);
+  const [mode, setMode] = useState<"full" | "simple">("full");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -878,7 +954,13 @@ function SpanishSection() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (
+    const simple = mode === "simple";
+    if (simple) {
+      if (!form.business || !form.email || !form.message) {
+        setError("Por favor agrega tu nombre, correo y unas palabras sobre lo que necesitas.");
+        return;
+      }
+    } else if (
       !form.business ||
       !form.type ||
       !form.priorityArea ||
@@ -897,7 +979,19 @@ function SpanishSection() {
       const response = await fetch("/api/connect", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(
+          simple
+            ? {
+                business: form.business,
+                type: "",
+                phone: form.phone,
+                email: form.email,
+                priorityArea: "",
+                notes: form.message,
+                source: "Website · quick note (ES)",
+              }
+            : form
+        ),
       });
 
       if (!response.ok) {
@@ -966,16 +1060,44 @@ function SpanishSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                <div className="flex flex-wrap gap-2" role="group" aria-label="Elige cómo contactarnos">
+                  <button
+                    type="button"
+                    aria-pressed={mode === "full"}
+                    onClick={() => { setMode("full"); setError(""); }}
+                    className={`rounded-full border px-4 py-2 text-xs font-semibold transition-colors ${
+                      mode === "full"
+                        ? "border-[#7fd7e2] bg-[rgba(127,215,226,0.1)] text-[#7fd7e2]"
+                        : "border-[rgba(233,237,244,0.15)] text-[#8fa0b3] hover:text-[#e9edf4]"
+                    }`}
+                  >
+                    Formulario guiado
+                  </button>
+                  <button
+                    type="button"
+                    aria-pressed={mode === "simple"}
+                    onClick={() => { setMode("simple"); setError(""); }}
+                    className={`rounded-full border px-4 py-2 text-xs font-semibold transition-colors ${
+                      mode === "simple"
+                        ? "border-[#7fd7e2] bg-[rgba(127,215,226,0.1)] text-[#7fd7e2]"
+                        : "border-[rgba(233,237,244,0.15)] text-[#8fa0b3] hover:text-[#e9edf4]"
+                    }`}
+                  >
+                    ¿No te gustan los formularios? Solo escríbenos
+                  </button>
+                </div>
+
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-business">
-                    Nombre del negocio <span className="text-[#7fd7e2]">*</span>
+                    {mode === "simple" ? "Tu nombre o negocio" : "Nombre del negocio"}{" "}
+                    <span className="text-[#7fd7e2]">*</span>
                   </label>
                   <input
                     id="es-business"
                     name="business"
                     type="text"
                     required
-                    placeholder="Ej. Construcciones Peña LLC"
+                    placeholder={mode === "simple" ? "¿Con quién hablamos?" : "Ej. Construcciones Peña LLC"}
                     value={form.business}
                     onChange={handleChange}
                     className={inputCls}
@@ -983,6 +1105,26 @@ function SpanishSection() {
                   />
                 </div>
 
+                {mode === "simple" && (
+                  <div>
+                    <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-message">
+                      ¿Cómo te podemos ayudar? <span className="text-[#7fd7e2]">*</span>
+                    </label>
+                    <textarea
+                      id="es-message"
+                      name="message"
+                      required
+                      rows={5}
+                      placeholder="Sin estructura. Cuéntanos qué está pasando en tu operación, con tus propias palabras. Leemos cada mensaje personalmente."
+                      value={form.message}
+                      onChange={handleChange}
+                      className={`${inputCls} resize-y`}
+                      style={inputStyle}
+                    />
+                  </div>
+                )}
+
+                {mode === "full" && (<>
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-type">
                     Tipo de negocio <span className="text-[#7fd7e2]">*</span>
@@ -1032,17 +1174,23 @@ function SpanishSection() {
                     ¿No sabes por dónde empezar? Para eso es exactamente la llamada.
                   </p>
                 </div>
+                </>)}
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-[#8fa0b3]" htmlFor="es-phone">
-                      Teléfono <span className="text-[#7fd7e2]">*</span>
+                      Teléfono{" "}
+                      {mode === "simple" ? (
+                        <span className="text-[#6f858c]">(opcional)</span>
+                      ) : (
+                        <span className="text-[#7fd7e2]">*</span>
+                      )}
                     </label>
                     <input
                       id="es-phone"
                       name="phone"
                       type="tel"
-                      required
+                      required={mode === "full"}
                       placeholder="(555) 000-0000"
                       value={form.phone}
                       onChange={handleChange}
