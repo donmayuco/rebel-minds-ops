@@ -108,6 +108,7 @@ const jsonLd = {
       worksFor: { "@id": `${siteUrl}/#organization` },
       sameAs: [
         "https://orcid.org/0000-0002-2340-9250",
+        "https://scholar.google.com/citations?user=zgzsfsAAAAAJ",
         "https://www.linkedin.com/in/mario-arredondo-romo/",
         "https://www.youtube.com/@rebelmindsai",
         "https://www.youtube.com/@mentesrebeldesia",
