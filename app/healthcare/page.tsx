@@ -441,9 +441,9 @@ function Background() {
   const blocks = [
     {
       color: "#7fd7e2",
-      label: "Undergraduate — Summa Cum Laude (expected)",
+      label: "Undergraduate — In Progress",
       title: "B.S. Biology, Biological Sciences Concentration — UTRGV",
-      desc: "Pre-medical-track curriculum spanning anatomy, physiology, biochemistry, microbiology, and human systems. Graduating with the highest academic distinction. The clinical workflows we automate are workflows we studied the science behind.",
+      desc: "Pre-medical-track curriculum spanning anatomy, physiology, biochemistry, microbiology, and human systems, in progress in the top GPA tier. The clinical workflows we automate are workflows we studied the science behind.",
     },
     {
       color: "#8fa0b3",
@@ -467,7 +467,7 @@ function Background() {
       color: "#7fd7e2",
       label: "Peer-Reviewed Publications",
       title: "Cognitive Psychology & I-O Psychology research",
-      desc: "Published research in cognitive psychology and Industrial-Organizational Psychology — the sciences of how individuals process information and how teams behave inside organizations. The methodological discipline academic journals demand is the same discipline we bring to healthcare automation: hypothesis-driven design, evidence-based methods, measurable outcomes. Healthcare deserves nothing less.",
+      desc: "Published research in cognitive psychology and Industrial-Organizational Psychology. Peer review is a discipline: hypothesis-driven design, evidence-based methods, measurable outcomes. We hold our healthcare automation to the same standard.",
     },
   ];
 
@@ -533,8 +533,22 @@ function Background() {
         <FadeIn delay={400}>
           <p className="mx-auto mt-12 max-w-2xl text-center text-sm italic text-[#7d90a1]">
             Most AI consultants pitching healthcare have none of this. They learn
-            HIPAA from blog posts. We learned the underlying science — clinical,
-            behavioral, regulatory — over a decade.
+            HIPAA from blog posts. We learned the underlying science (clinical,
+            behavioral, regulatory) over a decade.
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={440}>
+          <p className="mt-4 text-center text-sm text-[#8fa0b3]">
+            The full research background, including the New York State
+            clinical-skills engagement across 1,000+ providers, lives on{" "}
+            <a
+              href="/our-science"
+              className="text-[#7fd7e2] underline-offset-2 hover:underline"
+            >
+              our science page
+            </a>
+            .
           </p>
         </FadeIn>
       </div>
