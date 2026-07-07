@@ -1,0 +1,21 @@
+# Rebel Minds OPS
+
+> Operational AI systems consultancy founded by Mario L. Arredondo (M.A., Industrial & Organizational Psychology). We diagnose before we build: every engagement starts with the Impact vs. Risk Matrix, then an operations analysis, then a system proposal with its cost and ROI plan side by side. Bilingual (English and Spanish). Serving Texas metros, Arizona, California, and nationally. HIPAA-compliant systems for healthcare are a core specialty.
+
+Method one-liner: diagnosis before tools. A good portion of our systems in production pay for themselves.
+
+## Core pages
+
+- [Home](https://www.rebelmindsops.com): what we build and how engagements work, from fit check to production system.
+- [The Impact vs. Risk Matrix](https://www.rebelmindsops.com/matrix): the free diagnostic worksheet (English and Spanish PDF). Map the operation, score impact against risk, decide what to automate, simplify, or leave alone.
+- [Healthcare](https://www.rebelmindsops.com/healthcare): HIPAA-compliant automation for clinics and practices. Compliance as a system, not a feature.
+- [Cybersecurity](https://www.rebelmindsops.com/cybersecurity): how we handle security across every system we ship.
+- [Our science](https://www.rebelmindsops.com/our-science): the research credentials behind the method, including the founder's published work and the Human Layer Framework.
+
+## Related
+
+- [Rebel Minds AI](https://rebelminds.ai): the founder's authority hub: the Human Layer Framework, methodology, and The Four Exposures of AI Adoption taxonomy.
+
+## Contact
+
+Start with the free Ops Scan (a 15-minute fit check) via the site's Connect form.
