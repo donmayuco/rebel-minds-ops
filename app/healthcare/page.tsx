@@ -160,6 +160,16 @@ function PainLandscape() {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={280}>
+          <p className="mt-8 text-center text-sm text-[#8fa0b3]">
+            Not sure the problem is technology at all? Start with{" "}
+            <a href="/practice" className="text-[#7fd7e2] underline-offset-2 hover:underline">
+              the Practice Experience Audit
+            </a>{" "}
+            — it finds where the practice leaks patients, with or without automation.
+          </p>
+        </FadeIn>
       </div>
     </section>
   );
