@@ -54,51 +54,122 @@ function SectionDivider() {
 
 // ─── 1. Hero ─────────────────────────────────────────────────────────────────
 
+const JOURNEY_STAGES = [
+  { label: "FIND", x: 60, leak: false },
+  { label: "BOOK", x: 240, leak: true },
+  { label: "ARRIVE", x: 420, leak: false },
+  { label: "WAIT", x: 600, leak: true },
+  { label: "VISIT", x: 780, leak: false },
+  { label: "PAY", x: 960, leak: false },
+  { label: "FOLLOW-UP", x: 1140, leak: true },
+];
+
+function JourneySchematic() {
+  return (
+    <div className="mt-12 sm:mt-16" aria-hidden="true">
+      <svg
+        viewBox="0 0 1200 150"
+        className="w-full"
+        fill="none"
+        role="img"
+      >
+        {/* baseline */}
+        <line
+          x1="20" y1="60" x2="1180" y2="60"
+          stroke="rgba(233,237,244,0.16)" strokeWidth="1"
+        />
+        {/* arrowhead */}
+        <path d="M1180 60 l-9 -4.5 v9 z" fill="rgba(233,237,244,0.25)" />
+
+        {JOURNEY_STAGES.map((s) => (
+          <g key={s.label}>
+            <circle
+              cx={s.x} cy="60" r="4"
+              stroke="rgba(127,215,226,0.7)" strokeWidth="1.25"
+              fill="#0c131e"
+            />
+            <text
+              x={s.x} y="36" textAnchor="middle"
+              fontFamily="IBM Plex Mono, monospace" fontSize="12"
+              letterSpacing="0.18em" fill="#7d90a1"
+            >
+              {s.label}
+            </text>
+            {s.leak && (
+              <g>
+                <line
+                  x1={s.x} y1="66" x2={s.x} y2="108"
+                  stroke="rgba(127,215,226,0.4)" strokeWidth="1"
+                  strokeDasharray="2 5"
+                />
+                <circle cx={s.x} cy="116" r="1.75" fill="rgba(127,215,226,0.45)" />
+              </g>
+            )}
+          </g>
+        ))}
+
+        <text
+          x="600" y="145" textAnchor="middle"
+          fontFamily="IBM Plex Mono, monospace" fontSize="11"
+          letterSpacing="0.2em" fill="#5f6e85"
+        >
+          THE PATIENT JOURNEY &middot; EVERY STAGE CAN LEAK
+        </text>
+      </svg>
+    </div>
+  );
+}
+
 function Hero() {
   return (
-    <section
-      className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6"
-      style={{ backgroundColor: "#0a101a" }}
-    >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(127,215,226,0.03)] to-transparent" />
-      <div className="relative mx-auto max-w-4xl text-center">
+    <section className="pt-16 sm:pt-20" style={{ backgroundColor: "#0a101a" }}>
+      <div className="mx-auto max-w-6xl px-4 pb-14 sm:px-6 sm:pb-16">
         <FadeIn>
-          <span className="mb-6 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
+          <span className="mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
             Practice Operations &middot; The Practice Experience Audit
           </span>
         </FadeIn>
 
-        <FadeIn delay={100}>
-          <h1 className="mb-6 serif text-4xl font-medium leading-[1.05] text-[#e9edf4] sm:text-5xl lg:text-6xl">
-            The medicine was never the problem.
+        <FadeIn delay={80}>
+          <h1 className="serif mt-5 max-w-[15ch] text-[clamp(3rem,9vw,5.9rem)] font-medium leading-[0.99] tracking-[-0.02em] text-[#e9edf4]">
+            The medicine was never{" "}
+            <em className="italic text-[#7fd7e2]">the&nbsp;problem.</em>
           </h1>
         </FadeIn>
 
-        <FadeIn delay={200}>
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-[#8fa0b3]">
-            Practices rarely decline because of what happens in the exam room.
-            They decline because of everything around it: the phone that rings
-            out, the follow-up that never comes, the front desk running on
-            fumes. All of it is measurable. Most of it is fixable.
-          </p>
-        </FadeIn>
+        <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <FadeIn delay={160}>
+            <p className="max-w-[46ch] text-[1.05rem] leading-relaxed text-[#8fa0b3]">
+              Practices rarely decline because of what happens in the exam
+              room. They decline because of everything around it: the phone
+              that rings out, the follow-up that never comes, the front desk
+              running on fumes.{" "}
+              <span className="font-medium text-[#e9edf4]">
+                All of it is measurable. Most of it is fixable.
+              </span>
+            </p>
+          </FadeIn>
+          <FadeIn delay={240}>
+            <div className="flex flex-col items-start gap-3">
+              <a
+                href="/?offer=practice#book"
+                className="inline-flex items-center gap-2 rounded-full bg-[#7fd7e2] px-7 py-3.5 text-[0.95rem] font-semibold text-[#0c131e] transition-opacity hover:opacity-90"
+              >
+                Request a walkthrough
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#four-doors"
+                className="text-sm text-[#8fa0b3] underline-offset-4 transition-colors hover:text-[#e9edf4] hover:underline"
+              >
+                Or see how the audit works first
+              </a>
+            </div>
+          </FadeIn>
+        </div>
 
-        <FadeIn delay={300}>
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="/?offer=practice#book"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-colors hover:bg-[#5cc3ce]"
-            >
-              Request a walkthrough
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#four-doors"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e9edf4] transition-colors hover:border-white/40 hover:bg-white/5"
-            >
-              See how the audit works
-            </a>
-          </div>
+        <FadeIn delay={320}>
+          <JourneySchematic />
         </FadeIn>
       </div>
     </section>
