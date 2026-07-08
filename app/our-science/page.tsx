@@ -53,6 +53,68 @@ function SectionDivider() {
 
 // ─── 3.1 Hero ────────────────────────────────────────────────────────────────
 
+const LOOP_STAGES = [
+  { label: "RESEARCH", x: 150 },
+  { label: "THEORY", x: 450 },
+  { label: "METHOD", x: 750 },
+  { label: "SYSTEMS", x: 1050 },
+];
+
+function LabToFieldLoop() {
+  return (
+    <div className="mt-12 sm:mt-16" aria-hidden="true">
+      <svg viewBox="0 0 1200 175" className="w-full" fill="none" role="img">
+        {/* forward line */}
+        <line
+          x1="60" y1="55" x2="1140" y2="55"
+          stroke="rgba(233,237,244,0.16)" strokeWidth="1"
+        />
+        <path d="M1140 55 l-9 -4.5 v9 z" fill="rgba(233,237,244,0.25)" />
+
+        {LOOP_STAGES.map((s) => (
+          <g key={s.label}>
+            <circle
+              cx={s.x} cy="55" r="4"
+              stroke="rgba(127,215,226,0.7)" strokeWidth="1.25"
+              fill="#0c131e"
+            />
+            <text
+              x={s.x} y="31" textAnchor="middle"
+              fontFamily="IBM Plex Mono, monospace" fontSize="12"
+              letterSpacing="0.18em" fill="#7d90a1"
+            >
+              {s.label}
+            </text>
+          </g>
+        ))}
+
+        {/* return arc: field evidence flows back */}
+        <path
+          d="M1050 66 C 1050 122, 150 122, 150 66"
+          stroke="rgba(127,215,226,0.35)" strokeWidth="1"
+          strokeDasharray="2 5"
+        />
+        <path d="M150 66 l-4 8.5 l8 0 z" fill="rgba(127,215,226,0.4)" />
+        <text
+          x="600" y="132" textAnchor="middle"
+          fontFamily="IBM Plex Mono, monospace" fontSize="11"
+          letterSpacing="0.2em" fill="#5f6e85"
+        >
+          FIELD EVIDENCE RETURNS
+        </text>
+
+        <text
+          x="600" y="168" textAnchor="middle"
+          fontFamily="IBM Plex Mono, monospace" fontSize="11"
+          letterSpacing="0.2em" fill="#5f6e85"
+        >
+          FROM PEER REVIEW TO PRODUCTION &middot; AND BACK
+        </text>
+      </svg>
+    </div>
+  );
+}
+
 function ScienceHero() {
   const credentials = [
     "Summa Cum Laude, B.S. Psychology · UTRGV",
@@ -61,42 +123,52 @@ function ScienceHero() {
   ];
 
   return (
-    <section className="relative flex min-h-[calc(100dvh-96px)] items-center px-4 py-16 sm:px-6" style={{ backgroundColor: "#0a101a" }}>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(127,215,226,0.02)] to-transparent" />
-      <div className="relative mx-auto max-w-4xl text-center">
+    <section className="pt-16 sm:pt-20" style={{ backgroundColor: "#0a101a" }}>
+      <div className="mx-auto max-w-6xl px-4 pb-14 sm:px-6 sm:pb-16">
         <FadeIn>
-          <span className="mb-6 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
+          <span className="mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
             Our Science
           </span>
         </FadeIn>
 
-        <FadeIn delay={100}>
-          <h1 className="mb-6 serif text-4xl font-medium leading-tight text-[#e9edf4] sm:text-5xl lg:text-6xl">
-            Most consultants sell tools.<br />
-            We understand why people use them wrong.
+        <FadeIn delay={80}>
+          <h1 className="serif mt-5 max-w-[22ch] text-[clamp(2.75rem,7vw,4.8rem)] font-medium leading-[1.02] tracking-[-0.02em] text-[#e9edf4]">
+            Most consultants sell tools. We understand{" "}
+            <em className="italic text-[#7fd7e2]">
+              why people use them&nbsp;wrong.
+            </em>
           </h1>
         </FadeIn>
 
-        <FadeIn delay={200}>
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-[#8fa0b3]">
-            Behind every failed software rollout, every phishing click, every operational
-            bottleneck is a human behavior problem — not a technology problem. We bring
-            the science of how people think, work, and change to everything we build and
-            every team we protect.
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={300}>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {credentials.map((cred) => (
-              <span
-                key={cred}
-                className="rounded-full border border-white/10 bg-[#141d2c] px-4 py-2 text-xs font-medium text-[#8fa0b3]"
-              >
-                {cred}
+        <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <FadeIn delay={160}>
+            <p className="max-w-[46ch] text-[1.05rem] leading-relaxed text-[#8fa0b3]">
+              Behind every failed software rollout, every phishing click, every
+              operational bottleneck is a human behavior problem — not a
+              technology problem.{" "}
+              <span className="font-medium text-[#e9edf4]">
+                We bring the science of how people think, work, and change to
+                everything we build and every team we protect.
               </span>
-            ))}
-          </div>
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={240}>
+            <div className="flex flex-col items-start gap-2">
+              {credentials.map((cred) => (
+                <span
+                  key={cred}
+                  className="rounded-full border border-white/10 bg-[#141d2c] px-4 py-2 text-xs font-medium text-[#8fa0b3]"
+                >
+                  {cred}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+
+        <FadeIn delay={320}>
+          <LabToFieldLoop />
         </FadeIn>
       </div>
     </section>
