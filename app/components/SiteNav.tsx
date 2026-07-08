@@ -7,7 +7,6 @@ import { trackEvent } from "@/lib/analytics";
 
 const LINKS = [
   { label: "Systems", href: "/#what-we-build", match: null },
-  { label: "Case Studies", href: "/#case-studies", match: null },
   { label: "Healthcare", href: "/healthcare", match: "/healthcare" },
   { label: "Practice Experience", href: "/practice", match: "/practice" },
   { label: "Security Workshops", href: "/cybersecurity", match: "/cybersecurity" },
