@@ -2,9 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
+  Brain,
   GraduationCap,
   HeartPulse,
-  MousePointerClick,
   ShieldCheck,
   Workflow,
 } from "lucide-react";
@@ -143,12 +143,12 @@ function ScienceHero() {
         <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <FadeIn delay={160}>
             <p className="max-w-[46ch] text-[1.05rem] leading-relaxed text-[#8fa0b3]">
-              Behind every failed software rollout, every phishing click, every
+              Behind every failed software rollout, every abandoned AI tool, every
               operational bottleneck is a human behavior problem — not a
               technology problem.{" "}
               <span className="font-medium text-[#e9edf4]">
                 We bring the science of how people think, work, and change to
-                everything we build and every team we protect.
+                everything we build and every team we train.
               </span>
             </p>
           </FadeIn>
@@ -235,81 +235,10 @@ function Discipline() {
   );
 }
 
-// ─── 3.3 Why Training Fails ──────────────────────────────────────────────────
-
-function WhyTrainingFails() {
-  const rows = [
-    {
-      bad: "Annual compliance training — one session, forgotten in days",
-      good: "Spaced micro-learning — 5 min/week, behavior change in 30 days",
-    },
-    {
-      bad: "Generic \u201Cdon\u2019t click phishing\u201D slides with no context",
-      good: "Industry-specific scenarios your employees actually encounter",
-    },
-    {
-      bad: "Fear-based training that creates anxiety without agency",
-      good: "Psychological safety framing that builds confidence and reporting culture",
-    },
-    {
-      bad: "One-size-fits-all rollout ignoring team culture and resistance",
-      good: "Culture assessment first — training designed for how your team works",
-    },
-  ];
-
-  return (
-    <section className="px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-5xl">
-        <FadeIn>
-          <div className="mb-12 text-center">
-            <span className="mb-4 mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
-              The Problem We Solve
-            </span>
-            <h2 className="mb-4 serif text-3xl font-medium text-[#e9edf4] sm:text-4xl">
-              Why most cybersecurity training fails
-            </h2>
-            <p className="mx-auto max-w-2xl text-[#8fa0b3]">
-              It is not a content problem. Employees know phishing is dangerous. They click
-              anyway. That is a behavior design problem — and it requires a behavioral
-              science solution.
-            </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={100}>
-          <div className="overflow-hidden rounded-2xl border border-white/10">
-            {/* Header */}
-            <div className="grid grid-cols-[1fr_auto_1fr] text-center text-xs font-semibold uppercase tracking-wider">
-              <div className="bg-red-500/10 px-4 py-3 text-red-300">What most companies do</div>
-              <div className="flex items-center bg-[#141d2c] px-3 text-[#7d90a1]">vs</div>
-              <div className="bg-green-500/10 px-4 py-3 text-green-300">What we do</div>
-            </div>
-            {/* Rows */}
-            {rows.map((row, i) => (
-              <div key={i} className="grid grid-cols-[1fr_auto_1fr] border-t border-white/[0.06]">
-                <div className="bg-red-500/[0.04] px-5 py-4 text-sm text-red-200">{row.bad}</div>
-                <div className="flex items-center bg-[#141d2c] px-3 text-[#5f6e85] text-xs">vs</div>
-                <div className="bg-green-500/[0.04] px-5 py-4 text-sm text-green-200">{row.good}</div>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
 // ─── 3.4 Where the Science Applies ───────────────────────────────────────────
 
 function Applied() {
   const cards = [
-    {
-      accent: "#8fa0b3",
-      icon: ShieldCheck,
-      badge: "Cybersecurity",
-      title: "Security culture, not security compliance",
-      desc: "We assess your organization\u2019s psychological relationship with risk before designing your training program. Employees who feel psychologically safe reporting mistakes catch more threats than those who hide errors out of fear. We build that culture intentionally.",
-    },
     {
       accent: "#7fd7e2",
       icon: HeartPulse,
@@ -333,10 +262,10 @@ function Applied() {
     },
     {
       accent: "#8fa0b3",
-      icon: MousePointerClick,
+      icon: Brain,
       badge: "Risk perception",
-      title: "Why employees click phishing emails",
-      desc: "Attackers exploit predictable cognitive biases — authority bias, urgency response, social proof, reciprocity. We teach your team to recognize these manipulation patterns as they happen, not just after the fact. That is threat appraisal theory applied to your inbox.",
+      title: "Why teams quietly reject AI tools",
+      desc: "When a new tool feels like a threat to competence or status, people don’t argue with it — they route around it, and adoption dies in silence. We design rollouts that treat that response as predictable psychology, not resistance to punish: threat appraisal theory applied to your operation.",
     },
   ];
 
@@ -505,7 +434,7 @@ function StatsCTA() {
 
         <FadeIn delay={300}>
           <p className="mx-auto mb-16 max-w-2xl text-center text-xs text-[#8fa0b3]">
-            Figures are widely reported industry estimates from security, change
+            Figures are widely reported industry estimates from change
             management, learning science, and dental practice research — cited as
             context, not as guarantees.
           </p>
@@ -539,8 +468,8 @@ function StatsCTA() {
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-[#8fa0b3]">
               Most consultants hand you software and leave. We stay until your
-              people have adopted it, your security culture has shifted, and your systems
-              are running without you having to think about them.
+              people have adopted it and your systems are running without you
+              having to think about them.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
@@ -549,12 +478,6 @@ function StatsCTA() {
               >
                 Get a Free Ops Scan
                 <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href="/cybersecurity"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-[#e9edf4] transition-all hover:border-white/40 hover:bg-white/5"
-              >
-                See our security workshops
               </a>
             </div>
           </div>
@@ -608,7 +531,6 @@ const scienceJsonLd = {
         "Industrial-Organizational Psychology",
         "AI adoption and human-automation interaction",
         "Behavior change science and training design",
-        "Security awareness training",
         "HIPAA-aware healthcare automation",
       ],
       sameAs: [
@@ -639,8 +561,6 @@ export default function OurSciencePage() {
       <ScienceHero />
       <SectionDivider />
       <Discipline />
-      <SectionDivider />
-      <WhyTrainingFails />
       <SectionDivider />
       <Applied />
       <SectionDivider />

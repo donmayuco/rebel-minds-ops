@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Our Science | Rebel Minds OPS — I-O Psychology Meets Operational Systems",
   description:
-    "How we apply industrial-organizational psychology, behavioral science, and biological sciences to design technology systems that staff actually adopt. Healthcare, cybersecurity, operations, and training — methodology built on graduate research, not vendor checklists.",
+    "How we apply industrial-organizational psychology, behavioral science, and biological sciences to design technology systems that staff actually adopt. Healthcare, AI adoption, operations, and training — methodology built on graduate research, not vendor checklists.",
   alternates: {
     canonical: "/our-science",
   },

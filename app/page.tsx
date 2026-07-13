@@ -7,6 +7,7 @@ import {
   CheckCircle,
   Clock,
   Globe,
+  GraduationCap,
   MapPin,
   HardHat,
   Home as HomeIcon,
@@ -226,7 +227,7 @@ function WhatWeBuild() {
     { title: "Business Data & Cloud Systems", desc: "Database design, data migration from spreadsheets, cloud hosting, and automated backups. Your business data: organized, secure, and accessible from anywhere.", icon: Package },
     { title: "Patient Experience Systems", desc: "Patient intake, automated appointment reminders, review collection and routing, and HIPAA-aware communication workflows.", icon: HeartPulse },
     { title: "Document & Contract Analysis", desc: "Send a PDF via WhatsApp. AI reads the full document, extracts key data, flags risks, and sends you a summary in seconds. Built for rate cons, invoices, and contracts.", icon: ScanLine },
-    { title: "Human Layer Security Workshops", desc: "Security awareness training built on behavior science: phishing recognition, password and MFA habits, incident reporting. Technical hardening like 2FA rollout and email security available on request.", icon: KeyRound },
+    { title: "AI Adoption Training", desc: "Rollout is a human problem before it is a technical one. We train your managers and your crew on the new system: what it does, what to do when it fails, and how to work with it, in English, Spanish, or both.", icon: GraduationCap },
     { title: "Custom Dashboards & Reporting", desc: "Real-time KPI visualization built for ownership. See what matters (revenue, job costs, team performance) without digging through spreadsheets.", icon: LayoutDashboard },
   ];
 
@@ -540,48 +541,6 @@ function WhyRebelMindsOps() {
             ))}
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Security Workshops Teaser ────────────────────────────────────────────────
-function CyberTeaser() {
-  return (
-    <section id="cybersecurity" className="px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-3xl">
-        <FadeIn>
-          <Kicker>Security workshops</Kicker>
-          <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
-            Most breaches start with a person. So does prevention.
-          </h2>
-          <p className="mt-4 max-w-2xl text-[#8fa0b3]">
-            The systems we build store sensitive data and connect your whole team, and the
-            biggest risk to any of it is a rushed click on a convincing email. Our security
-            awareness workshops train the human layer using{" "}
-            <a
-              href="https://rebelminds.ai/framework"
-              target="_blank"
-              rel="noopener"
-              className="font-medium text-[#7fd7e2] underline-offset-2 transition-colors hover:text-[#e9edf4] hover:underline"
-            >
-              The Human Layer Framework
-            </a>{" "}
-            and behavior science, so your team knows what to do when a real phishing attempt
-            lands. Delivered remotely or on-site, anywhere in the U.S.
-          </p>
-          <p className="mt-4 max-w-2xl text-sm text-[#7d90a1]">
-            Technical security assessments are also available on request, scoped to your
-            operation.
-          </p>
-          <a
-            href="/cybersecurity"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#7fd7e2] px-6 py-3 text-sm font-semibold text-[#0c131e] transition-opacity hover:opacity-90"
-          >
-            Explore the security workshops
-            <ArrowRight className="h-4 w-4" />
-          </a>
-        </FadeIn>
       </div>
     </section>
   );
@@ -1096,7 +1055,7 @@ function SpanishSection() {
 
 // ─── FAQ ──────────────────────────────────────────────────────────────────────
 const FAQS = [
-  { q: "Do you only do automation, or do you handle general IT too?", a: "Both. We started in automation and operational systems, but we now offer full IT consulting: workspace setup (Microsoft 365, Google Workspace, Slack), network and WiFi management, cybersecurity, cloud systems, and ongoing IT support. Think of us as your full IT department, without the full-time salary." },
+  { q: "Do you only do automation, or do you handle general IT too?", a: "Both. We started in automation and operational systems, but we now offer full IT consulting: workspace setup (Microsoft 365, Google Workspace, Slack), network and WiFi management, cloud systems, and ongoing IT support. Think of us as your full IT department, without the full-time salary." },
   { q: "Do you work with healthcare businesses?", a: "Yes. Healthcare is one of our primary verticals. We build HIPAA-aware patient intake systems, appointment reminders, review routing, and secure communication workflows. Our founder has a pre-medical sciences background and peer-reviewed research in cognitive psychology, which informs how we design systems for clinical environments." },
   { q: "Do my crews or staff need to install new apps?", a: "Usually no. We design around the tools your team already uses daily: WhatsApp, email, mobile cameras. Zero learning curve. That's how we prevent adoption friction." },
   { q: "How fast can we go live with a new system?", a: "IT services like workspace setup or network fixes can be done in days. Automation modules like expense tracking or patient review systems take 2 to 3 weeks. Complex multi-system architectures take a month or more, broken into launch phases." },
@@ -1254,7 +1213,6 @@ export default function Home() {
       <WhyRebelMindsOps />
       <Connect />
       <SpanishSection />
-      <CyberTeaser />
       <FAQ />
       <SiteFooter />
     </div>

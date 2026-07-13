@@ -54,7 +54,6 @@ export default function SiteFooter() {
               <a href="/ai-consulting" className="transition-colors hover:text-[#e9edf4]">AI Consulting</a>
               <a href="/our-science" className="transition-colors hover:text-[#e9edf4]">Our Science</a>
               <a href="/healthcare" className="transition-colors hover:text-[#e9edf4]">Healthcare</a>
-              <a href="/cybersecurity" className="transition-colors hover:text-[#e9edf4]">Security Workshops</a>
               <a href="/matrix" className="transition-colors hover:text-[#e9edf4]">Impact vs. Risk Matrix</a>
               <a href="/privacy" className="transition-colors hover:text-[#e9edf4]">Privacy</a>
             </div>
