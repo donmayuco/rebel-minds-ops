@@ -34,9 +34,9 @@ const siteUrl =
       : "https://www.rebelmindsops.com";
 
 export const metadata: Metadata = {
-  title: "Rebel Minds OPS | Human-Centered Automation & Operations Systems",
+  title: "Rebel Minds OPS | AI Consulting & Automation Systems — McAllen, TX & Nationwide",
   description:
-    "We build human-centered automation and operations systems for businesses across the United States: construction, logistics, home services, auto dealerships, professional firms, and HIPAA-sensitive practices. Delivered remotely to Austin, San Antonio, Houston, Dallas, Arizona, California, and nationwide. Systems your whole crew can use, in English, Spanish, or both. Free Ops Scan available.",
+    "Rebel Minds OPS provides AI consulting and human-centered automation systems from McAllen, Texas: serving the Rio Grande Valley (Edinburg, Mission, Pharr, Weslaco, Harlingen, Brownsville) and businesses nationwide. Construction, logistics, home services, auto dealerships, professional firms, and HIPAA-sensitive practices. Systems your whole crew can use, in English, Spanish, or both. Free Ops Scan available.",
   metadataBase: (() => {
     try {
       return new URL(siteUrl);
@@ -50,6 +50,11 @@ export const metadata: Metadata = {
   },
 
   keywords: [
+    "AI consulting",
+    "AI consultant McAllen TX",
+    "AI consulting Rio Grande Valley",
+    "AI readiness assessment",
+    "AI adoption training",
     "business automation consultant",
     "operations automation systems",
     "human-centered automation",
@@ -70,9 +75,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Rebel Minds OPS | Human-Centered Automation & Operations Systems",
+    title: "Rebel Minds OPS | AI Consulting & Automation Systems — McAllen, TX & Nationwide",
     description:
-      "Human-centered automation and operations systems for US businesses: construction, logistics, home services, dealerships, professional firms, and HIPAA-sensitive practices. Delivered remotely, nationwide. Free Ops Scan available.",
+      "AI consulting and human-centered automation systems for US businesses: construction, logistics, home services, dealerships, professional firms, and HIPAA-sensitive practices. Built in McAllen, Texas. Delivered remotely, nationwide. Free Ops Scan available.",
     url: siteUrl,
     siteName: "Rebel Minds OPS",
     type: "website",
@@ -81,9 +86,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Rebel Minds OPS | Human-Centered Automation Systems",
+    title: "Rebel Minds OPS | AI Consulting & Automation Systems",
     description:
-      "Human-centered automation and operations systems for US businesses. HIPAA-aware where it matters. Delivered remotely, nationwide. Free Ops Scan available.",
+      "AI consulting and human-centered automation systems for US businesses. Built in McAllen, Texas. HIPAA-aware where it matters. Delivered remotely, nationwide. Free Ops Scan available.",
   },
 };
 

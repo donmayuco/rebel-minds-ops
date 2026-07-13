@@ -78,7 +78,7 @@ function Hero() {
     <section className="pt-16 sm:pt-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
-          <Kicker>Operations &amp; IT systems, built by operators</Kicker>
+          <Kicker>AI consulting &amp; operations systems, built by operators</Kicker>
         </FadeIn>
         <FadeIn delay={80}>
           <h1 className="serif mt-5 max-w-[13ch] text-[clamp(3rem,9vw,5.9rem)] font-medium leading-[0.99] tracking-[-0.02em] text-[#e9edf4]">
@@ -92,8 +92,8 @@ function Hero() {
               We build and manage the systems that run growing businesses: receipts,
               scheduling, follow-ups, compliance.{" "}
               <span className="font-medium text-[#e9edf4]">
-                Forged in Texas&rsquo;s hardest market, delivered remotely to any U.S.
-                market.
+                Forged in McAllen, in Texas&rsquo;s hardest market, delivered remotely
+                to any U.S. market.
               </span>{" "}
               You own the keys.
             </p>
@@ -1149,7 +1149,7 @@ function FAQ() {
 // ─── Page Root ────────────────────────────────────────────────────────────────
 export default function Home() {
   const businessDescription =
-    "Reduce manual work, improve visibility, and streamline operations with practical automation systems built for real businesses under real pressure.";
+    "AI consulting and human-centered automation systems, built in McAllen, Texas and delivered nationwide. Reduce manual work, improve visibility, and streamline operations with practical systems built for real businesses under real pressure.";
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@rebelmindsops.com";
   const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+19565204123";
 
@@ -1163,7 +1163,8 @@ export default function Home() {
           name: "Rebel Minds Ops",
           url: "https://www.rebelmindsops.com",
           description: businessDescription,
-          areaServed: ["United States", "Austin, TX", "San Antonio, TX", "Houston, TX", "Dallas, TX", "Arizona", "California"],
+          areaServed: ["McAllen, TX", "Edinburg, TX", "Mission, TX", "Pharr, TX", "Weslaco, TX", "Harlingen, TX", "Brownsville, TX", "Austin, TX", "San Antonio, TX", "Houston, TX", "Dallas, TX", "Arizona", "California", "United States"],
+          knowsAbout: ["AI consulting", "AI workflow automation", "AI readiness assessment", "AI adoption training", "HIPAA-compliant automation", "industrial and organizational psychology"],
           sameAs: ["https://rebelminds.ai"],
           founder: { "@id": "https://www.rebelmindsops.com/#founder" },
           contactPoint: [{ "@type": "ContactPoint", contactType: "customer support", email: contactEmail, telephone: contactPhone, areaServed: "US" }],
@@ -1174,7 +1175,8 @@ export default function Home() {
           name: "Rebel Minds Ops",
           url: "https://www.rebelmindsops.com",
           description: businessDescription,
-          areaServed: ["United States", "Austin, TX", "San Antonio, TX", "Houston, TX", "Dallas, TX", "Arizona", "California"],
+          areaServed: ["McAllen, TX", "Edinburg, TX", "Mission, TX", "Pharr, TX", "Weslaco, TX", "Harlingen, TX", "Brownsville, TX", "Austin, TX", "San Antonio, TX", "Houston, TX", "Dallas, TX", "Arizona", "California", "United States"],
+          serviceType: ["AI Consulting", "AI Workflow Automation", "AI Readiness Assessment", "AI Adoption Training", "Custom AI Systems (HIPAA-Compliant)"],
           sameAs: ["https://rebelminds.ai"],
           provider: { "@id": "https://www.rebelmindsops.com/#organization" },
           contactPoint: [{ "@type": "ContactPoint", contactType: "sales", email: contactEmail, telephone: contactPhone, areaServed: "US" }],

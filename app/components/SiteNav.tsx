@@ -6,10 +6,10 @@ import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 
 const LINKS = [
+  { label: "AI Consulting", href: "/ai-consulting", match: "/ai-consulting" },
   { label: "Systems", href: "/#what-we-build", match: null },
   { label: "Healthcare", href: "/healthcare", match: "/healthcare" },
   { label: "Practice Experience", href: "/practice", match: "/practice" },
-  { label: "Security Workshops", href: "/cybersecurity", match: "/cybersecurity" },
   { label: "Our Science", href: "/our-science", match: "/our-science" },
 ] as const;
 

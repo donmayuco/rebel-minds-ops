@@ -51,6 +51,7 @@ export default function SiteFooter() {
           <nav className="flex flex-col flex-wrap items-center justify-center gap-3 text-sm text-[#8fa0b3] sm:items-end">
             <div className="mb-2 flex flex-wrap justify-center gap-5">
               <a href="/" className="transition-colors hover:text-[#e9edf4]">Home</a>
+              <a href="/ai-consulting" className="transition-colors hover:text-[#e9edf4]">AI Consulting</a>
               <a href="/our-science" className="transition-colors hover:text-[#e9edf4]">Our Science</a>
               <a href="/healthcare" className="transition-colors hover:text-[#e9edf4]">Healthcare</a>
               <a href="/cybersecurity" className="transition-colors hover:text-[#e9edf4]">Security Workshops</a>

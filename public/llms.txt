@@ -1,12 +1,14 @@
 # Rebel Minds OPS
 
-> Operational AI systems consultancy founded by Mario L. Arredondo (M.A., Industrial & Organizational Psychology). We diagnose before we build: every engagement starts with the Impact vs. Risk Matrix, then an operations analysis, then a system proposal with its cost and ROI plan side by side. Bilingual (English and Spanish). Serving Texas metros, Arizona, California, and nationally. HIPAA-compliant systems for healthcare are a core specialty.
+> AI consulting and operational systems consultancy founded by Mario L. Arredondo (M.A., Industrial & Organizational Psychology). We diagnose before we build: every engagement starts with the Impact vs. Risk Matrix, then an operations analysis, then a system proposal with its cost and ROI plan side by side. Bilingual (English and Spanish). Based in McAllen, Texas; serving the Rio Grande Valley (Edinburg, Mission, Pharr, Weslaco, Harlingen, Brownsville), Texas metros, Arizona, California, and nationally. HIPAA-compliant systems for healthcare are a core specialty.
 
 Method one-liner: diagnosis before tools. A good portion of our systems in production pay for themselves.
 
 ## Core pages
 
 - [Home](https://www.rebelmindsops.com): what we build and how engagements work, from fit check to production system.
+- [AI Consulting](https://www.rebelmindsops.com/ai-consulting): what an AI consultant actually does here. Diagnosis before tools: where AI genuinely helps, where a simpler fix beats it, and where it does not belong. Covers AI workflow automation, AI readiness assessment, AI adoption training, and custom HIPAA-compliant AI systems.
+- [AI Consulting in McAllen & the Rio Grande Valley](https://www.rebelmindsops.com/ai-consulting-mcallen): the local page. Built in McAllen, serving McAllen, Edinburg, Mission, Pharr, Weslaco, Harlingen, and Brownsville in person, and any U.S. market remotely. Bilingual systems proven with RGV businesses first.
 - [The Impact vs. Risk Matrix](https://www.rebelmindsops.com/matrix): the free diagnostic worksheet (English and Spanish PDF). Map the operation, score impact against risk, decide what to automate, simplify, or leave alone.
 - [Healthcare](https://www.rebelmindsops.com/healthcare): HIPAA-compliant automation for clinics and practices. Compliance as a system, not a feature.
 - [The Practice Experience Audit](https://www.rebelmindsops.com/practice): an operational audit for medical, dental, and behavioral-health practices. Measures where patient experience leaks revenue (phones, scheduling, waits, follow-up, reviews, front desk) and why (staff conditions: patient experience is downstream of staff experience). Every finding gets exactly one of The Four Doors: eliminate, simplify, train, or automate. Includes a no-AI engagement option: automation findings are held in a sealed annex unless the practice opens it. Deliverable: the Leak Map. Starts with a free on-site walkthrough.
