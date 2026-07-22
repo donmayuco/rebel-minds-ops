@@ -490,6 +490,47 @@ function HowItWorks() {
             </div>
           </div>
         </FadeIn>
+
+        <FadeIn delay={460}>
+          <div className="mt-8 grid gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="serif text-xl font-medium text-[#e9edf4]">
+                What review gating is.
+              </h3>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+                The pitch sounds harmless: ask patients privately first, and
+                only the happy ones get the public review link. The unhappy are
+                quietly filtered out. It is the default design of most
+                reputation software, it violates review platform rules and
+                federal consumer protection law, and it carries a quieter cost:{" "}
+                <span className="font-medium text-[#e9edf4]">
+                  every filtered complaint is a problem your practice never
+                  hears about again.
+                </span>{" "}
+                The rating looks better. The operation stays exactly as it was.
+              </p>
+            </div>
+            <div>
+              <h3 className="serif text-xl font-medium text-[#e9edf4]">
+                Why the science beats it.
+              </h3>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+                This system is built on the research instead. Sampling: ask
+                everyone, and the honest average rises on its own, because the
+                satisfied majority finally gets counted. Service recovery: a
+                complaint handled quickly and personally often earns more
+                loyalty than a visit where nothing went wrong, a finding
+                documented across service industries for three decades. And
+                measurement: every complaint becomes data your team can train
+                against.{" "}
+                <span className="font-medium text-[#e9edf4]">
+                  Gating buries the signal. Science uses it. One hides your
+                  problems. The other retires them.
+                </span>
+              </p>
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
