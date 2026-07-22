@@ -220,8 +220,11 @@ function fmtMonths(reviews: number, perWeek: number): string {
 
 function Calculator() {
   const [rating, setRating] = useState(3.2);
-  const [count, setCount] = useState(150);
-  const [perWeek, setPerWeek] = useState(10);
+  const [countStr, setCountStr] = useState("150");
+  const [perWeekStr, setPerWeekStr] = useState("10");
+
+  const count = Math.max(1, parseInt(countStr, 10) || 1);
+  const perWeek = Math.max(1, parseInt(perWeekStr, 10) || 1);
 
   const targets = [3.0, 3.5, 4.0];
 
@@ -272,11 +275,10 @@ function Calculator() {
                   Review count
                 </span>
                 <input
-                  type="number"
-                  min={1}
-                  max={20000}
-                  value={count}
-                  onChange={(e) => setCount(Math.max(1, parseInt(e.target.value || "1", 10)))}
+                  type="text"
+                  inputMode="numeric"
+                  value={countStr}
+                  onChange={(e) => setCountStr(e.target.value.replace(/[^0-9]/g, "").slice(0, 5))}
                   className="mt-3 w-full rounded-lg border border-[#e9edf41a] bg-[#0c131e] px-4 py-2.5 text-lg text-[#e9edf4] outline-none focus:border-[#7fd7e2]"
                   aria-label="Current review count"
                 />
@@ -286,11 +288,10 @@ function Calculator() {
                   New reviews per week
                 </span>
                 <input
-                  type="number"
-                  min={1}
-                  max={200}
-                  value={perWeek}
-                  onChange={(e) => setPerWeek(Math.max(1, parseInt(e.target.value || "1", 10)))}
+                  type="text"
+                  inputMode="numeric"
+                  value={perWeekStr}
+                  onChange={(e) => setPerWeekStr(e.target.value.replace(/[^0-9]/g, "").slice(0, 3))}
                   className="mt-3 w-full rounded-lg border border-[#e9edf41a] bg-[#0c131e] px-4 py-2.5 text-lg text-[#e9edf4] outline-none focus:border-[#7fd7e2]"
                   aria-label="Realistic new reviews per week"
                 />
@@ -389,7 +390,9 @@ function Calculator() {
                 front desk.{" "}
                 <span className="font-medium text-[#e9edf4]">
                   The average is earned slowly and dented quickly.
-                </span>
+                </span>{" "}
+                And the bias behind it never retires: the delighted go quiet on
+                their own. The angry never do.
               </p>
               <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
                 The same system runs as defense: bad experiences get caught and
