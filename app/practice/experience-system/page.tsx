@@ -229,7 +229,7 @@ function Calculator() {
   const targets = [3.0, 3.5, 4.0];
 
   return (
-    <section id="calculator" className="py-20" style={{ backgroundColor: "#0a101a" }}>
+    <section id="calculator" className="py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
           <Kicker>The honest math</Kicker>
@@ -374,36 +374,51 @@ function Calculator() {
         </FadeIn>
 
         <FadeIn delay={320}>
-          <div id="protect" className="mt-10 rounded-2xl border border-[rgba(127,215,226,0.35)] bg-[#141d2c] p-6 sm:p-8">
-            <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7d90a1]">
+          <div id="protect" className="mt-10 rounded-2xl border border-[rgba(127,215,226,0.35)] bg-[#141d2c] p-6 sm:p-10">
+            <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
               If your rating is already excellent
             </span>
-            <h3 className="serif mt-3 text-xl font-medium text-[#e9edf4]">
+            <h3 className="serif mt-3 max-w-[26ch] text-2xl font-medium leading-tight text-[#e9edf4] sm:text-3xl">
               Strong ratings are not safe. They are undefended.
             </h3>
-            <div className="mt-4 grid gap-8 md:grid-cols-2">
-              <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-                Run the arithmetic the other direction. A practice at 4.9 with
-                480 reviews is about seven bad, unrecovered experiences away
-                from displaying 4.8. Years of good work, moved by one rough
-                stretch: a staffing gap, a billing change, a hard season at the
-                front desk.{" "}
-                <span className="font-medium text-[#e9edf4]">
-                  The average is earned slowly and dented quickly.
-                </span>{" "}
-                And the bias behind it never retires: the delighted go quiet on
-                their own. The angry never do.
-              </p>
-              <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-                The same system runs as defense: bad experiences get caught and
-                recovered before they ever reach the public record, and the
-                steady flow of invited reviews keeps raising the count that
-                makes your average hard to move.{" "}
-                <span className="font-medium text-[#e9edf4]">
-                  Recovery is expensive. Defense is cheap. The system is the
-                  same.
-                </span>
-              </p>
+            <div className="mt-8 grid gap-8 md:grid-cols-[minmax(0,260px)_1fr]">
+              <div className="flex flex-col items-start justify-center rounded-xl border border-[#e9edf41a] bg-[#0c131e] p-6">
+                <div className="serif text-5xl font-medium text-[#e9edf4]">
+                  4.9 <span className="text-[#7d90a1]">→</span>{" "}
+                  <span className="text-[#7fd7e2]">4.8</span>
+                </div>
+                <p className="mono mt-4 text-[0.7rem] uppercase leading-relaxed tracking-[0.2em] text-[#7d90a1]">
+                  About seven unrecovered bad experiences · at 480 reviews
+                </p>
+              </div>
+              <div className="space-y-5">
+                <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+                  A 4.9 with hundreds of reviews is years of work by real
+                  people: the front desk that stayed kind under pressure, the
+                  schedule that ran on time, the callbacks that actually
+                  happened.{" "}
+                  <span className="font-medium text-[#e9edf4]">
+                    Nobody can afford a misrepresentation less than the
+                    practice that earned its numbers.
+                  </span>{" "}
+                  And the arithmetic is blunt: one rough stretch, a staffing
+                  gap, a billing change, a hard season, and the badge patients
+                  compare stops describing what you built. The average is
+                  earned slowly and dented quickly. And the bias behind it
+                  never retires: the delighted go quiet on their own. The angry
+                  never do.
+                </p>
+                <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+                  The same system runs as defense: bad experiences get caught
+                  and recovered before they ever reach the public record, and
+                  the steady flow of invited reviews keeps raising the count
+                  that makes your average hard to move.{" "}
+                  <span className="font-medium text-[#e9edf4]">
+                    Recovery is expensive. Defense is cheap. The system is the
+                    same.
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </FadeIn>
@@ -555,7 +570,7 @@ function ScienceSchematic() {
 
 function GatingVsScience() {
   return (
-    <section className="py-20">
+    <section className="py-20" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
           <Kicker>The fork every practice faces</Kicker>
@@ -568,7 +583,7 @@ function GatingVsScience() {
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <FadeIn delay={140}>
-            <div className="h-full rounded-2xl border border-[#e9edf41a] bg-[#0a101a] p-6 opacity-80 sm:p-8">
+            <div className="h-full rounded-2xl border border-[#e9edf41a] bg-[#0c131e] p-6 opacity-80 sm:p-8">
               <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#5f6e85]">
                 Review gating · the shortcut
               </span>
@@ -1103,9 +1118,9 @@ export default function ExperienceSystemPage() {
       <SectionDivider />
       <SilentMajority />
       <SectionDivider />
-      <Calculator />
-      <SectionDivider />
       <GatingVsScience />
+      <SectionDivider />
+      <Calculator />
       <SectionDivider />
       <HowItWorks />
       <SectionDivider />
