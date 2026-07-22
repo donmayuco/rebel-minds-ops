@@ -233,7 +233,7 @@ function Calculator() {
         </FadeIn>
         <FadeIn delay={80}>
           <h2 className="serif mt-4 text-3xl font-medium leading-tight text-[#e9edf4] sm:text-4xl">
-            Arithmetic, not promises.
+            Arithmetic, not magic.
           </h2>
         </FadeIn>
         <FadeIn delay={140}>

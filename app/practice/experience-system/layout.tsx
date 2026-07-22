@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "The Patient Experience System | Rebel Minds OPS",
   description:
-    "Your rating is not measuring your medicine. It is measuring who bothers to speak. A HIPAA-disciplined system that asks every patient how their visit went, recovers bad experiences before they become reviews, and turns complaint patterns into staff training. No review gating. Arithmetic, not promises.",
+    "Your rating is not measuring your medicine. It is measuring who bothers to speak. A HIPAA-disciplined system that asks every patient how their visit went, recovers bad experiences before they become reviews, and turns complaint patterns into staff training. No review gating. Arithmetic, not magic.",
   alternates: {
     canonical: "/practice/experience-system",
   },
