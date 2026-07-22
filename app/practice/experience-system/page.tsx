@@ -371,6 +371,39 @@ function Calculator() {
             </p>
           </div>
         </FadeIn>
+
+        <FadeIn delay={320}>
+          <div id="protect" className="mt-10 rounded-2xl border border-[rgba(127,215,226,0.35)] bg-[#141d2c] p-6 sm:p-8">
+            <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7d90a1]">
+              If your rating is already excellent
+            </span>
+            <h3 className="serif mt-3 text-xl font-medium text-[#e9edf4]">
+              Strong ratings are not safe. They are undefended.
+            </h3>
+            <div className="mt-4 grid gap-8 md:grid-cols-2">
+              <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+                Run the arithmetic the other direction. A practice at 4.9 with
+                480 reviews is about seven bad, unrecovered experiences away
+                from displaying 4.8. Years of good work, moved by one rough
+                stretch: a staffing gap, a billing change, a hard season at the
+                front desk.{" "}
+                <span className="font-medium text-[#e9edf4]">
+                  The average is earned slowly and dented quickly.
+                </span>
+              </p>
+              <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+                The same system runs as defense: bad experiences get caught and
+                recovered before they ever reach the public record, and the
+                steady flow of invited reviews keeps raising the count that
+                makes your average hard to move.{" "}
+                <span className="font-medium text-[#e9edf4]">
+                  Recovery is expensive. Defense is cheap. The system is the
+                  same.
+                </span>
+              </p>
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
@@ -851,6 +884,14 @@ const experienceSystemJsonLd = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "The system is built for HIPAA-covered practices: every component that touches patient information operates under signed business associate agreements, messages never contain clinical content in either direction, patients consent at intake and can opt out permanently, and all data is encrypted, access-controlled, and audit-logged.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is this only for practices with low ratings?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. The system runs in two directions. For practices recovering a damaged rating, it corrects the sampling problem by asking every patient instead of only hearing from the frustrated ones. For practices with strong ratings, it runs as defense: bad experiences are caught and recovered before they reach the public record, and the steady flow of invited reviews raises the review count that makes a high average hard to move. A practice at 4.9 is about seven unrecovered bad experiences away from displaying 4.8.",
           },
         },
         {
