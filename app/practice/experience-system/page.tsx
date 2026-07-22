@@ -94,7 +94,7 @@ function Hero() {
           <FadeIn delay={240}>
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="/?offer=practice#book"
+                href="/?offer=experience#book"
                 className="inline-flex items-center gap-2 rounded-full bg-[#7fd7e2] px-7 py-3.5 text-sm font-medium text-[#0c131e] transition-colors hover:bg-[#5cc3ce]"
               >
                 Request a walkthrough
@@ -951,7 +951,7 @@ function NoPromises() {
         <FadeIn delay={280}>
           <div className="mt-12 flex flex-wrap items-center gap-5">
             <a
-              href="/?offer=practice#book"
+              href="/?offer=experience#book"
               className="inline-flex items-center gap-2 rounded-full bg-[#7fd7e2] px-7 py-3.5 text-sm font-medium text-[#0c131e] transition-colors hover:bg-[#5cc3ce]"
             >
               Request a walkthrough

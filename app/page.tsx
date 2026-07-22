@@ -557,6 +557,10 @@ const CONNECT_T = {
     kicker: "Start here",
     heading: "Get your Free Ops Scan",
     hipaaHeading: "Request your HIPAA Stack Audit",
+    experienceHeading: "Request a walkthrough · The Patient Experience System",
+    experienceSub:
+      "Tell us about your practice and we will set up the walkthrough: about an hour on site, free. It is diagnostic, not a demo, and it is how the system starts. One note that matters here: this form is for your information only. No patient details, ever.",
+    experienceSubmit: "Request the walkthrough",
     practiceHeading: "Request your practice walkthrough",
     sub: "Tell us about your business and we’ll set up a 15-minute fit check. If we’re a match, we analyze how your operation actually works and come back within days with the proposed system, its cost, and the ROI plan beside it.",
     hipaaSub: "Tell us about your practice and we’ll set up a 15-minute fit check. If we’re a match, we map your patient-data flow, vendor by vendor, and come back within days with the compliant architecture, its cost, and the ROI plan beside it.",
@@ -596,6 +600,10 @@ const CONNECT_T = {
     kicker: "Empieza aquí",
     heading: "Solicita tu Ops Scan gratis",
     hipaaHeading: "Solicita tu auditoría de stack HIPAA",
+    experienceHeading: "Solicita el recorrido · Sistema de Experiencia del Paciente",
+    experienceSub:
+      "Cuéntanos de tu consultorio y agendamos el recorrido: una hora en sitio, gratis. Es un diagnóstico, no un demo, y es como inicia el sistema. Un detalle que importa aquí: este formulario es solo para tu información. Nunca datos de pacientes.",
+    experienceSubmit: "Solicitar el recorrido",
     practiceHeading: "Solicita el recorrido de tu consultorio",
     sub: "Cuéntanos de tu negocio y agendamos una llamada de 15 minutos para ver si somos el equipo indicado. Si lo somos, analizamos cómo funciona tu operación y en unos días te mostramos el sistema propuesto, su costo y el plan de retorno, todo junto.",
     hipaaSub: "Cuéntanos de tu consultorio y agendamos una llamada de 15 minutos. Si somos el equipo indicado, mapeamos tu flujo de datos de pacientes, proveedor por proveedor, y en unos días te mostramos la arquitectura, su costo y el plan de retorno.",
@@ -667,7 +675,7 @@ function Connect() {
   const [form, setForm] = useState(emptyForm);
   const [mode, setMode] = useState<"full" | "simple">("full");
   const [lang, setLang] = useState<"en" | "es">("en");
-  const [offer, setOffer] = useState<"scan" | "hipaa" | "practice">("scan");
+  const [offer, setOffer] = useState<"scan" | "hipaa" | "practice" | "experience">("scan");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -691,6 +699,14 @@ function Connect() {
         ...prev,
         type: "healthcare",
         priorityArea: "Patient experience and front-office operations (practice walkthrough)",
+      }));
+    }
+    if (params.get("offer") === "experience") {
+      setOffer("experience");
+      setForm((prev) => ({
+        ...prev,
+        type: "healthcare",
+        priorityArea: "Patient Experience System (review recovery and defense)",
       }));
     }
     const onLang = (e: Event) => {
@@ -732,6 +748,8 @@ function Connect() {
     const source =
       offer === "hipaa"
         ? "Website · HIPAA audit request"
+        : offer === "experience"
+        ? "Website · Experience system request"
         : offer === "practice"
         ? "Website · Practice walkthrough request"
         : simple
@@ -787,10 +805,10 @@ function Connect() {
           <div className="mb-10 text-center">
             <Kicker>{t.kicker}</Kicker>
             <h2 className="serif mt-3 text-3xl font-medium text-[#e9edf4] sm:text-4xl">
-              {offer === "hipaa" ? t.hipaaHeading : offer === "practice" ? t.practiceHeading : t.heading}
+              {offer === "hipaa" ? t.hipaaHeading : offer === "experience" ? t.experienceHeading : offer === "practice" ? t.practiceHeading : t.heading}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[#8fa0b3]">
-              {offer === "hipaa" ? t.hipaaSub : offer === "practice" ? t.practiceSub : t.sub}
+              {offer === "hipaa" ? t.hipaaSub : offer === "experience" ? t.experienceSub : offer === "practice" ? t.practiceSub : t.sub}
             </p>
             <button
               type="button"
@@ -981,7 +999,7 @@ function Connect() {
                   disabled={submitting}
                   className="w-full rounded-full bg-[#7fd7e2] px-6 py-3.5 text-sm font-semibold text-[#0c131e] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {submitting ? t.sending : offer === "hipaa" ? t.hipaaSubmit : offer === "practice" ? t.practiceSubmit : t.submit}
+                  {submitting ? t.sending : offer === "hipaa" ? t.hipaaSubmit : offer === "experience" ? t.experienceSubmit : offer === "practice" ? t.practiceSubmit : t.submit}
                 </button>
                 <p className="mt-3 text-center text-xs text-[#8fa0b3]">
                   {t.foot}
