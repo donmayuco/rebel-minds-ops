@@ -346,6 +346,31 @@ function Calculator() {
             </p>
           </div>
         </FadeIn>
+
+        <FadeIn delay={260}>
+          <div className="mt-10 grid gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="serif text-xl font-medium text-[#e9edf4]">
+                Why the number is smaller than it looks.
+              </h3>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+                Nearly every review you have today arrived unprompted, and
+                unprompted reviews are powered by strong emotion, which usually
+                means frustration. That is a trickle, and it is a skewed one.
+              </p>
+            </div>
+            <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3] md:pt-9">
+              When every satisfied patient is asked the same day, while the
+              visit is fresh, the pace changes entirely: the majority who would
+              never have written a word get a warm invitation at the exact
+              moment they are glad they came.{" "}
+              <span className="font-medium text-[#e9edf4]">
+                The years it took to reach your current count say nothing about
+                the months ahead, because those years ran at the old pace.
+              </span>
+            </p>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
@@ -530,6 +555,54 @@ function Loop() {
   );
 }
 
+// ─── 6b. The Human Steps ─────────────────────────────────────────────────────
+
+function HumanSteps() {
+  return (
+    <section className="py-20" style={{ backgroundColor: "#0a101a" }}>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <FadeIn>
+          <Kicker>The part we prepare with you</Kicker>
+        </FadeIn>
+        <FadeIn delay={80}>
+          <h2 className="serif mt-4 max-w-[26ch] text-3xl font-medium leading-tight text-[#e9edf4] sm:text-4xl">
+            Your team makes this work. We make sure they are ready.
+          </h2>
+        </FadeIn>
+        <div className="mt-8 grid gap-10 md:grid-cols-2">
+          <FadeIn delay={140}>
+            <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+              The system has human steps on purpose. A warm mention at
+              checkout: you will get a text from us, tell us honestly how we
+              did. An office manager who reads yesterday&rsquo;s feedback with
+              her morning coffee. A call back when a patient asks for one.{" "}
+              <span className="font-medium text-[#e9edf4]">
+                None of this is extra work bolted onto the day. It is the day,
+                organized.
+              </span>
+            </p>
+          </FadeIn>
+          <FadeIn delay={200}>
+            <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+              Before anything goes live, we sit with your team and walk the
+              whole flow: what patients will receive, what happens with every
+              answer, and why the honest ones matter most. When the people at
+              the desk understand the system is there to back them up, not to
+              grade them, they carry it.{" "}
+              <span className="font-medium text-[#e9edf4]">
+                That is adoption, and adoption is the step most technology
+                projects skip. We never skip it.
+              </span>{" "}
+              Your staff hears it first, sees the patterns their work improves,
+              and gets the credit when the numbers move.
+            </p>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── 7. Privacy ──────────────────────────────────────────────────────────────
 
 const PRIVACY_POINTS = [
@@ -541,7 +614,7 @@ const PRIVACY_POINTS = [
 
 function Privacy() {
   return (
-    <section className="py-20" style={{ backgroundColor: "#0a101a" }}>
+    <section className="py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
           <Kicker>Built for healthcare, not adapted to it</Kicker>
@@ -580,7 +653,7 @@ function Privacy() {
 
 function TheGate() {
   return (
-    <section className="py-20">
+    <section className="py-20" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
           <Kicker>Why this starts with an audit</Kicker>
@@ -835,6 +908,8 @@ export default function ExperienceSystemPage() {
       <SuggestionBox />
       <SectionDivider />
       <Loop />
+      <SectionDivider />
+      <HumanSteps />
       <SectionDivider />
       <Privacy />
       <SectionDivider />
