@@ -5,17 +5,66 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 
-const LINKS = [
+const LINKS_BEFORE = [
   { label: "AI Consulting", href: "/ai-consulting", match: "/ai-consulting" },
   { label: "Systems", href: "/#what-we-build", match: null },
-  { label: "Healthcare", href: "/healthcare", match: "/healthcare" },
+] as const;
+
+const HEALTH_LINKS = [
+  { label: "Healthcare Systems", href: "/healthcare", match: "/healthcare" },
   { label: "Practice Experience", href: "/practice", match: "/practice" },
+  {
+    label: "Patient Experience System",
+    href: "/practice/experience-system",
+    match: "/practice/experience-system",
+  },
+] as const;
+
+const LINKS_AFTER = [
   { label: "Our Science", href: "/our-science", match: "/our-science" },
 ] as const;
+
+function Chevron({ open }: { open: boolean }) {
+  return (
+    <svg
+      className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+}
 
 export default function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [healthOpen, setHealthOpen] = useState(false);
+
+  const healthActive = HEALTH_LINKS.some((l) => pathname === l.match);
+
+  const desktopLink = (link: { label: string; href: string; match: string | null }) => {
+    const active = link.match !== null && pathname === link.match;
+    return (
+      <a
+        key={link.label}
+        href={link.href}
+        aria-current={active ? "page" : undefined}
+        className={`text-sm transition-colors ${
+          active ? "text-[#e9edf4]" : "text-[#8fa0b3] hover:text-[#e9edf4]"
+        }`}
+        style={
+          active
+            ? { borderBottom: "1px solid #7fd7e2", paddingBottom: "2px" }
+            : undefined
+        }
+      >
+        {link.label}
+      </a>
+    );
+  };
 
   return (
     <nav
@@ -46,31 +95,62 @@ export default function SiteNav() {
 
           {/* Desktop links */}
           <div className="hidden items-center gap-7 md:flex">
-            {LINKS.map((link) => {
-              const active = link.match !== null && pathname === link.match;
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  aria-current={active ? "page" : undefined}
-                  className={`text-sm transition-colors ${
-                    active
-                      ? "text-[#e9edf4]"
-                      : "text-[#8fa0b3] hover:text-[#e9edf4]"
-                  }`}
-                  style={
-                    active
-                      ? {
-                          borderBottom: "1px solid #7fd7e2",
-                          paddingBottom: "2px",
-                        }
-                      : undefined
-                  }
+            {LINKS_BEFORE.map(desktopLink)}
+
+            {/* Healthcare dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setHealthOpen(true)}
+              onMouseLeave={() => setHealthOpen(false)}
+            >
+              <button
+                className={`flex items-center gap-1.5 text-sm transition-colors ${
+                  healthActive ? "text-[#e9edf4]" : "text-[#8fa0b3] hover:text-[#e9edf4]"
+                }`}
+                style={
+                  healthActive
+                    ? { borderBottom: "1px solid #7fd7e2", paddingBottom: "2px" }
+                    : undefined
+                }
+                onClick={() => setHealthOpen(!healthOpen)}
+                aria-expanded={healthOpen}
+                aria-haspopup="true"
+              >
+                Healthcare
+                <Chevron open={healthOpen} />
+              </button>
+              {healthOpen && (
+                <div
+                  className="absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3"
+                  role="menu"
                 >
-                  {link.label}
-                </a>
-              );
-            })}
+                  <div
+                    className="overflow-hidden rounded-xl border bg-[#0c131e] py-2 shadow-xl"
+                    style={{ borderColor: "rgba(233,237,244,0.12)" }}
+                  >
+                    {HEALTH_LINKS.map((link) => {
+                      const active = pathname === link.match;
+                      return (
+                        <a
+                          key={link.label}
+                          href={link.href}
+                          role="menuitem"
+                          aria-current={active ? "page" : undefined}
+                          className={`block px-4 py-2.5 text-sm transition-colors hover:bg-white/5 ${
+                            active ? "text-[#7fd7e2]" : "text-[#8fa0b3] hover:text-[#e9edf4]"
+                          }`}
+                          onClick={() => setHealthOpen(false)}
+                        >
+                          {link.label}
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {LINKS_AFTER.map(desktopLink)}
             <a
               href="/#book"
               className="border-b border-[#7fd7e2] pb-0.5 text-sm font-medium text-[#7fd7e2] transition-colors hover:text-[#e9edf4]"
@@ -111,7 +191,7 @@ export default function SiteNav() {
           style={{ borderColor: "rgba(233,237,244,0.10)" }}
         >
           <div className="flex flex-col gap-1">
-            {LINKS.map((link) => {
+            {LINKS_BEFORE.map((link) => {
               const active = link.match !== null && pathname === link.match;
               return (
                 <a
@@ -119,6 +199,43 @@ export default function SiteNav() {
                   href={link.href}
                   aria-current={active ? "page" : undefined}
                   className={`rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-white/5 ${
+                    active ? "text-[#7fd7e2]" : "text-[#8fa0b3] hover:text-[#e9edf4]"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+
+            <span className="mono px-3 pb-1 pt-3 text-[0.65rem] uppercase tracking-[0.2em] text-[#5f6e85]">
+              Healthcare
+            </span>
+            {HEALTH_LINKS.map((link) => {
+              const active = pathname === link.match;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`rounded-lg py-2.5 pl-6 pr-3 text-sm transition-colors hover:bg-white/5 ${
+                    active ? "text-[#7fd7e2]" : "text-[#8fa0b3] hover:text-[#e9edf4]"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+
+            {LINKS_AFTER.map((link) => {
+              const active = link.match !== null && pathname === link.match;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`mt-2 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-white/5 ${
                     active ? "text-[#7fd7e2]" : "text-[#8fa0b3] hover:text-[#e9edf4]"
                   }`}
                   onClick={() => setOpen(false)}
