@@ -252,6 +252,7 @@ function Leaks() {
       icon: Star,
       title: "The reviews.",
       body: "What patients say when they stop telling you and start telling everyone else, and whether anyone answers them when they do.",
+      link: { href: "/practice/experience-system", label: "The Patient Experience System →" },
     },
     {
       icon: Users,
@@ -286,6 +287,14 @@ function Leaks() {
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-[#e9edf4]">{c.title}</h3>
                 <p className="text-sm text-[#8fa0b3]">{c.body}</p>
+                {"link" in c && c.link && (
+                  <a
+                    href={c.link.href}
+                    className="mt-4 inline-block text-sm font-medium text-[#7fd7e2] transition-colors hover:text-[#5cc3ce]"
+                  >
+                    {c.link.label}
+                  </a>
+                )}
               </div>
             </FadeIn>
           ))}
