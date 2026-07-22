@@ -536,6 +536,38 @@ function HowItWorks() {
   );
 }
 
+// ─── 4b. Day One ─────────────────────────────────────────────────────────────
+
+function DayOne() {
+  return (
+    <section className="py-20" style={{ backgroundColor: "#141d2c" }}>
+      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+        <FadeIn>
+          <Kicker>What changes on day one</Kicker>
+        </FadeIn>
+        <FadeIn delay={80}>
+          <h2 className="serif mx-auto mt-5 max-w-[20ch] text-3xl font-medium leading-tight text-[#e9edf4] sm:text-4xl">
+            The rating is the lagging indicator.
+          </h2>
+        </FadeIn>
+        <FadeIn delay={160}>
+          <p className="mx-auto mt-6 max-w-[58ch] text-[1.05rem] leading-relaxed text-[#8fa0b3]">
+            The perception shifts the first afternoon the texts go out. A
+            practice that asks every patient how it did reads as a practice
+            that cares how it did. Patients feel the difference between being
+            processed and being asked, and the ones who had a rough day feel it
+            most: someone noticed, the same day, and wanted to make it right.{" "}
+            <span className="font-medium text-[#e9edf4]">
+              The stars catch up later. The way your practice is experienced
+              changes immediately.
+            </span>
+          </p>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
 // ─── 5. The Suggestion Box ───────────────────────────────────────────────────
 
 function SuggestionBox() {
@@ -986,6 +1018,8 @@ export default function ExperienceSystemPage() {
       <Calculator />
       <SectionDivider />
       <HowItWorks />
+      <SectionDivider />
+      <DayOne />
       <SectionDivider />
       <SuggestionBox />
       <SectionDivider />
