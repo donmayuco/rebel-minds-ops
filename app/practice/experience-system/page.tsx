@@ -439,7 +439,7 @@ const STEPS = [
 
 function HowItWorks() {
   return (
-    <section className="py-20">
+    <section className="py-20" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
           <Kicker>The system</Kicker>
@@ -494,45 +494,130 @@ function HowItWorks() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={460}>
-          <div className="mt-8 grid gap-10 md:grid-cols-2">
-            <div>
-              <h3 className="serif text-xl font-medium text-[#e9edf4]">
-                What review gating is.
-              </h3>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+      </div>
+    </section>
+  );
+}
+
+// ─── 3b. Gating vs Science ───────────────────────────────────────────────────
+
+function GatingSchematic() {
+  return (
+    <svg viewBox="0 0 520 210" className="w-full" fill="none" role="img" aria-hidden="true">
+      {/* patient → filter */}
+      <text x="30" y="105" fontFamily="IBM Plex Mono, monospace" fontSize="12" letterSpacing="0.14em" fill="#7d90a1">PATIENT</text>
+      <line x1="105" y1="100" x2="165" y2="100" stroke="rgba(125,144,161,0.4)" strokeWidth="1" />
+      <path d="M165 100 l-8 -4 v8 z" fill="rgba(125,144,161,0.4)" />
+      {/* filter diamond */}
+      <path d="M210 70 L255 100 L210 130 L165 100 Z" stroke="rgba(125,144,161,0.5)" strokeWidth="1" />
+      <text x="210" y="105" textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="10" letterSpacing="0.1em" fill="#7d90a1">FILTER</text>
+      {/* happy branch */}
+      <line x1="245" y1="88" x2="360" y2="45" stroke="rgba(125,144,161,0.4)" strokeWidth="1" />
+      <path d="M360 45 l-9 -1 4 8 z" fill="rgba(125,144,161,0.4)" />
+      <text x="370" y="50" fontFamily="IBM Plex Mono, monospace" fontSize="11" letterSpacing="0.12em" fill="#7d90a1">HAPPY → PUBLIC</text>
+      {/* unhappy branch: dashed, dead end */}
+      <line x1="245" y1="112" x2="360" y2="160" stroke="rgba(125,144,161,0.35)" strokeWidth="1" strokeDasharray="3 5" />
+      <text x="370" y="165" fontFamily="IBM Plex Mono, monospace" fontSize="11" letterSpacing="0.12em" fill="#5f6e85">UNHAPPY → BURIED</text>
+      <line x1="480" y1="152" x2="494" y2="166" stroke="rgba(125,144,161,0.55)" strokeWidth="1.25" />
+      <line x1="494" y1="152" x2="480" y2="166" stroke="rgba(125,144,161,0.55)" strokeWidth="1.25" />
+      <text x="260" y="200" textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="10" letterSpacing="0.18em" fill="#5f6e85">THE SIGNAL DIES · THE PROBLEM STAYS</text>
+    </svg>
+  );
+}
+
+function ScienceSchematic() {
+  return (
+    <svg viewBox="0 0 520 210" className="w-full" fill="none" role="img" aria-hidden="true">
+      {/* patient → asked */}
+      <text x="30" y="105" fontFamily="IBM Plex Mono, monospace" fontSize="12" letterSpacing="0.14em" fill="#8fa0b3">PATIENT</text>
+      <line x1="105" y1="100" x2="160" y2="100" stroke="rgba(127,215,226,0.6)" strokeWidth="1" />
+      <path d="M160 100 l-8 -4 v8 z" fill="rgba(127,215,226,0.6)" />
+      <circle cx="195" cy="100" r="26" stroke="rgba(127,215,226,0.7)" strokeWidth="1" fill="#0c131e" />
+      <text x="195" y="104" textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="10" letterSpacing="0.08em" fill="#7fd7e2">ASKED</text>
+      {/* good day branch */}
+      <line x1="215" y1="85" x2="345" y2="45" stroke="rgba(127,215,226,0.6)" strokeWidth="1" />
+      <path d="M345 45 l-9 -1 4 8 z" fill="rgba(127,215,226,0.6)" />
+      <text x="355" y="50" fontFamily="IBM Plex Mono, monospace" fontSize="11" letterSpacing="0.12em" fill="#8fa0b3">GOOD DAY → INVITED</text>
+      {/* bad day branch → heard → same invitation */}
+      <line x1="215" y1="115" x2="290" y2="150" stroke="rgba(127,215,226,0.6)" strokeWidth="1" />
+      <path d="M290 150 l-9 -2 3 8 z" fill="rgba(127,215,226,0.6)" />
+      <text x="300" y="155" fontFamily="IBM Plex Mono, monospace" fontSize="11" letterSpacing="0.12em" fill="#8fa0b3">BAD DAY → HEARD</text>
+      <line x1="455" y1="140" x2="455" y2="62" stroke="rgba(127,215,226,0.5)" strokeWidth="1" />
+      <path d="M455 62 l-4 8 h8 z" fill="rgba(127,215,226,0.5)" />
+      <text x="465" y="105" fontFamily="IBM Plex Mono, monospace" fontSize="9" letterSpacing="0.1em" fill="#7d90a1" transform="rotate(90 465 105)">SAME INVITE</text>
+      {/* data loop back to practice */}
+      <path d="M290 168 C 220 195, 120 190, 80 130" stroke="rgba(180,157,242,0.5)" strokeWidth="1" strokeDasharray="2 5" />
+      <path d="M80 130 l-1 9 8 -4 z" fill="rgba(180,157,242,0.5)" />
+      <text x="185" y="200" textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="10" letterSpacing="0.16em" fill="#b49df2">DATA → TRAINING → BETTER VISITS</text>
+    </svg>
+  );
+}
+
+function GatingVsScience() {
+  return (
+    <section className="py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <FadeIn>
+          <Kicker>The fork every practice faces</Kicker>
+        </FadeIn>
+        <FadeIn delay={80}>
+          <h2 className="serif mt-4 max-w-[24ch] text-3xl font-medium leading-tight text-[#e9edf4] sm:text-4xl">
+            There are two ways to chase a rating. Only one is real.
+          </h2>
+        </FadeIn>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <FadeIn delay={140}>
+            <div className="h-full rounded-2xl border border-[#e9edf41a] bg-[#0a101a] p-6 opacity-80 sm:p-8">
+              <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#5f6e85]">
+                Review gating · the shortcut
+              </span>
+              <div className="mt-4">
+                <GatingSchematic />
+              </div>
+              <p className="mt-4 text-[0.95rem] leading-relaxed text-[#7d90a1]">
                 The pitch sounds harmless: ask patients privately first, and
                 only the happy ones get the public review link. The unhappy are
                 quietly filtered out. It is the default design of most
                 reputation software, it violates review platform rules and
                 federal consumer protection law, and it carries a quieter cost:{" "}
-                <span className="font-medium text-[#e9edf4]">
+                <span className="font-medium text-[#8fa0b3]">
                   every filtered complaint is a problem your practice never
                   hears about again.
                 </span>{" "}
                 The rating looks better. The operation stays exactly as it was.
               </p>
             </div>
-            <div>
-              <h3 className="serif text-xl font-medium text-[#e9edf4]">
-                Why the science beats it.
-              </h3>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-                This system is built on the research instead. Sampling: ask
-                everyone, and the honest average rises on its own, because the
-                satisfied majority finally gets counted. Service recovery: a
-                complaint handled quickly and personally often earns more
-                loyalty than a visit where nothing went wrong, a finding
-                documented across service industries for three decades. And
-                measurement: every complaint becomes data your team can train
-                against.{" "}
-                <span className="font-medium text-[#e9edf4]">
-                  Gating buries the signal. Science uses it. One hides your
-                  problems. The other retires them.
-                </span>
+          </FadeIn>
+
+          <FadeIn delay={220}>
+            <div className="h-full rounded-2xl border border-[rgba(127,215,226,0.35)] bg-[#141d2c] p-6 sm:p-8">
+              <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
+                This system · the science
+              </span>
+              <div className="mt-4">
+                <ScienceSchematic />
+              </div>
+              <p className="mt-4 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+                Built on the research instead. Sampling: ask everyone, and the
+                honest average rises on its own, because the satisfied majority
+                finally gets counted. Service recovery: a complaint handled
+                quickly and personally often earns more loyalty than a visit
+                where nothing went wrong, a finding documented across service
+                industries for three decades. Measurement: every complaint
+                becomes data your team can train against.
               </p>
             </div>
-          </div>
+          </FadeIn>
+        </div>
+
+        <FadeIn delay={300}>
+          <p className="serif mx-auto mt-10 max-w-[36ch] text-center text-xl font-medium leading-relaxed text-[#e9edf4]">
+            Gating buries the signal. Science uses it.{" "}
+            <span className="text-[#7fd7e2]">
+              One hides your problems. The other retires them.
+            </span>
+          </p>
         </FadeIn>
       </div>
     </section>
@@ -1019,6 +1104,8 @@ export default function ExperienceSystemPage() {
       <SilentMajority />
       <SectionDivider />
       <Calculator />
+      <SectionDivider />
+      <GatingVsScience />
       <SectionDivider />
       <HowItWorks />
       <SectionDivider />
