@@ -950,32 +950,40 @@ function TheGate() {
     <section className="py-20" style={{ backgroundColor: "#0a101a" }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
-          <Kicker>Why this starts with an audit</Kicker>
+          <Kicker>Why the first layers come first</Kicker>
         </FadeIn>
         <FadeIn delay={80}>
           <h2 className="serif mt-4 max-w-[24ch] text-3xl font-medium leading-tight text-[#e9edf4] sm:text-4xl">
-            We will not install this into chaos.
+            It took years to get here. That is where we start.
           </h2>
         </FadeIn>
         <div className="mt-8 grid gap-10 md:grid-cols-2">
           <FadeIn delay={140}>
             <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-              Automation amplifies whatever operation it lands in. If the
-              phones go unanswered and the front desk is drowning, a feedback
-              system does not fix that. It documents it, in higher resolution,
-              at scale.{" "}
+              A rating is the visible end of a long chain: phones, staffing,
+              scheduling, follow-up, busy seasons, hard years. It did not
+              appear overnight, and it does not describe anyone&rsquo;s
+              intentions.{" "}
               <span className="font-medium text-[#e9edf4]">
-                Automating a leaky operation just automates the chaos.
-              </span>
+                But automation amplifies whatever operation it lands in,
+              </span>{" "}
+              and a feedback system switched on too early does not fix a
+              strained office. It documents the strain, in higher resolution,
+              at scale.
             </p>
           </FadeIn>
           <FadeIn delay={200}>
             <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-              So this system is never the first step. The walkthrough and the
-              audit come first: we find the leaks, classify what each one
-              needs, and prescribe this system only when the operation around
-              it can absorb what it will surface. That is why the button on
-              this page says walkthrough, not checkout.
+              That is why the first layers come first. The walkthrough and the
+              assessment map how things got here, without judgment, because
+              every practice&rsquo;s chain is different. The structure and the
+              training give your team its footing.{" "}
+              <span className="font-medium text-[#e9edf4]">
+                Then the system goes live, when the operation around it is
+                ready for what it will surface.
+              </span>{" "}
+              That is why the button on this page says walkthrough, not
+              checkout.
             </p>
           </FadeIn>
         </div>
@@ -1306,9 +1314,9 @@ export default function ExperienceSystemPage() {
       <SectionDivider />
       <Privacy />
       <SectionDivider />
-      <TheGate />
-      <SectionDivider />
       <FiveLayers />
+      <SectionDivider />
+      <TheGate />
       <SectionDivider />
       <NoPromises />
       <CrossLinks />
