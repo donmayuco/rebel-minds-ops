@@ -406,13 +406,13 @@ function Calculator() {
               The badge moves before the average does.
             </h3>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-              Google shows one decimal. That rounding, which hides progress
-              late in the climb, reveals it early. From a low starting point,
-              the displayed number often ticks up within the first weeks of
-              asking everyone.{" "}
+              Google shows one decimal. The full climb takes months, but the
+              first visible tick does not: moving the displayed number often
+              takes a handful of five-star reviews, not hundreds. That is the
+              first movement line above, calculated from your own numbers.{" "}
               <span className="font-medium text-[#e9edf4]">
-                The average is a long race. The movement starts immediately,
-                and the movement is what patients notice first.
+                The average is a long race. The display moves early, and the
+                display is what patients see.
               </span>
             </p>
           </div>
