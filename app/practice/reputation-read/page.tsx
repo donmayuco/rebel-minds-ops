@@ -21,8 +21,16 @@ const FAQS: FaqItem[] = [
     a: "No. This tool runs entirely inside your browser. Nothing you enter is transmitted, saved, or visible to us — there is no account, no submission, and no record that you used it at all. Close the tab and the numbers are gone. That is a deliberate choice for a page asking a practice about its weakest metric.",
   },
   {
-    q: "How much should I trust the dollar figure?",
-    a: "Treat it as a shape, not a forecast. The recovery arithmetic is exact, because counting the five-star reviews needed to move a rounded badge is just math. The dollar figure is not exact: it rests on an illustrative capture curve and on the values you entered for prospects, revenue, and retention. Move those inputs and the number moves a great deal — which is useful in itself, because it shows you which assumption your estimated loss actually depends on.",
+    q: "Why is the estimate a range instead of a number?",
+    a: "Because the underlying research produces a range. The best-identified study of this question compared businesses that landed just above and just below a rating rounding threshold, and found one full star was worth five to nine percent of demand. Reporting the midpoint would imply a precision nobody has, and reporting the top of it would be marketing. So the tool shows the band it was actually given.",
+  },
+  {
+    q: "Patients say they require four stars. Why isn't the estimate far larger?",
+    a: "Because what patients report and what patients do are different, and the gap is roughly a factor of ten. Survey data has 78% of patients saying they require four stars or better — taken literally, that predicts a practice at 2.5 stars would see almost no new patients at all, and practices at 2.5 stars plainly keep seeing them. The screening bar on this page shows those stated thresholds, because they are the mechanism and they are real directionally. The dollar figures come from studies that measured actual behaviour instead, which is the more conservative and more defensible source.",
+  },
+  {
+    q: "How much should I trust the dollar figures themselves?",
+    a: "Trust the arithmetic completely and the dollars directionally. Counting the five-star reviews needed to move a rounded badge is exact — it is arithmetic, not modelling. The dollar figures are not exact: they rest on published research applied to the numbers you entered for volume, revenue, and retention, and they move a great deal when those inputs move. That sensitivity is worth watching, because it tells you which assumption your estimated loss actually depends on.",
   },
   {
     q: "Why does the badge move so much sooner than my average?",
@@ -59,25 +67,44 @@ const reputationReadJsonLd = {
 
 // ─── Model ───────────────────────────────────────────────────────────────────
 
-// Capture curve: rating -> estimated share of prospects who choose you.
-// Illustrative and conservative; anchored on the well-documented pattern that
-// most patients screen out practices below ~4 stars before making contact.
-const CAP: [number, number][] = [
-  [1, 0.04], [1.5, 0.06], [2, 0.1], [2.5, 0.18], [3, 0.3],
-  [3.5, 0.5], [4, 0.75], [4.5, 0.92], [5, 1],
+// ── What patients say vs. what patients do ───────────────────────────────────
+// These disagree by about an order of magnitude, and the tool keeps them in
+// separate jobs rather than averaging them into one comfortable number.
+//
+// SCREENING CURVE (context, never money). The share of patients whose
+// self-reported minimum acceptable rating your rating clears, from the RepuGen
+// 2025 Patient Review Survey, n=1,212. Reported thresholds:
+//   5★ 8.26% · 4.5★ 22.56% · 4★ 47.10% · 3.5★ 11.96% · 3★ 7.27%
+//   2.5★ 1.48% · 2★ 1.11% · 1★ 0.25%
+// https://www.repugen.com/patient-review-survey
+//
+// Deliberately a STEP function, not an interpolated curve. The thresholds are
+// discrete, patients read a badge already rounded to one decimal, and smoothing
+// across 3.5→4.0 would erase the four-star cliff, which is the single most
+// documented feature of the data. Cross-check: capture(3.9) = 22.07%, so 77.9%
+// screen out below four stars, matching the survey's headline 78%.
+const THRESHOLDS: [number, number][] = [
+  [1, 0.0025], [2, 0.0111], [2.5, 0.0148], [3, 0.0727],
+  [3.5, 0.1196], [4, 0.471], [4.5, 0.2256], [5, 0.0826],
 ];
+//
+// THE MONEY BAND comes from causal research instead, because stated thresholds
+// do not survive contact with reality: taken literally they imply a practice at
+// 2.5★ would see almost no new patients at all, which any working practice at
+// 2.5★ disproves by existing. Luca (HBS) used Yelp's rounding thresholds as a
+// natural experiment and measured one full star at 5–9% of revenue; AJMC found
+// a single 1-star physician review cost 2.3–2.6% of new patient volume for 16+
+// weeks. The band below is Luca's range, applied to real patient volume.
+// https://www.hbs.edu/ris/Publication%20Files/12-016_a7e4a5a2-03f9-490d-b093-8f951238dba2.pdf
+// https://www.ajmc.com/view/the-impact-of-1-star-physician-ratings-on-new-patient-volume
+const DEMAND_PER_STAR_LOW = 0.05;
+const DEMAND_PER_STAR_HIGH = 0.09;
 function capture(r: number): number {
-  if (r <= CAP[0][0]) return CAP[0][1];
-  if (r >= CAP[CAP.length - 1][0]) return CAP[CAP.length - 1][1];
-  for (let i = 0; i < CAP.length - 1; i++) {
-    const a = CAP[i];
-    const b = CAP[i + 1];
-    if (r >= a[0] && r <= b[0]) {
-      const t = (r - a[0]) / (b[0] - a[0]);
-      return a[1] + t * (b[1] - a[1]);
-    }
+  let share = 0;
+  for (const [threshold, mass] of THRESHOLDS) {
+    if (threshold <= r + 1e-9) share += mass;
   }
-  return 1;
+  return Math.min(1, share);
 }
 // New 5-star reviews needed for the displayed badge (rounds at disp - 0.05) to reach `disp`.
 function reviewsToDisplay(rating: number, reviews: number, disp: number): number {
@@ -181,6 +208,7 @@ export default function ReputationReadPage() {
   const [rev, setRev] = useState(350);
   const [years, setYears] = useState(5);
   const [velocity, setVelocity] = useState(20);
+  const [newPatients, setNewPatients] = useState(25);
 
   const providers = Math.max(0, Math.round(md + pa));
   const totalProspects = providers * prospects;
@@ -188,9 +216,20 @@ export default function ReputationReadPage() {
   const cCur = capture(rating);
   const cTgt = capture(Math.max(rating, target));
   const gap = Math.max(0, cTgt - cCur);
-  const lostMo = totalProspects * gap;
-  const lostYr = lostMo * 12;
-  const bleedYr = lostYr * ltv;
+  const starGap = Math.max(0, target - rating);
+
+  // Context only, never monetised: prospects per month whose stated minimum
+  // rating the practice does not currently clear.
+  const screenedOutMo = totalProspects * gap;
+
+  // The money band — Luca's measured 5–9% of demand per full star, applied to
+  // the new patients the practice actually sees.
+  const patientsLow = providers * newPatients * (DEMAND_PER_STAR_LOW * starGap);
+  const patientsHigh = providers * newPatients * (DEMAND_PER_STAR_HIGH * starGap);
+  const floorLostYr = patientsLow * 12;
+  const ceilLostYr = patientsHigh * 12;
+  const floorBleedYr = floorLostYr * ltv;
+  const ceilBleedYr = ceilLostYr * ltv;
 
   const curDisp = Math.round(rating * 10) / 10;
   let firstMove = Infinity;
@@ -278,12 +317,22 @@ export default function ReputationReadPage() {
 
             <Sub>Economics &amp; pace</Sub>
             <Field
+              label="New patients you actually see — per provider / month"
+              min={0}
+              max={500}
+              step={1}
+              value={newPatients}
+              set={setNewPatients}
+              hint="Your real number. The lower bound is built from this."
+            />
+            <Field
               label="New patients who look you up online — per provider / month"
               min={0}
               max={1000}
               step={1}
               value={prospects}
               set={setProspects}
+              hint="Everyone who sees your rating while deciding. The upper bound is built from this."
             />
             <Field label="Revenue per patient, per year ($)" min={0} max={20000} step={10} value={rev} set={setRev} />
             <Field label="Years a patient typically stays" min={1} max={30} step={0.5} value={years} set={setYears} />
@@ -301,24 +350,38 @@ export default function ReputationReadPage() {
           <section className="grid gap-5" aria-label="The read">
             <div className="rounded-2xl border border-[#e9edf41a] bg-[#141d2c] p-6 sm:p-7">
               <div className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7d90a1]">The estimated bleed</div>
-              <div className="mono mt-2 text-[3rem] font-semibold leading-none tracking-tight text-[#f2726b] sm:text-[3.5rem]">
-                {usd.format(Math.round(bleedYr))}
+              <div className="mono mt-2 text-[2rem] font-semibold leading-none tracking-tight text-[#f2726b] sm:text-[2.6rem]">
+                {usd.format(Math.round(floorBleedYr))} &ndash; {usd.format(Math.round(ceilBleedYr))}
               </div>
-              <p className="mt-2 text-[0.98rem] leading-relaxed text-[#8fa0b3]">
-                left on the table each year &mdash; roughly{" "}
-                <b className="font-semibold text-[#e9edf4]">{nf.format(Math.round(lostYr))}</b> patients a year who
-                choose elsewhere because of the rating gap.
+              <p className="mt-2 text-[0.9rem] leading-relaxed text-[#8fa0b3]">
+                per year, as a range. Not a point estimate, because the honest evidence does not support one.
               </p>
-              <div className="mono mt-2 text-[0.8rem] text-[#7d90a1]">
-                ≈ {usd.format(Math.round(bleedYr / 12))} / month · {n1.format(lostMo)} patients / month
+
+              <div className="mono mt-3 text-[0.8rem] text-[#7d90a1]">
+                ≈ {n1.format(floorLostYr)} to {n1.format(ceilLostYr)} new patients a year, at{" "}
+                {usd.format(Math.round(ltv))} of lifetime revenue each
               </div>
+
+              <p className="mt-4 text-[0.85rem] leading-relaxed text-[#8fa0b3]">
+                The band is{" "}
+                <span className="font-medium text-[#e9edf4]">
+                  the range a Harvard Business School study actually measured
+                </span>{" "}
+                &mdash; five to nine percent of demand per full star, identified by comparing businesses that landed
+                just above and just below a rounding threshold. Your {n1.format(starGap)}★ gap is worth that much of
+                the new patients you already see.{" "}
+                <span className="font-medium text-[#e9edf4]">
+                  Most vendors quote you a single dramatic number instead.
+                </span>{" "}
+                There isn&rsquo;t one. There is a range, and this is it.
+              </p>
 
               {/* capture bar */}
               <div className="mt-6">
                 <div className="mb-2 flex flex-wrap gap-4 text-[0.78rem] text-[#8fa0b3]">
                   <span className="inline-flex items-center gap-2">
                     <span className="inline-block h-2.5 w-2.5 rounded-[2px]" style={{ background: "rgba(127,215,226,0.8)" }} />
-                    Patients you win now
+                    Prospects your rating clears now
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <span className="inline-block h-2.5 w-2.5 rounded-[2px]" style={{ background: "#f2726b" }} />
@@ -344,9 +407,20 @@ export default function ReputationReadPage() {
                     style={{ width: `${(cCur * 100).toFixed(1)}%`, background: "rgba(127,215,226,0.8)" }}
                   />
                 </div>
-                <div className="mt-2 text-[0.78rem] text-[#7d90a1]">
-                  At {n1.format(rating)}★ you capture an estimated {Math.round(cCur * 100)}% of prospects; at{" "}
-                  {n1.format(Math.max(rating, target))}★ that rises to {Math.round(cTgt * 100)}%.
+                <div className="mt-2 space-y-2 text-[0.78rem] leading-relaxed text-[#7d90a1]">
+                  <p>
+                    At {n1.format(rating)}★, {Math.round(cCur * 100)}% of patients say your rating clears their personal
+                    minimum; at {n1.format(Math.max(rating, target))}★ that becomes {Math.round(cTgt * 100)}%. On the
+                    numbers you entered, that is about{" "}
+                    <b className="font-semibold text-[#8fa0b3]">{n1.format(screenedOutMo)} people a month</b> who say
+                    your rating would stop them.
+                  </p>
+                  <p>
+                    We do not put a dollar figure on that line, because patients report far stricter standards than they
+                    act on. Taken literally, these thresholds say a practice at 2.5★ would see almost no new patients at
+                    all &mdash; which every working practice at 2.5★ disproves by continuing to exist. It shows you the
+                    mechanism. The money above comes from what was measured, not what was reported.
+                  </p>
                 </div>
               </div>
 
@@ -397,26 +471,74 @@ export default function ReputationReadPage() {
 
               <details className="mt-4 group">
                 <summary className="mono inline-flex cursor-pointer list-none items-center gap-2 text-[0.8rem] font-medium text-[#7fd7e2]">
-                  <span className="text-[#7fd7e2]">[+]</span> How the bleed is estimated
+                  <span className="text-[#7fd7e2]">[+]</span> Where these numbers come from
                 </summary>
-                <p className="mt-3 max-w-[68ch] text-[0.82rem] leading-relaxed text-[#7d90a1]">
-                  Consumer-review research consistently finds that most patients screen out practices below about four
-                  stars before they ever make contact. This tool models that as a capture curve &mdash; the share of
-                  prospects who choose you rises with your rating &mdash; and estimates the bleed as the patients lost
-                  across that gap, valued at their lifetime revenue (revenue per year × years retained). The prospect
-                  pool scales with your provider count. The curve is illustrative and conservative; your real capture
-                  depends on market, specialty, and competition. The recovery counts are exact arithmetic, assuming new
-                  reviews average five stars and your displayed badge rounds to one decimal.
-                </p>
+                <div className="mt-3 max-w-[68ch] space-y-3 text-[0.82rem] leading-relaxed text-[#7d90a1]">
+                  <p>
+                    <b className="font-semibold text-[#8fa0b3]">Why a range and not a number.</b> The best-identified
+                    research on this question produces a range, not a point. Reporting the midpoint would imply a
+                    precision the evidence does not have, and reporting the top of it would be marketing.
+                  </p>
+                  <p>
+                    <b className="font-semibold text-[#8fa0b3]">The screening bar</b> shows the mechanism: the
+                    cumulative share of patients whose self-reported minimum acceptable rating your rating clears. It is
+                    built from the{" "}
+                    <a
+                      href="https://www.repugen.com/patient-review-survey"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#7fd7e2] underline-offset-2 hover:underline"
+                    >
+                      RepuGen 2025 Patient Review Survey
+                    </a>{" "}
+                    (1,212 patients), in which 78% report requiring four stars or better. We show it and deliberately
+                    do not price it, because stated thresholds are aspirational: taken literally they would predict that
+                    a practice at 2.5★ sees virtually no new patients, and practices at 2.5★ plainly do.
+                  </p>
+                  <p>
+                    <b className="font-semibold text-[#8fa0b3]">The dollar band</b> comes from causal research on what
+                    rating changes actually do to demand.{" "}
+                    <a
+                      href="https://www.hbs.edu/ris/Publication%20Files/12-016_a7e4a5a2-03f9-490d-b093-8f951238dba2.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#7fd7e2] underline-offset-2 hover:underline"
+                    >
+                      Luca (Harvard Business School)
+                    </a>{" "}
+                    used the rounding thresholds on Yelp as a natural experiment and found one full star moves revenue
+                    5&ndash;9%, with independent businesses affected more than chains. In healthcare specifically,{" "}
+                    <a
+                      href="https://www.ajmc.com/view/the-impact-of-1-star-physician-ratings-on-new-patient-volume"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#7fd7e2] underline-offset-2 hover:underline"
+                    >
+                      AJMC
+                    </a>{" "}
+                    found a single 1-star review cut new patient volume 2.3&ndash;2.6% for at least sixteen weeks. The
+                    band you see is Luca&rsquo;s 5&ndash;9% range applied to the new patients you already report seeing,
+                    which is why that input matters more than any other on this page.
+                  </p>
+                  <p>
+                    Both ends are valued at patient lifetime revenue (revenue per year × years retained) and scale with
+                    provider count. Luca&rsquo;s estimate comes from restaurants rather than clinics, and independent
+                    businesses showed larger effects than chains &mdash; an independent practice is the closer analogue,
+                    which is one reason the true figure may sit toward the upper end. The recovery counts on the left
+                    are not estimates at all: they are exact arithmetic, assuming new reviews average five stars and
+                    your displayed badge rounds to one decimal.
+                  </p>
+                </div>
               </details>
             </div>
 
             {/* disclaimer */}
             <div className="rounded-xl border border-dashed border-[#e9edf42e] px-5 py-4 text-[0.8rem] leading-relaxed text-[#7d90a1]">
               <b className="font-semibold text-[#8fa0b3]">Read this as a directional estimate, not a promise.</b> Defaults
-              model an average family practice; results vary by specialty, market, and practice. Nothing here guarantees
-              a rating, a timeline, or revenue &mdash; no honest system can. What it shows is the shape of a gap that is
-              usually invisible, and the arithmetic of closing it.
+              model an average family practice; results vary by specialty, market, and practice. The band is wide
+              because the underlying evidence is genuinely uncertain, and a narrower number would be false precision.
+              Nothing here guarantees a rating, a timeline, or revenue &mdash; no honest system can. What it shows is
+              the shape of a gap that is usually invisible, and the arithmetic of closing it.
             </div>
 
             {/* CTA */}
