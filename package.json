@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "npm run build && vercel --prod --yes && sleep 5 && npm run indexnow",
     "start": "next start",
     "lint": "eslint",
     "indexnow": "node scripts/indexnow.mjs"
