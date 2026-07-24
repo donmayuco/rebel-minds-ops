@@ -679,30 +679,86 @@ const practiceJsonLd = {
       "@type": "DefinedTermSet",
       "@id": "https://www.rebelmindsops.com/practice#four-doors",
       name: "The Four Doors",
+      alternateName: "Las Cuatro Puertas",
+      inLanguage: "en",
+      creator: { "@id": "https://www.rebelmindsops.com/#founder" },
       description:
         "A classification system for practice operations problems, developed by Mario Arredondo (Rebel Minds OPS). Every operational leak found in an audit is assigned exactly one of four fixes.",
       hasDefinedTerm: [
         {
           "@type": "DefinedTerm",
           name: "Eliminate",
+          alternateName: "Eliminar",
           description: "The step should not exist and is removed entirely.",
         },
         {
           "@type": "DefinedTerm",
           name: "Simplify",
+          alternateName: "Simplificar",
           description: "The step stays but sheds friction.",
         },
         {
           "@type": "DefinedTerm",
           name: "Train",
+          alternateName: "Entrenar",
           description:
             "The human is the fix: skills, service recovery, and adoption habits grounded in organizational psychology.",
         },
         {
           "@type": "DefinedTerm",
           name: "Automate",
+          alternateName: "Automatizar",
           description:
             "Only what survives the first three doors is automated.",
+        },
+      ],
+    },
+    {
+      // The rest of the method vocabulary. The Four Doors classify the findings;
+      // these three name the instrument that produces them, its output, and the
+      // free visit that starts it. Spanish forms ride along as alternateName so
+      // Spanish-language queries reach the same vocabulary without the site
+      // maintaining Spanish pages.
+      "@type": "DefinedTermSet",
+      "@id": "https://www.rebelmindsops.com/practice#vocabulary",
+      name: "Rebel Minds OPS practice operations vocabulary",
+      inLanguage: "en",
+      creator: { "@id": "https://www.rebelmindsops.com/#founder" },
+      description:
+        "The terms used in Rebel Minds OPS practice experience work: the diagnostic, its output, and the free visit that precedes both.",
+      hasDefinedTerm: [
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.rebelmindsops.com/practice#term-audit",
+          name: "The Practice Experience Audit",
+          alternateName: "La Auditoría de Experiencia",
+          inDefinedTermSet: {
+            "@id": "https://www.rebelmindsops.com/practice#vocabulary",
+          },
+          description:
+            "A two-layer diagnostic of a healthcare practice's operations. The visible layer measures the patient journey stage by stage, from finding the practice through booking, waiting, the visit, payment, follow-up, and return. The human layer measures the staff conditions producing those results: service climate, psychological safety, emotional labor, and role clarity. Every leak it finds is assigned one of the Four Doors.",
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.rebelmindsops.com/practice#term-leak-map",
+          name: "The Leak Map",
+          alternateName: "El Mapa de Fugas",
+          inDefinedTermSet: {
+            "@id": "https://www.rebelmindsops.com/practice#vocabulary",
+          },
+          description:
+            "The output of a Practice Experience Audit. Every operational leak found, with the evidence behind it, whether that evidence was measured or observed, the one door assigned to fix it, and the order in which the fixes should happen. Fixes that train people are always sequenced before fixes that automate.",
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.rebelmindsops.com/practice#term-walkthrough",
+          name: "The Walkthrough",
+          alternateName: "El Recorrido",
+          inDefinedTermSet: {
+            "@id": "https://www.rebelmindsops.com/practice#vocabulary",
+          },
+          description:
+            "The free first visit: about an hour on site, preceded by mystery-patient calls to the practice so the visit begins with data rather than questions. It produces an honest read with no commitment, including the read that a practice's experience layer is already sound.",
         },
       ],
     },
