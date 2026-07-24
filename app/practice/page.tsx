@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import SiteNav from "@/app/components/SiteNav";
 import SiteFooter from "@/app/components/SiteFooter";
+import HealthcareCluster from "@/app/components/HealthcareCluster";
 
 // ─── Shared Components ───────────────────────────────────────────────────────
 
@@ -754,6 +755,7 @@ export default function PracticePage() {
       <LeakMap />
       <SectionDivider />
       <FinalCTA />
+      <HealthcareCluster current="practice" />
       <SiteFooter />
     </div>
   );

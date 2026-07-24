@@ -244,7 +244,7 @@ function Applied() {
       icon: HeartPulse,
       badge: "Healthcare",
       title: "Clinical workflows designed for the humans who run them",
-      desc: "Pre-medical coursework taught us what\u2019s at stake when clinical data moves through a system. I-O Psychology taught us why most healthcare software gets ignored by the front desk that\u2019s supposed to use it. We design patient communication systems, intake automations, and reputation tools that actually get adopted \u2014 and that handle PHI through BAA-signed infrastructure (Twilio, AWS) from day one.",
+      desc: "Pre-medical coursework taught us what\u2019s at stake when clinical data moves through a system. I-O Psychology taught us why most healthcare software gets ignored by the front desk that\u2019s supposed to use it. We design patient communication systems, intake automations, and reputation tools that actually get adopted \u2014 and that handle PHI through BAA-signed infrastructure (AWS) from day one.",
     },
     {
       accent: "#7fd7e2",
@@ -453,7 +453,7 @@ function StatsCTA() {
               <p>
                 For healthcare clients, our compliance posture is similarly
                 disciplined: every system flows through BAA-signed vendors only
-                (Twilio, AWS, Microsoft 365 where applicable). We share outcomes
+                (AWS, Microsoft 365 where applicable). We share outcomes
                 freely. We protect the work — and the patient data — that produces
                 them. That protection is part of what you&apos;re hiring us for.
               </p>

@@ -11,6 +11,11 @@ import {
 } from "lucide-react";
 import SiteNav from "@/app/components/SiteNav";
 import SiteFooter from "@/app/components/SiteFooter";
+import HealthcareCluster from "@/app/components/HealthcareCluster";
+import FaqAccordion, {
+  faqSchemaEntities,
+  type FaqItem,
+} from "@/app/components/FaqAccordion";
 
 // ─── Shared Components ───────────────────────────────────────────────────────
 
@@ -101,10 +106,10 @@ function Hero() {
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
-                href="#calculator"
+                href="/practice/reputation-read"
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-[#7fd7e2] transition-colors hover:text-[#5cc3ce]"
               >
-                Run your own numbers ↓
+                Run your own numbers →
               </a>
             </div>
           </FadeIn>
@@ -195,317 +200,6 @@ function SilentMajority() {
         </div>
         <FadeIn delay={260}>
           <JCurveSchematic />
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-// ─── 3. The Calculator ───────────────────────────────────────────────────────
-
-function neededFiveStars(rating: number, count: number, target: number): number | null {
-  if (rating >= target) return 0;
-  if (target >= 5) return null;
-  const needed = Math.ceil((target * count - rating * count) / (5 - target));
-  return needed > 0 ? needed : 0;
-}
-
-function fmtMonths(reviews: number, perWeek: number): string {
-  if (perWeek <= 0) return "—";
-  const months = reviews / perWeek / 4.33;
-  if (months < 1) return "under a month";
-  if (months > 48) return "4+ years";
-  return `~${months.toFixed(months < 10 ? 1 : 0)} months`;
-}
-
-function badgeMovement(rating: number, count: number): { next: string; needed: number } | null {
-  if (rating >= 4.9) return null;
-  const nextDisplayed = Math.round(rating * 10 + 1) / 10;
-  const threshold = nextDisplayed - 0.05;
-  if (threshold >= 5) return null;
-  const needed = Math.ceil(((threshold - rating) * count) / (5 - threshold));
-  return { next: nextDisplayed.toFixed(1), needed: Math.max(1, needed) };
-}
-
-function Calculator() {
-  const [rating, setRating] = useState(3.2);
-  const [countStr, setCountStr] = useState("150");
-  const [perWeekStr, setPerWeekStr] = useState("10");
-
-  const count = Math.max(1, parseInt(countStr, 10) || 1);
-  const perWeek = Math.max(1, parseInt(perWeekStr, 10) || 1);
-
-  const targets = [3.0, 3.5, 4.0];
-  const badge = badgeMovement(rating, count);
-
-  return (
-    <section id="calculator" className="py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <FadeIn>
-          <Kicker>The honest math</Kicker>
-        </FadeIn>
-        <FadeIn delay={80}>
-          <h2 className="serif mt-4 text-3xl font-medium leading-tight text-[#e9edf4] sm:text-4xl">
-            Arithmetic, not magic.
-          </h2>
-        </FadeIn>
-        <FadeIn delay={140}>
-          <p className="mt-4 max-w-[62ch] text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-            Enter your current rating and review count. What follows is not a
-            projection and not an offer. It is the arithmetic every practice
-            deserves to see before anyone sells them anything.
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={200}>
-          <div className="mt-10 rounded-2xl border border-[#e9edf41a] bg-[#141d2c] p-6 sm:p-8">
-            <div className="grid gap-6 sm:grid-cols-3">
-              <label className="block">
-                <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7d90a1]">
-                  Current rating
-                </span>
-                <div className="mt-3 flex items-center gap-3">
-                  <input
-                    type="range"
-                    min={1}
-                    max={5}
-                    step={0.1}
-                    value={rating}
-                    onChange={(e) => setRating(parseFloat(e.target.value))}
-                    className="w-full accent-[#7fd7e2]"
-                    aria-label="Current rating"
-                  />
-                  <span className="serif w-14 text-right text-2xl text-[#e9edf4]">
-                    {rating.toFixed(1)}
-                  </span>
-                </div>
-              </label>
-              <label className="block">
-                <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7d90a1]">
-                  Review count
-                </span>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  value={countStr}
-                  onChange={(e) => setCountStr(e.target.value.replace(/[^0-9]/g, "").slice(0, 5))}
-                  className="mt-3 w-full rounded-lg border border-[#e9edf41a] bg-[#0c131e] px-4 py-2.5 text-lg text-[#e9edf4] outline-none focus:border-[#7fd7e2]"
-                  aria-label="Current review count"
-                />
-              </label>
-              <label className="block">
-                <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7d90a1]">
-                  New reviews per week
-                </span>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  value={perWeekStr}
-                  onChange={(e) => setPerWeekStr(e.target.value.replace(/[^0-9]/g, "").slice(0, 3))}
-                  className="mt-3 w-full rounded-lg border border-[#e9edf41a] bg-[#0c131e] px-4 py-2.5 text-lg text-[#e9edf4] outline-none focus:border-[#7fd7e2]"
-                  aria-label="Realistic new reviews per week"
-                />
-              </label>
-            </div>
-
-            <div className="mt-8 overflow-x-auto">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="border-b border-[#e9edf41a]">
-                    <th className="mono pb-3 pr-4 text-[0.7rem] font-normal uppercase tracking-[0.2em] text-[#7d90a1]">
-                      To reach
-                    </th>
-                    <th className="mono pb-3 pr-4 text-[0.7rem] font-normal uppercase tracking-[0.2em] text-[#7d90a1]">
-                      Five-star reviews needed
-                    </th>
-                    <th className="mono pb-3 text-[0.7rem] font-normal uppercase tracking-[0.2em] text-[#7d90a1]">
-                      At your pace
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {targets.map((t) => {
-                    const n = neededFiveStars(rating, count, t);
-                    return (
-                      <tr key={t} className="border-b border-[#e9edf41a] last:border-0">
-                        <td className="py-4 pr-4">
-                          <span className="serif text-2xl text-[#e9edf4]">
-                            {t.toFixed(1)}
-                          </span>
-                          <Star className="ml-2 inline h-4 w-4 text-[#7fd7e2]" aria-hidden="true" />
-                        </td>
-                        <td className="py-4 pr-4">
-                          <span className="serif text-2xl text-[#7fd7e2]">
-                            {n === null ? "—" : n === 0 ? "already there" : `~${n.toLocaleString()}`}
-                          </span>
-                        </td>
-                        <td className="py-4 text-[0.95rem] text-[#8fa0b3]">
-                          {n === null || n === 0 ? "—" : fmtMonths(n, perWeek)}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-
-            {badge && (
-              <div className="mt-6 rounded-xl border border-[rgba(127,215,226,0.35)] bg-[#0c131e] px-5 py-4">
-                <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
-                  First movement
-                </span>
-                <p className="mt-2 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-                  About{" "}
-                  <span className="serif text-xl text-[#7fd7e2]">
-                    {badge.needed.toLocaleString()}
-                  </span>{" "}
-                  five-star {badge.needed === 1 ? "review" : "reviews"} until
-                  your displayed rating shows{" "}
-                  <span className="serif text-xl text-[#e9edf4]">{badge.next}</span>.
-                </p>
-              </div>
-            )}
-
-            <p className="mt-6 border-t border-[#e9edf41a] pt-5 text-[0.85rem] leading-relaxed text-[#7d90a1]">
-              This assumes new reviews average five stars, which no one can
-              promise. What a system changes is how many of your satisfied
-              patients are ever asked. Nothing you enter here is stored or sent
-              anywhere.
-            </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={260}>
-          <div className="mt-10 grid gap-10 md:grid-cols-2">
-            <div>
-              <h3 className="serif text-xl font-medium text-[#e9edf4]">
-                Why the number is smaller than it looks.
-              </h3>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-                Nearly every review you have today arrived unprompted, and
-                unprompted reviews are powered by strong emotion, which usually
-                means frustration. That is a trickle, and it is a skewed one.
-              </p>
-            </div>
-            <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3] md:pt-9">
-              When every satisfied patient is asked the same day, while the
-              visit is fresh, the pace changes entirely: the majority who would
-              never have written a word get a warm invitation at the exact
-              moment they are glad they came.{" "}
-              <span className="font-medium text-[#e9edf4]">
-                The years it took to reach your current count say nothing about
-                the months ahead, because those years ran at the old pace.
-              </span>
-            </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={280}>
-          <div className="mt-10 max-w-[70ch]">
-            <h3 className="serif text-xl font-medium text-[#e9edf4]">
-              The badge moves before the average does.
-            </h3>
-            <p className="mt-3 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-              Google shows one decimal. The full climb takes months, but the
-              first visible tick does not: moving the displayed number often
-              takes a handful of five-star reviews, not hundreds. That is the
-              first movement line above, calculated from your own numbers.{" "}
-              <span className="font-medium text-[#e9edf4]">
-                The average is a long race. The display moves early, and the
-                display is what patients see.
-              </span>
-            </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={320}>
-          <div className="mt-16">
-            <Kicker>What patients actually read</Kicker>
-            <h3 className="serif mt-4 max-w-[26ch] text-2xl font-medium leading-tight text-[#e9edf4] sm:text-3xl">
-              Nobody chooses a doctor from a number alone. They read the story
-              under it.
-            </h3>
-            <div className="mt-6 grid gap-10 md:grid-cols-2">
-              <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-                A patient deciding where to go glances at the rating, then does
-                what everyone does: scrolls the first few reviews and checks
-                the dates. The largest annual consumer review survey now finds
-                that{" "}
-                <span className="font-medium text-[#e9edf4]">
-                  recency carries as much weight as the rating itself.
-                </span>{" "}
-                Roughly three in four consumers pay attention to reviews from
-                the last three months. One in three looks specifically at the
-                last two weeks.
-              </p>
-              <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-                Which changes what a recovery looks like from the outside. A
-                practice climbing out of a rough number with a steady stream of
-                fresh five-star reviews reads as exactly what it is: a practice
-                that turned around.{" "}
-                <span className="font-medium text-[#e9edf4]">
-                  The trend arrives in the reader&rsquo;s mind long before the
-                  average catches up.
-                </span>{" "}
-                And the same physics runs in reverse. A strong rating with a
-                thinning, souring recent page is how every 2.5 once began.
-              </p>
-            </div>
-            <p className="serif mx-auto mt-10 max-w-[34ch] text-center text-xl font-medium leading-relaxed text-[#e9edf4]">
-              The average is history. The trend is news.{" "}
-              <span className="text-[#7fd7e2]">Patients read the news.</span>
-            </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={360}>
-          <div id="protect" className="mt-16 rounded-2xl border border-[rgba(127,215,226,0.35)] bg-[#141d2c] p-6 sm:p-10">
-            <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
-              If your rating is already excellent
-            </span>
-            <h3 className="serif mt-3 max-w-[26ch] text-2xl font-medium leading-tight text-[#e9edf4] sm:text-3xl">
-              Strong ratings are not safe. They are undefended.
-            </h3>
-            <div className="mt-8 grid gap-8 md:grid-cols-[minmax(0,260px)_1fr]">
-              <div className="flex flex-col items-start justify-center rounded-xl border border-[#e9edf41a] bg-[#0c131e] p-6">
-                <div className="serif text-5xl font-medium text-[#e9edf4]">
-                  4.9 <span className="text-[#7d90a1]">→</span>{" "}
-                  <span className="text-[#7fd7e2]">4.8</span>
-                </div>
-                <p className="mono mt-4 text-[0.7rem] uppercase leading-relaxed tracking-[0.2em] text-[#7d90a1]">
-                  About seven unrecovered bad experiences · at 480 reviews
-                </p>
-              </div>
-              <div className="space-y-5">
-                <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-                  A 4.9 with hundreds of reviews is years of work by real
-                  people: the front desk that stayed kind under pressure, the
-                  schedule that ran on time, the callbacks that actually
-                  happened.{" "}
-                  <span className="font-medium text-[#e9edf4]">
-                    Nobody can afford a misrepresentation less than the
-                    practice that earned its numbers.
-                  </span>{" "}
-                  And the arithmetic is blunt: one rough stretch, a staffing
-                  gap, a billing change, a hard season, and the badge patients
-                  compare stops describing what you built. The average is
-                  earned slowly and dented quickly. And the bias behind it
-                  never retires: the delighted go quiet on their own. The angry
-                  never do.
-                </p>
-                <p className="text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-                  The same system runs as defense: bad experiences get caught
-                  and recovered before they ever reach the public record, and
-                  the steady flow of invited reviews keeps raising the count
-                  that makes your average hard to move.{" "}
-                  <span className="font-medium text-[#e9edf4]">
-                    Recovery is expensive. Defense is cheap. The system is the
-                    same.
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
         </FadeIn>
       </div>
     </section>
@@ -1101,7 +795,7 @@ function NoPromises() {
               </li>
               <li className="flex gap-3">
                 <span className="text-[#7fd7e2]">·</span>
-                The calculator above is arithmetic, not a forecast. Your
+                The reputation read is arithmetic, not a forecast. Your
                 patients decide what they write.
               </li>
             </ul>
@@ -1142,42 +836,114 @@ function NoPromises() {
 
 // ─── 9. Cross-links ──────────────────────────────────────────────────────────
 
-function CrossLinks() {
+function ReputationReadCTA() {
+  const shows = [
+    { k: "The bleed", v: "The revenue a rating gap quietly costs you each year, in dollars." },
+    { k: "The climb", v: "The exact five-star reviews it takes to display each rating." },
+    { k: "The pace", v: "How long that takes at your real, honest review speed." },
+  ];
   return (
-    <section className="py-14" style={{ backgroundColor: "#0a101a" }}>
+    <section id="calculator" className="py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-[#e9edf41a] bg-[#e9edf41a] sm:grid-cols-2">
-          <a href="/practice" className="group block bg-[#0c131e] p-6 transition-colors hover:bg-[#141d2c] sm:p-8">
-            <div className="flex items-center gap-3">
-              <ClipboardList className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
-              <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7d90a1]">
-                The larger method
+        <FadeIn>
+          <Kicker>The honest math</Kicker>
+        </FadeIn>
+        <FadeIn delay={80}>
+          <h2 className="serif mt-4 text-3xl font-medium leading-tight text-[#e9edf4] sm:text-4xl">
+            Arithmetic, not magic — with your numbers in it.
+          </h2>
+        </FadeIn>
+        <FadeIn delay={140}>
+          <p className="mt-4 max-w-[62ch] text-[0.95rem] leading-relaxed text-[#8fa0b3]">
+            Not a projection and not an offer. Enter your providers, your rating, and what a patient is worth. The
+            reputation read returns the honest arithmetic every practice deserves to see before anyone sells them
+            anything.
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={200}>
+          <a
+            href="/practice/reputation-read"
+            className="group mt-10 block rounded-2xl border border-[rgba(127,215,226,0.35)] bg-[#141d2c] p-8 transition-colors hover:bg-[#18232f] sm:p-10"
+          >
+            <div className="grid gap-8 sm:grid-cols-3">
+              {shows.map((s) => (
+                <div key={s.k}>
+                  <div className="mono text-[0.68rem] uppercase tracking-[0.18em] text-[#7fd7e2]">{s.k}</div>
+                  <p className="mt-2 text-[0.95rem] leading-relaxed text-[#c4d0dc]">{s.v}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-col gap-4 border-t border-[#e9edf41a] pt-7 sm:flex-row sm:items-center sm:justify-between">
+              <span className="text-[0.9rem] leading-relaxed text-[#8fa0b3]">
+                Free, instant, and honest — no rating and no number is ever promised.
+              </span>
+              <span className="mono inline-flex shrink-0 items-center gap-2 rounded-lg bg-[#7fd7e2] px-6 py-3 text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#0c131e] transition-colors group-hover:bg-[#5cc3ce]">
+                Open the reputation read <ArrowRight className="h-4 w-4" />
               </span>
             </div>
-            <p className="mt-3 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-              This system is one door of a larger method.{" "}
-              <span className="font-medium text-[#7fd7e2] group-hover:text-[#5cc3ce]">
-                The Practice Experience Audit →
-              </span>
-            </p>
           </a>
-          <a href="/healthcare" className="group block bg-[#0c131e] p-6 transition-colors hover:bg-[#141d2c] sm:p-8">
-            <div className="flex items-center gap-3">
-              <ShieldCheck className="h-5 w-5 text-[#7fd7e2]" aria-hidden="true" />
-              <span className="mono text-[0.7rem] uppercase tracking-[0.2em] text-[#7d90a1]">
-                The systems
-              </span>
-            </div>
-            <p className="mt-3 text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-              Clinic automation built under HIPAA discipline.{" "}
-              <span className="font-medium text-[#7fd7e2] group-hover:text-[#5cc3ce]">
-                Healthcare systems →
-              </span>
-            </p>
-          </a>
-        </div>
+        </FadeIn>
       </div>
     </section>
+  );
+}
+
+// ─── 7d. FAQ ─────────────────────────────────────────────────────────────────
+// Source of truth for BOTH the visible accordion and the FAQPage JSON-LD below.
+// Copy mirrors 03-RMOps/IGOA-FAQ.md (Part B — public, stack-agnostic treatment).
+
+const FAQS: FaqItem[] = [
+  {
+    q: "Is this review gating?",
+    a: "No. Review gating means filtering unhappy customers away from public reviews, which violates review platform policy and federal consumer protection rules. In this system, every patient receives the same public review invitation. Patients who report a bad experience are heard first through service recovery, and then invited like everyone else. The sequence changes; the invitation never does.",
+  },
+  {
+    q: "Can you remove bad reviews or guarantee a rating?",
+    a: "No, and no one can. Existing reviews cannot be removed by any service, and future ratings depend on what patients choose to write. What the system changes is sampling: satisfied patients, who rarely review on their own, are finally asked, and bad experiences are recovered before they harden into public reviews. The rating that results is earned, not engineered.",
+  },
+  {
+    q: "How long does it take to raise a Google rating?",
+    a: "It is arithmetic, not magic. The full climb depends on the current rating and review count, and for a low rating it takes hundreds of new reviews and many months. But two things move much sooner. The displayed badge rounds to one decimal, so it often ticks up within the first weeks of inviting every patient. And consumer research shows patients weight recent reviews heavily, so a visible stream of fresh positive reviews changes how a practice reads long before the average catches up. Anyone promising a specific rating by a specific date is selling something they cannot control.",
+  },
+  {
+    q: "Is this only for practices with low ratings?",
+    a: "No. The system runs in two directions. For practices recovering a damaged rating, it corrects the sampling problem by asking every patient instead of only hearing from the frustrated ones. For practices with strong ratings, it runs as defense: bad experiences are caught and recovered before they reach the public record, and the steady flow of invited reviews raises the review count that makes a high average hard to move. A practice at 4.9 is about seven unrecovered bad experiences away from displaying 4.8.",
+  },
+  {
+    q: "Is the system HIPAA compliant?",
+    a: "The system is built for HIPAA-covered practices: every component that touches patient information operates under signed business associate agreements, messages never contain clinical content in either direction, patients consent at intake and can opt out permanently, and all data is encrypted, access-controlled, and audit-logged.",
+  },
+  {
+    q: "What patient information does the system collect?",
+    a: "Only what the feedback loop needs: first name, phone number, preferred language, the visit date, a one-to-five rating, and any comments the patient chooses to write. Nothing clinical is ever requested — no diagnosis, no medication, no reason for the visit — and because patients sometimes volunteer health details, every comment is protected as health information regardless.",
+  },
+  {
+    q: "Does compliance cost the practice extra?",
+    a: "Compliance here is contracts and safeguards, not fees. A business associate agreement is a private contract — nothing is filed with any agency, and there are no government charges or certification costs, because no official “HIPAA certification” exists. The practice supplies its own agreement form or uses a standard one.",
+  },
+  {
+    q: "What does the practice’s staff have to do?",
+    a: "Almost nothing. One action marks a visit complete, and the staff attend a short briefing where they hear what the assessment found — framed as operating conditions, never as individual blame. There is no new software for staff to learn; the patient-facing messaging and routing run on their own.",
+  },
+  {
+    q: "Will patients feel like they are being spammed?",
+    a: "No. A patient receives at most one short message after a visit, plus a single gentle reminder if they do not reply, and never more than one survey in a set window. Every message includes a way to opt out permanently, and opt-outs are honored for good.",
+  },
+  {
+    q: "How soon can the system start sending messages?",
+    a: "Typically a few weeks. Sending business text messages in the United States requires the number to clear carrier registration, which takes several weeks and is outside anyone’s control. The system is built and tested during that window, so setup time and the registration wait run in parallel rather than back to back.",
+  },
+];
+
+function FAQ() {
+  return (
+    <FaqAccordion
+      items={FAQS}
+      kicker="Before you have to ask"
+      heading="Straight answers, including the ones that cost us the sale."
+      intro="The questions practices actually ask, answered the way we would answer them in your office. If something here sounds less impressive than what another vendor told you, that is the point."
+    />
   );
 }
 
@@ -1217,48 +983,7 @@ const experienceSystemJsonLd = {
     {
       "@type": "FAQPage",
       "@id": "https://www.rebelmindsops.com/practice/experience-system#faq",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Is this review gating?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. Review gating means filtering unhappy customers away from public reviews, which violates review platform policy and federal consumer protection rules. In this system, every patient receives the same public review invitation. Patients who report a bad experience are heard first through service recovery, and then invited like everyone else. The sequence changes; the invitation never does.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Is the system HIPAA compliant?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "The system is built for HIPAA-covered practices: every component that touches patient information operates under signed business associate agreements, messages never contain clinical content in either direction, patients consent at intake and can opt out permanently, and all data is encrypted, access-controlled, and audit-logged.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Is this only for practices with low ratings?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. The system runs in two directions. For practices recovering a damaged rating, it corrects the sampling problem by asking every patient instead of only hearing from the frustrated ones. For practices with strong ratings, it runs as defense: bad experiences are caught and recovered before they reach the public record, and the steady flow of invited reviews raises the review count that makes a high average hard to move. A practice at 4.9 is about seven unrecovered bad experiences away from displaying 4.8.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Can you remove bad reviews or guarantee a rating?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No, and no one can. Existing reviews cannot be removed by any service, and future ratings depend on what patients choose to write. What the system changes is sampling: satisfied patients, who rarely review on their own, are finally asked, and bad experiences are recovered before they harden into public reviews. The rating that results is earned, not engineered.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How long does it take to raise a Google rating?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "It is arithmetic, not magic. The full climb depends on the current rating and review count, and for a low rating it takes hundreds of new reviews and many months. But two things move much sooner. The displayed badge rounds to one decimal, so it often ticks up within the first weeks of inviting every patient. And consumer research shows patients weight recent reviews heavily, so a visible stream of fresh positive reviews changes how a practice reads long before the average catches up. Anyone promising a specific rating by a specific date is selling something they cannot control.",
-          },
-        },
-      ],
+      mainEntity: faqSchemaEntities(FAQS),
     },
     {
       "@type": "Person",
@@ -1300,7 +1025,7 @@ export default function ExperienceSystemPage() {
       <SectionDivider />
       <GatingVsScience />
       <SectionDivider />
-      <Calculator />
+      <ReputationReadCTA />
       <SectionDivider />
       <HowItWorks />
       <SectionDivider />
@@ -1318,8 +1043,10 @@ export default function ExperienceSystemPage() {
       <SectionDivider />
       <TheGate />
       <SectionDivider />
+      <FAQ />
+      <SectionDivider />
       <NoPromises />
-      <CrossLinks />
+      <HealthcareCluster current="experience-system" />
       <SiteFooter />
     </div>
   );

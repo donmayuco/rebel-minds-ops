@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import SiteNav from "@/app/components/SiteNav";
 import SiteFooter from "@/app/components/SiteFooter";
+import HealthcareCluster from "@/app/components/HealthcareCluster";
 import ComplianceDiagram from "@/app/components/ComplianceDiagram";
 
 // ─── Shared Components ───────────────────────────────────────────────────────
@@ -180,9 +181,9 @@ function PainLandscape() {
 function HipaaDifferentiator() {
   const goodStack = [
     {
-      name: "Twilio",
+      name: "AWS End User Messaging",
       tag: "BAA-signed",
-      desc: "SMS, voice, MMS for patient communication.",
+      desc: "HIPAA-eligible SMS for patient communication, under the AWS BAA.",
     },
     {
       name: "AWS",
@@ -343,8 +344,8 @@ function Services() {
     {
       accent: "#7fd7e2",
       icon: MessagesSquare,
-      title: "Reputation routing & review acquisition",
-      body: "Post-visit messaging that detects sentiment automatically. Happy patients get routed to your Google Business Profile. Frustrated patients get routed to private feedback, so they vent to you, not online.",
+      title: "Patient experience & review system",
+      body: "Post-visit messaging asks every patient how their visit went — nothing clinical, ever. Everyone receives the same public review invitation; we never gate. Patients who report a bad experience are heard first through service recovery and reach your team the same day, then get the same invitation as everyone else. Sequenced, not filtered.",
       roi: "Protects existing rating. Compounds over time. Already running for our first dental client.",
     },
     {
@@ -759,7 +760,7 @@ const healthcareJsonLd = {
       url: "https://www.rebelmindsops.com/healthcare",
       name: "HIPAA-compliant automation for medical, dental, and behavioral-health practices",
       description:
-        "Patient intake, appointment reminders, review routing, and secure patient messaging built on infrastructure where every vendor that touches PHI signs a Business Associate Agreement.",
+        "Patient intake, appointment reminders, review invitations, and secure patient messaging built on infrastructure where every vendor that touches PHI signs a Business Associate Agreement.",
       isPartOf: { "@id": "https://www.rebelmindsops.com/#organization" },
       author: { "@id": "https://www.rebelmindsops.com/#founder" },
       mainEntity: { "@id": "https://www.rebelmindsops.com/healthcare#service" },
@@ -770,7 +771,7 @@ const healthcareJsonLd = {
       name: "HIPAA-Compliant Healthcare Practice Automation",
       serviceType: "Healthcare automation and patient experience systems",
       description:
-        "Automation for medical, dental, and behavioral-health practices: patient intake, appointment reminders, review acquisition and routing, after-hours call handling, and secure messaging. Built exclusively on BAA-signed vendors (for example Twilio and AWS); consumer tools that cannot sign a BAA never touch PHI. Includes a free HIPAA Stack Audit that reviews a practice's current tools for compliance risk.",
+        "Automation for medical, dental, and behavioral-health practices: patient intake, appointment reminders, a non-gating patient experience and review system, after-hours call handling, and secure messaging. Built exclusively on BAA-signed vendors (for example AWS); consumer tools that cannot sign a BAA never touch PHI. Includes a free HIPAA Stack Audit that reviews a practice's current tools for compliance risk.",
       provider: { "@id": "https://www.rebelmindsops.com/#organization" },
       areaServed: "United States",
       audience: {
@@ -870,6 +871,7 @@ export default function HealthcarePage() {
       <HipaaAudit />
       <SectionDivider />
       <FinalCTA />
+      <HealthcareCluster current="healthcare" />
       <SiteFooter />
     </div>
   );

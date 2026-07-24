@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "HIPAA-Aware Healthcare Automation | Rebel Minds OPS",
   description:
-    "HIPAA-aware healthcare automation, patient communication, after-hours coverage, and reputation systems for medical, dental, and behavioral-health practices anywhere in the United States. Built on BAA-signed infrastructure (Twilio, AWS). Patient communication in English, Spanish, or both. Free HIPAA Stack Audit available.",
+    "HIPAA-aware healthcare automation, patient communication, after-hours coverage, and reputation systems for medical, dental, and behavioral-health practices anywhere in the United States. Built on BAA-signed infrastructure (AWS). Patient communication in English, Spanish, or both. Free HIPAA Stack Audit available.",
   alternates: {
     canonical: "/healthcare",
   },
