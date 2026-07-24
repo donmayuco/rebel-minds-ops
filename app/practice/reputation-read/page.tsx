@@ -4,6 +4,58 @@ import { ArrowRight } from "lucide-react";
 import SiteNav from "@/app/components/SiteNav";
 import SiteFooter from "@/app/components/SiteFooter";
 import HealthcareCluster from "@/app/components/HealthcareCluster";
+import FaqAccordion, {
+  faqSchemaEntities,
+  type FaqItem,
+} from "@/app/components/FaqAccordion";
+
+// ─── FAQ ─────────────────────────────────────────────────────────────────────
+// Source of truth for BOTH the visible accordion and the FAQPage JSON-LD.
+// Scoped to the tool itself — how to read the output and how far to trust it.
+// The "nothing is transmitted" answer is literally true: this page holds all
+// state in React and makes no network calls. Keep it that way, or fix the copy.
+
+const FAQS: FaqItem[] = [
+  {
+    q: "Do you store the numbers I just typed?",
+    a: "No. This tool runs entirely inside your browser. Nothing you enter is transmitted, saved, or visible to us — there is no account, no submission, and no record that you used it at all. Close the tab and the numbers are gone. That is a deliberate choice for a page asking a practice about its weakest metric.",
+  },
+  {
+    q: "How much should I trust the dollar figure?",
+    a: "Treat it as a shape, not a forecast. The recovery arithmetic is exact, because counting the five-star reviews needed to move a rounded badge is just math. The dollar figure is not exact: it rests on an illustrative capture curve and on the values you entered for prospects, revenue, and retention. Move those inputs and the number moves a great deal — which is useful in itself, because it shows you which assumption your estimated loss actually depends on.",
+  },
+  {
+    q: "Why does the badge move so much sooner than my average?",
+    a: "Because the badge is rounded and the average is not. Google displays one decimal, so the number patients see can tick up while the true average is still crawling. That is why the read reports the first move separately from the full climb — the figure a prospective patient sees can change within weeks even when the underlying average is a long project.",
+  },
+  {
+    q: "Won’t asking every patient produce more bad reviews too?",
+    a: "Some, yes, and any tool that does not tell you so is selling. What changes is representativeness. Today your public rating is drawn almost entirely from people motivated enough by frustration to post; asking everyone adds the satisfied majority who never would have. You will collect some negative reviews you would not otherwise have received, and considerably more positive ones. A well-built system also surfaces bad experiences to the practice first, which is what lets you address something before it hardens into a public review.",
+  },
+  {
+    q: "Is asking patients for reviews against Google’s rules?",
+    a: "Asking is not. What the policies prohibit is incentivizing reviews, buying them, and soliciting selectively so that only satisfied customers get invited. Asking every patient, offering nothing in exchange, and leaving entirely to them what they write sits squarely inside the rules. The line is not between asking and not asking. It is between inviting everyone and filtering who gets invited.",
+  },
+  {
+    q: "My rating is already high. Is there anything here for me?",
+    a: "Yes, and the arithmetic shows it. A strong average is fragile in one specific direction: the fewer reviews it rests on, the faster a handful of bad ones drags the displayed number down. A practice at 4.9 with a thin review count is a few unrecovered bad afternoons away from displaying 4.8. Set the target to your current rating and the read turns into a defense calculation instead of a recovery one.",
+  },
+  {
+    q: "What counts as “new patients who look you up online”?",
+    a: "Prospective patients who see your rating before they decide — someone searching your specialty nearby, someone checking you after a referral, someone comparing two practices their insurance covers. Not your existing patients, and not everyone who walks through the door. If you are unsure, estimate low. The read is more useful when it is conservative.",
+  },
+  {
+    q: "What does the real version of this look like?",
+    a: "A walkthrough of the actual operation instead of a slider: the phones, the front desk, the wait, the follow-up that never went out, mystery-patient calls, and your real numbers rather than defaults — read back to you by the same person who does the work. This page is the sketch that tells you whether the real one is worth an hour of your time.",
+  },
+];
+
+const reputationReadJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.rebelmindsops.com/practice/reputation-read#faq",
+  mainEntity: faqSchemaEntities(FAQS),
+};
 
 // ─── Model ───────────────────────────────────────────────────────────────────
 
@@ -164,6 +216,10 @@ export default function ReputationReadPage() {
 
   return (
     <div className="min-h-screen bg-[#0c131e] text-[#e9edf4]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reputationReadJsonLd) }}
+      />
       <SiteNav />
 
       <header className="mx-auto max-w-6xl px-4 pb-2 pt-16 sm:px-6 sm:pt-20">
@@ -385,6 +441,13 @@ export default function ReputationReadPage() {
           </section>
         </div>
       </main>
+
+      <FaqAccordion
+        items={FAQS}
+        kicker="About this read"
+        heading="What these numbers mean, and what they do not."
+        intro="A calculator that will not explain its own assumptions is a sales tool wearing a lab coat. Here are ours."
+      />
 
       <HealthcareCluster current="reputation-read" />
 

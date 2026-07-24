@@ -15,6 +15,10 @@ import SiteNav from "@/app/components/SiteNav";
 import SiteFooter from "@/app/components/SiteFooter";
 import HealthcareCluster from "@/app/components/HealthcareCluster";
 import ComplianceDiagram from "@/app/components/ComplianceDiagram";
+import FaqAccordion, {
+  faqSchemaEntities,
+  type FaqItem,
+} from "@/app/components/FaqAccordion";
 
 // ─── Shared Components ───────────────────────────────────────────────────────
 
@@ -749,6 +753,67 @@ function HipaaAudit() {
   );
 }
 
+// ─── 10b. FAQ ────────────────────────────────────────────────────────────────
+// Source of truth for BOTH the visible accordion and the FAQPage JSON-LD.
+// Deliberately distinct from the /practice/experience-system FAQ: that page
+// answers questions about the patient-feedback system, this one answers
+// questions about trusting a builder with patient data.
+
+const FAQS: FaqItem[] = [
+  {
+    q: "What is a Business Associate Agreement, and why does it keep coming up?",
+    a: "It is the contract that makes a vendor legally accountable for patient data. Under HIPAA, any outside party that stores, transmits, or processes protected health information on a practice’s behalf has to sign one, and it binds them to safeguard that data and to report a breach. A vendor who will not sign one cannot lawfully touch patient information, however good the software is. It is also a private contract: nothing is filed with any agency, and there are no government fees.",
+  },
+  {
+    q: "Are you HIPAA certified?",
+    a: "There is no such thing — not for us, not for anyone. No government agency certifies HIPAA compliance, and any badge sold as one is paper. Real compliance is four concrete things: signed business associate agreements with every vendor that touches patient data, written privacy and security policies, a risk assessment, and technical safeguards actually in place. Ask any vendor to show you those four. Ask us.",
+  },
+  {
+    q: "Can we just use WhatsApp or ChatGPT for patient communication?",
+    a: "Not for anything carrying patient information. Meta does not sign business associate agreements for WhatsApp, and consumer AI tools require an enterprise tier with an executed agreement before they can lawfully process protected health information. These tools are genuinely useful, and we build with them in other industries, which is exactly why practices assume they are fine here. The gap tends to stay invisible until the day it is not.",
+  },
+  {
+    q: "Whose accounts does the system run in?",
+    a: "Yours, by default. Infrastructure is set up in the practice’s own tenancy wherever possible, so the data sits in an account the practice controls and keeps if the relationship ends. Where the data lives is not a technical detail. It decides who can reach it, who can revoke access, and what happens on the day you want to walk away.",
+  },
+  {
+    q: "Are you attorneys? Is any of this legal advice?",
+    a: "No, and no. We architect and build systems against HIPAA’s technical and administrative requirements, and we sign business associate agreements for the work we do. We are not your counsel, and nothing we provide replaces a healthcare attorney reviewing your agreements, policies, and risk assessment. A vendor who blurs that line is telling you something about how they handle the rest.",
+  },
+  {
+    q: "Our staff has abandoned new software before. Why would this be different?",
+    a: "Because adoption is treated as the actual problem rather than an afterthought. Most healthcare automation fails at training transfer, not at the technology: the system works, and the team quietly routes around it. Builds are designed around how a front desk really operates, and the engagement continues past deployment until the workflow has genuinely been absorbed. That emphasis comes from graduate training in Industrial & Organizational Psychology, applied to the part most vendors skip.",
+  },
+  {
+    q: "Is our practice too small for this?",
+    a: "Size is the wrong test. The real question is whether one specific process — missed calls, unscheduled treatment plans, front-desk hours lost to paperwork — is costing enough to be worth automating. Most practices start with a single system rather than a platform, and the smallest useful build is smaller than people expect. Part of the fit check’s job is to tell you when the answer is no.",
+  },
+  {
+    q: "How long does a build take, and how is it priced?",
+    a: "Typically three to six weeks per system, always fixed scope at a fixed price, and always quoted after discovery rather than off a menu. You review and approve the proposal before any work begins. What it costs depends on what the system has to do and how many people it has to serve, so a number quoted before understanding the practice would be a guess wearing the costume of a quote.",
+  },
+  {
+    q: "Do you work with practices outside Texas?",
+    a: "Yes. Discovery and rollout run over video, so nothing waits on a site visit, and delivery is nationwide. Every patient-facing system is also built bilingual from the first day, English and Spanish, with language handling designed in rather than translated on afterward.",
+  },
+  {
+    q: "What is the free HIPAA Stack Audit, and what is the catch?",
+    a: "There is no catch and no obligation. We review the automation, communication, and data-handling tools your practice already uses, flag the ones creating compliance exposure, and send back a written report. It costs you roughly thirty to forty-five minutes. We offer it free because it is fast for us and because most practices genuinely do not know everything sitting in their stack — and if the report finds your stack is clean, that is the report you get.",
+  },
+];
+
+function HealthcareFaq() {
+  return (
+    <FaqAccordion
+      items={FAQS}
+      align="center"
+      kicker="Before the fit check"
+      heading="What practices ask before trusting anyone with patient data."
+      intro="Compliance questions tend to get vague answers in this industry, usually because vague is safer for the vendor. Here are ours, in plain language."
+    />
+  );
+}
+
 // ─── Structured data ──────────────────────────────────────────────────────────
 
 const healthcareJsonLd = {
@@ -778,6 +843,11 @@ const healthcareJsonLd = {
         "@type": "Audience",
         audienceType: "Medical, dental, and behavioral-health practices",
       },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.rebelmindsops.com/healthcare#faq",
+      mainEntity: faqSchemaEntities(FAQS),
     },
     {
       "@type": "Person",
@@ -869,6 +939,8 @@ export default function HealthcarePage() {
       <TrustProof />
       <SectionDivider />
       <HipaaAudit />
+      <SectionDivider />
+      <HealthcareFaq />
       <SectionDivider />
       <FinalCTA />
       <HealthcareCluster current="healthcare" />

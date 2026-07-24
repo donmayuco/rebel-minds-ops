@@ -55,6 +55,7 @@ export default function FaqAccordion({
   intro,
   id = "faq",
   background,
+  align = "left",
 }: {
   items: FaqItem[];
   kicker: string;
@@ -62,7 +63,10 @@ export default function FaqAccordion({
   intro?: string;
   id?: string;
   background?: string;
+  /** "center" matches the centered section headers used on /healthcare. */
+  align?: "left" | "center";
 }) {
+  const centered = align === "center";
   return (
     <section
       id={id}
@@ -70,26 +74,34 @@ export default function FaqAccordion({
       style={background ? { backgroundColor: background } : undefined}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <FadeIn>
-          <span className="mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
-            {kicker}
-          </span>
-        </FadeIn>
-        <FadeIn delay={80}>
-          <h2 className="serif mt-4 max-w-[26ch] text-3xl font-medium leading-tight text-[#e9edf4] sm:text-4xl">
-            {heading}
-          </h2>
-        </FadeIn>
-        {intro ? (
-          <FadeIn delay={140}>
-            <p className="mt-4 max-w-[62ch] text-[0.95rem] leading-relaxed text-[#8fa0b3]">
-              {intro}
-            </p>
+        <div className={centered ? "text-center" : ""}>
+          <FadeIn>
+            <span className="mono inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#7fd7e2]">
+              {kicker}
+            </span>
           </FadeIn>
-        ) : null}
+          <FadeIn delay={80}>
+            <h2
+              className={`serif mt-4 max-w-[26ch] text-3xl font-medium leading-tight text-[#e9edf4] sm:text-4xl ${centered ? "mx-auto" : ""}`}
+            >
+              {heading}
+            </h2>
+          </FadeIn>
+          {intro ? (
+            <FadeIn delay={140}>
+              <p
+                className={`mt-4 max-w-[62ch] text-[0.95rem] leading-relaxed text-[#8fa0b3] ${centered ? "mx-auto" : ""}`}
+              >
+                {intro}
+              </p>
+            </FadeIn>
+          ) : null}
+        </div>
 
         <FadeIn delay={180}>
-          <div className="mt-10 overflow-hidden rounded-2xl border border-[#e9edf41a]">
+          <div
+            className={`mt-10 overflow-hidden rounded-2xl border border-[#e9edf41a] ${centered ? "mx-auto max-w-4xl" : ""}`}
+          >
             {items.map((f, i) => (
               <details
                 key={f.q}
