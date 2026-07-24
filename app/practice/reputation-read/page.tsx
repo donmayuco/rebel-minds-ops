@@ -554,10 +554,10 @@ export default function ReputationReadPage() {
                 </p>
               </div>
               <a
-                href="/practice"
+                href="/?offer=practice#book"
                 className="mono inline-flex shrink-0 items-center gap-2 rounded-lg bg-[#7fd7e2] px-5 py-3 text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-[#0c131e] transition-colors hover:bg-[#5cc3ce]"
               >
-                Book a 20-minute read <ArrowRight className="h-4 w-4" />
+                Request the walkthrough <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </section>
